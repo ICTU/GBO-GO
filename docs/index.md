@@ -1,4 +1,4 @@
-# Documentatie GBO
+# Globaal Ontwerp GBO
 
 Welkom bij de repository van het globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting.  
 

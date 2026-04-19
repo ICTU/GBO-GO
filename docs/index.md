@@ -1,13 +1,14 @@
 # Documentatie GBO
 
-Welkom bij de repository met documentatie voor GBO. In deze repository worden alle relevante documentatie voor het project Gemeenschappelijke Bronontsluiting gepubliceerd.
+Welkom bij de repository van het globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting.  
+
 
 ## Kerngegevens
 | Onderwerp | Details |
 | :--- | :--- |
 | **Status** | Concept / In review |
-| **Eigenaar** | ICTU |
-| **GithubRep** | https://github.com/ICTU/GBO |
+| **Eigenaar** | ICTU - project GBO |
+| **GithubRep** | https://github.com/ICTU/GBO-GO |
 | **Laatst bijgewerkt** | {{ git_revision_date }} |
 
 ## Leeswijzer
@@ -15,8 +16,6 @@ Welkom bij de repository met documentatie voor GBO. In deze repository worden al
 De repository is als volgt opgebouwd:
 
 * **[Globaal ontwerp](ontwerp/concept-globaal-ontwerp.md)**: Globaal Ontwerp GBO
-* **[PSA](psa/index.md)**: Projectstartarchitectuur
-* **[Technisch ontwerp](ref-arch/gbo-reference-architecture.md)**: Technisch ontwerp
 
 
 ---

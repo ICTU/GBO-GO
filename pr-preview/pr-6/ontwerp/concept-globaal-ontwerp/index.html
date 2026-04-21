@@ -373,10 +373,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-afwijkingen-en-aanvullingen-op-fds" class="md-nav__link">
+  <a href="#4-te-ontwikkelen-stelselfuncties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4 Afwijkingen en aanvullingen op FDS
+        4 Te ontwikkelen stelselfuncties
       
     </span>
   </a>
@@ -463,8 +463,8 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
 <h3 id="globaal-ontwerp">Globaal ontwerp<a class="headerlink" href="#globaal-ontwerp" title="Permanent link">&para;</a></h3>
 <p>In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:</p>
 <ul>
-<li><a href="https://ictu.github.io/GBO/psa/inleiding/">Projectstartarchitectuur</a>: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen;  </li>
-<li><a href="https://ictu.github.io/GBO/ref-arch/gbo-reference-architecture/">Technisch ontwerp</a>: technisch ontwerp van de benodigde voorzieningen;  </li>
+<li>Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen;  </li>
+<li>Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen;  </li>
 <li>Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.);  </li>
 <li>Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  </li>
 </ul>
@@ -927,10 +927,9 @@ sequenceDiagram
 </tbody>
 </table>
 <p><em>Legenda: ⚠️ = nog te realiseren als nieuwe GBO-voorziening.</em></p>
-<h2 id="4-afwijkingen-en-aanvullingen-op-fds">4 Afwijkingen en aanvullingen op FDS<a class="headerlink" href="#4-afwijkingen-en-aanvullingen-op-fds" title="Permanent link">&para;</a></h2>
-<p>GBO gebruikt het Federatief Datastelsel (FDS) en het in wording zijnde TIP-Afsprakenstelsel als basisafsprakenstelsels en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
-<p>Voor de drie GBO-toepassingen (DvTP, EDI-Stelsel en SDG/OOTS) is echter meer nodig dan FDS op dit moment biedt. In dit hoofdstuk wordt per onderwerp beschreven wat FDS al levert, wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden — hetzij als aanvulling op FDS, hetzij als nieuw onderdeel.</p>
-<p><em>Juridische randvoorwaarde: toestemming als afdwingbare grondslag (onderwerp 1) is pas operationeel na inwerkingtreding van de daarvoor benodigde wet- en regelgeving. De technische uitwerking loopt parallel aan het wetgevingstraject.</em></p>
+<h2 id="4-te-ontwikkelen-stelselfuncties">4 Te ontwikkelen stelselfuncties<a class="headerlink" href="#4-te-ontwikkelen-stelselfuncties" title="Permanent link">&para;</a></h2>
+<p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsels en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
+<p>Voor de drie GBO-toepassingen (EDI-Wallet, SDG/OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="41-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">4.1 Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#41-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. FTV biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.</p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
@@ -941,6 +940,7 @@ sequenceDiagram
 <li>Een <strong>PEP/PDP/PIP-keten</strong> op basis van AuthZEN en OPA/Rego, als concrete invulling van het FTV-autorisatieraamwerk voor GBO-toepassingen. Policies worden centraal beheerd via een PAP en gedistribueerd naar decentrale PDP-instanties per bronhouder.</li>
 <li>Een <strong>PAP (Policy Administration Point)</strong> als centraal GBO-component voor het beheren en distribueren van gesigneerde OPA/Rego-policy-bundles. Dit is tevens het bestuurlijk gezagspunt van het stelsel: het bepaalt wat iedere deelnemer mag. Er is een expliciete governance-afspraak nodig over wie policies mag opstellen, wijzigen en goedkeuren.</li>
 </ul>
+<p><em>Juridische randvoorwaarde: toestemming als afdwingbare grondslag is pas operationeel na inwerkingtreding van de daarvoor benodigde wet- en regelgeving. De technische uitwerking loopt parallel aan het wetgevingstraject.</em></p>
 <h3 id="42-graphql-als-selectief-bevragingsmechanisme">4.2 GraphQL als selectief bevragingsmechanisme<a class="headerlink" href="#42-graphql-als-selectief-bevragingsmechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST API Design Rules). REST ondersteunt selectieve gegevensuitvraag op veldniveau structureel niet: een afnemer ontvangt de volledige dataset die het endpoint retourneert, ook als slechts een deel van de velden nodig is. Dataminimalisatie is daarmee afhankelijk van afspraken en implementatiekeuzes, niet structureel ingebouwd.</p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
@@ -1147,7 +1147,7 @@ graph TB
 <li>PuB-EAA-uitgifte-component (OID4VCI-endpoint, credentialschema's per use case)</li>
 <li>QTSP-verificatiedienst</li>
 <li>Autorisatieserver t.b.v. Pub-EAA-uitgifte-component en QTSP-verificatiedienst</li>
-<li>GBO afsprakenstelsel (aansluitvoorwaarden, RFC-proces, stelselrollen) - nb: moet landen in bestaande stelsels FDS en TIP</li>
+<li>GBO afsprakenstelsel (aansluitvoorwaarden, RFC-proces, stelselrollen) - nb: moet landen in bestaande stelsels zoals FDS en TIP</li>
 </ul>
 
 

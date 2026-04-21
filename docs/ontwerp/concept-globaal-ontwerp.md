@@ -8,43 +8,41 @@ _ICTU | April 2026_
 
 ## 1 Inleiding en doel
 
-Diverse ontwikkelingen op nationaal (o.a. [NDS](https://www.digitaleoverheid.nl/nederlandse-digitaliseringsstrategie-nds/), [Regie op Gegevens](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/), [Wdo](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/wetgeving/wet-digitale-overheid/)) en Europees vlak (o.a. [Data Act](https://digital-strategy.ec.europa.eu/nl/policies/data-act), [SDG](https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en), [EUDI-Wallet](https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home)) maken dat gegevens in overheidsbronnen breder en flexibeler gebruikt moeten kunnen worden. De verschillende ontwikkelingen zorgen voor een uitdaging bij de bronhouders: zij moeten verschillende gegevensstromen bedienen met verschillende protocollen, technologieën en grondslagen.
+Diverse ontwikkelingen op nationaal (zoals [Regie op Gegevens](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/) en [IBDS](https://www.digitaleoverheid.nl/interbestuurlijke-datastrategie/)) en Europees vlak (zoals [SDG](https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en) en de [EDI-Wallet](https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home)) maken het noodzakelijk om gegevens uit overheidsbronnen breder en flexibeler te gebruiken. Dit stelt bronhouders voor een uitdaging: zij moeten verschillende gegevensstromen bedienen, elk met eigen protocollen, technologieën en juridische grondslagen.  
 
-Het afsprakenstelsel [FDS](https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel) werkt aan het delen van gegevens binnen de overheid op een eenduidige, veilige en flexibele manier. Maar voor internationale gegevensuitwisselingen, uitwisselingen met private dienstverleners en het uitgeven van credentials biedt FDS (nog) geen oplossingen.
+Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burger geïnitieerde gegevensdeling van persoonsgegevens. Hiervoor worden stelselfuncties gerealiseerd die overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar maken voor drie typen afnemers:  
+- Burgers via het EDI-Stelsel (eIDAS2/ARF).  
+- Europese overheden via het Single Digital Gateway/Once Only Technical System (SDG/OOTS).  
+-	Private dienstverleners op basis van burgertoestemming (DvTP - Delen via toestemming met private dienstverleners).  
 
-Het project Gemeenschappelijke Bronontsluiting (GBO) realiseert stelselfuncties waarmee overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar worden gesteld aan drie typen afnemers:
-
-- Private dienstverleners op basis van burgertoestemming (DvTP - Data delen via toestemming met private dienstverleners).
-- Europese overheden via het Single Digital Gateway/Once Only Technical System (SDG/OOTS).
-- Burgers en organisaties via het EDI-Stelsel (eIDAS2/ARF).
+Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en DvTP.  
 
 <figure>
 --8<-- "diagrammen/context-diagram.mmd"
-<figcaption>Figuur 1: Doel GBO - enkelvoudige bevraging van overheidsbronhouders voor verschillende informatiestromen.</figcaption>
+<figcaption>Figuur 1: Één gestandaardiseerde ontsluiting van overheidsbronnen voor verschillende gegevensstromen.</figcaption>
 </figure>
 
-In figuur 2 is geschetst hoe een dergelijk stelsel er in de praktijk uit kan komen te zien.
+### Doel
 
-![Weergave GBO-stelsel](GBO-Abstract.png)
-<figure>
-<figcaption>Figuur 2: Voorstelling van het stelsel met deelnemende organisaties, waaronder aanbieders van gegevens (bronnen) en afnemers (waaronder private dienstverleners en de EUDI-Wallet), die dankzij de gemeenschappelijke generieke functies gegevens met elkaar uitwisselen. Organisaties kunnen gebruik maken van 'integrators' die diensten leveren om de generieke functies aan te roepen.</figcaption>
-</figure>
+Het doel van GBO is om interoperabiliteit en hergebruik bij deze gegevensuitwisselingen te bevorderen en op die manier de implementatielast bij partijen - zowel bronhouders als afnemers - te verlagen. Dit zowel bij gegevensuitwisselingen tussen overheidspartijen als tussen overheid en private dienstverleners.  
 
-Het doel van GBO is om interoperabiliteit en hergebruik bij gegevensuitwisselingen te bevorderen en op die manier de implementatielast bij partijen - zowel bronhouders als afnemers - te verlagen. Dit zowel bij gegevensuitwisselingen tussen overheidspartijen als tussen overheid en private dienstverleners.
+### Maximaal borgen in bestaande afsprakenstelsels
 
-GBO is geen nieuw, losstaand stelsel. Het sluit aan op het Federatief Datastelsel (FDS) als basisafsprakenstelsel en [Trusted Information Partners](https://www.trustedinformationpartners.nl) voor publiek-private interacties. Het breidt gericht de afspraken, standaarden en voorzieningen binnen deze afsprakenstelsels uit die nodig zijn voor de drie toepassingen.  
-In dit document is nog wel sprake van een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden. Alle afspraken en voorzieningen moeten landen in bestaande afsprakenstelsels.
+GBO wordt geen nieuw, losstaand stelsel. De gerealiseerde stelselfuncties worden zoveel mogelijk geborgd binnen bestaande landelijke afsprakenstelsels, zoals het Federatief Datastelsel (FDS) en de Generieke Digitale Infrastructuur (GDI) voor de overheid, en binnen publiek-private afsprakenstelsels, zoals Trusted Information Partners (TIP), voor de uitwisseling met private dienstverleners.  
+GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG.  
 
-De juridische basis wordt gevormd door een wettelijk kader en lagere regelgeving. Zolang die grondslag nog niet in werking is getreden, lopen technische uitwerking en wetgevingstraject parallel aan elkaar.
+In dit document wordt nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden. De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  
 
-In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselvoorzieningen nodig zijn en hoe deze ingericht kunnen worden. Het doel van dit globaal ontwerp is het ophalen van input op de geschetste oplossingsrichting en het verder uitwerken van het ontwerp. Die uitwerking gebeurt in de volgende stukken:
+### Globaal ontwerp
 
-- [Projectstartarchitectuur](https://ictu.github.io/GBO/psa/inleiding/): kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen;
-- [Technisch ontwerp](https://ictu.github.io/GBO/ref-arch/gbo-reference-architecture/): technisch ontwerp van de benodigde voorzieningen;
-- Informatiemodellen (nog niet beschikbaar): informatie- en gegevensmodellen van de gegevens die uitgewisseld worden - zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", etc.);
-- Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.
+In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
 
-### Relatie met bestaande stelsels
+- [Projectstartarchitectuur](https://ictu.github.io/GBO/psa/inleiding/): kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen;  
+- [Technisch ontwerp](https://ictu.github.io/GBO/ref-arch/gbo-reference-architecture/): technisch ontwerp van de benodigde voorzieningen;  
+- Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.);  
+- Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  
+
+### Uitgangspunt
 
 GBO hergebruikt maximaal wat er al is:
 
@@ -54,9 +52,6 @@ GBO hergebruikt maximaal wat er al is:
 - Pseudonimiseringsvoorziening (BSNk PP).
 - PBAC architecturen voor autorisatie en toegang.
 
-Waar FDS generieke afspraken, standaarden en voorzieningen als landelijk afsprakenstelsel invult, voegt GBO afspraken en standaarden van stelselfuncties toe die nog niet zijn bepaald, maar wel nodig zijn om DvTP, EDI-Stelsel en de OOTS-adapter voor een bronhouder eenduidig te laten functioneren.
-
-Met TIP wordt samengewerkt om ook landelijke en Europese standaarden en afspraken te bereiken in het kader van publiek-private samenwerking. Door beide afsprakenstelsels nader te verankeren kunnen overheids- en private dienstverleners in toenemende mate de interoperabiliteit bij gegevensuitwisselingen verbeteren en stelsels beter en met meer Regie op Gegevens inrichten.
 
 ## 2 Interactiepatronen
 
@@ -141,23 +136,23 @@ Van toepassing op: alle drie patronen.
 
 ### 3.4 F4 — Semantiek & Eenheid van Taal
 
-_Vocabularia (GGM, RDF, SKOS); mapping GBO-canoniek naar SDG-EDM, VC-schema en JSON._
+_GBO werkt vanuit één canoniek informatiemodel en één gedeeld begrippenkader naar RDF, SKOS voor verankering van semantiek. Waar nodig canonieke mapping GBO-onderdelen, zoals via SDG-EDM, VC-schema en JSON._
 
-Van toepassing op: OOTS (SDG-evidencetype), EDI-Wallet (VC-schema).
+Van toepassing op: OOTS (SDG-evidencetype), EDI-Wallet (VC-schema) en DvTP.
 
 | **Stelselfunctie**                  | **Status**                  | **Voornaamste gap / actie**                                                  |
 | ----------------------------------- | --------------------------- | ---------------------------------------------------------------------------- |
-| S10 — Semantiek & Gegevenscatalogus | DCAT-AP NL verplicht in FDS | GBO-canonieke definities per bronhouder; mapping naar SDG-EDM en VC-schema's |
+| S10 — Semantiek & Gegevenscatalogus | Nog te realiseren ⚠️ | GBO-canonieke definities per bronhouder en generiek; mapping naar SDG-EDM, VC-schema's en GraphQL |
 
 ### 3.5 F5 — Gegevenskwaliteit & Validatie
 
-_SHACL-validatie; herkomstregistratie (W3C PROV-O); feedbackloops naar bronhouders._
+_SHACL-validatie; herkomstregistratie (W3C PROV-O), datakwaliteitsmeting; feedbackloops naar bronhouders en vastlegging via DCAT-AP NL._
 
 Van toepassing op: alle drie patronen.
 
 | **Stelselfunctie**                  | **Status**                  | **Voornaamste gap / actie**                                                                      |
 | ----------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------ |
-| S10 — Semantiek & Gegevenscatalogus | DCAT-AP NL verplicht in FDS | Validatieprofielen (SHACL) per dataset; herkomstregistratie; feedbackproces richting bronhouders |
+| S10 — Semantiek & Gegevenscatalogus | Nog te realiseren ⚠️ | Validatieprofielen (SHACL) per dataset; herkomstregistratie, datakwaliteitsmeting; feedbackproces richting bronhouders en vastlegging via DCAT-AP NL |
 
 ### 3.6 F6 — Grondslag & Beleid
 

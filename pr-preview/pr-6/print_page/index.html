@@ -340,10 +340,10 @@
 <h2 id="ontwerp-concept-globaal-ontwerp-1-inleiding-en-doel">1 Inleiding en doel<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-1-inleiding-en-doel" title="Permanent link">&para;</a></h2>
 <p>Diverse ontwikkelingen op nationaal (zoals <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/">Regie op Gegevens</a> en <a href="https://www.digitaleoverheid.nl/interbestuurlijke-datastrategie/">IBDS</a>) en Europees vlak (zoals <a href="https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en">SDG</a> en de <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home">EDI-Wallet</a>) maken het noodzakelijk om gegevens uit overheidsbronnen breder en flexibeler te gebruiken. Dit stelt bronhouders voor een uitdaging: zij moeten verschillende gegevensstromen bedienen, elk met eigen protocollen, technologieën en juridische grondslagen.  </p>
 <p>Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burger geïnitieerde gegevensdeling van persoonsgegevens. Hiervoor worden stelselfuncties gerealiseerd die overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar maken voor drie typen afnemers:<br />
-- Burgers via het EDI-Stelsel (eIDAS2/ARF).<br />
+- Burgers via het EDI-Stelsel (EDI-Wallet).<br />
 - Europese overheden via het Single Digital Gateway/Once Only Technical System (SDG/OOTS).<br />
 -   Private dienstverleners op basis van burgertoestemming (DvTP - Delen via toestemming met private dienstverleners).  </p>
-<p>Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en DvTP.  </p>
+<p>Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en private dienstverleners.  </p>
 <figure>
 <div class="mermaid">
 flowchart LR
@@ -367,82 +367,30 @@ DvTP --&gt; Privaat
 <p>Het doel van GBO is om interoperabiliteit en hergebruik bij deze gegevensuitwisselingen te bevorderen en op die manier de implementatielast bij partijen - zowel bronhouders als afnemers - te verlagen. Dit zowel bij gegevensuitwisselingen tussen overheidspartijen als tussen overheid en private dienstverleners.  </p>
 <h3 id="ontwerp-concept-globaal-ontwerp-maximaal-borgen-in-bestaande-afsprakenstelsels">Maximaal borgen in bestaande afsprakenstelsels<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-maximaal-borgen-in-bestaande-afsprakenstelsels" title="Permanent link">&para;</a></h3>
 <p>GBO wordt geen nieuw, losstaand stelsel. De gerealiseerde stelselfuncties worden zoveel mogelijk geborgd binnen bestaande landelijke afsprakenstelsels, zoals het Federatief Datastelsel (FDS) en de Generieke Digitale Infrastructuur (GDI) voor de overheid, en binnen publiek-private afsprakenstelsels, zoals Trusted Information Partners (TIP), voor de uitwisseling met private dienstverleners.<br />
-GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG.  </p>
-<p>In dit document wordt nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden. De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  </p>
+GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG. In dit document wordt nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden.  </p>
+<p>De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  </p>
 <h3 id="ontwerp-concept-globaal-ontwerp-globaal-ontwerp">Globaal ontwerp<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-globaal-ontwerp" title="Permanent link">&para;</a></h3>
 <p>In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:</p>
 <ul>
-<li>Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen;  </li>
-<li>Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen;  </li>
-<li>Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.);  </li>
+<li>Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen.  </li>
+<li>Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  </li>
+<li>Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.).  </li>
 <li>Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  </li>
 </ul>
 <h3 id="ontwerp-concept-globaal-ontwerp-uitgangspunt">Uitgangspunt<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-uitgangspunt" title="Permanent link">&para;</a></h3>
 <p>GBO hergebruikt maximaal wat er al is:</p>
 <ul>
-<li>FDS als afsprakenstelsel met o.a. FSC en FTV als standaarden voor gefedereerde connectiviteit en toegang.</li>
-<li>Afspraken en standaarden in TIP verband.</li>
+<li>FDS als afsprakenstelsel met o.a. <a href="https://fsc-standaard.nl">FSC</a> en <a href="https://federatief.datastelsel.nl/kennisbank/ftv/">FTV</a> als standaarden voor gefedereerde connectiviteit en toegang.</li>
+<li>Afspraken en standaarden die gelden binnen publiek-private afsprakenstelsels zoals TIP.</li>
 <li>Europese afspraken en standaarden (o.a. <a href="https://interoperable-europe.ec.europa.eu/collection/iopeu-monitoring/european-interoperability-framework-detail">EIF</a>, <a href="https://digital-strategy.ec.europa.eu/en/policies/discover-eidas">eIDAS</a>, <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/OOTS/overview">SDG/OOTS</a>, <a href="https://eudi.dev/1.1.0/arf/">ARF</a>) en de Nederlandse invulling hiervan (o.a. <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/identiteit/id-wallet/">NL-Wallet</a>, centraal Nederlands OOTS toegangspunt).</li>
 <li>Pseudonimiseringsvoorziening (BSNk PP).</li>
 <li>PBAC architecturen voor autorisatie en toegang.</li>
 </ul>
 <h2 id="ontwerp-concept-globaal-ontwerp-2-interactiepatronen">2 Interactiepatronen<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-2-interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.</p>
-<h3 id="ontwerp-concept-globaal-ontwerp-21-patroon-a-gegevensverzoek-van-private-dienstverlener-dvtp">2.1 Patroon A - gegevensverzoek van private dienstverlener (DvTP)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-21-patroon-a-gegevensverzoek-van-private-dienstverlener-dvtp" title="Permanent link">&para;</a></h3>
-<p>Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitsluitend op basis van een geldige juridische grondslag. In het geval van DvTP is dit een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners. De burger authenticeert zich via DigiD of een ander eIDAS authenticatiemiddel op het vereiste betrouwbaarheidsniveau en geeft geïnformeerde toestemming voor een specifiek doel, een specifieke afnemer en een specifieke set gegevens. GBO registreert de toestemming in een toestemmingenregister, levert een consent-id aan de private dienstverlener, valideert deze op het moment van uitvraag real-time, en zorgt dat het BSN de private dienstverlener nooit bereikt - in de plaats daarvan ontvangt de afnemer een partijspecifiek pseudoniem.</p>
-<p>De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent_id en of de gegevensvraag binnen de scope valt. Via het consent_id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als REST- of GraphQL response in het afnemersformaat.</p>
-<figure>
-<div class="mermaid">
-sequenceDiagram
-    autonumber
-    actor Burger
-    participant DV as Dienst-&lt;br/&gt;verlener
-    participant Auth as Authenticatie-&lt;br/&gt;dienst
-    participant TV as Toestemmings-&lt;br/&gt;voorziening (GBO)
-    participant PP as BSNk PP&lt;br/&gt;(pseudonimisering)
-    participant TR as Toestemmings-&lt;br/&gt;register
-    participant BRH as Bron-&lt;br/&gt;houder
-
-    Note over Burger,BRH: Fase 1 — Toestemming verlenen
-
-    rect rgb(225, 245, 238)
-        Burger-&gt;&gt;DV: Neemt dienst af
-        DV-&gt;&gt;Burger: Redirect naar toestemmingsvoorziening GBO&lt;br/&gt;(met scope + doelbinding)
-        Burger-&gt;&gt;TV: Volgt redirect
-        TV-&gt;&gt;Auth: Authenticatieverzoek
-        Note over Auth: DigiD óf EDI-Wallet (eIDAS 2.0)
-        Auth-&gt;&gt;Burger: Authenticeer burger
-        Burger--&gt;&gt;Auth: Authenticatie
-        Auth--&gt;&gt;TV: BSN (geverifieerde identiteit)
-        TV-&gt;&gt;PP: Pseudonimiseer BSN&lt;br/&gt;(BSNk PP)
-        PP--&gt;&gt;TV: Pseudoniem (PP-id)
-        TV-&gt;&gt;Burger: Toon gegevens waarvoor toestemming&lt;br/&gt;gevraagd wordt (scope + doelbinding)
-        Burger--&gt;&gt;TV: Verleent toestemming
-        TV-&gt;&gt;TR: Schrijf toestemming in register&lt;br/&gt;(PP-id · scope · doelbinding · TTL)
-        TR--&gt;&gt;TV: consent_id
-        TV-&gt;&gt;DV: Redirect terug naar dienstverlener&lt;br/&gt;(met consent_id)
-    end
-
-    Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder
-
-    rect rgb(238, 237, 254)
-        DV-&gt;&gt;BRH: Gegevensverzoek&lt;br/&gt;(consent_id · mTLS / certificaat)
-        BRH-&gt;&gt;BRH: Authenticeer dienstverlener&lt;br /&gt;(via certificaat)
-        BRH-&gt;&gt;BRH: Controleer bevoegdheid&lt;br /&gt;(via FSC contract/Trusted List)
-        BRH-&gt;&gt;TR: Valideer consent_id&lt;br/&gt;(geldig? scope? TTL?)
-        TR--&gt;&gt;BRH: Consent geldig + PP-id
-        BRH-&gt;&gt;BRH: Controleer data scope&lt;br /&gt;(template match)
-        BRH-&gt;&gt;PP: De-pseudonimiseer PP-id&lt;br/&gt;(BSNk PP)
-        PP--&gt;&gt;BRH: BSN
-        BRH--&gt;&gt;DV: Gevraagde gegevens&lt;br/&gt;(gezegeld door bronhouder)
-    end
-</div>
-<figcaption>Figuur 3: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
-</figure>
-
-<h3 id="ontwerp-concept-globaal-ontwerp-22-patroon-b-burger-gebruikt-edi-wallet">2.2 Patroon B - burger gebruikt EDI-Wallet<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-22-patroon-b-burger-gebruikt-edi-wallet" title="Permanent link">&para;</a></h3>
-<p>Een burger vraagt een overheidsattribuut op als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De credential is cryptografisch gezegeld door de bronhouder en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4VP, zonder verdere tussenkomst van GBO.</p>
-<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf credentials willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten (PubEAA-verstrekker en verificatiedienst) maken gebruik van een autorisatiedienst die door GBO aangeboden wordt.</p>
+<h3 id="ontwerp-concept-globaal-ontwerp-21-patroon-a-burger-gebruikt-edi-wallet">2.1 Patroon A - burger gebruikt EDI-Wallet<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-21-patroon-a-burger-gebruikt-edi-wallet" title="Permanent link">&para;</a></h3>
+<p>Een burger vraagt een overheidsattribuut op als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De credential is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4VP, zonder verdere tussenkomst van GBO.</p>
+<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf credentials willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
 <figure>
 <div class="mermaid">
 sequenceDiagram
@@ -509,7 +457,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </figcaption>
 </figure>
 
-<h3 id="ontwerp-concept-globaal-ontwerp-23-patroon-c-grensoverschrijdend-verzoek-via-sdgoots">2.3 Patroon C - grensoverschrijdend verzoek via SDG/OOTS<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-23-patroon-c-grensoverschrijdend-verzoek-via-sdgoots" title="Permanent link">&para;</a></h3>
+<h3 id="ontwerp-concept-globaal-ontwerp-22-patroon-b-grensoverschrijdend-verzoek-via-sdgoots">2.2 Patroon B - grensoverschrijdend verzoek via SDG/OOTS<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-22-patroon-b-grensoverschrijdend-verzoek-via-sdgoots" title="Permanent link">&para;</a></h3>
 <p>Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. RINIS fungeert als nationaal OOTS-toegangspunt (AS4/eDelivery), verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan RINIS, RINIS verpakt in AS4.</p>
 <figure>
 <div class="mermaid">
@@ -566,6 +514,58 @@ sequenceDiagram
 </figure>
 
 <p>Het voordeel voor bronhouders is dat ze met GBO hun gegevens met één implementatie kunnen ontsluiten voor DvTP, EDI en SDG-OOTS. Voor afnemers van gegevens is het voordeel dat ze op een uniforme wijze diensten kunnen aanroepen en gegevensbronnen kunnen benaderen in termen van identificatie, authenticatie, connectiviteit, diensten, autorisatie en toegang.</p>
+<h3 id="ontwerp-concept-globaal-ontwerp-23-patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp">2.3 Patroon C - gegevensverzoek van private dienstverlener (DvTP)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-23-patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp" title="Permanent link">&para;</a></h3>
+<p>Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitsluitend op basis van een geldige juridische grondslag. In het geval van DvTP is dit een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners. De burger authenticeert zich via DigiD of een ander eIDAS authenticatiemiddel op het vereiste betrouwbaarheidsniveau en geeft geïnformeerde toestemming voor een specifiek doel, een specifieke afnemer en een specifieke set gegevens. GBO registreert de toestemming in een toestemmingenregister, levert een consent-id aan de private dienstverlener, valideert deze op het moment van uitvraag real-time, en zorgt dat het BSN de private dienstverlener nooit bereikt - in de plaats daarvan ontvangt de afnemer een partijspecifiek pseudoniem.</p>
+<p>De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent_id en of de gegevensvraag binnen de scope valt. Via het consent_id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als REST- of GraphQL response in het afnemersformaat.</p>
+<figure>
+<div class="mermaid">
+sequenceDiagram
+    autonumber
+    actor Burger
+    participant DV as Dienst-&lt;br/&gt;verlener
+    participant Auth as Authenticatie-&lt;br/&gt;dienst
+    participant TV as Toestemmings-&lt;br/&gt;voorziening (GBO)
+    participant PP as BSNk PP&lt;br/&gt;(pseudonimisering)
+    participant TR as Toestemmings-&lt;br/&gt;register
+    participant BRH as Bron-&lt;br/&gt;houder
+
+    Note over Burger,BRH: Fase 1 — Toestemming verlenen
+
+    rect rgb(225, 245, 238)
+        Burger-&gt;&gt;DV: Neemt dienst af
+        DV-&gt;&gt;Burger: Redirect naar toestemmingsvoorziening GBO&lt;br/&gt;(met scope + doelbinding)
+        Burger-&gt;&gt;TV: Volgt redirect
+        TV-&gt;&gt;Auth: Authenticatieverzoek
+        Note over Auth: DigiD óf EDI-Wallet (eIDAS 2.0)
+        Auth-&gt;&gt;Burger: Authenticeer burger
+        Burger--&gt;&gt;Auth: Authenticatie
+        Auth--&gt;&gt;TV: BSN (geverifieerde identiteit)
+        TV-&gt;&gt;PP: Pseudonimiseer BSN&lt;br/&gt;(BSNk PP)
+        PP--&gt;&gt;TV: Pseudoniem (PP-id)
+        TV-&gt;&gt;Burger: Toon gegevens waarvoor toestemming&lt;br/&gt;gevraagd wordt (scope + doelbinding)
+        Burger--&gt;&gt;TV: Verleent toestemming
+        TV-&gt;&gt;TR: Schrijf toestemming in register&lt;br/&gt;(PP-id · scope · doelbinding · TTL)
+        TR--&gt;&gt;TV: consent_id
+        TV-&gt;&gt;DV: Redirect terug naar dienstverlener&lt;br/&gt;(met consent_id)
+    end
+
+    Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder
+
+    rect rgb(238, 237, 254)
+        DV-&gt;&gt;BRH: Gegevensverzoek&lt;br/&gt;(consent_id · mTLS / certificaat)
+        BRH-&gt;&gt;BRH: Authenticeer dienstverlener&lt;br /&gt;(via certificaat)
+        BRH-&gt;&gt;BRH: Controleer bevoegdheid&lt;br /&gt;(via FSC contract/Trusted List)
+        BRH-&gt;&gt;TR: Valideer consent_id&lt;br/&gt;(geldig? scope? TTL?)
+        TR--&gt;&gt;BRH: Consent geldig + PP-id
+        BRH-&gt;&gt;BRH: Controleer data scope&lt;br /&gt;(template match)
+        BRH-&gt;&gt;PP: De-pseudonimiseer PP-id&lt;br/&gt;(BSNk PP)
+        PP--&gt;&gt;BRH: BSN
+        BRH--&gt;&gt;DV: Gevraagde gegevens&lt;br/&gt;(gezegeld door bronhouder)
+    end
+</div>
+<figcaption>Figuur 3: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
+</figure>
+
 <h2 id="ontwerp-concept-globaal-ontwerp-3-generieke-functies-en-stelselfuncties">3 Generieke functies en stelselfuncties<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-3-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h2>
 <p>GBO is opgebouwd uit acht generieke functieclusters die samen de volledige gegevensstroom afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. De functies zijn technologieneutraal beschreven.</p>
 <p>Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies per cluster uitgewerkt, met de bijbehorende stelselfuncties en hun huidige inrichtingsstatus.</p>

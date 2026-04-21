@@ -11,11 +11,11 @@ _ICTU | April 2026_
 Diverse ontwikkelingen op nationaal (zoals [Regie op Gegevens](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/) en [IBDS](https://www.digitaleoverheid.nl/interbestuurlijke-datastrategie/)) en Europees vlak (zoals [SDG](https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en) en de [EDI-Wallet](https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home)) maken het noodzakelijk om gegevens uit overheidsbronnen breder en flexibeler te gebruiken. Dit stelt bronhouders voor een uitdaging: zij moeten verschillende gegevensstromen bedienen, elk met eigen protocollen, technologieën en juridische grondslagen.  
 
 Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burger geïnitieerde gegevensdeling van persoonsgegevens. Hiervoor worden stelselfuncties gerealiseerd die overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar maken voor drie typen afnemers:  
-- Burgers via het EDI-Stelsel (eIDAS2/ARF).  
+- Burgers via het EDI-Stelsel (EDI-Wallet).  
 - Europese overheden via het Single Digital Gateway/Once Only Technical System (SDG/OOTS).  
 -	Private dienstverleners op basis van burgertoestemming (DvTP - Delen via toestemming met private dienstverleners).  
 
-Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en DvTP.  
+Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en private dienstverleners.  
 
 <figure>
 --8<-- "diagrammen/context-diagram.mmd"
@@ -29,25 +29,25 @@ Het doel van GBO is om interoperabiliteit en hergebruik bij deze gegevensuitwiss
 ### Maximaal borgen in bestaande afsprakenstelsels
 
 GBO wordt geen nieuw, losstaand stelsel. De gerealiseerde stelselfuncties worden zoveel mogelijk geborgd binnen bestaande landelijke afsprakenstelsels, zoals het Federatief Datastelsel (FDS) en de Generieke Digitale Infrastructuur (GDI) voor de overheid, en binnen publiek-private afsprakenstelsels, zoals Trusted Information Partners (TIP), voor de uitwisseling met private dienstverleners.  
-GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG.  
+GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG. In dit document wordt nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden.  
 
-In dit document wordt nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden. De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  
+De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  
 
 ### Globaal ontwerp
 
 In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
 
-- Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen;  
-- Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen;  
-- Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.);  
+- Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen.  
+- Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  
+- Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.).  
 - Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  
 
 ### Uitgangspunt
 
 GBO hergebruikt maximaal wat er al is:
 
-- FDS als afsprakenstelsel met o.a. FSC en FTV als standaarden voor gefedereerde connectiviteit en toegang.
-- Afspraken en standaarden in TIP verband.
+- FDS als afsprakenstelsel met o.a. [FSC](https://fsc-standaard.nl) en [FTV](https://federatief.datastelsel.nl/kennisbank/ftv/) als standaarden voor gefedereerde connectiviteit en toegang.
+- Afspraken en standaarden die gelden binnen publiek-private afsprakenstelsels zoals TIP.
 - Europese afspraken en standaarden (o.a. [EIF](https://interoperable-europe.ec.europa.eu/collection/iopeu-monitoring/european-interoperability-framework-detail), [eIDAS](https://digital-strategy.ec.europa.eu/en/policies/discover-eidas), [SDG/OOTS](https://ec.europa.eu/digital-building-blocks/sites/spaces/OOTS/overview), [ARF](https://eudi.dev/1.1.0/arf/)) en de Nederlandse invulling hiervan (o.a. [NL-Wallet](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/identiteit/id-wallet/), centraal Nederlands OOTS toegangspunt).
 - Pseudonimiseringsvoorziening (BSNk PP).
 - PBAC architecturen voor autorisatie en toegang.
@@ -57,7 +57,31 @@ GBO hergebruikt maximaal wat er al is:
 
 GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.
 
-### 2.1 Patroon A - gegevensverzoek van private dienstverlener (DvTP)
+### 2.1 Patroon A - burger gebruikt EDI-Wallet
+
+Een burger vraagt een overheidsattribuut op als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De credential is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4VP, zonder verdere tussenkomst van GBO.
+
+GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf credentials willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.
+
+<figure>
+--8<-- "diagrammen/interactiepatroon-EDI-Wallet.mmd"
+<figcaption>Figuur 4: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
+NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
+</figcaption>
+</figure>
+
+### 2.2 Patroon B - grensoverschrijdend verzoek via SDG/OOTS
+
+Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. RINIS fungeert als nationaal OOTS-toegangspunt (AS4/eDelivery), verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan RINIS, RINIS verpakt in AS4.
+
+<figure>
+--8<-- "diagrammen/interactiepatroon-SDG-OOTS-verzoek.mmd"
+<figcaption>Figuur 5: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via SDG/OOTS.</figcaption>
+</figure>
+
+Het voordeel voor bronhouders is dat ze met GBO hun gegevens met één implementatie kunnen ontsluiten voor DvTP, EDI en SDG-OOTS. Voor afnemers van gegevens is het voordeel dat ze op een uniforme wijze diensten kunnen aanroepen en gegevensbronnen kunnen benaderen in termen van identificatie, authenticatie, connectiviteit, diensten, autorisatie en toegang.
+
+### 2.3 Patroon C - gegevensverzoek van private dienstverlener (DvTP)
 
 Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitsluitend op basis van een geldige juridische grondslag. In het geval van DvTP is dit een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners. De burger authenticeert zich via DigiD of een ander eIDAS authenticatiemiddel op het vereiste betrouwbaarheidsniveau en geeft geïnformeerde toestemming voor een specifiek doel, een specifieke afnemer en een specifieke set gegevens. GBO registreert de toestemming in een toestemmingenregister, levert een consent-id aan de private dienstverlener, valideert deze op het moment van uitvraag real-time, en zorgt dat het BSN de private dienstverlener nooit bereikt - in de plaats daarvan ontvangt de afnemer een partijspecifiek pseudoniem.
 
@@ -68,29 +92,6 @@ De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens
 <figcaption>Figuur 3: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
 </figure>
 
-### 2.2 Patroon B - burger gebruikt EDI-Wallet
-
-Een burger vraagt een overheidsattribuut op als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De credential is cryptografisch gezegeld door de bronhouder en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4VP, zonder verdere tussenkomst van GBO.
-
-GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf credentials willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten (PubEAA-verstrekker en verificatiedienst) maken gebruik van een autorisatiedienst die door GBO aangeboden wordt.
-
-<figure>
---8<-- "diagrammen/interactiepatroon-EDI-Wallet.mmd"
-<figcaption>Figuur 4: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
-NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
-</figcaption>
-</figure>
-
-### 2.3 Patroon C - grensoverschrijdend verzoek via SDG/OOTS
-
-Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. RINIS fungeert als nationaal OOTS-toegangspunt (AS4/eDelivery), verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan RINIS, RINIS verpakt in AS4.
-
-<figure>
---8<-- "diagrammen/interactiepatroon-SDG-OOTS-verzoek.mmd"
-<figcaption>Figuur 5: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via SDG/OOTS.</figcaption>
-</figure>
-
-Het voordeel voor bronhouders is dat ze met GBO hun gegevens met één implementatie kunnen ontsluiten voor DvTP, EDI en SDG-OOTS. Voor afnemers van gegevens is het voordeel dat ze op een uniforme wijze diensten kunnen aanroepen en gegevensbronnen kunnen benaderen in termen van identificatie, authenticatie, connectiviteit, diensten, autorisatie en toegang.
 
 ## 3 Generieke functies en stelselfuncties
 

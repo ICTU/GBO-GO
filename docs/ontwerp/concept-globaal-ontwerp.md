@@ -58,7 +58,7 @@ GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en p
 
 ### 2.1 Patroon A - burger gebruikt EDI-Wallet
 
-Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4VP, zonder verdere tussenkomst van GBO.
+Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.
 
 GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf attestaties willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.
 
@@ -132,7 +132,7 @@ Van toepassing op: alle drie patronen.
 | ----------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | S07 — Gegevensontsluiting (Bronontsluiting API) | FSC beschikbaar; GraphQL nog niet gestandaardiseerd als API type | Query Template Registry; GraphQL positionering in FDS; GBO-vertaallaag                 |
 | S08 — OOTS-adapter (Grensoverschrijdend)        | Basisinrichting OOTS beschikbaar                                | GBO ↔ REST-koppeling; GBO-SDG mapping |
-| S11 — Attesteringsuitgifte (PuB-EAA / QEAA)     | Nog te realiseren ⚠️                                             | OID4VCI-endpoint; attestatieschema's; signing-infrastructuur; QTSP-verificatiedienst   |
+| S11 — Attesteringsuitgifte (PuB-EAA / QEAA)     | Nog te realiseren ⚠️                                             | OpenID4VCI-endpoint; attestatieschema's; signing-infrastructuur; QTSP-verificatiedienst   |
 
 ### 3.4 F4 — Semantiek & Eenheid van Taal
 
@@ -256,7 +256,7 @@ Het EDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken
 
 Wat er nog moet worden afgesproken of gerealiseerd:
 
-- Afspraken over de **rol van GBO als PuB-EAA-ondersteuner**: GBO biedt de infrastructuur voor uitgifte (OID4VCI) en presentatie (OID4VP), maar is zelf geen PuB-EAA-verstrekker in juridische zin.
+- Afspraken over de **rol van GBO als PuB-EAA-ondersteuner**: GBO biedt de infrastructuur voor uitgifte (OpenID4VCI) en presentatie (OpenID4VP), maar is zelf geen PuB-EAA-verstrekker in juridische zin.
 - **Attestatieschema's per use case**: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EDI-Wallet worden vereist.
 - Een **signing-infrastructuur** voor het digitaal ondertekenen van attestaties, conform eIDAS2/ARF en de relevante Europese Trusted Lists.
 - Standaardisatie van de **attestatieformaten**: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.
@@ -296,7 +296,7 @@ De technische architectuur van GBO bestaat uit de volgende hoofdbouwstenen:
 
 **BSNk PP (Polymorf Pseudonimiseringsstelsel).** In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.
 
-**OID4VCI / OID4VP.** OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.
+**OpenID4VCI / OpenID4VP.** OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.
 
 **SD-JWT VC / mdoc (ISO 18013-5).** attestatieformaten voor de EDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.
 
@@ -328,7 +328,7 @@ De volgende bouwstenen zijn nog niet beschikbaar als GBO-voorziening en moeten w
 - GBO-vertaallaag voor bronhouders zonder eigen GraphQL-implementatie
 - PEP/PDP-referentie-implementatie voor bronhouders (deployable package)
 - Keuze en inrichting centrale PAP
-- PuB-EAA-uitgifte-component (OID4VCI-endpoint, attestatieschema's per use case)
+- PuB-EAA-uitgifte-component (OpenID4VCI-endpoint, attestatieschema's per use case)
 - QTSP-verificatiedienst
 - Autorisatieserver t.b.v. Pub-EAA-uitgifte-component en QTSP-verificatiedienst
 - GBO afsprakenstelsel (aansluitvoorwaarden, RFC-proces, stelselrollen) - nb: moet landen in bestaande stelsels zoals FDS en TIP

@@ -349,7 +349,7 @@
 flowchart LR
 
 Bronhouder["Overheidsbron"]
-DvTP["GBO stelsel
+DvTP["GBO
 (afspraken, standaarden, voorzieningen)"]
 Wallet["EDI-Wallet"]
 SDG["SDG/OOTS"]
@@ -377,20 +377,19 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
 <li>Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.).  </li>
 <li>Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  </li>
 </ul>
-<h3 id="ontwerp-concept-globaal-ontwerp-uitgangspunt">Uitgangspunt<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-uitgangspunt" title="Permanent link">&para;</a></h3>
-<p>GBO hergebruikt maximaal wat er al is:</p>
+<h3 id="ontwerp-concept-globaal-ontwerp-uitgangspunten">Uitgangspunten<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-uitgangspunten" title="Permanent link">&para;</a></h3>
 <ul>
-<li>FDS als afsprakenstelsel met o.a. <a href="https://fsc-standaard.nl">FSC</a> en <a href="https://federatief.datastelsel.nl/kennisbank/ftv/">FTV</a> als standaarden voor gefedereerde connectiviteit en toegang.</li>
-<li>Afspraken en standaarden die gelden binnen publiek-private afsprakenstelsels zoals TIP.</li>
-<li>Europese afspraken en standaarden (o.a. <a href="https://interoperable-europe.ec.europa.eu/collection/iopeu-monitoring/european-interoperability-framework-detail">EIF</a>, <a href="https://digital-strategy.ec.europa.eu/en/policies/discover-eidas">eIDAS</a>, <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/OOTS/overview">SDG/OOTS</a>, <a href="https://eudi.dev/1.1.0/arf/">ARF</a>) en de Nederlandse invulling hiervan (o.a. <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/identiteit/id-wallet/">NL-Wallet</a>, centraal Nederlands OOTS toegangspunt).</li>
-<li>Pseudonimiseringsvoorziening (BSNk PP).</li>
-<li>PBAC architecturen voor autorisatie en toegang.</li>
+<li>Europees interoperabel: Europese afspraken en standaarden (o.a. EIF, eIDAS, SDG/OOTS en EUDI) en de Nederlandse invulling hiervan, zoals de NL-Wallet en het centrale Nederlandse OOTS-toegangspunt.  </li>
+<li>Federatief Datastelsel (FDS): Relevante en toepasbare FDS-afspraken en standaarden, zoals FSC en FTV voor gefedereerde connectiviteit en toegang.  </li>
+<li>Generieke Digitale Infrastructuur (GDI): Relevante en toepasbare GDI-afspraken, standaarden en voorzieningen, zoals DigiD en het BSN-koppelregister voor polymorfe pseudoniemen (BSNk PP).  </li>
+<li>Beleidsgedreven autorisatie (PBAC): PBAC-architectuur voor autorisatie en toegang.  </li>
+<li>Waardengedreven inrichting: De organisatorische en technische inrichting is gebaseerd op publieke waarden en op het principe van een gelijk speelveld bij de rollen en verantwoordelijkheden.  </li>
 </ul>
 <h2 id="ontwerp-concept-globaal-ontwerp-2-interactiepatronen">2 Interactiepatronen<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-2-interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-21-patroon-a-burger-gebruikt-edi-wallet">2.1 Patroon A - burger gebruikt EDI-Wallet<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-21-patroon-a-burger-gebruikt-edi-wallet" title="Permanent link">&para;</a></h3>
-<p>Een burger vraagt een overheidsattribuut op als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De credential is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4VP, zonder verdere tussenkomst van GBO.</p>
-<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf credentials willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
+<p>Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OID4P, zonder verdere tussenkomst van GBO.</p>
+<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf attestaties willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
 <figure>
 <div class="mermaid">
 sequenceDiagram
@@ -414,20 +413,19 @@ sequenceDiagram
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID
-        Wallet-&gt;&gt;Auth: Authenticatie / consent (OID4VCP met PID / eID)
+        Wallet-&gt;&gt;Auth: Authenticatie / consent (OID4VP met PID / eID)
         Auth-&gt;&gt;PubEAA: Autorisatie (incl. identificatie burger)
         PubEAA-&gt;&gt;Bron: Bevraag bron (met access token)
         Bron--&gt;&gt;PubEAA: Attribuutgegevens
         PubEAA-&gt;&gt;PubEAA: Kwalificeer attribuutgegevens
-        PubEAA--&gt;&gt;Wallet: PuB-EAA credential&lt;br/&gt;(SD-JWT VC · ISO 18013-5,&lt;br/&gt;QESeal door overheidsinstantie)
+        PubEAA--&gt;&gt;Wallet: PuB-EAA credential
         Wallet--&gt;&gt;Burger: PuB-EAA opgeslagen in wallet
     end
 
     Note over Burger,Bron: Stroom B — QEAA: QTSP kwalificeert attribuut via verificatiedienst
 
     rect rgb(238, 237, 254)
-        Burger-&gt;&gt;Wallet: Vraag attribuut op (OID4VCI initiate)
-        Wallet-&gt;&gt;QTSP: Credential Request (OID4VCI)
+        Burger-&gt;&gt;QTSP: Attestatie Request&lt;br /&gt;(incl. evt. stukken)
         Note over QTSP: QTSP verifieert attribuut&lt;br/&gt;via verificatiedienst
         QTSP-&gt;&gt;VerifDienst: Verificatieverzoek
         Note over VerifDienst: Verificatiedienst: aangeboden&lt;br/&gt;door bron of centraal via GBO
@@ -435,20 +433,22 @@ sequenceDiagram
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID
-        Wallet-&gt;&gt;Auth: Authenticatie / consent (OID4VCP met PID / eID)
+        Wallet-&gt;&gt;Auth: Authenticatie / consent (OID4VP met PID / eID)
         Auth-&gt;&gt;VerifDienst: Autorisatie (incl. identificatie burger)
-        VerifDienst-&gt;&gt;Bron: Bevraag bron (met access token)
+        VerifDienst-&gt;&gt;Bron: Bevraag bron
         Bron--&gt;&gt;VerifDienst: Attribuutgegevens
+        VerifDienst-&gt;&gt;VerifDienst: Verifieer attribuutgegevens
         VerifDienst--&gt;&gt;QTSP: Geverifieerd attribuut
-        QTSP--&gt;&gt;Wallet: QEAA credential&lt;br/&gt;(SD-JWT VC · ISO 18013-5,&lt;br/&gt;QES/QESeal door QTSP)
+        QTSP-&gt;&gt;QTSP: Issue QEAA
+        QTSP--&gt;&gt;Wallet: QEAA attestatie
         Wallet--&gt;&gt;Burger: QEAA opgeslagen in wallet
     end
 
-    Note over Burger,DV: Gebruik — burger deelt credential met dienstverlener
+    Note over Burger,DV: Gebruik — burger deelt attestatie met dienstverlener
 
     rect rgb(250, 238, 218)
-        Burger-&gt;&gt;DV: Deel credential (OID4VP)
-        DV-&gt;&gt;DV: Controleer credential
+        Burger-&gt;&gt;DV: Deel attestatie (OID4VP)
+        DV-&gt;&gt;DV: Controleer attestatie
         Note over DV: PuB-EAA of QEAA,&lt;br/&gt;gelijke juridische status (eIDAS 2.0)
     end
 </div>
@@ -458,56 +458,65 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </figure>
 
 <h3 id="ontwerp-concept-globaal-ontwerp-22-patroon-b-grensoverschrijdend-verzoek-via-sdgoots">2.2 Patroon B - grensoverschrijdend verzoek via SDG/OOTS<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-22-patroon-b-grensoverschrijdend-verzoek-via-sdgoots" title="Permanent link">&para;</a></h3>
-<p>Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. RINIS fungeert als nationaal OOTS-toegangspunt (AS4/eDelivery), verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan RINIS, RINIS verpakt in AS4.</p>
+<p>Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. BZK heeft RINIS aangewezen als nationaal OOTS-toegangspunt (AS4/eDelivery), waar de OOTS basisinrichting in beheer is. Die verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan de OOTS basisinrichting, waar het bericht in AS4 wordt verpakt.</p>
 <figure>
 <div class="mermaid">
 sequenceDiagram
     autonumber
     participant BRG as Burger&lt;br/&gt;(rechthebbende)
     participant EU as EU dienst&lt;br/&gt;(SDG/OOTS)
-    participant RINIS as RINIS (namens BZK)&lt;br/&gt;(Basisinrichting OOTS)
+    participant RINIS as Basisinrichting OOTS NL&lt;br /&gt;(BZK/RINIS)
     participant GBO as GBO&lt;br/&gt;(GBO voorziening)
     participant BRH as Bronhouder&lt;br/&gt;(BRP / BD / …)
 
-    rect rgb(230, 241, 251)
+    rect rgb(250, 241, 251)
         Note over BRG,EU: ① Burger neemt dienst af
-        BRG-&gt;&gt;EU: Dienst (vereist gegeven Bronhouder)
+        BRG-&gt;&gt;EU: Verzoek dienst
+        Note over EU: Gegeven Bronhouder nodig
     end
 
     rect rgb(230, 241, 251)
-        Note over EU,RINIS: ② Ontvangst OOTS-verzoek (eDelivery/AS4)
+        Note over EU,RINIS: ② Ontvangst OOTS-verzoek&lt;br /&gt;(eDelivery/AS4)
         EU-&gt;&gt;RINIS: Evidence Request (eDelivery/AS4)
     end
 
-
-    rect rgb(238, 237, 254)
-        Note over RINIS,BRG: ③ Authenticatie &amp; toestemming burger (RINIS)
-        RINIS-&gt;&gt;BRG: Toestemmingsverzoek
-        BRG-&gt;&gt;RINIS: Toestemming (incl. BSN)
-    end
-
     rect rgb(250, 238, 218)
-        Note over RINIS,GBO: ④ Doorzetten naar GBO (nationaal)
+        Note over RINIS,GBO: ③ Doorzetten naar bron via GBO
         RINIS-&gt;&gt;GBO: OOTS-payload (REST/JSON)
         Note over RINIS: eDelivery → REST ontkoppeling
     end
 
     rect rgb(225, 245, 238)
-        Note over GBO,BRH: ⑤ Bronontsluiting (GBO generieke API)
+        Note over GBO,BRH: ④ Bronontsluiting (GBO generieke API)
         GBO-&gt;&gt;BRH: API-aanroep (GBO-formaat)
-        BRH-&gt;&gt;GBO: Gegevens (JSON/REST)
+        BRH-&gt;&gt;GBO: Gegevens (REST/JSON)
     end
 
-    rect rgb(250, 238, 218)
-        Note over GBO: ⑥ Semantische mapping &amp; logging (intern GBO)
+    rect rgb(225, 245, 238)
+        Note over GBO: ⑤ Semantische mapping &amp; logging (intern GBO)
         Note over GBO: GBO-formaat → SDG Evidence type · audit log · doelbinding
     end
 
-    rect rgb(230, 241, 251)
-        Note over GBO,EU: ⑦ Terugkoppeling via RINIS naar EU
+    rect rgb(250, 238, 218)
+        Note over GBO,RINIS: ⑥ Terugkoppeling naar OOTS basisinrichting
         GBO-&gt;&gt;RINIS: Evidence Response (REST/JSON)
-        Note over RINIS: REST → eDelivery inpakken
-        RINIS-&gt;&gt;EU: Evidence Response (AS4/eDelivery)
+        Note over RINIS: REST → eDelivery vertaling
+    end
+
+    rect rgb(230, 241, 251)
+        Note over RINIS,BRG: ⑦ Toestemming burger
+        RINIS-&gt;&gt;BRG: Toestemmingsverzoek
+        BRG-&gt;&gt;RINIS: Toestemming
+    end
+
+    rect rgb(230, 241, 251)
+        Note over EU,RINIS: ⑧ Verzenden OOTS-antwoord&lt;br /&gt;(eDelivery/AS4)
+        RINIS-&gt;&gt;EU: Evidence Response
+    end
+
+    rect rgb(250, 241, 251)
+        Note over BRG,EU: ⑨ Burger neemt dienst af
+        EU-&gt;&gt;BRG: Levert dienst
     end
 </div>
 <figcaption>Figuur 5: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via SDG/OOTS.</figcaption>
@@ -540,13 +549,15 @@ sequenceDiagram
         Auth-&gt;&gt;Burger: Authenticeer burger
         Burger--&gt;&gt;Auth: Authenticatie
         Auth--&gt;&gt;TV: BSN (geverifieerde identiteit)
-        TV-&gt;&gt;PP: Pseudonimiseer BSN&lt;br/&gt;(BSNk PP)
-        PP--&gt;&gt;TV: Pseudoniem (PP-id)
+        TV-&gt;&gt;PP: Activeer BSN
+        PP-&gt;&gt;PP: Genereert PI/PP
+        TV-&gt;&gt;PP: Transformeer BSN
+        PP--&gt;&gt;TV: Versleutelde PI/PP (VI/VP)
         TV-&gt;&gt;Burger: Toon gegevens waarvoor toestemming&lt;br/&gt;gevraagd wordt (scope + doelbinding)
         Burger--&gt;&gt;TV: Verleent toestemming
-        TV-&gt;&gt;TR: Schrijf toestemming in register&lt;br/&gt;(PP-id · scope · doelbinding · TTL)
+        TV-&gt;&gt;TR: Schrijf toestemming in register&lt;br/&gt;(VI · scope · doelbinding · TTL)
         TR--&gt;&gt;TV: consent_id
-        TV-&gt;&gt;DV: Redirect terug naar dienstverlener&lt;br/&gt;(met consent_id)
+        TV-&gt;&gt;DV: Redirect terug naar dienstverlener&lt;br/&gt;(met consent_id en VP)
     end
 
     Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder
@@ -555,12 +566,12 @@ sequenceDiagram
         DV-&gt;&gt;BRH: Gegevensverzoek&lt;br/&gt;(consent_id · mTLS / certificaat)
         BRH-&gt;&gt;BRH: Authenticeer dienstverlener&lt;br /&gt;(via certificaat)
         BRH-&gt;&gt;BRH: Controleer bevoegdheid&lt;br /&gt;(via FSC contract/Trusted List)
-        BRH-&gt;&gt;TR: Valideer consent_id&lt;br/&gt;(geldig? scope? TTL?)
-        TR--&gt;&gt;BRH: Consent geldig + PP-id
+        BRH-&gt;&gt;TR: Valideer consent_id&lt;br/&gt;(geldig? scope? TTL?)*
+        TR--&gt;&gt;BRH: Consent geldig&lt;br /&gt;(incl. VI)
+        Note over TR, BRH: Als consent in token zit, is&lt;br/&gt;bevraging toestemmingenregister&lt;br /&gt;niet nodig
         BRH-&gt;&gt;BRH: Controleer data scope&lt;br /&gt;(template match)
-        BRH-&gt;&gt;PP: De-pseudonimiseer PP-id&lt;br/&gt;(BSNk PP)
-        PP--&gt;&gt;BRH: BSN
-        BRH--&gt;&gt;DV: Gevraagde gegevens&lt;br/&gt;(gezegeld door bronhouder)
+        BRH-&gt;&gt;BRH: Ontsleutel VI naar BSN
+        BRH--&gt;&gt;DV: Gevraagde gegevens
     end
 </div>
 <figcaption>Figuur 3: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
@@ -589,12 +600,12 @@ sequenceDiagram
 <tr>
 <td>S04 — Organisatie-authenticatie &amp; Vertrouwensstelsel</td>
 <td>FDS Poortwachter/Marktmeester beschikbaar</td>
-<td>GBO-aansluitvoorwaarden; QTSP-erkenningsprofiel; KvK↔OIN↔eIDAS-koppeling</td>
+<td>GBO-aansluitvoorwaarden; KvK↔OIN↔eIDAS-koppeling</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ontwerp-concept-globaal-ontwerp-32-f2-toegang-interactie">3.2 F2 — Toegang &amp; Interactie<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-32-f2-toegang-interactie" title="Permanent link">&para;</a></h3>
-<p><em>Toestemmings-UI voor de burger; SSO; machtigen; consent met toestemmingenregister; PEP/PDP/PIP-keten; ODRL.</em></p>
+<p><em>Toestemmings-UI voor de burger; SSO; machtigen; consent met toestemmingenregister; PEP/PDP/PIP-keten.</em></p>
 <p>Van toepassing op: alle drie patronen.</p>
 <table>
 <thead>
@@ -608,12 +619,12 @@ sequenceDiagram
 <tr>
 <td>S01 — Toestemmingenregistratie</td>
 <td>Nog te realiseren ⚠️</td>
-<td>Toestemmingsregister; ODRL-profiel; PIP-interface; afhankelijk van benodigde wet- en regelgeving</td>
+<td>Toestemmingsregister; gebruik als PIP; afhankelijk van benodigde wet- en regelgeving</td>
 </tr>
 <tr>
 <td>S02 — Toestemmingsportaal (Burger Interactie)</td>
 <td>Nog te realiseren ⚠️</td>
-<td>DvTP/SDG-OOTS-UI; inzage &amp; intrekking; koppeling toestemmingenregister; aansluiting MijnOverheid?</td>
+<td>DvTP; inzage &amp; intrekking; koppeling toestemmingenregister; aansluiting MijnOverheid</td>
 </tr>
 <tr>
 <td>S05 — Autorisatie (PEP/PDP/PIP)</td>
@@ -628,7 +639,7 @@ sequenceDiagram
 </tbody>
 </table>
 <h3 id="ontwerp-concept-globaal-ontwerp-33-f3-gegevensvoorziening">3.3 F3 — Gegevensvoorziening<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-33-f3-gegevensvoorziening" title="Permanent link">&para;</a></h3>
-<p><em>Generieke bronontsluiting API; REST/GraphQL; service directory; lokalisatie; selectieve bevraging; OOTS-adapter (RINIS-koppeling); W3C-VC; mdocs.</em></p>
+<p><em>Generieke bronontsluiting API; REST/GraphQL; service directory; lokalisatie; selectieve bevraging; OOTS-adapter (Basisinrichting OOTS); SD-JWT VC; mdocs.</em></p>
 <p>Van toepassing op: alle drie patronen.</p>
 <table>
 <thead>
@@ -646,19 +657,19 @@ sequenceDiagram
 </tr>
 <tr>
 <td>S08 — OOTS-adapter (Grensoverschrijdend)</td>
-<td>RINIS basisinrichting beschikbaar</td>
-<td>GBO ↔ RINIS REST-koppeling; SMP-beheer; SDG-EDM mapping; toestemmingspreview-vraagstuk</td>
+<td>Basisinrichting OOTS beschikbaar</td>
+<td>GBO ↔ REST-koppeling; GBO-SDG mapping</td>
 </tr>
 <tr>
 <td>S11 — Attesteringsuitgifte (PuB-EAA / QEAA)</td>
 <td>Nog te realiseren ⚠️</td>
-<td>OID4VCI-endpoint; credentialschema's; signing-infrastructuur; QTSP-verificatiedienst</td>
+<td>OID4VCI-endpoint; attestatieschema's; signing-infrastructuur; QTSP-verificatiedienst</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ontwerp-concept-globaal-ontwerp-34-f4-semantiek-eenheid-van-taal">3.4 F4 — Semantiek &amp; Eenheid van Taal<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-34-f4-semantiek-eenheid-van-taal" title="Permanent link">&para;</a></h3>
-<p><em>GBO werkt vanuit één canoniek informatiemodel en één gedeeld begrippenkader naar RDF, SKOS voor verankering van semantiek. Waar nodig canonieke mapping GBO-onderdelen, zoals via SDG-EDM, VC-schema en JSON.</em></p>
-<p>Van toepassing op: OOTS (SDG-evidencetype), EDI-Wallet (VC-schema) en DvTP.</p>
+<p><em>GBO werkt vanuit een canoniek informatiemodel en een gedeeld begrippenkader naar RDF, SKOS voor verankering van semantiek. Waar nodig canonieke mapping GBO-onderdelen, zoals via SDG-EDM, VC-schema en JSON.</em></p>
+<p>Van toepassing op: EDI-Wallet (attestatieschema's), OOTS (SDG-evidencetype) en DvTP.</p>
 <table>
 <thead>
 <tr>
@@ -671,7 +682,7 @@ sequenceDiagram
 <tr>
 <td>S10 — Semantiek &amp; Gegevenscatalogus</td>
 <td>Nog te realiseren ⚠️</td>
-<td>GBO-canonieke definities per bronhouder en generiek; mapping naar SDG-EDM, VC-schema's en GraphQL</td>
+<td>GBO-canonieke definities per bronhouder en generiek; mapping tussen GraphQL- en SDG-formaten, attestatieschema's en GraphQL</td>
 </tr>
 </tbody>
 </table>
@@ -742,7 +753,7 @@ sequenceDiagram
 </tr>
 <tr>
 <td>S08 — OOTS-adapter (Grensoverschrijdend)</td>
-<td>RINIS basisinrichting beschikbaar</td>
+<td>OOTS basisinrichting beschikbaar</td>
 <td>Zie F3</td>
 </tr>
 </tbody>
@@ -816,7 +827,7 @@ sequenceDiagram
 <tr>
 <td>S08 — OOTS-adapter (Grensoverschrijdend)</td>
 <td>F3, F7</td>
-<td>RINIS basisinrichting beschikbaar</td>
+<td>OOTS basisinrichting beschikbaar</td>
 </tr>
 <tr>
 <td>S09 — Logging, Audit &amp; Traceerbaarheid</td>
@@ -840,7 +851,7 @@ sequenceDiagram
 <p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsels en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
 <p>Voor de drie GBO-toepassingen (EDI-Wallet, SDG/OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-41-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">4.1 Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-41-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
-<p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. FTV biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.</p>
+<p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. FTV biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
 <li>Een <strong>pseudonimiseringsprofiel</strong> voor GBO/DvTP: BSNk PP als verplichte voorziening zodat het BSN private dienstverleners nooit bereikt. De consent_id fungeert als brug tussen pseudoniem aan de private zijde en BSN-resolving aan de bronhouderzijde.</li>
@@ -851,7 +862,7 @@ sequenceDiagram
 </ul>
 <p><em>Juridische randvoorwaarde: toestemming als afdwingbare grondslag is pas operationeel na inwerkingtreding van de daarvoor benodigde wet- en regelgeving. De technische uitwerking loopt parallel aan het wetgevingstraject.</em></p>
 <h3 id="ontwerp-concept-globaal-ontwerp-42-graphql-als-selectief-bevragingsmechanisme">4.2 GraphQL als selectief bevragingsmechanisme<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-42-graphql-als-selectief-bevragingsmechanisme" title="Permanent link">&para;</a></h3>
-<p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST API Design Rules). REST ondersteunt selectieve gegevensuitvraag op veldniveau structureel niet: een afnemer ontvangt de volledige dataset die het endpoint retourneert, ook als slechts een deel van de velden nodig is. Dataminimalisatie is daarmee afhankelijk van afspraken en implementatiekeuzes, niet structureel ingebouwd.</p>
+<p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST API Design Rules). REST ondersteunt selectieve gegevensuitvraag op veldniveau structureel niet: een afnemer ontvangt de volledige dataset die het endpoint retourneert, ook als slechts een deel van de velden nodig is. Dataminimalisatie is daarmee afhankelijk van afspraken en implementatiekeuzes, niet structureel ingebouwd.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
 <li><strong>Positionering van GraphQL als FDS-datadienst-type</strong>: GBO introduceert GraphQL als aanvullend bevragingsmechanisme naast REST, waarbij dataminimalisatie structureel is ingebouwd. Dit vergt een formeel wijzigingsvoorstel richting FDS. GraphQL is in productie bewezen bij het iWlz-afsprakenstelsel en is compatibel met FSC Inway/Outway.</li>
@@ -860,29 +871,27 @@ sequenceDiagram
 <li><strong>Uitbreiding van DCAT-AP NL</strong> met GBO-specifieke velden voor trajectactivatie en query-templateregistratie (voortbouwend op de bestaande FDS-verplichting).</li>
 </ul>
 <h3 id="ontwerp-concept-globaal-ontwerp-43-sdgoots-aansluiting">4.3 SDG/OOTS-aansluiting<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-43-sdgoots-aansluiting" title="Permanent link">&para;</a></h3>
-<p>FDS is een binnenlands afsprakenstelsel en voorziet niet in grensoverschrijdende gegevensuitwisseling. SDG/OOTS vereist AS4/eDelivery als transportprotocol en het SDG Evidence Data Model (SDG-EDM) als semantisch kader — beide vallen buiten de scope van FDS.</p>
+<p>FDS is een binnenlands afsprakenstelsel en voorziet niet in grensoverschrijdende gegevensuitwisseling. SDG/OOTS vereist AS4/eDelivery als transportprotocol en het SDG Evidence Data Model (SDG-EDM) als semantisch kader — beide vallen buiten de scope van FDS.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
-<li>Een <strong>OOTS-adapter</strong> (bij RINIS) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar REST/JSON richting GBO, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.</li>
+<li>Een <strong>OOTS-adapter</strong> (koppeling met OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar REST/JSON richting GBO, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.</li>
 <li><strong>Semantische mappings</strong> van GBO-canonieke definities naar SDG-EDM XML per evidence type.</li>
-<li><strong>Centrale SMP-serviceregistratie</strong> door GBO/RINIS voor Europese discovery, als expliciete afwijking van de decentrale logica die FDS hanteert voor data-aanbiederregistratie. Individuele bronhouders registreren zich niet zelf in de Europese infrastructuur.</li>
-<li>Besluitvorming over het <strong>toestemmingspreview-vraagstuk</strong>: de SDG-verordening verplicht een preview-scherm waarmee de burger het bewijsstuk ziet vóór afgifte. Momenteel ligt dit bij RINIS; als GBO de toestemmingsflow overneemt, moeten de verantwoordelijkheden opnieuw worden belegd.</li>
 </ul>
-<h3 id="ontwerp-concept-globaal-ontwerp-44-uitgifte-van-geverifieerde-credentials-voor-de-edi-wallet-pub-eaa-provider">4.4 Uitgifte van geverifieerde credentials voor de EDI-Wallet (PuB-EAA provider)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-44-uitgifte-van-geverifieerde-credentials-voor-de-edi-wallet-pub-eaa-provider" title="Permanent link">&para;</a></h3>
-<p>Het EDI-Wallet-traject vereist dat overheidsbronnen attributen kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.</p>
+<h3 id="ontwerp-concept-globaal-ontwerp-44-uitgifte-van-attestaties-voor-de-edi-wallet-pub-eaa-provider">4.4 Uitgifte van attestaties voor de EDI-Wallet (PuB-EAA provider)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-44-uitgifte-van-attestaties-voor-de-edi-wallet-pub-eaa-provider" title="Permanent link">&para;</a></h3>
+<p>Het EDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
-<li>Afspraken over de <strong>rol van GBO als PuB-EAA-ondersteuner</strong>: GBO biedt de infrastructuur voor uitgifte (OID4VCI) en presentatie (OID4VP), maar is zelf geen PuB-EAA-verstrekker in juridische zin.</li>
-<li><strong>Credentialschema's per use case</strong>: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EDI-Wallet worden vereist.</li>
-<li>Een <strong>signing-infrastructuur</strong> voor het cryptografisch zegelen van credentials, conform eIDAS2/ARF en de relevante Europese Trusted Lists.</li>
-<li>Standaardisatie van de <strong>credentialformaten</strong>: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.</li>
+<li>Afspraken over de <strong>rol van GBO als PuB-EAA-ondersteuner</strong>: GBO biedt de infrastructuur voor uitgifte (OID4VCI) en presentatie (OID4P), maar is zelf geen PuB-EAA-verstrekker in juridische zin.</li>
+<li><strong>Attestatieschema's per use case</strong>: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EDI-Wallet worden vereist.</li>
+<li>Een <strong>signing-infrastructuur</strong> voor het digitaal ondertekenen van attestaties, conform eIDAS2/ARF en de relevante Europese Trusted Lists.</li>
+<li>Standaardisatie van de <strong>attestatieformaten</strong>: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.</li>
 </ul>
 <h3 id="ontwerp-concept-globaal-ontwerp-45-verificatiedienst-voor-qtsps-authentic-source-interface">4.5 Verificatiedienst voor QTSP's (Authentic Source Interface)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-45-verificatiedienst-voor-qtsps-authentic-source-interface" title="Permanent link">&para;</a></h3>
-<p>Naast PuB-EAA-uitgifte vereist artikel 45e van eIDAS2 dat overheidsbronnen een verificatiefunctie bieden waarmee Qualified Trust Service Providers (QTSP's) bronhouder-attributen kunnen verifiëren voor eigen attestatie-uitgifte. Ook dit valt buiten de scope van FDS en is een nieuwe EU-rechtelijke verplichting.</p>
+<p>Naast PuB-EAA-uitgifte vereist artikel 45e van eIDAS2 dat overheidsbronnen een verificatiefunctie bieden waarmee Qualified Trust Service Providers (QTSP's) bronhouder-attributen kunnen verifiëren voor eigen attestatie-uitgifte. Ook dit valt buiten de scope van FDS en is een nieuwe EU-rechtelijke verplichting.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
 <li>Inrichting van een <strong>Authentic Source Interface</strong> (conform ETSI TS 119 478) als GBO-component, inclusief de I2 Verify- en I4 Authorize-interfaces.</li>
-<li><strong>QTSP-aansluitvoorwaarden</strong> als aanvulling op het FDS-Poortwachterproces, inclusief certificaatprofielen conform ETSI EN 319 412.</li>
+<li><strong>QTSP-aansluitvoorwaarden</strong> als mogelijke aanvulling op het FDS-Poortwachterproces, inclusief certificaatprofielen conform ETSI EN 319 412.</li>
 <li>Afspraken over <strong>QTSP-erkenning</strong> en het bijbehorende vertrouwensanker in het GBO-stelsel.</li>
 </ul>
 <h2 id="ontwerp-concept-globaal-ontwerp-5-voorgestelde-technische-invulling">5 Voorgestelde technische invulling<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-5-voorgestelde-technische-invulling" title="Permanent link">&para;</a></h2>
@@ -987,11 +996,11 @@ graph TB
 <p><strong>OAuth 2.0 / OpenID Connect.</strong> Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel). Het toestemmingstoken bevat de consent-id als brug naar het toestemmingenregister; het BSN zit niet in het token.</p>
 <p><strong>OPA/Rego (Open Policy Agent).</strong> Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.</p>
 <p><strong>AuthZEN.</strong> Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de OPA-PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.</p>
-<p><strong>GraphQL.</strong> Bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting API. Queries zijn vooraf geregistreerd in de Query Template Registry en afdwingbaar door het PEP-beleid.</p>
+<p><strong>GraphQL.</strong> Bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting API. Queries zijn vooraf geregistreerd in de Query Template Registry en afdwingbaar door het PDP-beleid.</p>
 <p><strong>BSNk PP (Polymorf Pseudonimiseringsstelsel).</strong> In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.</p>
-<p><strong>OID4VCI / OID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
-<p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> Credentialformaten voor de EDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
-<p><strong>AS4 / eDelivery (via RINIS).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met RINIS; de AS4-laag is volledig bij RINIS belegd.</p>
+<p><strong>OID4VCI / OID4P.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
+<p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> attestatieformaten voor de EDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
+<p><strong>AS4 / eDelivery (via OOTS basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS basisinrichting; de AS4-laag is volledig bij de OOTS basisinrichting belegd.</p>
 <p><strong>ODRL (Open Digital Rights Language).</strong> W3C-standaard voor machineleesbare beleidsrepresentatie. Wordt al ingezet in FDS en DCAT-AP NL voor beleidsbeschrijving.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-52-kernontwerpkeuzes">5.2 Kernontwerpkeuzes<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-52-kernontwerpkeuzes" title="Permanent link">&para;</a></h3>
 <p>De referentiearchitectuur is gebaseerd op zes expliciete ontwerpkeuzes. De tabel hieronder vat elke keuze samen, legt de onderbouwing uit en benoemt de voornaamste implicatie voor de inrichting van het stelsel.</p>
@@ -1039,7 +1048,7 @@ graph TB
 <td>6 - AS4-adapter voor SDG/OOTS (EU-verplichting)</td>
 <td>Grensoverschrijdend OOTS-verkeer wordt afgehandeld via een Domibus Access Point dat AS4/eDelivery vertaalt naar FSC/GraphQL. AS4 is uitsluitend voor dit grensoverschrijdende verkeer.</td>
 <td>AS4/eDelivery is een EU-rechtelijke verplichting (Single Digital Gateway Verordening): geen architectuurkeuze maar een randvoorwaarde. De adapter isoleert alle EU-specifieke protocollen op één plek. Bronhouders hoeven geen OOTS-kennis te hebben.</td>
-<td>De AS4-adapter (Domibus Access Point + OOTS-EDM adapter) is bij RINIS in beheer. SMP-serviceregistratie voor Europese discovery wordt centraal door RINIS beheerd, niet door bronhouders.</td>
+<td>De AS4-adapter (Domibus Access Point + OOTS-EDM adapter) is bij de OOTS basisinrichting in beheer. SMP-serviceregistratie voor Europese discovery wordt centraal door de OOTS basisinrichting beheerd, niet door bronhouders.</td>
 </tr>
 </tbody>
 </table>
@@ -1053,7 +1062,7 @@ graph TB
 <li>GBO-vertaallaag voor bronhouders zonder eigen GraphQL-implementatie</li>
 <li>PEP/PDP-referentie-implementatie voor bronhouders (deployable package)</li>
 <li>Keuze en inrichting centrale PAP</li>
-<li>PuB-EAA-uitgifte-component (OID4VCI-endpoint, credentialschema's per use case)</li>
+<li>PuB-EAA-uitgifte-component (OID4VCI-endpoint, attestatieschema's per use case)</li>
 <li>QTSP-verificatiedienst</li>
 <li>Autorisatieserver t.b.v. Pub-EAA-uitgifte-component en QTSP-verificatiedienst</li>
 <li>GBO afsprakenstelsel (aansluitvoorwaarden, RFC-proces, stelselrollen) - nb: moet landen in bestaande stelsels zoals FDS en TIP</li>

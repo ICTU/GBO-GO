@@ -14,14 +14,14 @@ sequenceDiagram
     Note over Burger,Bron: Stroom A — PuB-EAA: overheidsinstantie geeft attribuut rechtstreeks uit
 
     rect rgb(225, 245, 238)
-        Burger->>Wallet: Vraag attribuut op (OID4VCI initiate)
-        Wallet->>PubEAA: Credential Request (OID4VCI)
+        Burger->>Wallet: Vraag attribuut op (OpenID4VCI initiate)
+        Wallet->>PubEAA: Credential Request (OpenID4VCI)
         Note over PubEAA: PuB-EAA voorziening: aangeboden<br/>door bron zelf óf centraal via GBO
         PubEAA->>Auth: Autorisatieverzoek
         Auth->>Wallet: Authenticatie- & autorisatieverzoek
         Wallet->>Burger: Toont verzoek & vraagt consent
         Burger->>Wallet: Geeft consent & presenteert PID / eID
-        Wallet->>Auth: Authenticatie / consent (OID4VP met PID / eID)
+        Wallet->>Auth: Authenticatie / consent (OpenID4VP met PID / eID)
         Auth->>PubEAA: Autorisatie (incl. identificatie burger)
         PubEAA->>Bron: Bevraag bron (met access token)
         Bron-->>PubEAA: Attribuutgegevens
@@ -41,7 +41,7 @@ sequenceDiagram
         Auth->>Wallet: Authenticatie- & autorisatieverzoek
         Wallet->>Burger: Toont verzoek & vraagt consent
         Burger->>Wallet: Geeft consent & presenteert PID / eID
-        Wallet->>Auth: Authenticatie / consent (OID4VP met PID / eID)
+        Wallet->>Auth: Authenticatie / consent (OpenID4VP met PID / eID)
         Auth->>VerifDienst: Autorisatie (incl. identificatie burger)
         VerifDienst->>Bron: Bevraag bron
         Bron-->>VerifDienst: Attribuutgegevens
@@ -55,7 +55,7 @@ sequenceDiagram
     Note over Burger,DV: Gebruik — burger deelt attestatie met dienstverlener
 
     rect rgb(250, 238, 218)
-        Burger->>DV: Deel attestatie (OID4VP)
+        Burger->>DV: Deel attestatie (OpenID4VP)
         DV->>DV: Controleer attestatie
         Note over DV: PuB-EAA of QEAA,<br/>gelijke juridische status (eIDAS 2.0)
     end

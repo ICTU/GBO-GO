@@ -500,14 +500,14 @@ sequenceDiagram
     Note over Burger,Bron: Stroom A — PuB-EAA: overheidsinstantie geeft attribuut rechtstreeks uit
 
     rect rgb(225, 245, 238)
-        Burger-&gt;&gt;Wallet: Vraag attribuut op (OID4VCI initiate)
-        Wallet-&gt;&gt;PubEAA: Credential Request (OID4VCI)
+        Burger-&gt;&gt;Wallet: Vraag attribuut op (OpenID4VCI initiate)
+        Wallet-&gt;&gt;PubEAA: Credential Request (OpenID4VCI)
         Note over PubEAA: PuB-EAA voorziening: aangeboden&lt;br/&gt;door bron zelf óf centraal via GBO
         PubEAA-&gt;&gt;Auth: Autorisatieverzoek
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID
-        Wallet-&gt;&gt;Auth: Authenticatie / consent (OID4VP met PID / eID)
+        Wallet-&gt;&gt;Auth: Authenticatie / consent (OpenID4VP met PID / eID)
         Auth-&gt;&gt;PubEAA: Autorisatie (incl. identificatie burger)
         PubEAA-&gt;&gt;Bron: Bevraag bron (met access token)
         Bron--&gt;&gt;PubEAA: Attribuutgegevens
@@ -527,7 +527,7 @@ sequenceDiagram
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID
-        Wallet-&gt;&gt;Auth: Authenticatie / consent (OID4VP met PID / eID)
+        Wallet-&gt;&gt;Auth: Authenticatie / consent (OpenID4VP met PID / eID)
         Auth-&gt;&gt;VerifDienst: Autorisatie (incl. identificatie burger)
         VerifDienst-&gt;&gt;Bron: Bevraag bron
         Bron--&gt;&gt;VerifDienst: Attribuutgegevens
@@ -541,7 +541,7 @@ sequenceDiagram
     Note over Burger,DV: Gebruik — burger deelt attestatie met dienstverlener
 
     rect rgb(250, 238, 218)
-        Burger-&gt;&gt;DV: Deel attestatie (OID4VP)
+        Burger-&gt;&gt;DV: Deel attestatie (OpenID4VP)
         DV-&gt;&gt;DV: Controleer attestatie
         Note over DV: PuB-EAA of QEAA,&lt;br/&gt;gelijke juridische status (eIDAS 2.0)
     end

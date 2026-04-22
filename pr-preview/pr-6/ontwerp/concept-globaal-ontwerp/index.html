@@ -570,7 +570,7 @@ sequenceDiagram
     end
 
     rect rgb(230, 241, 251)
-        Note over EU,RINIS: ② Ontvangst OOTS-verzoek&lt;br /&gt;(eDelivery/AS4)
+        Note over EU,RINIS: ② OOTS-verzoek&lt;br /&gt;(eDelivery/AS4)
         EU-&gt;&gt;RINIS: Evidence Request (eDelivery/AS4)
     end
 
@@ -598,13 +598,13 @@ sequenceDiagram
     end
 
     rect rgb(230, 241, 251)
-        Note over RINIS,BRG: ⑦ Toestemming burger
-        RINIS-&gt;&gt;BRG: Toestemmingsverzoek
-        BRG-&gt;&gt;RINIS: Toestemming
+        Note over RINIS,BRG: ⑦ Toestemming burger (User Review)
+        RINIS-&gt;&gt;BRG: Tonen te delen gegevens
+        BRG-&gt;&gt;RINIS: Keuze te delen gegevens
     end
 
     rect rgb(230, 241, 251)
-        Note over EU,RINIS: ⑧ Verzenden OOTS-antwoord&lt;br /&gt;(eDelivery/AS4)
+        Note over EU,RINIS: ⑧ OOTS-antwoord&lt;br /&gt;(eDelivery/AS4)
         RINIS-&gt;&gt;EU: Evidence Response
     end
 
@@ -942,8 +942,8 @@ sequenceDiagram
 </table>
 <p><em>Legenda: ⚠️ = nog te realiseren als nieuwe GBO-voorziening.</em></p>
 <h2 id="4-te-ontwikkelen-stelselfuncties">4 Te ontwikkelen stelselfuncties<a class="headerlink" href="#4-te-ontwikkelen-stelselfuncties" title="Permanent link">&para;</a></h2>
-<p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsels en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
-<p>Voor de drie GBO-toepassingen (EDI-Wallet, SDG/OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
+<p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
+<p>Voor de drie toepassingen die in beeld zijn (EDI-Wallet, SDG/OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="41-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">4.1 Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#41-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. FTV biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>

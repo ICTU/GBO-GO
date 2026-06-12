@@ -18,7 +18,9 @@ Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burge
 Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en private dienstverleners.  
 
 <figure>
+``` mermaid
 --8<-- "diagrammen/context-diagram.mmd"
+```
 <figcaption>Figuur 1: Één gestandaardiseerde ontsluiting van overheidsbronnen voor verschillende gegevensstromen.</figcaption>
 </figure>
 
@@ -63,7 +65,9 @@ Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare cred
 GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf attestaties willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.
 
 <figure>
+``` mermaid
 --8<-- "diagrammen/interactiepatroon-EDI-Wallet.mmd"
+```
 <figcaption>Figuur 4: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
 NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
 </figcaption>
@@ -74,7 +78,9 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. BZK heeft RINIS aangewezen als nationaal OOTS-toegangspunt (AS4/eDelivery), waar de OOTS basisinrichting in beheer is. Die verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan de OOTS basisinrichting, waar het bericht in AS4 wordt verpakt.
 
 <figure>
+``` mermaid
 --8<-- "diagrammen/interactiepatroon-SDG-OOTS-verzoek.mmd"
+```
 <figcaption>Figuur 5: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via SDG/OOTS.</figcaption>
 </figure>
 
@@ -87,7 +93,9 @@ Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitslu
 De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent_id en of de gegevensvraag binnen de scope valt. Via het consent_id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als REST- of GraphQL response in het afnemersformaat.
 
 <figure>
+``` mermaid
 --8<-- "diagrammen/interactiepatroon-PP-haalt-gegevens-op.mmd"
+```
 <figcaption>Figuur 3: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
 </figure>
 
@@ -276,7 +284,9 @@ Wat er nog moet worden afgesproken of gerealiseerd:
 Dit hoofdstuk beschrijft de voorgestelde technische bouwstenen van GBO en hun onderlinge relatie. Het onderstaande diagram vormt de basis voor de verdere technische uitwerking.
 
 <figure>
+``` mermaid
 --8<-- "diagrammen/technisch-ontwerp.mmd"
+```
 <figcaption>Figuur 6: Technisch ontwerp GBO stelsel.</figcaption>
 </figure>
 

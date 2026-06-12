@@ -423,16 +423,16 @@
 
 
 <h1 id="globaal-ontwerp-gemeenschappelijke-bronontsluiting-gbo">Globaal Ontwerp Gemeenschappelijke Bronontsluiting (GBO)<a class="headerlink" href="#globaal-ontwerp-gemeenschappelijke-bronontsluiting-gbo" title="Permanent link">&para;</a></h1>
-<p><em>Concept</em></p>
-<p><em>ICTU | April 2026</em></p>
+<p><em>Ter review</em></p>
+<p><em>ICTU | Juni 2026</em></p>
 <blockquote>
-<p>LET OP: Deze versie van het Globaal Ontwerp is nog in ontwikkeling en dient primair voor de discussie en verdere uitwerking van dit ontwerp, de projectstartarchitectuur en het technisch ontwerp. Er kunnen geen rechten aan dit document ontleend worden.</p>
+<p>LET OP: Deze versie van het Globaal Ontwerp is bedoeld om vast te stellen als definitief Globaal Ontwerp. Dat betekent dat deze versie gebruikt kan worden als basis voor de verdere uitwerking in de PSA, het Technisch Ontwerp, de Semantiek en het Requirements document. Als bij die uitwerking keuzes in dit Globaal Ontwerp heroverwogen worden, wordt dat niet doorgevoerd in dit document. De levensduur van dit document is daarom beperkt en er kunnen daarom geen rechten aan dit document ontleend worden.</p>
 </blockquote>
 <h2 id="1-inleiding-en-doel">1 Inleiding en doel<a class="headerlink" href="#1-inleiding-en-doel" title="Permanent link">&para;</a></h2>
 <p>Diverse ontwikkelingen op nationaal (zoals <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/">Regie op Gegevens</a> en <a href="https://www.digitaleoverheid.nl/interbestuurlijke-datastrategie/">IBDS</a>) en Europees vlak (zoals <a href="https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en">SDG</a> en de <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home">EDI-Wallet</a>) maken het noodzakelijk om gegevens uit overheidsbronnen breder en flexibeler te gebruiken. Dit stelt bronhouders voor een uitdaging: zij moeten verschillende gegevensstromen bedienen, elk met eigen protocollen, technologieën en juridische grondslagen.  </p>
 <p>Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burger geïnitieerde gegevensdeling van persoonsgegevens. Hiervoor worden stelselfuncties gerealiseerd die overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar maken voor drie typen afnemers:<br />
 - Burgers via het EDI-Stelsel (EDI-Wallet).<br />
-- Europese overheden via het Single Digital Gateway/Once Only Technical System (SDG/OOTS).<br />
+- Europese overheden via het Once Only Technical System (OOTS, in het kader van de Single Digital Gateway verordening).<br />
 -   Private dienstverleners op basis van burgertoestemming (DvTP - Delen via toestemming met private dienstverleners).  </p>
 <p>Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en private dienstverleners.  </p>
 <figure>
@@ -464,10 +464,10 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
 <h3 id="globaal-ontwerp">Globaal ontwerp<a class="headerlink" href="#globaal-ontwerp" title="Permanent link">&para;</a></h3>
 <p>In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:</p>
 <ul>
-<li>Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen.  </li>
+<li>Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselfuncties.  </li>
 <li>Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  </li>
-<li>Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.).  </li>
-<li>Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  </li>
+<li>Semantiek: informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL schemas, etc.).  </li>
+<li>Requirements: een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  </li>
 </ul>
 <h3 id="uitgangspunten">Uitgangspunten<a class="headerlink" href="#uitgangspunten" title="Permanent link">&para;</a></h3>
 <ul>
@@ -492,21 +492,20 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
     participant VerifDienst as Verificatie-&lt;br/&gt;dienst
     participant Auth as Autorisatie&lt;br/&gt;voorziening
     participant Bron as Overheids-&lt;br/&gt;bron
-    participant DV as Dienst-&lt;br/&gt;verlener
 
     Note over Burger,Bron: Stroom A — PuB-EAA: overheidsinstantie geeft attribuut rechtstreeks uit
 
     rect rgb(225, 245, 238)
-        Burger-&gt;&gt;Wallet: Vraag attribuut op (OpenID4VCI initiate)
-        Wallet-&gt;&gt;PubEAA: Credential Request (OpenID4VCI)
+        Burger-&gt;&gt;Wallet: Vraag attribuut op
+        Wallet-&gt;&gt;PubEAA: Credential Request
         Note over PubEAA: PuB-EAA voorziening: aangeboden&lt;br/&gt;door bron zelf óf centraal via GBO
         PubEAA-&gt;&gt;Auth: Autorisatieverzoek
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID
-        Wallet-&gt;&gt;Auth: Authenticatie / consent (OpenID4VP met PID / eID)
+        Wallet-&gt;&gt;Auth: Authenticatie / consent (incl.PID / eID)
         Auth-&gt;&gt;PubEAA: Autorisatie (incl. identificatie burger)
-        PubEAA-&gt;&gt;Bron: Bevraag bron (met access token)
+        PubEAA-&gt;&gt;Bron: Bevraag bron
         Bron--&gt;&gt;PubEAA: Attribuutgegevens
         PubEAA-&gt;&gt;PubEAA: Kwalificeer attribuutgegevens
         PubEAA--&gt;&gt;Wallet: PuB-EAA credential
@@ -524,7 +523,7 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID
-        Wallet-&gt;&gt;Auth: Authenticatie / consent (OpenID4VP met PID / eID)
+        Wallet-&gt;&gt;Auth: Authenticatie / consent (met PID / eID)
         Auth-&gt;&gt;VerifDienst: Autorisatie (incl. identificatie burger)
         VerifDienst-&gt;&gt;Bron: Bevraag bron
         Bron--&gt;&gt;VerifDienst: Attribuutgegevens
@@ -533,14 +532,6 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
         QTSP-&gt;&gt;QTSP: Issue QEAA
         QTSP--&gt;&gt;Wallet: QEAA attestatie
         Wallet--&gt;&gt;Burger: QEAA opgeslagen in wallet
-    end
-
-    Note over Burger,DV: Gebruik — burger deelt attestatie met dienstverlener
-
-    rect rgb(250, 238, 218)
-        Burger-&gt;&gt;DV: Deel attestatie (OpenID4VP)
-        DV-&gt;&gt;DV: Controleer attestatie
-        Note over DV: PuB-EAA of QEAA,&lt;br/&gt;gelijke juridische status (eIDAS 2.0)
     end</div>
 <figcaption>Figuur 4: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
 NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
@@ -632,13 +623,15 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
         DV-&gt;&gt;Burger: Redirect naar toestemmingsvoorziening GBO&lt;br/&gt;(met scope + doelbinding)
         Burger-&gt;&gt;TV: Volgt redirect
         TV-&gt;&gt;Auth: Authenticatieverzoek
-        Note over Auth: DigiD óf EDI-Wallet (eIDAS 2.0)
+        Note over Auth: DigiD of ander identificatiemiddel (eIDAS 2.0)
         Auth-&gt;&gt;Burger: Authenticeer burger
         Burger--&gt;&gt;Auth: Authenticatie
         Auth--&gt;&gt;TV: BSN (geverifieerde identiteit)
+        TV-&gt;&gt;TV: PI/PP aanwezig?
         TV-&gt;&gt;PP: Activeer BSN
-        PP-&gt;&gt;PP: Genereert PI/PP
-        TV-&gt;&gt;PP: Transformeer BSN
+        PP-&gt;&gt;TV: PI/PP
+        TV-&gt;&gt;TV: Registreer PI/PP
+        TV-&gt;&gt;PP: Transformeer PI/PP
         PP--&gt;&gt;TV: Versleutelde PI/PP (VI/VP)
         TV-&gt;&gt;Burger: Toon gegevens waarvoor toestemming&lt;br/&gt;gevraagd wordt (scope + doelbinding)
         Burger--&gt;&gt;TV: Verleent toestemming

@@ -15,13 +15,15 @@ sequenceDiagram
         DV->>Burger: Redirect naar toestemmingsvoorziening GBO<br/>(met scope + doelbinding)
         Burger->>TV: Volgt redirect
         TV->>Auth: Authenticatieverzoek
-        Note over Auth: DigiD óf EDI-Wallet (eIDAS 2.0)
+        Note over Auth: DigiD of ander identificatiemiddel (eIDAS 2.0)
         Auth->>Burger: Authenticeer burger
         Burger-->>Auth: Authenticatie
         Auth-->>TV: BSN (geverifieerde identiteit)
+        TV->>TV: PI/PP aanwezig?
         TV->>PP: Activeer BSN
-        PP->>PP: Genereert PI/PP
-        TV->>PP: Transformeer BSN
+        PP->>TV: PI/PP
+        TV->>TV: Registreer PI/PP
+        TV->>PP: Transformeer PI/PP
         PP-->>TV: Versleutelde PI/PP (VI/VP)
         TV->>Burger: Toon gegevens waarvoor toestemming<br/>gevraagd wordt (scope + doelbinding)
         Burger-->>TV: Verleent toestemming

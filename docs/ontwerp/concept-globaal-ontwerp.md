@@ -68,7 +68,7 @@ GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgeven
 ``` mermaid
 --8<-- "diagrammen/interactiepatroon-EDI-Wallet.mmd"
 ```
-<figcaption>Figuur 4: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
+<figcaption>Figuur 2: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
 NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
 </figcaption>
 </figure>
@@ -81,7 +81,7 @@ Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request vo
 ``` mermaid
 --8<-- "diagrammen/interactiepatroon-SDG-OOTS-verzoek.mmd"
 ```
-<figcaption>Figuur 5: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via SDG/OOTS.</figcaption>
+<figcaption>Figuur 3: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via SDG/OOTS.</figcaption>
 </figure>
 
 Het voordeel voor bronhouders is dat ze met GBO hun gegevens met één implementatie kunnen ontsluiten voor DvTP, EDI en SDG-OOTS. Voor afnemers van gegevens is het voordeel dat ze op een uniforme wijze diensten kunnen aanroepen en gegevensbronnen kunnen benaderen in termen van identificatie, authenticatie, connectiviteit, diensten, autorisatie en toegang.
@@ -96,7 +96,7 @@ De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens
 ``` mermaid
 --8<-- "diagrammen/interactiepatroon-PP-haalt-gegevens-op.mmd"
 ```
-<figcaption>Figuur 3: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
+<figcaption>Figuur 4: interactiepatroon DvTP (dienstverlener is een private partij).</figcaption>
 </figure>
 
 
@@ -287,7 +287,7 @@ Dit hoofdstuk beschrijft de voorgestelde technische bouwstenen van GBO en hun on
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
-<figcaption>Figuur 6: Ontwerp GBO componenten.</figcaption>
+<figcaption>Figuur 5: Ontwerp GBO componenten.</figcaption>
 </figure>
 
 ### 5.1 Bouwstenen en hun rol

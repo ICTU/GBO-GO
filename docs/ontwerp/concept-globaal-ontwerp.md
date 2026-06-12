@@ -1,10 +1,10 @@
 # Globaal Ontwerp Gemeenschappelijke Bronontsluiting (GBO)
 
-_Concept_
+_Ter review_
 
-_ICTU | April 2026_
+_ICTU | Juni 2026_
 
-> LET OP: Deze versie van het Globaal Ontwerp is nog in ontwikkeling en dient primair voor de discussie en verdere uitwerking van dit ontwerp, de projectstartarchitectuur en het technisch ontwerp. Er kunnen geen rechten aan dit document ontleend worden.
+> LET OP: Deze versie van het Globaal Ontwerp is bedoeld om vast te stellen als definitief Globaal Ontwerp. Dat betekent dat deze versie gebruikt kan worden als basis voor de verdere uitwerking in de PSA, het Technisch Ontwerp, de Semantiek en het Requirements document. Als bij die uitwerking keuzes in dit Globaal Ontwerp heroverwogen worden, wordt dat niet doorgevoerd in dit document. De levensduur van dit document is daarom beperkt en er kunnen daarom geen rechten aan dit document ontleend worden.
 
 ## 1 Inleiding en doel
 
@@ -12,7 +12,7 @@ Diverse ontwikkelingen op nationaal (zoals [Regie op Gegevens](https://www.digit
 
 Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burger geïnitieerde gegevensdeling van persoonsgegevens. Hiervoor worden stelselfuncties gerealiseerd die overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar maken voor drie typen afnemers:  
 - Burgers via het EDI-Stelsel (EDI-Wallet).  
-- Europese overheden via het Single Digital Gateway/Once Only Technical System (SDG/OOTS).  
+- Europese overheden via het Once Only Technical System (OOTS, in het kader van de Single Digital Gateway verordening).  
 -	Private dienstverleners op basis van burgertoestemming (DvTP - Delen via toestemming met private dienstverleners).  
 
 Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, SDG/OOTS en private dienstverleners.  
@@ -40,10 +40,10 @@ De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. 
 
 In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
 
-- Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselvoorzieningen.  
+- Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselfuncties.  
 - Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  
-- Informatiemodellen en begrippenkaders (nog niet beschikbaar): informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL-queries, etc.).  
-- Requirements (nog niet beschikbaar): een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  
+- Semantiek: informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL schemas, etc.).  
+- Requirements: een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  
 
 ### Uitgangspunten
 

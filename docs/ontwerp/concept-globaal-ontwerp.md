@@ -32,7 +32,7 @@ Het doel van GBO is om interoperabiliteit en hergebruik bij deze gegevensuitwiss
 
 GBO wordt geen nieuw, losstaand stelsel. De gerealiseerde stelselfuncties worden zoveel mogelijk geborgd binnen bestaande landelijke afsprakenstelsels, zoals het Federatief Datastelsel (FDS) en de Generieke Digitale Infrastructuur (GDI) voor de overheid, en binnen publiek-private afsprakenstelsels, zoals Trusted Information Partners (TIP), voor de uitwisseling met private dienstverleners.  
 GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG.
-> In dit document wordt nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden.  
+> In dit document wordt op enkele plekken nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden.  
 
 De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  
 
@@ -285,9 +285,9 @@ Dit hoofdstuk beschrijft de voorgestelde technische bouwstenen van GBO en hun on
 
 <figure>
 ``` mermaid
---8<-- "diagrammen/technisch-ontwerp.mmd"
+--8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
-<figcaption>Figuur 6: Technisch ontwerp GBO stelsel.</figcaption>
+<figcaption>Figuur 6: Ontwerp GBO componenten.</figcaption>
 </figure>
 
 ### 5.1 Bouwstenen en hun rol

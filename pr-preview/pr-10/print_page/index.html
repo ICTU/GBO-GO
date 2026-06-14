@@ -332,17 +332,20 @@
             </div>
         </section>
         <section class="print-page" id="ontwerp-concept-globaal-ontwerp"><h1 id="ontwerp-concept-globaal-ontwerp-globaal-ontwerp-gemeenschappelijke-bronontsluiting-gbo">Globaal Ontwerp Gemeenschappelijke Bronontsluiting (GBO)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-globaal-ontwerp-gemeenschappelijke-bronontsluiting-gbo" title="Permanent link">&para;</a></h1>
-<p><em>Ter review</em></p>
 <p><em>ICTU | Juni 2026</em></p>
 <blockquote>
 <p>LET OP: Deze versie van het Globaal Ontwerp is bedoeld om vast te stellen als definitief Globaal Ontwerp. Dat betekent dat deze versie gebruikt kan worden als basis voor de verdere uitwerking in de PSA, het Technisch Ontwerp, de Semantiek en het Requirements document. Als bij die uitwerking keuzes in dit Globaal Ontwerp heroverwogen worden, wordt dat niet doorgevoerd in dit document. De levensduur van dit document is daarom beperkt en er kunnen daarom geen rechten aan dit document ontleend worden.</p>
 </blockquote>
 <h2 id="ontwerp-concept-globaal-ontwerp-1-inleiding-en-doel">1 Inleiding en doel<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-1-inleiding-en-doel" title="Permanent link">&para;</a></h2>
-<p>Diverse ontwikkelingen op nationaal (zoals <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/">Regie op Gegevens</a> en <a href="https://www.digitaleoverheid.nl/interbestuurlijke-datastrategie/">IBDS</a>) en Europees vlak (zoals <a href="https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en">SDG</a> en de <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home">EDI-Wallet</a>) maken het noodzakelijk om gegevens uit overheidsbronnen breder en flexibeler te gebruiken. Dit stelt bronhouders voor een uitdaging: zij moeten verschillende gegevensstromen bedienen, elk met eigen protocollen, technologieën en juridische grondslagen.  </p>
+<p>Diverse ontwikkelingen op nationaal (zoals <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/regie-op-gegevens/">Regie op Gegevens</a> en <a href="https://www.digitaleoverheid.nl/interbestuurlijke-datastrategie/">IBDS</a>) en Europees vlak (zoals <a href="https://single-market-economy.ec.europa.eu/single-market/single-digital-gateway_en">SDG</a> en de <a href="https://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=OJ:L_202401183">EUDI</a>) maken het noodzakelijk om gegevens uit overheidsbronnen breder en flexibeler te gebruiken. Dit stelt bronhouders voor een uitdaging: zij moeten verschillende gegevensstromen bedienen, elk met eigen protocollen, technologieën en juridische grondslagen.  </p>
 <p>Het project Gemeenschappelijke Bronontsluiting (GBO) richt zich op door de burger geïnitieerde gegevensdeling van persoonsgegevens. Hiervoor worden stelselfuncties gerealiseerd die overheidsgegevens op een interoperabele, veilige, gecontroleerde en privacybeschermende manier beschikbaar maken voor drie typen afnemers:<br />
 - Burgers via het EDI-Stelsel (EDI-Wallet).<br />
 - Europese overheden via het Once Only Technical System (OOTS, in het kader van de Single Digital Gateway verordening).<br />
 -   Private dienstverleners op basis van burgertoestemming (DvTP - Delen via toestemming met private dienstverleners).  </p>
+<p>De primaire focus van GBO is op burger-geïnitieerde gegevensdeling. De generieke functies die GBO realiseert zijn echter breder toepasbaar, bijvoorbeeld voor overheids-overheidsuitwisseling (publiek-publiek). De toepassing voor die bredere context valt buiten de scope van de huidige uitwerking en wordt in een latere fase opgepakt. Waar het ontwerp spreekt over "overheidspartijen als afnemers" betreft dit de Europese OOTS-context; binnenlandse publiek-publiek toepassingen zijn een aangrenzend vraagstuk.</p>
+<blockquote>
+<p><strong>Aandachtspunt</strong> Het huidige ontwerp gaat uit van een handelingsbekwame individuele burger. Situaties als vertegenwoordiging, bewind of curatele zijn buiten scope voor deze versie, maar worden erkend als een noodzakelijke uitbreiding in een volgende fase.</p>
+</blockquote>
 <p>Met de GBO wordt één gestandaardiseerde ontsluiting gerealiseerd waarmee bronhouders hun gegevens direct interoperabel en herbruikbaar beschikbaar stellen voor de EDI-wallet, OOTS en private dienstverleners.  </p>
 <figure>
 <div class="mermaid">flowchart LR
@@ -360,15 +363,18 @@ DvTP --&gt; Privaat</div>
 <figcaption>Figuur 1: Één gestandaardiseerde ontsluiting van overheidsbronnen voor verschillende gegevensstromen.</figcaption>
 </figure>
 
+<blockquote>
+<p><strong>Bronhouder en data-aanbieder</strong> In dit document wordt "bronhouder" gebruikt als overkoepelende term voor de verwerkingsverantwoordelijke van een gegevensbron. Het FDS maakt onderscheid tussen bronhouders (verwerkingsverantwoordelijken) en data-aanbieders (de partij die namens de bronhouder de gegevens technisch ontsluit). Dat onderscheid is relevant voor de technische en organisatorische inrichting en wordt nader uitgewerkt in de realisatiestrategie en het requirements-document. Tot die tijd worden data-aanbieders in dit document beschouwd als vertegenwoordiger van de bronhouder.</p>
+</blockquote>
 <h3 id="ontwerp-concept-globaal-ontwerp-doel">Doel<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-doel" title="Permanent link">&para;</a></h3>
 <p>Het doel van GBO is om interoperabiliteit en hergebruik bij deze gegevensuitwisselingen te bevorderen en op die manier de implementatielast bij partijen - zowel bronhouders als afnemers - te verlagen. Dit zowel bij gegevensuitwisselingen tussen overheidspartijen als tussen overheid en private dienstverleners.  </p>
 <h3 id="ontwerp-concept-globaal-ontwerp-maximaal-borgen-in-bestaande-afsprakenstelsels">Maximaal borgen in bestaande afsprakenstelsels<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-maximaal-borgen-in-bestaande-afsprakenstelsels" title="Permanent link">&para;</a></h3>
 <p>GBO wordt geen nieuw, losstaand stelsel. De gerealiseerde stelselfuncties worden zoveel mogelijk geborgd binnen bestaande landelijke afsprakenstelsels, zoals het Federatief Datastelsel (FDS) en de Generieke Digitale Infrastructuur (GDI) voor de overheid, en binnen publiek-private afsprakenstelsels, zoals Trusted Information Partners (TIP), voor de uitwisseling met private dienstverleners.<br />
-GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en SDG.</p>
+GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en voorzieningen die nodig zijn voor de gestandaardiseerde ontsluiting. Gaandeweg zal blijken of er nog onderdelen zijn die niet binnen bestaande stelsels passen en waar aanvullende invulling nodig is. Waar GBO behoefte signaleert aan functionaliteit die nog niet in bestaande afsprakenstelsels beschikbaar is, wordt dit primair als wijzigingsbehoefte ingebracht bij de beheerders van die stelsels — zodat deze volwassener worden en GBO hiermee in lijn blijft. Tijdelijke GBO-oplossingen worden expliciet als zodanig gemarkeerd, inclusief een pad richting structurele inbedding. Daarnaast worden relevante inzichten en feedback teruggekoppeld naar de verdere ontwikkeling van EDI en OOTS.</p>
 <blockquote>
-<p>In dit document wordt op enkele plekken nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden.  </p>
+<p>In dit document wordt op enkele plekken nog gesproken over een GBO-stelsel en GBO-voorzieningen, maar dat is enkel om het stuk leesbaar te houden.</p>
 </blockquote>
-<p>De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. Zolang deze nog niet in werking zijn getreden, loopt de ontwikkeling van de GBO en de wetgevingstrajecten parallel aan elkaar.  </p>
+<p>De juridische basis wordt gevormd door wettelijke kaders en lagere regelgeving. De voornaamste kaders zijn de Wet digitale overheid (Wdo), de benodigde AMvB's voor DvTP, en de AVG. Zolang deze nog niet volledig in werking zijn getreden, loopt de ontwikkeling van GBO en de wetgevingstrajecten parallel aan elkaar. Onderdelen die nu al juridisch gedekt zijn (zoals de OOTS-verplichting en de eIDAS2-verplichting voor PuB-EAA) worden als zodanig in de uitwerking gemarkeerd. De verantwoordelijkheidsverdeling tussen GBO-componenten (onder verantwoordelijkheid van BZK, bronhouder, of aanbieder) wordt nader uitgewerkt in de realisatiestrategie.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-globaal-ontwerp">Globaal ontwerp<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-globaal-ontwerp" title="Permanent link">&para;</a></h3>
 <p>In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:</p>
 <ul>
@@ -380,16 +386,25 @@ GBO breidt deze bestaande stelsels gericht uit met de afspraken, standaarden en 
 <h3 id="ontwerp-concept-globaal-ontwerp-uitgangspunten">Uitgangspunten<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-uitgangspunten" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Europees interoperabel: Europese afspraken en standaarden (o.a. EIF, eIDAS, OOTS en EUDI) en de Nederlandse invulling hiervan, zoals de NL-Wallet en het centrale Nederlandse OOTS-toegangspunt.  </li>
-<li>Federatief Datastelsel (FDS): Relevante en toepasbare FDS-afspraken en standaarden, zoals FSC en FTV voor gefedereerde connectiviteit en toegang.  </li>
+<li>Federatief Datastelsel (FDS): Relevante en toepasbare FDS-afspraken en standaarden, zoals FSC en FTV voor gefedereerde connectiviteit en toegang, voor publiek-publieke bronontsluiting.  </li>
 <li>Generieke Digitale Infrastructuur (GDI): Relevante en toepasbare GDI-afspraken, standaarden en voorzieningen, zoals DigiD en het BSN-koppelregister voor polymorfe pseudoniemen (BSNk PP).  </li>
 <li>Beleidsgedreven autorisatie (PBAC): PBAC-architectuur voor autorisatie en toegang.  </li>
-<li>Waardengedreven inrichting: De organisatorische en technische inrichting is gebaseerd op publieke waarden en op het principe van een gelijk speelveld bij de rollen en verantwoordelijkheden.  </li>
+<li>Waardegedreven inrichting: De organisatorische en technische inrichting is gebaseerd op publieke waarden en op het principe van een gelijk speelveld bij de rollen en verantwoordelijkheden.  </li>
 </ul>
 <h2 id="ontwerp-concept-globaal-ontwerp-2-interactiepatronen">2 Interactiepatronen<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-2-interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-21-patroon-a-burger-gebruikt-edi-wallet">2.1 Patroon A - burger gebruikt EDI-Wallet<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-21-patroon-a-burger-gebruikt-edi-wallet" title="Permanent link">&para;</a></h3>
 <p>Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.</p>
-<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die zelf attestaties willen uitreiken of verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
+<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die attestaties willen verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
+<p>Voor attestatie-uitgifte via een QTSP (QEAA) zijn twee varianten mogelijk:</p>
+<ol>
+<li><strong>Burger contracteert QTSP:</strong> de burger levert attributen aan bij de QTSP, waarna de QTSP verifieert bij de verificatiedienst van de bronhouder of de aangewezen intermediair. Deze variant moet door bronhouders ondersteund worden en hiervoor wil GBO een centrale verify-dienst beschikbaarstellen.  </li>
+<li><strong>Bronhouder contracteert QTSP:</strong> de bronhouder verwijst de burger naar de QTSP, waarna de QTSP de attributen ophaalt bij de retrieval-dienst van de bronhouder of de aangewezen intermediair. Er is geen wettelijke verplichting voor bronnen om dit te ondersteunen, maar een retrieval-dienst kan functioneel dezelfde implementatie (Authentic Source Interface provider) gebruiken als stroom B (verify-dienst).  </li>
+</ol>
+<p>De attribuutcatalogus die de Europese Commissie op basis van OOTS Common Services implementeert is relevant voor zowel PuB-EAA als QEAA: GBO wil vanuit de semantiek-uitwerking aansluiten bij deze catalogus voor de definitie van attributen, informatiemodellen en endpoints.</p>
+<blockquote>
+<p><strong>Afstemming lopend:</strong> Over de keuze tussen Pub-EAA-uitgifte door overheidsbronnen en attestatie via een QTSP loopt nog afstemming binnen het programma EDI-stelsel. GBO positioneert beide varianten als ondersteund; de governance-keuze wordt extern belegd.</p>
+</blockquote>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -448,6 +463,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 
 <h3 id="ontwerp-concept-globaal-ontwerp-22-patroon-b-grensoverschrijdend-verzoek-via-oots">2.2 Patroon B - grensoverschrijdend verzoek via OOTS<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-22-patroon-b-grensoverschrijdend-verzoek-via-oots" title="Permanent link">&para;</a></h3>
 <p>Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. BZK heeft RINIS aangewezen als nationaal OOTS-toegangspunt (AS4/eDelivery), waar de OOTS basisinrichting in beheer is. Die verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan de OOTS basisinrichting, waar het bericht in AS4 wordt verpakt.</p>
+<p>De cross-border uitwisseling tussen nationale OOTS-aansluitpunten sluit aan bij de TIP-basisfunctie <em>Delivering messages</em> (elektronisch aangetekende bezorging), die het juridische en technische kader biedt voor betrouwbare beveiligde berichtuitwisseling tussen organisaties in verschillende lidstaten. Dit is echter buiten scope van GBO: de afhandeling van de OOTS-berichten gebeurt via de OOTS basisinrichting, waar GBO op aansluit.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -509,10 +525,17 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <figcaption>Figuur 3: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via OOTS.</figcaption>
 </figure>
 
-<p>Het voordeel voor bronhouders is dat ze met GBO hun gegevens met één implementatie kunnen ontsluiten voor DvTP, EDI en OOTS. Voor afnemers van gegevens is het voordeel dat ze op een uniforme wijze diensten kunnen aanroepen en gegevensbronnen kunnen benaderen in termen van identificatie, authenticatie, connectiviteit, diensten, autorisatie en toegang.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-23-patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp">2.3 Patroon C - gegevensverzoek van private dienstverlener (DvTP)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-23-patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp" title="Permanent link">&para;</a></h3>
-<p>Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitsluitend op basis van een geldige juridische grondslag. In het geval van DvTP is dit een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners. De burger authenticeert zich via DigiD of een ander eIDAS authenticatiemiddel op het vereiste betrouwbaarheidsniveau en geeft geïnformeerde toestemming voor een specifiek doel, een specifieke afnemer en een specifieke set gegevens. GBO registreert de toestemming in een toestemmingenregister, levert een consent-id aan de private dienstverlener, valideert deze op het moment van uitvraag real-time, en zorgt dat het BSN de private dienstverlener nooit bereikt - in de plaats daarvan ontvangt de afnemer een partijspecifiek pseudoniem.</p>
-<p>De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent_id en of de gegevensvraag binnen de scope valt. Via het consent_id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als REST- of GraphQL response in het afnemersformaat.</p>
+<p>Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitsluitend op basis van een geldige juridische grondslag. In het geval van DvTP is dit een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners. De burger authenticeert zich met een eIDAS authenticatiemiddel op het vereiste betrouwbaarheidsniveau en geeft geïnformeerde toestemming voor een specifiek doel, een specifieke afnemer en een specifieke set gegevens. GBO registreert de toestemming in een toestemmingenregister, levert een consent-id aan de private dienstverlener, valideert deze op het moment van uitvraag real-time, en zorgt dat het BSN de private dienstverlener nooit bereikt - in de plaats daarvan ontvangt de afnemer een partijspecifiek pseudoniem.</p>
+<p>De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent_id en of de gegevensvraag binnen de scope valt. Via het consent_id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als response in het afnemersformaat.</p>
+<p>GBO kiest voor een <strong>centraal toestemmingenregister</strong> als kern van dit patroon. Decentrale alternatieven (zoals toestemmingsregistratie per bronhouder) zijn overwogen, maar het centrale model heeft doorslaggevende voordelen:</p>
+<ul>
+<li><strong>Kostenbesparing:</strong> éénmalig inrichten en beheren is goedkoper dan dat iedere bronhouder dit zelf regelt.</li>
+<li><strong>Herkenbaarheid voor de burger:</strong> een centrale voorziening biedt de burger telkens dezelfde ervaring, wat herkenning en vertrouwen opbouwt.</li>
+<li><strong>Inzage voor de burger:</strong> met een centrale voorziening is het aanzienlijk eenvoudiger om de burger inzage te geven in al zijn toestemmingen via het Toestemmingsportaal.</li>
+<li><strong>Eén keer toestemmen:</strong> de burger kan in één handeling toestemming geven voor een set gegevens die mogelijk uit meerdere bronnen afkomstig zijn. Bij decentrale registratie per bron zou de burger voor elke bron apart moeten toestemmen.</li>
+</ul>
+<p>Het Toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en de mogelijkheid toestemming in te trekken.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -586,7 +609,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </tr>
 <tr>
 <td>S04 — Organisatie-authenticatie &amp; Vertrouwensstelsel</td>
-<td>FDS Poortwachter/Marktmeester beschikbaar</td>
+<td>FDS Poortwachter/Marktmeester uitgewerkt als concept; feitelijke beschikbaarheid en GBO-toepassing nog te bepalen</td>
 <td>GBO-aansluitvoorwaarden; KvK↔OIN↔eIDAS-koppeling</td>
 </tr>
 </tbody>
@@ -626,7 +649,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </tbody>
 </table>
 <h3 id="ontwerp-concept-globaal-ontwerp-33-f3-gegevensvoorziening">3.3 F3 — Gegevensvoorziening<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-33-f3-gegevensvoorziening" title="Permanent link">&para;</a></h3>
-<p><em>Generieke bronontsluiting API; REST/GraphQL; service directory; lokalisatie; selectieve bevraging; OOTS-adapter (Basisinrichting OOTS); SD-JWT VC; mdocs.</em></p>
+<p><em>Generieke bronontsluiting API; GraphQL als gewenst protocol; service directory; lokalisatie; selectieve bevraging; OOTS-adapter (Basisinrichting OOTS); SD-JWT VC; mdocs.</em></p>
 <p>Van toepassing op: alle drie patronen.</p>
 <table>
 <thead>
@@ -655,8 +678,8 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </tbody>
 </table>
 <h3 id="ontwerp-concept-globaal-ontwerp-34-f4-semantiek-eenheid-van-taal">3.4 F4 — Semantiek &amp; Eenheid van Taal<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-34-f4-semantiek-eenheid-van-taal" title="Permanent link">&para;</a></h3>
-<p><em>GBO werkt vanuit een canoniek informatiemodel en een gedeeld begrippenkader naar RDF, SKOS voor verankering van semantiek. Waar nodig canonieke mapping GBO-onderdelen, zoals via SDG-EDM, VC-schema en JSON.</em></p>
-<p>Van toepassing op: EDI-Wallet (attestatieschema's), OOTS (SDG-evidencetype) en DvTP.</p>
+<p><em>GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB. Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF, SKOS. Waar nodig canonieke mapping GBO-onderdelen, zoals via SDG-EDM, VC-schema en JSON.</em></p>
+<p>Van toepassing op: aale drie patronen.</p>
 <table>
 <thead>
 <tr>
@@ -669,12 +692,12 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <tr>
 <td>S10 — Semantiek &amp; Gegevenscatalogus</td>
 <td>Nog te realiseren ⚠️</td>
-<td>GBO-canonieke definities per bronhouder en generiek; mapping tussen GraphQL- en SDG-formaten, attestatieschema's en GraphQL</td>
+<td>GBO-canonieke definities per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; mapping tussen GraphQL- en SDG-formaten en attestatieschema's</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ontwerp-concept-globaal-ontwerp-35-f5-gegevenskwaliteit-validatie">3.5 F5 — Gegevenskwaliteit &amp; Validatie<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-35-f5-gegevenskwaliteit-validatie" title="Permanent link">&para;</a></h3>
-<p><em>SHACL-validatie; herkomstregistratie (W3C PROV-O), datakwaliteitsmeting; feedbackloops naar bronhouders en vastlegging via DCAT-AP NL.</em></p>
+<p><em>SHACL-validatie; herkomstregistratie (W3C PROV-O); datakwaliteitsmeting conform het NORA Kwaliteitsraamwerk in combinatie met W3C DQV (Data Quality Vocabulary); feedbackloops naar bronhouders en vastlegging via DCAT-AP NL.</em></p>
 <p>Van toepassing op: alle drie patronen.</p>
 <table>
 <thead>
@@ -688,7 +711,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <tr>
 <td>S10 — Semantiek &amp; Gegevenscatalogus</td>
 <td>Nog te realiseren ⚠️</td>
-<td>Validatieprofielen (SHACL) per dataset; herkomstregistratie, datakwaliteitsmeting; feedbackproces richting bronhouders en vastlegging via DCAT-AP NL</td>
+<td>Validatieprofielen (SHACL) per dataset; herkomstregistratie; datakwaliteitsmeting conform NORA Kwaliteitsraamwerk en W3C DQV; feedbackproces richting bronhouders en vastlegging via DCAT-AP NL</td>
 </tr>
 </tbody>
 </table>
@@ -794,7 +817,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <tr>
 <td>S04 — Organisatie-authenticatie &amp; Vertrouwensstelsel</td>
 <td>F1</td>
-<td>FDS Poortwachter/Marktmeester beschikbaar</td>
+<td>FDS Poortwachter/Marktmeester uitgewerkt als concept; GBO-toepassing nog te bepalen</td>
 </tr>
 <tr>
 <td>S05 — Autorisatie (PEP/PDP/PIP)</td>
@@ -845,17 +868,17 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <li>Een <strong>toestemmingsportaal</strong> voor de burger: een overheidsgerichte UI voor het geven, inzien en intrekken van toestemming, gekoppeld aan het toestemmingenregister.</li>
 <li>Een <strong>toestemmingenregister</strong> als machineleesbare centrale voorziening, waarbij toestemming gekoppeld is aan doel, afnemer en gegevensset (doelbinding), intrekking onmiddellijk effect heeft. Het register is als PIP real-time raadpleegbaar is door de autorisatieketen.</li>
 <li>Een <strong>PEP/PDP/PIP-keten</strong> op basis van AuthZEN en OPA/Rego, als concrete invulling van het FTV-autorisatieraamwerk voor GBO-toepassingen. Policies worden centraal beheerd via een PAP en gedistribueerd naar decentrale PDP-instanties per bronhouder.</li>
-<li>Een <strong>PAP (Policy Administration Point)</strong> als centraal GBO-component voor het beheren en distribueren van gesigneerde OPA/Rego-policy-bundles. Dit is tevens het bestuurlijk gezagspunt van het stelsel: het bepaalt wat iedere deelnemer mag. Er is een expliciete governance-afspraak nodig over wie policies mag opstellen, wijzigen en goedkeuren.</li>
+<li>Een <strong>PAP (Policy Administration Point)</strong> als centraal GBO-component voor het beheren en distribueren van gesigneerde OPA/Rego-policy-bundles. Dit is tevens het bestuurlijk gezagspunt van het stelsel: het bepaalt wat iedere deelnemer mag. Er is een expliciete governance-afspraak nodig over wie policies mag opstellen, wijzigen en goedkeuren. Beleidsregels worden beschreven in ODRL als machineleesbare representatielaag, aansluitend op de toepassing van ODRL in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).</li>
 </ul>
 <p><em>Juridische randvoorwaarde: toestemming als afdwingbare grondslag is pas operationeel na inwerkingtreding van de daarvoor benodigde wet- en regelgeving. De technische uitwerking loopt parallel aan het wetgevingstraject.</em></p>
 <h3 id="ontwerp-concept-globaal-ontwerp-42-graphql-als-selectief-bevragingsmechanisme">4.2 GraphQL als selectief bevragingsmechanisme<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-42-graphql-als-selectief-bevragingsmechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST API Design Rules). REST ondersteunt selectieve gegevensuitvraag op veldniveau structureel niet: een afnemer ontvangt de volledige dataset die het endpoint retourneert, ook als slechts een deel van de velden nodig is. Dataminimalisatie is daarmee afhankelijk van afspraken en implementatiekeuzes, niet structureel ingebouwd.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
-<li><strong>Positionering van GraphQL als FDS-datadienst-type</strong>: GBO introduceert GraphQL als aanvullend bevragingsmechanisme naast REST, waarbij dataminimalisatie structureel is ingebouwd. Dit vergt een formeel wijzigingsvoorstel richting FDS. GraphQL is in productie bewezen bij het iWlz-afsprakenstelsel en is compatibel met FSC Inway/Outway.</li>
-<li>Een <strong>Query Template Registry</strong>: een centrale catalogus van vooraf geregistreerde en afdwingbare gegevensvragen per use case. Afnemers kunnen alleen opvragen wat voor hun specifieke toepassing is geregistreerd.</li>
-<li>Een <strong>GBO-vertaallaag</strong> voor bronhouders die geen eigen GraphQL-implementatie willen of kunnen realiseren, zodat zij via een centraal geleverde adapter toch via GraphQL ontsluitbaar zijn.</li>
-<li><strong>Uitbreiding van DCAT-AP NL</strong> met GBO-specifieke velden voor trajectactivatie en query-templateregistratie (voortbouwend op de bestaande FDS-verplichting).</li>
+<li><strong>Positionering van GraphQL als FDS-datadienst-type</strong>: GBO introduceert GraphQL als aanvullend bevragingsmechanisme naast REST, waarbij dataminimalisatie structureel is ingebouwd. GraphQL is in productie bewezen bij het iWlz-afsprakenstelsel en is compatibel met FSC Inway/Outway. Formele standaardisatie van GraphQL als FDS-datadienst-type vergt een wijzigingsvoorstel via Forum Standaardisatie en Digikoppeling. In de pilots wordt al ervaring opgedaan met GraphQL.</li>
+<li>Een <strong>GBO-vertaallaag</strong> voor bronhouders die geen eigen GraphQL-implementatie willen of kunnen realiseren. Bronhouders die een REST API aanbieden kunnen via de GBO-vertaallaag toch ontsloten worden als GraphQL-bron. Bronhouders worden dus niet gedwongen GraphQL zelf te implementeren.</li>
+<li>Een <strong>Query Template Registry</strong>: een centrale catalogus van vooraf geregistreerde en afdwingbare gegevensvragen per use case. Afnemers kunnen alleen opvragen wat voor hun specifieke toepassing is geregistreerd. De Query Templates worden centraal beheerd als onderdeel van GBO; dit vraagt geen inzet van de bronhouder.</li>
+<li>GBO sluit aan bij <strong>DCAT-AP NL</strong> voor datacatalogisering, conform de bestaande FDS-verplichting. Indien aanvullende metadata-elementen noodzakelijk blijken, wordt dit ingebracht bij de beheerder en community van DCAT-AP NL. GBO maakt geen eigen profiel bovenop DCAT-AP NL.</li>
 </ul>
 <h3 id="ontwerp-concept-globaal-ontwerp-43-oots-aansluiting">4.3 OOTS-aansluiting<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-43-oots-aansluiting" title="Permanent link">&para;</a></h3>
 <p>FDS is een binnenlands afsprakenstelsel en voorziet niet in grensoverschrijdende gegevensuitwisseling. OOTS vereist AS4/eDelivery als transportprotocol en het SDG Evidence Data Model (SDG-EDM) als semantisch kader — beide vallen buiten de scope van FDS.  </p>
@@ -872,6 +895,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <li><strong>Attestatieschema's per use case</strong>: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EDI-Wallet worden vereist.</li>
 <li>Een <strong>signing-infrastructuur</strong> voor het digitaal ondertekenen van attestaties, conform eIDAS2/ARF en de relevante Europese Trusted Lists.</li>
 <li>Standaardisatie van de <strong>attestatieformaten</strong>: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.</li>
+<li>Helderheid over de <strong>rol van QTSP's</strong>: een PuB-EAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA en is als zodanig geldig voor grensoverschrijdend gebruik — een QTSP is daarvoor niet vereist. Het onderscheid zit in de uitgever: een PuB-EAA wordt uitsluitend uitgegeven door een overheidsinstantie (authentieke bron), een QEAA door een gecertificeerde private QTSP. Naast de PuB-EAA route kan een bronhouder er ook voor kiezen attestatie via een QTSP (QEAA) te laten verlopen. GBO ondersteunt beide varianten (zie ook §2.1). Over welke route de voorkeur heeft, loopt afstemming met het programma EDI-stelsel.</li>
 </ul>
 <h3 id="ontwerp-concept-globaal-ontwerp-45-verificatiedienst-voor-qtsps-authentic-source-interface">4.5 Verificatiedienst voor QTSP's (Authentic Source Interface)<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-45-verificatiedienst-voor-qtsps-authentic-source-interface" title="Permanent link">&para;</a></h3>
 <p>Naast PuB-EAA-uitgifte vereist artikel 45e van eIDAS2 dat overheidsbronnen een verificatiefunctie bieden waarmee Qualified Trust Service Providers (QTSP's) bronhouder-attributen kunnen verifiëren voor eigen attestatie-uitgifte. Ook dit valt buiten de scope van FDS en is een nieuwe EU-rechtelijke verplichting.  </p>
@@ -957,15 +981,15 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <h3 id="ontwerp-concept-globaal-ontwerp-51-bouwstenen-en-hun-rol">5.1 Bouwstenen en hun rol<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-51-bouwstenen-en-hun-rol" title="Permanent link">&para;</a></h3>
 <p>De technische architectuur van GBO bestaat uit de volgende hoofdbouwstenen:</p>
 <p><strong>FSC (Federated Service Connectivity).</strong> Binnenlands koppelnetwerk dat mTLS-gebaseerde verbindingen tussen GBO, bronhouders en private afnemers verzorgt. Elke deelnemer beheert een eigen FSC Inway (bronhouder) of Outway (afnemer). FSC is beschikbaar als open referentie-implementatie en is de standaard voor binnenlands dataverkeer in het FDS.</p>
+<p><strong>GraphQL.</strong> Aanvullend bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting API, naast REST als huidige standaard. Queries zijn vooraf geregistreerd in de Query Template Registry en afdwingbaar door het PDP-beleid. Bronhouders die geen eigen GraphQL-implementatie realiseren maken gebruik van de GBO-vertaallaag. Formele standaardisatie als FDS-datadienst-type verloopt via Forum Standaardisatie en Digikoppeling.</p>
 <p><strong>OAuth 2.0 / OpenID Connect.</strong> Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel). Het toestemmingstoken bevat de consent-id als brug naar het toestemmingenregister; het BSN zit niet in het token.</p>
-<p><strong>OPA/Rego (Open Policy Agent).</strong> Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.</p>
 <p><strong>AuthZEN.</strong> Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de OPA-PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.</p>
-<p><strong>GraphQL.</strong> Bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting API. Queries zijn vooraf geregistreerd in de Query Template Registry en afdwingbaar door het PDP-beleid.</p>
+<p><strong>OPA/Rego (Open Policy Agent).</strong> Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.</p>
+<p><strong>ODRL (Open Digital Rights Language).</strong> W3C-standaard voor machineleesbare beleidsrepresentatie. Ingezet als beschrijvingstaal voor beleidsregels in de PAP (zie §4.1), aansluitend op de toepassing in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).</p>
 <p><strong>BSNk PP (Polymorf Pseudonimiseringsstelsel).</strong> In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.</p>
 <p><strong>OpenID4VCI / OpenID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
 <p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> attestatieformaten voor de EDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
 <p><strong>AS4 / eDelivery (via OOTS basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS basisinrichting; de AS4-laag is volledig bij de OOTS basisinrichting belegd.</p>
-<p><strong>ODRL (Open Digital Rights Language).</strong> W3C-standaard voor machineleesbare beleidsrepresentatie. Wordt al ingezet in FDS en DCAT-AP NL voor beleidsbeschrijving.</p>
 <h3 id="ontwerp-concept-globaal-ontwerp-52-kernontwerpkeuzes">5.2 Kernontwerpkeuzes<a class="headerlink" href="#ontwerp-concept-globaal-ontwerp-52-kernontwerpkeuzes" title="Permanent link">&para;</a></h3>
 <p>De referentiearchitectuur is gebaseerd op zes expliciete ontwerpkeuzes. De tabel hieronder vat elke keuze samen, legt de onderbouwing uit en benoemt de voornaamste implicatie voor de inrichting van het stelsel.</p>
 <table>
@@ -979,10 +1003,10 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </thead>
 <tbody>
 <tr>
-<td>1 - GraphQL als bevragingsprotocol</td>
-<td>Bronhouders ontsluiten via GraphQL, niet via REST-endpoints.</td>
-<td>REST vereist aparte endpoints of filterparameters per consent-scope, waardoor beleid en API-laag versnipperd raken. GraphQL maakt dataminimalisatie structureel: de afnemer vraagt exact de velden op die zijn consent-scope toestaat. In productie bewezen bij iWlz (gevoelige zorgdata). Compatibel met FSC Inway/Outway (ontwerpkeuze 5) en de NL API Strategie.</td>
-<td>Bronhouders realiseren een GraphQL API of gebruiken een centrale GBO-vertaallaag. Alle toegestane gegevensvragen worden als query-templates geregistreerd in de GBO-catalogus.</td>
+<td>1 - GraphQL als aanvullend bevragingsmechanisme naast REST</td>
+<td>REST is de huidige standaard interface voor bronhouders in FDS. GraphQL is een aanvullend bevragingsmechanisme voor selectieve gegevensuitvraag op veldniveau. Bronhouders worden niet verplicht GraphQL zelf te implementeren; de GBO-vertaallaag vertaalt GraphQL-verzoeken naar hun REST API.</td>
+<td>REST is de FDS-standaard (NL API Strategie / REST API Design Rules). GraphQL maakt dataminimalisatie structureel ingebouwd mogelijk: de afnemer vraagt exact de velden op die zijn consent-scope toestaat. GraphQL is in productie bewezen bij iWlz (gevoelige zorgdata) en compatibel met FSC Inway/Outway. Formele standaardisatie als FDS-datadienst-type loopt via Forum Standaardisatie / Digikoppeling.</td>
+<td>Bronhouders realiseren een REST API conform NL API Strategie. Wie dat wenst, biedt ook een eigen GraphQL API aan. Bronhouders zonder eigen GraphQL-implementatie worden ontsloten via de centrale GBO-vertaallaag. Alle toegestane gegevensvragen worden als query-templates geregistreerd in de GBO-catalogus.</td>
 </tr>
 <tr>
 <td>2 - Twee grondslagpaden, één PDP</td>

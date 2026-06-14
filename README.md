@@ -8,7 +8,7 @@ GBO heeft als doel een **generieke infrastructuur en afsprakenstelsel** te reali
 
 * burgers
 * private dienstverleners
-* Europese toepassingen zoals **EDI Wallet** en **Single Digital Gateway (SDG/OOTS)**
+* Europese toepassingen zoals **EDI Wallet** en **Single Digital Gateway (OOTS)**
 
 De gegevensuitwisseling met private dienstverleners is hierin speciaal, omdat hier geen wettelijke verplichting aan verbonden is. Daar is enerzijds meer ruimte om de inrichting vorm te geven, maar anderzijds minder verplichting om deze inrichting daadwerkelijk te volgen. Daarom wordt dit specifiek opgepakt onder de naam DvTP (Delen via Toestemming naar Private Dienstverleners).
 

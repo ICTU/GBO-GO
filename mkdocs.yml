@@ -80,11 +80,11 @@ plugins:
 nav:
   - GBO: https://ictu.github.io/GBO/latest/
   - Globaal Ontwerp:
-      - Inleiding: #1-inleiding
-      - Voorgestelde oplossingsrichting: #2-voorgestelde-oplossingsrichting
-      - Interactiepatronen: #3-interactiepatronen
-      - Generieke en stelselfuncties: #4-generieke-functies-en-stelselfuncties
-      - Te ontwikkelen componenten: #5-te-ontwikkelen-stelselfuncties
+      - Inleiding: index.md#1-inleiding
+      - Voorgestelde oplossingsrichting: index.md#2-voorgestelde-oplossingsrichting
+      - Interactiepatronen: index.md#3-interactiepatronen
+      - Generieke en stelselfuncties: index.md#4-generieke-functies-en-stelselfuncties
+      - Te ontwikkelen componenten: index.md#5-te-ontwikkelen-stelselfuncties
   - Projectstartarchitectuur: https://ictu.github.io/GBO-PSA/latest/
   - Technisch Ontwerp: https://ictu.github.io/GBO-TO/latest/
   - Technische Requirements: https://ictu.github.io/GBO-TR/latest/

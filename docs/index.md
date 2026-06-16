@@ -48,7 +48,6 @@ Dit hoofdstuk beschrijft de voorgestelde oplossingsrichting voor GBO. Het onders
 Voor GBO moeten bronhouders hun gegevens blootstellen via een generieke GraphQL API. Een generieke ontsluiting vraagt extra autorisatieregels, die dankzij PBAC met beleidsregels en waar relevant ook federatief in te stellen zijn. Het bevragen van de gegevens gebeurt met de FSC-standaard. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.
 
 
-
 ## 3 Interactiepatronen
 
 GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.
@@ -231,7 +230,7 @@ De onderstaande tabel geeft een totaaloverzicht van alle stelselfuncties met hun
 
 _Legenda: ⚠️ = nog te realiseren als nieuwe GBO-voorziening._
 
-## 5 Te ontwikkelen stelselfuncties
+## 5 Te ontwikkelen componenten
 
 ### 5.1 Bouwstenen die hergebruikt worden
 

@@ -292,7 +292,7 @@ FDS is een binnenlands afsprakenstelsel en voorziet niet in grensoverschrijdende
 
 Wat er nog moet worden afgesproken of gerealiseerd:
 
-- Een **OOTS-adapter** (koppeling met OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar REST/JSON richting GBO, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.
+- Een **OOTS-adapter** (onderdeel van OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar GraphQL richting GBO, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.
 - **Semantische mappings** van GBO-canonieke definities naar SDG-EDM XML per evidence type.
 
 

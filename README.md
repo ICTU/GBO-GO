@@ -20,8 +20,8 @@ gbo-go
 │
 ├─ README.md
 │
-├─ ontwerp
-│   └─ hoofdstukken in markdown formaat
+├─ index.md
+│   └─ het Globaal Ontwerp
 │
 └─ diagrammen
     └─ diagrammen in Mermaid formaat

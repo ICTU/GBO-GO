@@ -4,15 +4,12 @@
 
 Deze repository bevat het **Globaal Ontwerp (GO)** voor het project **GBO**.
 
-GBO heeft als doel een **generieke infrastructuur en afsprakenstelsel** te realiseren waarmee gegevens van overheidsorganisaties beschikbaar kunnen worden gemaakt voor:
+GBO heeft als doel een **generieke infrastructuur en afsprakenstelsel** te realiseren waarmee gegevens van overheidsorganisaties beschikbaar kunnen worden gemaakt voor:  
+* burgers  
+* private dienstverleners  
+* Europese toepassingen zoals EDI Wallet en Single Digital Gateway (OOTS)  
 
-* burgers
-* private dienstverleners
-* Europese toepassingen zoals **EDI Wallet** en **Single Digital Gateway (SDG/OOTS)**
-
-De gegevensuitwisseling met private dienstverleners is hierin speciaal, omdat hier geen wettelijke verplichting aan verbonden is. Daar is enerzijds meer ruimte om de inrichting vorm te geven, maar anderzijds minder verplichting om deze inrichting daadwerkelijk te volgen. Daarom wordt dit specifiek opgepakt onder de naam DvTP (Delen via Toestemming naar Private Dienstverleners).
-
-Dit Globaal Ontwerp is het eerste product ter validatie van de voorgestelde oplossingsrichting.
+Dit Globaal Ontwerp is het eerste product ter validatie van de voorgestelde oplossingsrichting en beschrijft naast de voorgestelde oplossingsrichting de interactiepatronen waar GBO zich op richt, de daarvoor benodigde functies en de bouwstenen die hieraan  invulling moeten geven.  
 
 ---
 
@@ -23,8 +20,8 @@ gbo-go
 │
 ├─ README.md
 │
-├─ ontwerp
-│   └─ hoofdstukken in markdown formaat
+├─ index.md
+│   └─ het Globaal Ontwerp
 │
 └─ diagrammen
     └─ diagrammen in Mermaid formaat

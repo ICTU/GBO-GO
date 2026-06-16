@@ -22,6 +22,11 @@ theme:
     - toc.integrate
     - content.code.copy
     - content.code.annotate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - toc.follow
+
 
 markdown_extensions:
   - tables
@@ -73,4 +78,10 @@ plugins:
       enumerate_headings: true
 
 nav:
-  - Globaal ontwerp: ontwerp/concept-globaal-ontwerp.md
+  - GBO: https://ictu.github.io/GBO/latest/
+  - Globaal Ontwerp:
+      - Ontwerp: index.md
+  - Projectstartarchitectuur: https://ictu.github.io/GBO-PSA/latest/
+  - Technisch Ontwerp: https://ictu.github.io/GBO-TO/latest/
+  - Technische Requirements: https://ictu.github.io/GBO-TR/latest/
+  - Semantiek: https://ictu.github.io/GBO-SEM/latest/

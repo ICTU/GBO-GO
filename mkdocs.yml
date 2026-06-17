@@ -1,4 +1,4 @@
-site_name: Globaal ontwerp GBO
+site_name: Gemeenschappelijke Bronontsluiting
 
 theme:
   name: material
@@ -51,7 +51,7 @@ markdown_extensions:
       permalink: true
       toc_depth: 2
 
-site_url: https://ictu.github.io/gbo-go/
+site_url: https://ictu.github.io/GBO-GO/latest/ontwerp/concept-globaal-ontwerp/
 repo_url: https://github.com/ictu/gbo-go
 repo_name: ictu/gbo-go
 

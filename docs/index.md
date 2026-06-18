@@ -8,12 +8,12 @@ _ICTU | Juni 2026_
 
 ### 1.1 Globaal ontwerp
 
-In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
+In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn voor een gemeenschappelijke bronontsluiting en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
 
 - Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselfuncties.  
 - Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  
-- Semantiek: informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals toestemmingen, "trusted lists", GraphQL schemas, etc.).  
-- Requirements: een overzicht van de functionele en niet-functionele eisen die aan het stelsel en de daarin opgenomen afspraken, standaarden en voorzieningen worden gesteld.  
+- Technische requirements: de specificaties van de in te richten componenten.  
+- Semantiek: informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals GraphQL schemas, mappings tussen verschillende formaten, toestemmingen, etc.).  
 
 ### 1.2 Uitgangspunten
 
@@ -28,10 +28,10 @@ In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties no
 
 Het globaal ontwerp wordt als volgt uitgewerkt:
 
-- Hoofdstuk 2 schetst de oplossingsrichting voor de gemeenschappelijke bronontsluiting  
-- Hoofdstuk 3 beschrijft de interactiepatronen waar de gemeenschappelijke bronontsluiting invulling aan geeft  
-- Hoofdstuk 4 beschrijft de generieke functies die nodig zijn en de stelselfuncties waarmee dit mogelijk wordt  
-- Hoofdstuk 5 gaat in op de stelselfuncties die nog ontwikkeld moeten worden  
+- [Hoofdstuk 2](#2-voorgestelde-oplossingsrichting) schetst de oplossingsrichting voor de gemeenschappelijke bronontsluiting  
+- [Hoofdstuk 3](#3-interactiepatronen) beschrijft de interactiepatronen waar de gemeenschappelijke bronontsluiting invulling aan geeft  
+- [Hoofdstuk 4](#4-generieke-functies-en-stelselfuncties) beschrijft de generieke functies die nodig zijn en de stelselfuncties waarmee dit mogelijk wordt  
+- [Hoofdstuk 5](#5-te-ontwikkelen-componenten) gaat in op de stelselfuncties die nog ontwikkeld moeten worden  
 
 
 ## 2 Voorgestelde oplossingsrichting

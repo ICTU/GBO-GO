@@ -52,9 +52,9 @@ Voor GBO moeten bronhouders hun gegevens blootstellen via een generieke GraphQL 
 
 GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.
 
-### 3.1 Patroon A - burger gebruikt EDI-Wallet
+### 3.1 Patroon A - burger gebruikt EUDI-Wallet
 
-Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.
+Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EUDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.
 
 GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die attestaties willen verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.
 
@@ -69,9 +69,9 @@ De attribuutcatalogus die de Europese Commissie op basis van OOTS Common Service
 
 <figure>
 ``` mermaid
---8<-- "diagrammen/interactiepatroon-EDI-Wallet.mmd"
+--8<-- "diagrammen/interactiepatroon-EUDI-Wallet.mmd"
 ```
-<figcaption>Figuur 2: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
+<figcaption>Figuur 2: interactiepatroon burger deelt gegeven via EUDI-Wallet met dienstverlener.  
 NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
 </figcaption>
 </figure>
@@ -252,14 +252,14 @@ De oplossingsrichting gaat uit van hergebruik van de volgende bouwstenen:
 
 **BSNk PP (Polymorf Pseudonimiseringsstelsel).** In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.
 
-**OpenID4VCI / OpenID4VP.** OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.
+**OpenID4VCI / OpenID4VP.** OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EUDI-Wallet-patroon en mogelijke andere toepassingen van VC's.
 
-**SD-JWT VC / mdoc (ISO 18013-5).** attestatieformaten voor de EDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.
+**SD-JWT VC / mdoc (ISO 18013-5).** attestatieformaten voor de EUDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.
 
 **AS4 / eDelivery (via OOTS basisinrichting).** EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS basisinrichting; de AS4-laag is volledig bij de OOTS basisinrichting belegd.
 
 
-Voor de drie toepassingen die in beeld zijn (EDI-Wallet, OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.
+Voor de drie toepassingen die in beeld zijn (EUDI-Wallet, OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.
 
 ### 5.2 Toestemming en grondslag als afdwingbaar autorisatiemechanisme
 
@@ -296,14 +296,14 @@ Wat er nog moet worden afgesproken of gerealiseerd:
 - **Semantische mappings** van GBO-canonieke definities naar SDG-EDM XML per evidence type.
 
 
-### 5.5 Uitgifte van attestaties voor de EDI-Wallet (PuB-EAA provider)
+### 5.5 Uitgifte van attestaties voor de EUDI-Wallet (PuB-EAA provider)
 
-Het EDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  
+Het EUDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  
 
 Wat er nog moet worden afgesproken of gerealiseerd:
 
 - Afspraken over de **rol van GBO als PuB-EAA-ondersteuner**: GBO biedt de infrastructuur voor uitgifte (OpenID4VCI) en presentatie (OpenID4VP), maar is zelf geen PuB-EAA-verstrekker in juridische zin.
-- **Attestatieschema's per use case**: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EDI-Wallet worden vereist.
+- **Attestatieschema's per use case**: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EUDI-Wallet worden vereist.
 - Een **signing-infrastructuur** voor het digitaal ondertekenen van attestaties, conform eIDAS2/ARF en de relevante Europese Trusted Lists.
 - Standaardisatie van de **attestatieformaten**: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.
 - Helderheid over de **rol van QTSP's**: een PuB-EAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA en is als zodanig geldig voor grensoverschrijdend gebruik — een QTSP is daarvoor niet vereist. Naast de PuB-EAA route kan een bronhouder er echter ook voor kiezen de attestatie via een QTSP (QEAA) te laten verlopen. GBO ondersteunt beide varianten (zie ook §2.1). Over welke route de voorkeur heeft, loopt afstemming.

@@ -84,7 +84,7 @@ De cross-border uitwisseling tussen nationale OOTS-aansluitpunten sluit aan bij 
 
 <figure>
 ``` mermaid
---8<-- "diagrammen/interactiepatroon-SDG-OOTS-verzoek.mmd"
+--8<-- "diagrammen/interactiepatroon-OOTS-verzoek.mmd"
 ```
 <figcaption>Figuur 3: interactiepatroon gegevensverzoek vanuit Europese overheidsorganisatie via OOTS.</figcaption>
 </figure>

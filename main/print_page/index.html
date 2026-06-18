@@ -816,8 +816,8 @@
 <p>Voor GBO moeten bronhouders hun gegevens blootstellen via een generieke GraphQL API. Een generieke ontsluiting vraagt extra autorisatieregels, die dankzij PBAC met beleidsregels en waar relevant ook federatief in te stellen zijn. Het bevragen van de gegevens gebeurt met de FSC-standaard. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.</p>
 <h2 id="index-3-interactiepatronen">3 Interactiepatronen<a class="headerlink" href="#index-3-interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.</p>
-<h3 id="index-31-patroon-a-burger-gebruikt-edi-wallet">3.1 Patroon A - burger gebruikt EDI-Wallet<a class="headerlink" href="#index-31-patroon-a-burger-gebruikt-edi-wallet" title="Permanent link">&para;</a></h3>
-<p>Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.</p>
+<h3 id="index-31-patroon-a-burger-gebruikt-eudi-wallet">3.1 Patroon A - burger gebruikt EUDI-Wallet<a class="headerlink" href="#index-31-patroon-a-burger-gebruikt-eudi-wallet" title="Permanent link">&para;</a></h3>
+<p>Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EUDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.</p>
 <p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgevende instantie, maar is zelf geen PuB-EAA verstrekker. De verificatiedienst voor QTSP's die attestaties willen verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
 <p>Voor attestatie-uitgifte via een QTSP (QEAA) zijn twee varianten mogelijk:</p>
 <ol>
@@ -832,7 +832,7 @@
 <div class="mermaid">sequenceDiagram
     autonumber
     actor Burger
-    participant Wallet as EDI-Wallet
+    participant Wallet as EUDI-Wallet
     participant QTSP as QTSP
     participant PubEAA as PuB-EAA&lt;br/&gt;voorziening
     participant VerifDienst as Verificatie-&lt;br/&gt;dienst
@@ -879,7 +879,7 @@
         QTSP--&gt;&gt;Wallet: QEAA attestatie
         Wallet--&gt;&gt;Burger: QEAA opgeslagen in wallet
     end</div>
-<figcaption>Figuur 2: interactiepatroon burger deelt gegeven via EDI-Wallet met dienstverlener.  
+<figcaption>Figuur 2: interactiepatroon burger deelt gegeven via EUDI-Wallet met dienstverlener.  
 NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) in de Wallet komen.
 </figcaption>
 </figure>
@@ -1291,10 +1291,10 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <p><strong>OPA/Rego (Open Policy Agent).</strong> Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.</p>
 <p><strong>ODRL (Open Digital Rights Language).</strong> W3C-standaard voor machineleesbare beleidsrepresentatie. Ingezet als beschrijvingstaal voor beleidsregels in de PAP (zie §4.1), aansluitend op de toepassing in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).</p>
 <p><strong>BSNk PP (Polymorf Pseudonimiseringsstelsel).</strong> In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.</p>
-<p><strong>OpenID4VCI / OpenID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
-<p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> attestatieformaten voor de EDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
+<p><strong>OpenID4VCI / OpenID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EUDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
+<p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> attestatieformaten voor de EUDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
 <p><strong>AS4 / eDelivery (via OOTS basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS basisinrichting; de AS4-laag is volledig bij de OOTS basisinrichting belegd.</p>
-<p>Voor de drie toepassingen die in beeld zijn (EDI-Wallet, OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
+<p>Voor de drie toepassingen die in beeld zijn (EUDI-Wallet, OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="index-52-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">5.2 Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#index-52-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. FTV biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
@@ -1322,12 +1322,12 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <li>Een <strong>OOTS-adapter</strong> (onderdeel van OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar GraphQL richting GBO, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.</li>
 <li><strong>Semantische mappings</strong> van GBO-canonieke definities naar SDG-EDM XML per evidence type.</li>
 </ul>
-<h3 id="index-55-uitgifte-van-attestaties-voor-de-edi-wallet-pub-eaa-provider">5.5 Uitgifte van attestaties voor de EDI-Wallet (PuB-EAA provider)<a class="headerlink" href="#index-55-uitgifte-van-attestaties-voor-de-edi-wallet-pub-eaa-provider" title="Permanent link">&para;</a></h3>
-<p>Het EDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  </p>
+<h3 id="index-55-uitgifte-van-attestaties-voor-de-eudi-wallet-pub-eaa-provider">5.5 Uitgifte van attestaties voor de EUDI-Wallet (PuB-EAA provider)<a class="headerlink" href="#index-55-uitgifte-van-attestaties-voor-de-eudi-wallet-pub-eaa-provider" title="Permanent link">&para;</a></h3>
+<p>Het EUDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
 <li>Afspraken over de <strong>rol van GBO als PuB-EAA-ondersteuner</strong>: GBO biedt de infrastructuur voor uitgifte (OpenID4VCI) en presentatie (OpenID4VP), maar is zelf geen PuB-EAA-verstrekker in juridische zin.</li>
-<li><strong>Attestatieschema's per use case</strong>: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EDI-Wallet worden vereist.</li>
+<li><strong>Attestatieschema's per use case</strong>: semantische mapping van bronhouder-attributen naar de attestatieschema's die door de EUDI-Wallet worden vereist.</li>
 <li>Een <strong>signing-infrastructuur</strong> voor het digitaal ondertekenen van attestaties, conform eIDAS2/ARF en de relevante Europese Trusted Lists.</li>
 <li>Standaardisatie van de <strong>attestatieformaten</strong>: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.</li>
 <li>Helderheid over de <strong>rol van QTSP's</strong>: een PuB-EAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA en is als zodanig geldig voor grensoverschrijdend gebruik — een QTSP is daarvoor niet vereist. Naast de PuB-EAA route kan een bronhouder er echter ook voor kiezen de attestatie via een QTSP (QEAA) te laten verlopen. GBO ondersteunt beide varianten (zie ook §2.1). Over welke route de voorkeur heeft, loopt afstemming.</li>

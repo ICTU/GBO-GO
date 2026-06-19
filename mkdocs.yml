@@ -78,9 +78,8 @@ plugins:
       print_page_title: "Gemeenschappelijke Bronontsluiting - Globaal Ontwerp"
       enumerate_headings: false
       enumerate_figures: false
-      add_table_of_contents: true
-      toc_title: "Inhoudsopgave"
-      toc_depth: 2
+      add_table_of_contents: false
+
 nav:
   - Gemeenschappelijke Bronontsluiting: https://ictu.github.io/GBO/
   - Context: https://ictu.github.io/GBO/latest/context.md

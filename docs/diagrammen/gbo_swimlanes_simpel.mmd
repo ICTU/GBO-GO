@@ -2,7 +2,7 @@ flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
         fsc_pap("Beleidsregels")
-        fsc("Standaard koppelvlak (FSC)<br/>Generieke bronontsluiting (GraphQL)<br/>Configurabele autorisatie (PBAC/FTV)")
+        fsc("Standaard koppelvlak<br/>Generieke bronontsluiting<br/>Configurabele autorisatie")
         fsc_tools("GBO tools<br/>(ondersteuning bronhouders)")
   end
   subgraph eudi["EUDI-Wallet"]
@@ -21,7 +21,7 @@ flowchart LR
   subgraph dvtp["DvTP"]
     direction LR
         dvtp_toestemming("Toestemmingsvoorziening")
-        dvtp_pseudoniem["Pseudonimiseervoorziening<br/>(BSNk PP)"]
+        dvtp_pseudoniem["Pseudonimiseervoorziening"]
         dvtp_afnemer["Private dienstverlener"]
   end
 

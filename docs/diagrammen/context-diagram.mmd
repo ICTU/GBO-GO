@@ -1,17 +1,12 @@
-```mermaid
-
 flowchart LR
 
-Bronhouder
-DvTP["GBO stelsel
-(afspraken, standaarden, voorzieningen)"]
-Wallet
-Privaat["Private partij"]
-SDG["SDG/OOTS"]
+Bronhouder["Overheidsbron"]
+DvTP["GBO<br />(afspraken, standaarden, voorzieningen)"]
+Wallet["EUDI-Wallet<br/>(EUDI)"]
+SDG["OOTS<br/>(SDG)"]
+Privaat["Private dienstverlener<br/>(DvTP)"]
 
 Bronhouder --> DvTP
 DvTP --> Wallet
-DvTP --> Privaat
 DvTP --> SDG
-
-```
+DvTP --> Privaat

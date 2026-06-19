@@ -1,7 +1,7 @@
 publiccodeYmlVersion: "0.1"
 
-name: PSA GBO
-url: "https://github.com/ICTU/psa-gbo-dvtp.git"
+name: GBO Globaal Ontwerp
+url: "https://github.com/ICTU/gbo-go.git"
 # softwareVersion: "1.0"    # Optional
 releaseDate: "tbd"
 platforms:
@@ -18,19 +18,16 @@ description:
  en:
    # localisedName: github-policy   # Optional
    shortDescription: >
-         Project Startarchitectuur GBO
+         Gemeenschappelijke Bronontsluiting (GBO) - Globaal Ontwerp
 
    longDescription: >
-         Architectuur voor het project Gemeenschappelijke Bronontsluiting (GBO)
+         Globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting (GBO)
 
    features:
-      - PSA
-      - Diagrammen die in PSA gebruikt worden
-      - Technisch ontwerp
       - Globaal ontwerp
 
 legal:
- license: nog vast te stellen
+ license: EUPL v1.2
 
 maintenance:
  type: "community"

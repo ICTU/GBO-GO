@@ -58,7 +58,7 @@ markdown_extensions:
   # Automatische inhoudsopgave
   - toc:
       permalink: true
-      toc_depth: 2
+      toc_depth: 3
 
 site_url: https://ictu.github.io/GBO-GO/
 repo_url: https://github.com/ictu/gbo-go

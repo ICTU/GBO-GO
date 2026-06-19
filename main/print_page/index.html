@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#section-3" class="md-skip">
+        <a href="#index" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -332,18 +332,17 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href=".." class="md-tabs__link">
-          
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
   
+  
+    
   
   Globaal Ontwerp
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -536,60 +535,6 @@
   
   
   
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Globaal Ontwerp
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Globaal Ontwerp
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
         
@@ -598,7 +543,7 @@
   <span class="md-ellipsis">
     
   
-    Ontwerp
+    Globaal Ontwerp
   
 
     
@@ -607,14 +552,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -742,6 +679,8 @@
 
 
 
+  
+
 
               
               <article class="md-content__inner md-typeset">
@@ -758,11 +697,7 @@
                 </nav>
             </div>
         </section>
-        
-                    <section class='print-page md-section' id='section-3' heading-number='3'>
-                        <h1>Globaal Ontwerp<a class='headerlink' href='#section-3' title='Permanent link'></a>
-                        </h1>
-                    <section class="print-page" id="index" heading-number="3.1"><h1 id="index-globaal-ontwerp-gemeenschappelijke-bronontsluiting">Globaal Ontwerp Gemeenschappelijke Bronontsluiting<a class="headerlink" href="#index-globaal-ontwerp-gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h1>
+        <section class="print-page" id="index" heading-number="3"><h1 id="index-globaal-ontwerp-gemeenschappelijke-bronontsluiting">Globaal Ontwerp Gemeenschappelijke Bronontsluiting<a class="headerlink" href="#index-globaal-ontwerp-gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h1>
 <p><em>ICTU | Juni 2026</em></p>
 <blockquote>
 <p>LET OP: Het project gemeenschappelijke bronontsluiting is in ontwikkeling en de documentatie volgt dit. De huidige versie van dit globaal ontwerp is daarom niet definitief. De status van de documentatie is <a href="https://ictu.github.io/GBO/latest/#reviewproces">hier</a> te vinden.</p>
@@ -1471,11 +1406,13 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <li>Inrichting van een <strong>Authentic Source Interface</strong> (conform ETSI TS 119 478) als GBO-component, inclusief de I2 Verify- en I4 Authorize-interfaces.</li>
 <li><strong>QTSP-aansluitvoorwaarden</strong> als mogelijke aanvulling op het FDS-Poortwachterproces, inclusief certificaatprofielen conform ETSI EN 319 412.</li>
 <li>Afspraken over <strong>QTSP-erkenning</strong> en het bijbehorende vertrouwensanker in het GBO-stelsel.</li>
-</ul></section></section></div><style>.print-site-enumerate-headings #section-3 > h1:before { content: '3 ' }
-.print-site-enumerate-headings #index > h1:before { content: '3.1 ' }
+</ul></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '3 ' }
 
-                .print-site-enumerate-headings #index h2:before { content: '3.1.' counter(counter-index-2) ' ' }
-                .print-site-enumerate-headings #index h2 {  counter-increment: counter-index-2 }
+                .print-site-enumerate-headings #index h2:before { content: '3.' counter(counter-index-2) ' ' }
+                .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
+            
+                .print-site-enumerate-headings #index h3:before { content: '3.' counter(counter-index-2) '.' counter(counter-index-3) ' ' }
+                .print-site-enumerate-headings #index h3 {  counter-increment: counter-index-3 }
             </style>
 
 

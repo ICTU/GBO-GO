@@ -64,7 +64,7 @@
   
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-            remove_material_navigation();remove_mkdocs_theme_navigation();
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
         })
         </script>
         </head>
@@ -689,7 +689,53 @@
 
 
 
-<div id="print-site-page" class=""><section class="print-page" id="index" heading-number="3"><h1 id="index-globaal-ontwerp-gemeenschappelijke-bronontsluiting">Globaal Ontwerp Gemeenschappelijke Bronontsluiting<a class="headerlink" href="#index-globaal-ontwerp-gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h1>
+<div id="print-site-page" class="print-site-enumerate-headings">
+        <section id="print-site-cover-page">
+            <section class="print-cover">
+  <div class="print-cover__content">
+    <p class="print-cover__label">Gemeenschappelijke Bronontsluiting</p>
+
+    <p class="print-cover__title">
+      Gemeenschappelijke Bronontsluiting
+    </p>
+
+    <p class="print-cover__subtitle">
+      Inleiding en Context
+    </p>
+
+    <dl class="print-cover__metadata">
+      <div>
+        <dt>Versie</dt>
+        <dd></dd>
+      </div>
+
+      <div>
+        <dt>Datum</dt>
+        <dd></dd>
+      </div>
+
+      <div>
+        <dt>Auteur</dt>
+        <dd></dd>
+      </div>
+
+      <div>
+        <dt>Status</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+        </section>
+        
+        <section class="print-page">
+            <div id="print-page-toc" data-toc-depth="2">
+                <nav role='navigation' class='print-page-toc-nav'>
+                <h1 class='print-page-toc-title'>Inhoudsopgave</h1>
+                </nav>
+            </div>
+        </section>
+        <section class="print-page" id="index" heading-number="3"><h1 id="index-globaal-ontwerp-gemeenschappelijke-bronontsluiting">Globaal Ontwerp Gemeenschappelijke Bronontsluiting<a class="headerlink" href="#index-globaal-ontwerp-gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h1>
 <p><em>ICTU | Juni 2026</em></p>
 <blockquote>
 <p>LET OP: Het project gemeenschappelijke bronontsluiting is in ontwikkeling en de documentatie volgt dit. De huidige versie van dit globaal ontwerp is daarom niet definitief. De status van de documentatie is <a href="https://ictu.github.io/GBO/latest/#reviewproces">hier</a> te vinden.</p>
@@ -1401,10 +1447,7 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 </ul></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '3 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '3.' counter(counter-index-2) ' ' }
-                .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
-            
-                .print-site-enumerate-headings #index h3:before { content: '3.' counter(counter-index-2) '.' counter(counter-index-3) ' ' }
-                .print-site-enumerate-headings #index h3 {  counter-increment: counter-index-3 }
+                .print-site-enumerate-headings #index h2 {  counter-increment: counter-index-2 }
             </style>
 
 

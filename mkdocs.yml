@@ -1,9 +1,9 @@
-site_name: Documentatie GBO
+site_name: Gemeenschappelijke Bronontsluiting
 
 theme:
   name: material
-  language: nl
-  palette:
+  language: custom
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -22,6 +22,11 @@ theme:
     - toc.integrate
     - content.code.copy
     - content.code.annotate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - toc.follow
+
 
 markdown_extensions:
   - tables
@@ -46,9 +51,9 @@ markdown_extensions:
       permalink: true
       toc_depth: 2
 
-site_url: https://ictu.github.io/gbo/
-repo_url: https://github.com/ictu/gbo
-repo_name: ictu/gbo
+site_url: https://ictu.github.io/GBO-GO/
+repo_url: https://github.com/ictu/gbo-go
+repo_name: ictu/gbo-go
 
 extra_css:
   - stylesheets/extra.css
@@ -57,6 +62,7 @@ extra_css:
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
   - javascript/mermaid-init.js
+  - javascript/print.js
 
 extra:
   version:
@@ -69,27 +75,15 @@ plugins:
       canonical_version: "latest"
   - print-site:
       add_to_navigation: false
-      print_page_title: "Documentatie GBO"
+      print_page_title: "Gemeenschappelijke Bronontsluiting - Globaal Ontwerp"
       enumerate_headings: true
 
 nav:
-  - Over deze repository: index.md
-
-  - Globaal ontwerp:
-      - Globaal ontwerp: ontwerp/concept-globaal-ontwerp.md
-
-  - PSA:
-      - Voorblad: psa/voorblad.md
-      - Inleiding: psa/inleiding.md
-      - Context: psa/context.md
-      - Architectuurprincipes: psa/architectuurprincipes.md
-      - Ontwerpprincipes: psa/ontwerpprincipes.md
-      - Ecosysteem en oplossingsrichting: psa/ecosysteem.md
-      - Interactiepatronen: psa/interactiepatronen.md
-      - Logische architectuur: psa/generieke-functies.md
-      - Stelselfuncties: psa/capabilities.md
-      - Realisatiestrategie: psa/realisatiestrategie.md
-      - Open Vraagstukken en ontwerpkeuzes: psa/vraagstukken.md
-
-  - Technisch ontwerp:
-      - Reference architecture: ref-arch/gbo-reference-architecture.md
+  - Gemeenschappelijke Bronontsluiting: https://ictu.github.io/GBO/
+  - Context: https://ictu.github.io/GBO/latest/context.md
+  - Globaal Ontwerp:
+      - Ontwerp: index.md
+  - Projectstartarchitectuur: https://ictu.github.io/GBO-PSA/
+  - Technisch Ontwerp: https://ictu.github.io/GBO/main/underconstruction_to/
+  - Technische Requirements: https://ictu.github.io/GBO/main/underconstruction_tr/
+  - Semantiek: https://ictu.github.io/GBO/main/underconstruction_sem/

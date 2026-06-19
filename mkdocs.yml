@@ -1,5 +1,14 @@
 site_name: Gemeenschappelijke Bronontsluiting
 
+extra:
+  version:
+    provider: mike
+    alias: true
+  document_version: "0.9.1"
+  document_date: "juni 2026"
+  document_author: "ICTU"
+  document_status: "voor vaststelling"
+
 theme:
   name: material
   language: custom
@@ -63,11 +72,6 @@ extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
   - javascript/mermaid-init.js
   - javascript/print.js
-
-extra:
-  version:
-    provider: mike
-    alias: true
 
 plugins:
   - search

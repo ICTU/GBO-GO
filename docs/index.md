@@ -45,9 +45,9 @@ Dit hoofdstuk beschrijft de voorgestelde oplossingsrichting voor GBO. Het onders
 <figcaption>Figuur 1: Oplossingsrichting GBO.</figcaption>
 </figure>
 
-Voor GBO moeten bronhouders hun gegevens blootstellen via een generieke API, die voor verschillende gegevensverzoeken gebruikt kan worden. Een nieuw gegevensverzoek kan dan met configuraties ingesteld worden, in plaats van het moeten inrichten en beheren van een nieuw endpoint. Een generieke ontsluiting vraagt extra autorisatieregels, die met beleidsregels en waar relevant ook federatief in te stellen zijn. Het koppelvlak moet met een betrouwbare en veilige standaard beschikbaar gesteld worden; zaken als versleuteling, identificatie, authenticatie en logging moeten daarin geborgd zijn. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.  
+Voor GBO stellen bronhouders hun gegevens bloot via een generieke API, die voor verschillende gegevensverzoeken gebruikt kan worden. Een nieuw gegevensverzoek kan dan met configuraties ingesteld worden, in plaats van het moeten inrichten en beheren van een nieuw endpoint. Generieke ontsluiting vraagt extra autorisatieregels, die met beleidsregels (eventueel ook federatief) in te stellen moeten zijn. Het koppelvlak moet met een betrouwbare en veilige standaard beschikbaar gesteld worden; zaken als versleuteling, identificatie, authenticatie en logging moeten daarin geborgd zijn. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.  
 
-In de volgende paragrafen wordt deze componenten uitgewerkt en wordt toegewerkt naar een invulling daarvan.
+In de volgende paragrafen wordt deze componenten uitgewerkt en wordt toegewerkt naar een invulling daarvan.  
 
 ## 3 Interactiepatronen
 
@@ -62,7 +62,7 @@ GBO ondersteunt functioneel/technisch in dit patroon de rol van PuB-EAA-uitgeven
 Voor attestatie-uitgifte via een QTSP (QEAA) zijn twee varianten mogelijk:
 
 1. **Burger contracteert QTSP:** de burger levert attributen aan bij de QTSP, waarna de QTSP verifieert bij de verificatiedienst van de bronhouder of de aangewezen intermediair. Deze variant moet door bronhouders ondersteund worden en hiervoor wil GBO een centrale verify-dienst beschikbaarstellen.  
-2. **Bronhouder contracteert QTSP:** de bronhouder verwijst de burger naar de QTSP, waarna de QTSP de attributen ophaalt bij de retrieval-dienst van de bronhouder of de aangewezen intermediair. Er is geen wettelijke verplichting voor bronnen om dit te ondersteunen, maar een retrieval-dienst kan functioneel dezelfde implementatie (Authentic Source Interface provider) gebruiken als stroom B (verify-dienst).  
+2. **Bronhouder contracteert QTSP:** de bronhouder verwijst de burger naar de QTSP, waarna de QTSP de attributen ophaalt bij de retrieval-dienst van de bronhouder of de aangewezen intermediair. Er is geen wettelijke verplichting voor bronnen om dit te ondersteunen, maar een retrieval-dienst kan functioneel dezelfde implementatie (Authentic Source Interface provider) gebruiken als de verify-dienst die in de eerste variant wordt gebruikt.  
 
 De attribuutcatalogus die de Europese Commissie op basis van OOTS Common Services implementeert is relevant voor zowel PuB-EAA als QEAA: GBO wil vanuit de semantiek-uitwerking aansluiten bij deze catalogus voor de definitie van attributen, informatiemodellen en endpoints.
 
@@ -79,7 +79,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 
 ### 3.2 Patroon B - grensoverschrijdend verzoek via OOTS
 
-Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. BZK heeft RINIS aangewezen als nationaal OOTS-toegangspunt (AS4/eDelivery), waar de OOTS basisinrichting in beheer is. Die verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als REST/JSON door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan de OOTS basisinrichting, waar het bericht in AS4 wordt verpakt.
+Een Europese overheidsdienst stuurt via het OOTS-netwerk een Evidence Request voor een Nederlandse burger. BZK heeft RINIS aangewezen als nationaal OOTS-toegangspunt, waar de OOTS basisinrichting in beheer is. Die verzorgt de toestemmingsinteractie met de burger en de identiteitsvaststelling, en geeft de payload als GraphQL request door aan GBO. GBO verzorgt de bronontsluiting en de semantische mapping naar het SDG Evidence-formaat. Bronhouders zien uitsluitend de GBO-API en hoeven geen OOTS-kennis te hebben. De terugkoppeling volgt de omgekeerde route: GBO retourneert aan de OOTS basisinrichting, waar het bericht in AS4 wordt verpakt.
 
 De cross-border uitwisseling tussen nationale OOTS-aansluitpunten sluit aan bij de TIP-basisfunctie *Delivering messages* (elektronisch aangetekende bezorging), die het juridische en technische kader biedt voor betrouwbare beveiligde berichtuitwisseling tussen organisaties in verschillende lidstaten. Dit is echter buiten scope van GBO: de afhandeling van de OOTS-berichten gebeurt via de OOTS basisinrichting, waar GBO op aansluit.
 

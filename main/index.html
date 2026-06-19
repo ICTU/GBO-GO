@@ -902,21 +902,21 @@
 <div class="mermaid">flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
-        fsc_pap("PAP&lt;br/&gt;(beleidsregels)")
-        fsc("FSC / GraphQL / PBAC&lt;br/&gt;(generieke bronontsluiting)")
-        fsc_tools("GBO tools&lt;br/&gt;(vertaallaag)")
+        fsc_pap("Beleidsregels")
+        fsc("Standaard koppelvlak (FSC)&lt;br/&gt;Generieke bronontsluiting (GraphQL)&lt;br/&gt;Configurabele autorisatie (PBAC/FTV)")
+        fsc_tools("GBO tools&lt;br/&gt;(ondersteuning bronhouders)")
   end
   subgraph eudi["EUDI-Wallet"]
     direction LR
-        eudi_asi("ASI-provider&lt;br/&gt;(verify dienst)")
-        eudi_pubeaa("PubEAA-provider&lt;br/&gt;(PubEAA)")
+        eudi_asi("Bronontsluiting voor QTSP&lt;br/&gt;(Authentic Source Interface)")
+        eudi_pubeaa("Uitgifte van publieke EAA&lt;br/&gt;(PubEAA)")
         eudi_qeaa["QTSP&lt;br/&gt;(QEAA)"]
         eudi_wallet["EUDI-Wallet"]
   end
   subgraph oots["SDG / OOTS"]
     direction LR
-        oots_adapter("OOTS adapter&lt;br/&gt;(semantische mapping)")
-        oots_basis["Basisinrichting OOTS&lt;br/&gt;(incl. OOTS-V backend)"]
+        oots_adapter("OOTS adapter&lt;br/&gt;(protocol + semantische mapping)")
+        oots_basis["Basisinrichting OOTS&lt;br/&gt;(Nederlandse OOTS koppelpunt)"]
         oots_afnemer["Europese overheid&lt;br/&gt;SDG-portaal"]
   end
   subgraph dvtp["DvTP"]
@@ -928,16 +928,16 @@
 
   fsc_pap --- fsc
   fsc --- fsc_tools
-  bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] -- Bron API&lt;br/&gt;(GraphQL / REST-JSON / ...) --- gbo
-  eudi_asi -- REST-JSON&lt;br/&gt;(HTTP / OAuth) --- eudi_qeaa
-  eudi_qeaa -- OpenID4VCI --- eudi_wallet
-  gbo -- GraphQL --- eudi_asi &amp; eudi_pubeaa &amp; oots_adapter &amp; dvtp_afnemer
-  eudi_pubeaa -- OpenID4VCI ---- eudi_wallet
-  oots_adapter -- REST-JSON --- oots_basis
-  oots_basis -- eDelivery-AS4 --- oots_afnemer
-  gbo -- REST-JSON&lt;br/&gt;(PIP) --- dvtp_toestemming
-  dvtp_toestemming -- REST-JSON --- dvtp_afnemer
-  dvtp_toestemming -- REST-JSON --- dvtp_pseudoniem
+  bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] --- gbo
+  eudi_asi --- eudi_qeaa
+  eudi_qeaa --- eudi_wallet
+  gbo --- eudi_asi &amp; eudi_pubeaa &amp; oots_adapter &amp; dvtp_afnemer
+  eudi_pubeaa --- eudi_wallet
+  oots_adapter --- oots_basis
+  oots_basis --- oots_afnemer
+  gbo --- dvtp_toestemming
+  dvtp_toestemming --- dvtp_afnemer
+  dvtp_toestemming --- dvtp_pseudoniem
   dvtp_pseudoniem ~~~ dvtp_afnemer
   eudi_wallet --- burger["Burger"]
   oots_afnemer --- burger
@@ -969,7 +969,8 @@
 <figcaption>Figuur 1: Oplossingsrichting GBO.</figcaption>
 </figure>
 
-<p>Voor GBO moeten bronhouders hun gegevens blootstellen via een generieke GraphQL API. Een generieke ontsluiting vraagt extra autorisatieregels, die dankzij PBAC met beleidsregels en waar relevant ook federatief in te stellen zijn. Het bevragen van de gegevens gebeurt met de FSC-standaard. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.</p>
+<p>Voor GBO moeten bronhouders hun gegevens blootstellen via een generieke API, die voor verschillende gegevensverzoeken gebruikt kan worden. Een nieuw gegevensverzoek kan dan met configuraties ingesteld worden, in plaats van het moeten inrichten en beheren van een nieuw endpoint. Een generieke ontsluiting vraagt extra autorisatieregels, die met beleidsregels en waar relevant ook federatief in te stellen zijn. Het koppelvlak moet met een betrouwbare en veilige standaard beschikbaar gesteld worden; zaken als versleuteling, identificatie, authenticatie en logging moeten daarin geborgd zijn. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.  </p>
+<p>In de volgende paragrafen wordt deze componenten uitgewerkt en wordt toegewerkt naar een invulling daarvan.</p>
 <h2 id="3-interactiepatronen">3 Interactiepatronen<a class="headerlink" href="#3-interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in volgende paragrafen geschetst.</p>
 <h3 id="31-patroon-a-burger-gebruikt-eudi-wallet">3.1 Patroon A - burger gebruikt EUDI-Wallet<a class="headerlink" href="#31-patroon-a-burger-gebruikt-eudi-wallet" title="Permanent link">&para;</a></h3>
@@ -1437,7 +1438,81 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 </table>
 <p><em>Legenda: ⚠️ = nog te realiseren als nieuwe GBO-voorziening.</em></p>
 <h2 id="5-te-ontwikkelen-componenten">5 Te ontwikkelen componenten<a class="headerlink" href="#5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h2>
-<h3 id="51-bouwstenen-die-hergebruikt-worden">5.1 Bouwstenen die hergebruikt worden<a class="headerlink" href="#51-bouwstenen-die-hergebruikt-worden" title="Permanent link">&para;</a></h3>
+<h3 id="51-overzichtsplaat-oplossing">5.1 Overzichtsplaat oplossing<a class="headerlink" href="#51-overzichtsplaat-oplossing" title="Permanent link">&para;</a></h3>
+<p>De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingevuld worden. In de onderstaande figuur zijn in het overzicht de componenten benoemd die invulling geven aan de vereiste functies.</p>
+<figure>
+<div class="mermaid">flowchart LR
+  subgraph gbo["GBO Basis"]
+    direction TB
+        fsc_pap("PAP&lt;br/&gt;(beleidsregels)")
+        fsc("FSC / GraphQL / PBAC&lt;br/&gt;(generieke bronontsluiting)")
+        fsc_tools("GBO tools&lt;br/&gt;(vertaallaag)")
+  end
+  subgraph eudi["EUDI-Wallet"]
+    direction LR
+        eudi_asi("ASI-provider&lt;br/&gt;(verify dienst)")
+        eudi_pubeaa("PubEAA-provider&lt;br/&gt;(PubEAA)")
+        eudi_qeaa["QTSP&lt;br/&gt;(QEAA)"]
+        eudi_wallet["EUDI-Wallet"]
+  end
+  subgraph oots["SDG / OOTS"]
+    direction LR
+        oots_adapter("OOTS adapter&lt;br/&gt;(semantische mapping)")
+        oots_basis["Basisinrichting OOTS&lt;br/&gt;(incl. OOTS-V backend)"]
+        oots_afnemer["Europese overheid&lt;br/&gt;SDG-portaal"]
+  end
+  subgraph dvtp["DvTP"]
+    direction LR
+        dvtp_toestemming("Toestemmingsvoorziening")
+        dvtp_pseudoniem["Pseudonimiseervoorziening&lt;br/&gt;(BSNk PP)"]
+        dvtp_afnemer["Private dienstverlener"]
+  end
+
+  fsc_pap --- fsc
+  fsc --- fsc_tools
+  bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] -- Bron API&lt;br/&gt;(GraphQL / REST-JSON / ...) --- gbo
+  eudi_asi -- REST-JSON&lt;br/&gt;(HTTP / OAuth) --- eudi_qeaa
+  eudi_qeaa -- OpenID4VCI --- eudi_wallet
+  gbo -- GraphQL --- eudi_asi &amp; eudi_pubeaa &amp; oots_adapter &amp; dvtp_afnemer
+  eudi_pubeaa -- OpenID4VCI ---- eudi_wallet
+  oots_adapter -- REST-JSON --- oots_basis
+  oots_basis -- eDelivery-AS4 --- oots_afnemer
+  gbo -- REST-JSON&lt;br/&gt;(PIP) --- dvtp_toestemming
+  dvtp_toestemming -- REST-JSON --- dvtp_afnemer
+  dvtp_toestemming -- REST-JSON --- dvtp_pseudoniem
+  dvtp_pseudoniem ~~~ dvtp_afnemer
+  eudi_wallet --- burger["Burger"]
+  oots_afnemer --- burger
+  dvtp_afnemer --- burger
+
+  fsc_pap:::gbo
+  fsc:::gbo
+  fsc_tools:::gbo
+  eudi_asi:::gbo
+  eudi_pubeaa:::gbo
+  eudi_qeaa:::eudi
+  eudi_wallet:::eudi
+  oots_adapter:::gbo
+  oots_basis:::oots
+  oots_afnemer:::oots
+  dvtp_toestemming:::gbo
+  dvtp_pseudoniem:::dvtp
+  dvtp_afnemer:::dvtp
+  bron:::bron
+  burger:::burger
+
+  classDef bron fill:#edf7df,stroke:#6aa13a,color:#27500a
+  classDef generiek fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  classDef gbo fill:#fff0e8,stroke:#000000,color:#000000
+  classDef burger fill:#edf7df,stroke:#6aa13a,color:#27500a</div>
+<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.</figcaption>
+</figure>
+
+<p>In de volgende paragrafen wordt aangegeven welke componenten hergebruikt kunnen worden en waar aanpassingen/ aanvullingen nodig zijn om de gemeenschappelijke bronontsluiting mogelijk te maken.</p>
+<h3 id="52-bouwstenen-die-hergebruikt-worden">5.2 Bouwstenen die hergebruikt worden<a class="headerlink" href="#52-bouwstenen-die-hergebruikt-worden" title="Permanent link">&para;</a></h3>
 <p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de in ontwikkeling zijnde stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
 <p>De oplossingsrichting gaat uit van hergebruik van de volgende bouwstenen:</p>
 <p><strong>FSC (Federated Service Connectivity).</strong> Binnenlands koppelnetwerk dat mTLS-gebaseerde verbindingen tussen GBO, bronhouders en private afnemers verzorgt. Elke deelnemer beheert een eigen FSC Inway (bronhouder) of Outway (afnemer). FSC is beschikbaar als open referentie-implementatie en is de standaard voor binnenlands dataverkeer in het FDS.</p>
@@ -1450,18 +1525,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <p><strong>OpenID4VCI / OpenID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EUDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
 <p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> attestatieformaten voor de EUDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
 <p><strong>AS4 / eDelivery (via OOTS basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS basisinrichting; de AS4-laag is volledig bij de OOTS basisinrichting belegd.</p>
-<p>Voor de drie toepassingen die in beeld zijn (EUDI-Wallet, OOTS en DvTP) is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
-<h3 id="52-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">5.2 Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#52-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
-<p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. FTV biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.  </p>
-<p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
-<ul>
-<li>Een <strong>pseudonimiseringsprofiel</strong> voor GBO/DvTP: BSNk PP als verplichte voorziening zodat het BSN private dienstverleners nooit bereikt. De consent_id fungeert als brug tussen pseudoniem aan de private zijde en BSN-resolving aan de bronhouderzijde.</li>
-<li>Een <strong>toestemmingsportaal</strong> voor de burger: een overheidsgerichte UI voor het geven, inzien en intrekken van toestemming, gekoppeld aan het toestemmingenregister.</li>
-<li>Een <strong>toestemmingenregister</strong> als machineleesbare centrale voorziening, waarbij toestemming gekoppeld is aan doel, afnemer en gegevensset (doelbinding), intrekking onmiddellijk effect heeft. Het register is als PIP real-time raadpleegbaar is door de autorisatieketen.</li>
-<li>Een <strong>PEP/PDP/PIP-keten</strong> op basis van AuthZEN en OPA/Rego, als concrete invulling van het FTV-autorisatieraamwerk voor GBO-toepassingen. Policies worden centraal beheerd via een PAP en gedistribueerd naar decentrale PDP-instanties per bronhouder.</li>
-<li>Een <strong>PAP (Policy Administration Point)</strong> als centraal GBO-component voor het beheren en distribueren van gesigneerde OPA/Rego-policy-bundles. Dit is tevens het bestuurlijk gezagspunt van het stelsel: het bepaalt wat iedere deelnemer mag. Er is een expliciete governance-afspraak nodig over wie policies mag opstellen, wijzigen en goedkeuren. Beleidsregels worden beschreven in ODRL als machineleesbare representatielaag, aansluitend op de toepassing van ODRL in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).</li>
-</ul>
-<p><em>Juridische randvoorwaarde: toestemming als afdwingbare grondslag is pas operationeel na inwerkingtreding van de daarvoor benodigde wet- en regelgeving. De technische uitwerking loopt parallel aan het wetgevingstraject.</em></p>
+<p>Voor de toepassingen die in beeld zijn is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="53-graphql-als-selectief-bevragingsmechanisme">5.3 GraphQL als selectief bevragingsmechanisme<a class="headerlink" href="#53-graphql-als-selectief-bevragingsmechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST API Design Rules). REST ondersteunt selectieve gegevensuitvraag op veldniveau structureel niet: een afnemer ontvangt de volledige dataset die het endpoint retourneert, ook als slechts een deel van de velden nodig is. Dataminimalisatie is daarmee afhankelijk van afspraken en implementatiekeuzes, niet structureel ingebouwd.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
@@ -1471,14 +1535,25 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <li>Een <strong>Query Template Registry</strong>: een centrale catalogus van vooraf geregistreerde en afdwingbare gegevensvragen per use case. Afnemers kunnen alleen opvragen wat voor hun specifieke toepassing is geregistreerd. De Query Templates worden centraal beheerd als onderdeel van GBO; dit vraagt geen inzet van de bronhouder.</li>
 <li>GBO sluit aan bij <strong>DCAT-AP NL</strong> voor datacatalogisering, conform de bestaande FDS-verplichting. Indien aanvullende metadata-elementen noodzakelijk blijken, wordt dit ingebracht bij de beheerder en community van DCAT-AP NL. GBO maakt geen eigen profiel bovenop DCAT-AP NL.</li>
 </ul>
-<h3 id="54-oots-aansluiting">5.4 OOTS-aansluiting<a class="headerlink" href="#54-oots-aansluiting" title="Permanent link">&para;</a></h3>
+<h3 id="54-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">5.4 Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#54-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
+<p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. <strong>FTV</strong> biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.  </p>
+<p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
+<ul>
+<li>Een <strong>pseudonimiseringsprofiel</strong> voor GBO/DvTP: BSNk PP als verplichte voorziening zodat het BSN private dienstverleners nooit bereikt. De consent_id fungeert als brug tussen pseudoniem aan de private zijde en BSN-resolving aan de bronhouderzijde.</li>
+<li>Een <strong>toestemmingsportaal</strong> voor de burger: een overheidsgerichte UI voor het geven, inzien en intrekken van toestemming, gekoppeld aan het toestemmingenregister.</li>
+<li>Een <strong>toestemmingenregister</strong> als machineleesbare centrale voorziening, waarbij toestemming gekoppeld is aan doel, afnemer en gegevensset (doelbinding), intrekking onmiddellijk effect heeft. Het register is als PIP real-time raadpleegbaar is door de autorisatieketen.</li>
+<li>Een <strong>PEP/PDP/PIP-keten</strong> op basis van AuthZEN en OPA/Rego, als concrete invulling van het FTV-autorisatieraamwerk voor GBO-toepassingen. Policies worden centraal beheerd via een PAP en gedistribueerd naar decentrale PDP-instanties per bronhouder.</li>
+<li>Een <strong>PAP (Policy Administration Point)</strong> als centraal GBO-component voor het beheren en distribueren van gesigneerde OPA/Rego-policy-bundles. Dit is tevens het bestuurlijk gezagspunt van het stelsel: het bepaalt wat iedere deelnemer mag. Er is een expliciete governance-afspraak nodig over wie policies mag opstellen, wijzigen en goedkeuren. Beleidsregels worden beschreven in ODRL als machineleesbare representatielaag, aansluitend op de toepassing van ODRL in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).</li>
+</ul>
+<p><em>Juridische randvoorwaarde: toestemming als afdwingbare grondslag is pas operationeel na inwerkingtreding van de daarvoor benodigde wet- en regelgeving. De technische uitwerking loopt parallel aan het wetgevingstraject.</em></p>
+<h3 id="55-oots-aansluiting">5.5 OOTS-aansluiting<a class="headerlink" href="#55-oots-aansluiting" title="Permanent link">&para;</a></h3>
 <p>FDS is een binnenlands afsprakenstelsel en voorziet niet in grensoverschrijdende gegevensuitwisseling. OOTS vereist AS4/eDelivery als transportprotocol en het SDG Evidence Data Model (SDG-EDM) als semantisch kader — beide vallen buiten de scope van FDS.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
 <li>Een <strong>OOTS-adapter</strong> (onderdeel van OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar GraphQL richting GBO, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.</li>
 <li><strong>Semantische mappings</strong> van GBO-canonieke definities naar SDG-EDM XML per evidence type.</li>
 </ul>
-<h3 id="55-uitgifte-van-attestaties-voor-de-eudi-wallet-pub-eaa-provider">5.5 Uitgifte van attestaties voor de EUDI-Wallet (PuB-EAA provider)<a class="headerlink" href="#55-uitgifte-van-attestaties-voor-de-eudi-wallet-pub-eaa-provider" title="Permanent link">&para;</a></h3>
+<h3 id="56-uitgifte-van-attestaties-voor-de-eudi-wallet-pub-eaa-provider">5.6 Uitgifte van attestaties voor de EUDI-Wallet (PuB-EAA provider)<a class="headerlink" href="#56-uitgifte-van-attestaties-voor-de-eudi-wallet-pub-eaa-provider" title="Permanent link">&para;</a></h3>
 <p>Het EUDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
@@ -1488,7 +1563,7 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 <li>Standaardisatie van de <strong>attestatieformaten</strong>: SD-JWT VC voor online presentatie en mdoc (ISO 18013-5) voor offline/proximity-scenario's.</li>
 <li>Helderheid over de <strong>rol van QTSP's</strong>: een PuB-EAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA en is als zodanig geldig voor grensoverschrijdend gebruik — een QTSP is daarvoor niet vereist. Naast de PuB-EAA route kan een bronhouder er echter ook voor kiezen de attestatie via een QTSP (QEAA) te laten verlopen. GBO ondersteunt beide varianten (zie ook §2.1). Over welke route de voorkeur heeft, loopt afstemming.</li>
 </ul>
-<h3 id="56-verificatiedienst-voor-qtsps-authentic-source-interface">5.6 Verificatiedienst voor QTSP's (Authentic Source Interface)<a class="headerlink" href="#56-verificatiedienst-voor-qtsps-authentic-source-interface" title="Permanent link">&para;</a></h3>
+<h3 id="57-verificatiedienst-voor-qtsps-authentic-source-interface">5.7 Verificatiedienst voor QTSP's (Authentic Source Interface)<a class="headerlink" href="#57-verificatiedienst-voor-qtsps-authentic-source-interface" title="Permanent link">&para;</a></h3>
 <p>Naast PuB-EAA-uitgifte vereist artikel 45e van eIDAS2 dat overheidsbronnen een verificatiefunctie bieden waarmee Qualified Trust Service Providers (QTSP's) bronhouder-attributen kunnen verifiëren voor eigen attestatie-uitgifte. Ook dit valt buiten de scope van FDS en is een nieuwe EU-rechtelijke verplichting.  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>

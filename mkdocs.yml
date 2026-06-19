@@ -2,8 +2,8 @@ site_name: Gemeenschappelijke Bronontsluiting
 
 theme:
   name: material
-  language: nl
-  palette:
+  language: custom
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate

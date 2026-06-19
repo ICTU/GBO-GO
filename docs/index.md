@@ -116,9 +116,8 @@ Het Toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en 
 
 ## 4 Generieke functies en stelselfuncties
 
-GBO is opgebouwd uit acht generieke functieclusters die samen de volledige gegevensstroom afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. De functies zijn technologieneutraal beschreven.
-
-Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies per cluster uitgewerkt, met de bijbehorende stelselfuncties en hun huidige inrichtingsstatus.
+GBO is opgebouwd uit acht generieke functies die samen de volledige gegevensstroom afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. Deze generieke functies zijn technologieneutraal.  
+Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies uitgewerkt, met de stelselfuncties die GBO in beeld heeft om de functie in te vullen en hun huidige inrichtingsstatus.  
 
 ### 4.1 F1 — Identiteit & Vertrouwen
 

@@ -7,7 +7,7 @@
     </p>
 
     <p class="print-cover__subtitle">
-      Inleiding en Context
+      Globaal Ontwerp
     </p>
 
     <dl class="print-cover__metadata">

@@ -78,7 +78,7 @@ plugins:
       print_page_title: "Gemeenschappelijke Bronontsluiting - Globaal Ontwerp"
       add_cover_page: true
       cover_page_template: "docs/assets/templates/voorblad.tpl"
-      enumerate_headings: true
+      enumerate_headings: false
       enumerate_figures: false
       add_table_of_contents: true
       toc_title: "Inhoudsopgave"

@@ -937,14 +937,14 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 
     rect rgb(250, 238, 218)
         Note over RINIS,GBO: ③ Doorzetten naar bron via GBO
-        RINIS-&gt;&gt;GBO: OOTS-payload (REST/JSON)
-        Note over RINIS: eDelivery → REST ontkoppeling
+        RINIS-&gt;&gt;GBO: OOTS-payload (GraphQL)
+        Note over RINIS: eDelivery → GraphQL ontkoppeling
     end
 
     rect rgb(225, 245, 238)
         Note over GBO,BRH: ④ Bronontsluiting (GBO generieke API)
         GBO-&gt;&gt;BRH: API-aanroep (GBO-formaat)
-        BRH-&gt;&gt;GBO: Gegevens (REST/JSON)
+        BRH-&gt;&gt;GBO: Gegevens (GraphQL)
     end
 
     rect rgb(225, 245, 238)
@@ -954,8 +954,8 @@ NB: gegeven kan als PuB-EAA (rechtstreeks van overheidsbron) of QEAA (via QTSP) 
 
     rect rgb(250, 238, 218)
         Note over GBO,RINIS: ⑥ Terugkoppeling naar OOTS basisinrichting
-        GBO-&gt;&gt;RINIS: Evidence Response (REST/JSON)
-        Note over RINIS: REST → eDelivery vertaling
+        GBO-&gt;&gt;RINIS: Evidence Response (GraphQL)
+        Note over RINIS: GraphQL → eDelivery/AS4 vertaling
     end
 
     rect rgb(230, 241, 251)

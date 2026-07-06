@@ -1,4 +1,4 @@
-publiccodeYmlVersion: "0.1"
+publiccodeYmlVersion: "0.2"
 
 name: GBO Globaal Ontwerp
 url: "https://github.com/ICTU/gbo-go.git"
@@ -18,22 +18,23 @@ description:
  en:
    # localisedName: github-policy   # Optional
    shortDescription: >
-         Gemeenschappelijke Bronontsluiting (GBO) - Globaal Ontwerp
+         Globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting (GBO)
 
    longDescription: >
-         Globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting (GBO)
+         Het globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting (GBO) zet de oplossingsrichting voor een gemeenschappelijke bronontsluiting op hoofdlijnen uiteen. Op basis daarvan wordt beredeneerd welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in projectstratarchtiectuur, technisch ontwerp, technische requirements en semantiek.
 
    features:
       - Globaal ontwerp
+      - Diagrammen in Mermaid
 
 legal:
- license: EUPL v1.2
+ license: EUPL-1.2
 
 maintenance:
- type: "community"
-
- contacts:
-   - name: Govert Claus
+  type: "community"
+  contacts:
+    - name: Govert Claus
+      email: "govert.claus@ictu.nl"
 
 localisation:
  localisationReady: false

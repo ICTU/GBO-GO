@@ -1044,8 +1044,9 @@ NB: een gegeven kan als PubEAA (rechtstreeks van overheidsbron) of QEAA (via QTS
 <p>GBO is opgebouwd uit acht generieke functies die samen de volledige gegevensstroom afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. Deze generieke functies zijn technologieneutraal.<br />
 Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies uitgewerkt, met de stelselfuncties die GBO in beeld heeft om de functie in te vullen en hun huidige inrichtingsstatus.  </p>
 <h3 id="index-f1-identiteit-vertrouwen">F1 — Identiteit &amp; Vertrouwen<a class="headerlink" href="#index-f1-identiteit-vertrouwen" title="Permanent link">&para;</a></h3>
-<p><em>Identificatie en authenticatie van burgers en organisaties; digitale identiteitsmiddelen en PKI; audit logging van iedere gegevensuitvraag.</em></p>
-<p>Van toepassing op: alle drie de patronen.</p>
+<p><em>Burgers worden geïdentificeerd via het BSN, organisaties worden geïdentificeerd via het (sub)OIN. Om het BSN te verbergen voor afnemers die geen wettelijke grondslag hebben om het BSN te verwerken, wordt dit gegeven gepseudonimiseerd. Als een burger inlogt met een EIDAS middel waar geen BSN aan is gekoppeld, moet het BSN via "identity matching" achterhaald worden.
+Burgers authenticeren zich met DigiD of een ander EIDAS middel met een betrouwbaarheidsniveau dat past bij de afgenomen dienst en de op te vragen gegevens. Systemen authenticeren zich met PKIo certificaten. Organisaties mogen enkel deelnemen aan het stelsel als ze voldoen aan de aansluitvoorwaarden.</em></p>
+<p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
 <tr>
@@ -1057,7 +1058,7 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <tbody>
 <tr>
 <td>S03 — Burgeridentificatie &amp; Pseudonimisering</td>
-<td>BSNk PP beschikbaar; integratie nodig</td>
+<td>BSNk PP beschikbaar - integratie nodig;Identity Matching nog in onderzoek</td>
 <td>Onboarding DvTP-partijen als deelnemer; consent-id-koppeling</td>
 </tr>
 <tr>
@@ -1068,8 +1069,8 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 </tbody>
 </table>
 <h3 id="index-f2-toegang-interactie">F2 — Toegang &amp; Interactie<a class="headerlink" href="#index-f2-toegang-interactie" title="Permanent link">&para;</a></h3>
-<p><em>Toestemmings-UI voor de burger; SSO; machtigen; consent met toestemmingenregister; PEP/PDP/PIP-keten.</em></p>
-<p>Van toepassing op: alle drie de patronen.</p>
+<p><em>Gegevensvragen worden geautoriseerd met behulp van beleidsregels (PBAC). Als er toestemming (in de betekenis van de AVG) van de burger nodig is, wordt hiervoor een toestemmingsvoorziening gebruikt.</em></p>
+<p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
 <tr>
@@ -1102,8 +1103,9 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 </tbody>
 </table>
 <h3 id="index-f3-gegevensvoorziening">F3 — Gegevensvoorziening<a class="headerlink" href="#index-f3-gegevensvoorziening" title="Permanent link">&para;</a></h3>
-<p><em>Generieke bronontsluiting-API; GraphQL als gewenst protocol; service directory; lokalisatie; selectieve bevraging; OOTS-adapter (Basisinrichting OOTS); SD-JWT VC; mdocs.</em></p>
-<p>Van toepassing op: alle drie de patronen.</p>
+<p><em>Bronhouders ontsluiten hun gegevens via een generieke API. Hiervoor wordt GraphQL voorgesteld: daarmee is hergebruik en dataminimalisatie eenvoudiger te verwezenlijken. Voor bronhouders die geen GraphQL API beschikbaar kunnen stellen, wordt een "GBO-vertaallaag" aangeboden om een bestaand protocol te vertalen naar GraphQL. Verder wordt gebruik gemaakt van de FSC standaard.
+Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegevens omgezet worden naar de gewenste "evidence types". De Basisinrichting OOTS zorgt voor burgerconsent, de omzetting naar het OOTS protocol (AS4/eDelivery) en de aansluiting op de portalen in andere EER-lidstaten.</em></p>
+<p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
 <tr>
@@ -1116,7 +1118,7 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <tr>
 <td>S07 — Gegevensontsluiting (bronontsluiting-API)</td>
 <td>FSC beschikbaar; GraphQL nog niet gestandaardiseerd als API type</td>
-<td>Query Template Registry; GraphQL positionering in FDS; GBO-vertaallaag</td>
+<td>Dienstencatalogus; GraphQL positionering in FDS; GBO-vertaallaag</td>
 </tr>
 <tr>
 <td>S08 — OOTS-adapter (Grensoverschrijdend)</td>
@@ -1131,8 +1133,8 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 </tbody>
 </table>
 <h3 id="index-f4-semantiek-eenheid-van-taal">F4 — Semantiek &amp; Eenheid van Taal<a class="headerlink" href="#index-f4-semantiek-eenheid-van-taal" title="Permanent link">&para;</a></h3>
-<p><em>GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB. Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF, SKOS. Waar nodig canonieke mapping GBO-onderdelen, zoals via SDG-EDM, VC-schema en JSON.</em></p>
-<p>Van toepassing op: alle drie de patronen.</p>
+<p><em>GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB (Nederlandse standaard voor het beschrijven van begrippen). Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF (Resource Description Framework) en/of SKOS (Simple Kowlegde Oranization System). Catalogi worden beschreven conform DCAT-AP NL (NL applicatieprofiel van Data Catalogue Vocabulary). Waar nodig biedt GBO mapping naar gegevensmodellen zoals SDG-EDM (Evidence Data Model) en attestatieschema's.</em></p>
+<p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
 <tr>
@@ -1145,13 +1147,13 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <tr>
 <td>S10 — Semantiek &amp; Gegevenscatalogus</td>
 <td>Nog te realiseren ⚠️</td>
-<td>GBO-canonieke definities per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; mapping tussen GraphQL- en SDG-formaten en attestatieschema's</td>
+<td>GBO-canonieke definities per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; catalogi vastleggen DCAT-AP NL; mapping tussen GraphQL- en SDG-formaten en attestatieschema's</td>
 </tr>
 </tbody>
 </table>
 <h3 id="index-f5-gegevenskwaliteit-validatie">F5 — Gegevenskwaliteit &amp; Validatie<a class="headerlink" href="#index-f5-gegevenskwaliteit-validatie" title="Permanent link">&para;</a></h3>
-<p><em>SHACL-validatie; herkomstregistratie (W3C PROV-O); datakwaliteitsmeting conform het NORA Kwaliteitsraamwerk in combinatie met W3C DQV (Data Quality Vocabulary); feedbackloops naar bronhouders en vastlegging via DCAT-AP NL.</em></p>
-<p>Van toepassing op: alle drie de patronen.</p>
+<p><em>Omdat GBO gaat over bronontsluiting en (her)gebruik van overheidsgegevens, is de kwaliteit van gegevens cruciaal en moet dit voldoende geborgd worden. De precieze inrichting hiervan moet uitgewerkt worden. RDF-representaties van semantische modellen, validatieprofielen of kwaliteitsmetadata kunnen gevalideerd worden met SHACL (Shapes Constraint Language). Voor niet-RDF-uitwisselformaten zijn aanvullende validatiemechanismen nodig, zoals JSON Schema, GraphQL-schema’s, XML Schema of domeinspecifieke validatieregels. Ten behoeve van herkomstregistratie kan de W3C-standaard PROV-O (PROV Ontolgy) toegepast worden. Datakwaliteitsmeting kan conform het NORA Kwaliteitsraamwerk in combinatie met W3C DQV (Data Quality Vocabulary) ingericht worden. Terugmelding van onjuiste, onvolledige of verouderde gegevens door afnemers aan bronhouders moet als proces worden ingericht.</em></p>
+<p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
 <tr>
@@ -1164,7 +1166,7 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <tr>
 <td>S10 — Semantiek &amp; Gegevenscatalogus</td>
 <td>Nog te realiseren ⚠️</td>
-<td>Validatieprofielen (SHACL) per dataset; herkomstregistratie; datakwaliteitsmeting conform NORA Kwaliteitsraamwerk en W3C DQV; feedbackproces richting bronhouders en vastlegging via DCAT-AP NL</td>
+<td>Validatieprofielen (SHACL) per dataset; herkomstregistratie; datakwaliteitsmeting conform NORA Kwaliteitsraamwerk en W3C DQV; feedbackproces richting bronhouders</td>
 </tr>
 </tbody>
 </table>
@@ -1390,7 +1392,7 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel en bouwt daar zoveel mogelijk op voort. FDS biedt al een aantal cruciale bouwstenen: FSC als standaard voor koppelingen, FTV als standaard voor autorisatie, DCAT-AP NL voor datacatalogisering en de in ontwikkeling zijnde stelselfuncties Poortwachter en Marktmeester voor onboarding en nalevingsbeheer.</p>
 <p>De oplossingsrichting gaat uit van hergebruik van de volgende bouwstenen:</p>
 <p><strong>FSC (Federated Service Connectivity).</strong> Binnenlands koppelnetwerk dat mTLS-gebaseerde verbindingen tussen GBO, bronhouders en private afnemers verzorgt. Elke deelnemer beheert een eigen FSC Inway (bronhouder) of Outway (afnemer). FSC is beschikbaar als open referentie-implementatie en is de standaard voor binnenlands dataverkeer in het FDS.</p>
-<p><strong>GraphQL.</strong> Aanvullend bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting-API, naast REST als huidige standaard. Queries zijn vooraf geregistreerd in de Query Template Registry en afdwingbaar door het PDP-beleid. Bronhouders die geen eigen GraphQL-implementatie realiseren maken gebruik van de GBO-vertaallaag. Formele standaardisatie als FDS-datadienst-type verloopt via Forum Standaardisatie en Digikoppeling.</p>
+<p><strong>GraphQL.</strong> Voorgesteld bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting-API, naast REST als huidige standaard. Toegestane gegevensverzoeken zijn vooraf geregistreerd in de dienstencatalogus en afdwingbaar door het PDP-beleid. Bronhouders die geen eigen GraphQL-implementatie realiseren kunnen gebruik maken van GBO-tooling voor vertaling naar GraphQL. Formele standaardisatie als FDS-datadienst-type verloopt via Digikoppeling en Forum Standaardisatie.</p>
 <p><strong>OAuth 2.0 / OpenID Connect.</strong> Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel). Het toestemmingstoken bevat de consent-id als brug naar het toestemmingenregister; het BSN zit niet in het token.</p>
 <p><strong>AuthZEN.</strong> Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de OPA-PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.</p>
 <p><strong>OPA/Rego (Open Policy Agent).</strong> Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.</p>
@@ -1401,13 +1403,14 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 <p><strong>AS4 / eDelivery (via OOTS-basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS-basisinrichting; de AS4-laag is volledig bij de OOTS-basisinrichting belegd.</p>
 <p>Voor de toepassingen die in beeld zijn is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="index-graphql-als-selectief-bevragingsmechanisme">GraphQL als selectief bevragingsmechanisme<a class="headerlink" href="#index-graphql-als-selectief-bevragingsmechanisme" title="Permanent link">&para;</a></h3>
-<p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST-API Design Rules). REST ondersteunt selectieve gegevensuitvraag op veldniveau structureel niet: een afnemer ontvangt de volledige dataset die het endpoint retourneert, ook als slechts een deel van de velden nodig is. Dataminimalisatie is daarmee afhankelijk van afspraken en implementatiekeuzes, niet structureel ingebouwd.  </p>
+<p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST-API Design Rules). Voor onderdelen (in elk geval bronontsluiting) stelt GBO GraphQL voor. Hiermee worden hergebruik, dataminimalisatie  </p>
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
-<li><strong>Positionering van GraphQL als FDS-datadienst-type</strong>: GBO introduceert GraphQL als aanvullend bevragingsmechanisme naast REST, waarbij dataminimalisatie structureel is ingebouwd. GraphQL is in productie bewezen bij het iWlz-afsprakenstelsel en is compatibel met FSC Inway/Outway. Formele standaardisatie van GraphQL als FDS-datadienst-type vergt een wijzigingsvoorstel via Forum Standaardisatie en Digikoppeling. In de pilots wordt al ervaring opgedaan met GraphQL.</li>
+<li><strong>Positionering van GraphQL als FDS-datadienst-type</strong>: GBO introduceert GraphQL als aanvullend bevragingsmechanisme naast REST, waarbij dataminimalisatie structureel is ingebouwd en hergebruik van de API via parametrisering mogelijk is. GraphQL is in productie bewezen bij het iWlz-afsprakenstelsel en is compatibel met FSC Inway/Outway. Formele standaardisatie van GraphQL als FDS-datadienst-type vergt een wijzigingsvoorstel via Forum Standaardisatie en Digikoppeling. In de GBO pilots wordt al ervaring opgedaan met GraphQL.</li>
 <li>Een <strong>GBO-vertaallaag</strong> voor bronhouders die geen eigen GraphQL-implementatie willen of kunnen realiseren. Bronhouders die een REST-API aanbieden kunnen via de GBO-vertaallaag toch ontsloten worden als GraphQL-bron. Bronhouders worden dus niet gedwongen GraphQL zelf te implementeren.</li>
-<li>Een <strong>Query Template Registry</strong>: een centrale catalogus van vooraf geregistreerde en afdwingbare gegevensvragen per use case. Afnemers kunnen alleen opvragen wat voor hun specifieke toepassing is geregistreerd. De Query Templates worden centraal beheerd als onderdeel van GBO; dit vraagt geen inzet van de bronhouder.</li>
 <li>GBO sluit aan bij <strong>DCAT-AP NL</strong> voor datacatalogisering, conform de bestaande FDS-verplichting. Indien aanvullende metadata-elementen noodzakelijk blijken, wordt dit ingebracht bij de beheerder en community van DCAT-AP NL. GBO maakt geen eigen profiel bovenop DCAT-AP NL.</li>
+<li>Een <strong>Dienstencatalogus</strong>: een centrale catalogus van vooraf geregistreerde gegevensvragen per toepassing. Afnemers kunnen alleen opvragen wat voor hun specifieke toepassing is geregistreerd. De dienstencatalogus worden centraal beheerd als onderdeel van GBO; dit vraagt geen inzet van de bronhouder.</li>
+<li>Een</li>
 </ul>
 <h3 id="index-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#index-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS schrijft voor dat gegevensuitwisseling op een geldige grondslag berust, maar legt geen technische invulling op voor toestemmingsbeheer of real-time grondslagraadpleging. <strong>FTV</strong> biedt een autorisatieraamwerk dat gebruikt kan worden voor het per-uitvraag raadplegen van een extern toestemmingenregister als PIP, en de doelbindingstoets kan uitvoeren die DvTP vereist.  </p>

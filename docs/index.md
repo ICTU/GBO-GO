@@ -8,12 +8,14 @@ _ICTU | Juni 2026_
 
 ### Globaal ontwerp
 
-In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn voor een gemeenschappelijke bronontsluiting en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
+In dit globaal ontwerp wordt op hoofdlijnen uiteengezet wat de voorgestelde oplossingsrichting is voor een gemeenschappelijke bronontsluiting en hoe deze ingericht kan worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:
 
 - Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselfuncties.  
 - Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  
 - Technische requirements: de specificaties van de in te richten componenten.  
 - Semantiek: informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals GraphQL-schema's, mappings tussen verschillende formaten, toestemmingen, etc.).  
+
+Voor de beschrijving van de doelen van de gemeenschappelijke bronontsluiting wordt verwezen naar het tabblad [Gemeenschappelijke Bronontsluiting](https://ictu.github.io/GBO/). De juridische en organisatorische context worden beschreven op het tabblad [Context](https://ictu.github.io/GBO/latest/context).  
 
 ### Uitgangspunten
 
@@ -28,7 +30,7 @@ In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties no
 
 Het globaal ontwerp wordt als volgt uitgewerkt:
 
-- [Hoofdstuk 2](#2-voorgestelde-oplossingsrichting) schetst de oplossingsrichting voor de gemeenschappelijke bronontsluiting  
+- [Hoofdstuk 2](#2-voorgestelde-oplossingsrichting) schetst de voorgestelde oplossingsrichting  
 - [Hoofdstuk 3](#3-interactiepatronen) beschrijft de interactiepatronen waar de gemeenschappelijke bronontsluiting invulling aan geeft  
 - [Hoofdstuk 4](#4-generieke-functies-en-stelselfuncties) beschrijft de generieke functies die nodig zijn en de stelselfuncties waarmee dit mogelijk wordt  
 - [Hoofdstuk 5](#5-te-ontwikkelen-componenten) gaat in op de stelselfuncties die nog ontwikkeld moeten worden  
@@ -55,18 +57,15 @@ GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en p
 
 ### Patroon A - burger gebruikt EUDI-Wallet
 
-Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EUDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.
+Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EUDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.  
+De uitgifte van attestaties kan rechtstreeks door bronhouders uitgevoerd worden, wat resulteert in PubEAA's. De uitgifte kan ook door Qualified Trust Service Providers (QTSP's) uitgevoerd worden, wat resulteert in QEAA's. Juridisch hebben PubEAA's en QEAA's dezelfde betekenis.
 
-GBO ondersteunt functioneel/technisch in dit patroon de rol van PubEAA-uitgevende instantie, maar is zelf geen PubEAA verstrekker. De verificatiedienst voor QTSP's die attestaties willen verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.
-
-Voor attestatie-uitgifte via een QTSP (QEAA) zijn twee varianten mogelijk:
-
-1. **Burger contracteert QTSP:** de burger levert attributen aan bij de QTSP, waarna de QTSP verifieert bij de verificatiedienst van de bronhouder of de aangewezen intermediair. Deze variant moet door bronhouders ondersteund worden en hiervoor wil GBO een centrale verify-dienst beschikbaar stellen.  
-2. **Bronhouder contracteert QTSP:** de bronhouder verwijst de burger naar de QTSP, waarna de QTSP de attributen ophaalt bij de retrieval-dienst van de bronhouder of de aangewezen intermediair. Er is geen wettelijke verplichting voor bronnen om dit te ondersteunen, maar een retrieval-dienst kan functioneel dezelfde implementatie (Authentic Source Interface provider) gebruiken als de verify-dienst die in de eerste variant wordt gebruikt.  
+GBO ondersteunt functioneel/technisch in dit patroon de rol van PubEAA-uitgevende instantie, maar is zelf geen PubEAA verstrekker. De bronhouder gebruikt deze instantie om zelfstandig attestaties uit te geven.  
+Voor uitgifte van attestaties via een QTSP ondersteunt GBO de rol van Authentic Source Interface Provider (ASI-P). Deze ASI-P kan zowel een "verify" dienst, waar aangeleverde attributen geverifieerd worden, als een "retrieve" dienst, waar de QTSP namens de bronhouder attributen ophaalt en kwalificeert, bieden. Voor autorisatie en authenticatie kan gebruik gemaakt worden van een autorisatiedienst die ook door GBO aangeboden wordt.
 
 De attribuutcatalogus die de Europese Commissie op basis van OOTS Common Services implementeert, is relevant voor zowel PubEAA als QEAA: GBO wil vanuit de semantiek-uitwerking aansluiten bij deze catalogus voor de definitie van attributen, informatiemodellen en endpoints.
 
-> **Afstemming lopend:** Over de keuze tussen PubEAA-uitgifte door overheidsbronnen en attestatie via een QTSP loopt nog afstemming. GBO positioneert beide varianten als ondersteund; de governance-keuze wordt extern belegd.
+> **Afstemming lopend:** Over de keuze tussen varianten van PubEAA-uitgifte door overheidsbronnen en QEAA-uitgifte via een QTSP loopt nog afstemming. GBO positioneert alle mogelijke varianten als ondersteund; de governance-keuze wordt extern belegd.
 
 <figure>
 ``` mermaid
@@ -97,14 +96,14 @@ Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitslu
 
 De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent-id en beoordeelt of de gegevensvraag binnen de scope valt. Via het consent-id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als response in het afnemersformaat.
 
-GBO kiest voor een **centraal toestemmingenregister** als kern van dit patroon. Decentrale alternatieven (zoals toestemmingsregistratie per bronhouder) zijn overwogen, maar het centrale model heeft doorslaggevende voordelen:
+GBO stelt een **centrale toestemmingsvoorziening** voor als kern van dit patroon. Decentrale alternatieven (zoals toestemmingsregistratie per bronhouder) zijn overwogen, maar het centrale model heeft doorslaggevende voordelen:
 
 - **Kostenbesparing:** eenmalig inrichten en beheren is goedkoper dan dat iedere bronhouder dit zelf regelt.
 - **Herkenbaarheid voor de burger:** een centrale voorziening biedt de burger telkens dezelfde ervaring, wat herkenning en vertrouwen opbouwt.
-- **Inzage voor de burger:** met een centrale voorziening is het aanzienlijk eenvoudiger om de burger inzage te geven in al zijn toestemmingen via het Toestemmingsportaal.
+- **Inzage voor de burger:** met een centrale voorziening is het aanzienlijk eenvoudiger om de burger inzage te geven in al zijn toestemmingen via een toestemmingsportaal.
 - **Eén keer toestemmen:** de burger kan in één handeling toestemming geven voor een set gegevens die mogelijk uit meerdere bronnen afkomstig zijn. Bij decentrale registratie per bron zou de burger voor elke bron apart moeten toestemmen.
 
-Het Toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en de mogelijkheid toestemming in te trekken.
+Het toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en de mogelijkheid toestemming in te trekken.
 
 <figure>
 ``` mermaid

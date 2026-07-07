@@ -797,13 +797,14 @@
 </blockquote>
 <h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
 <h3 id="globaal-ontwerp">Globaal ontwerp<a class="headerlink" href="#globaal-ontwerp" title="Permanent link">&para;</a></h3>
-<p>In dit globaal ontwerp wordt op hoofdlijnen uiteengezet welke stelselfuncties nodig zijn voor een gemeenschappelijke bronontsluiting en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:</p>
+<p>In dit globaal ontwerp wordt op hoofdlijnen uiteengezet wat de voorgestelde oplossingsrichting is voor een gemeenschappelijke bronontsluiting en hoe deze ingericht kan worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in de volgende documenten:</p>
 <ul>
 <li>Projectstartarchitectuur: kaders en richtlijnen voor het ontwerp en de inrichting van de stelselfuncties.  </li>
 <li>Technisch ontwerp: technisch ontwerp van de benodigde voorzieningen.  </li>
 <li>Technische requirements: de specificaties van de in te richten componenten.  </li>
 <li>Semantiek: informatiemodellen en begrippenkaders van de gegevens die uitgewisseld worden, zowel de gegevens die opgevraagd worden, als gegevens die nodig zijn voor veilige, betrouwbare uitwisseling (zoals GraphQL-schema's, mappings tussen verschillende formaten, toestemmingen, etc.).  </li>
 </ul>
+<p>Voor de beschrijving van de doelen van de gemeenschappelijke bronontsluiting wordt verwezen naar het tabblad <a href="https://ictu.github.io/GBO/">Gemeenschappelijke Bronontsluiting</a>. De juridische en organisatorische context worden beschreven op het tabblad <a href="https://ictu.github.io/GBO/latest/context">Context</a>.  </p>
 <h3 id="uitgangspunten">Uitgangspunten<a class="headerlink" href="#uitgangspunten" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Europees interoperabel: Europese afspraken en standaarden (o.a. EIF, eIDAS, OOTS en EUDI) en de Nederlandse invulling hiervan, zoals de NL-Wallet en het centrale Nederlandse OOTS-toegangspunt.  </li>
@@ -815,7 +816,7 @@
 <h3 id="leeswijzer">Leeswijzer<a class="headerlink" href="#leeswijzer" title="Permanent link">&para;</a></h3>
 <p>Het globaal ontwerp wordt als volgt uitgewerkt:</p>
 <ul>
-<li><a href="#2-voorgestelde-oplossingsrichting">Hoofdstuk 2</a> schetst de oplossingsrichting voor de gemeenschappelijke bronontsluiting  </li>
+<li><a href="#2-voorgestelde-oplossingsrichting">Hoofdstuk 2</a> schetst de voorgestelde oplossingsrichting  </li>
 <li><a href="#3-interactiepatronen">Hoofdstuk 3</a> beschrijft de interactiepatronen waar de gemeenschappelijke bronontsluiting invulling aan geeft  </li>
 <li><a href="#4-generieke-functies-en-stelselfuncties">Hoofdstuk 4</a> beschrijft de generieke functies die nodig zijn en de stelselfuncties waarmee dit mogelijk wordt  </li>
 <li><a href="#5-te-ontwikkelen-componenten">Hoofdstuk 5</a> gaat in op de stelselfuncties die nog ontwikkeld moeten worden  </li>
@@ -899,16 +900,13 @@
 <h2 id="interactiepatronen">Interactiepatronen<a class="headerlink" href="#interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen, elk met eigen actoren, grondslagen en protocollen. De drie interactiepatronen worden in de volgende paragrafen geschetst.</p>
 <h3 id="patroon-a-burger-gebruikt-eudi-wallet">Patroon A - burger gebruikt EUDI-Wallet<a class="headerlink" href="#patroon-a-burger-gebruikt-eudi-wallet" title="Permanent link">&para;</a></h3>
-<p>Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EUDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.</p>
-<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PubEAA-uitgevende instantie, maar is zelf geen PubEAA verstrekker. De verificatiedienst voor QTSP's die attestaties willen verifiëren is een aanvullend GBO-component. Beide diensten maken gebruik van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
-<p>Voor attestatie-uitgifte via een QTSP (QEAA) zijn twee varianten mogelijk:</p>
-<ol>
-<li><strong>Burger contracteert QTSP:</strong> de burger levert attributen aan bij de QTSP, waarna de QTSP verifieert bij de verificatiedienst van de bronhouder of de aangewezen intermediair. Deze variant moet door bronhouders ondersteund worden en hiervoor wil GBO een centrale verify-dienst beschikbaar stellen.  </li>
-<li><strong>Bronhouder contracteert QTSP:</strong> de bronhouder verwijst de burger naar de QTSP, waarna de QTSP de attributen ophaalt bij de retrieval-dienst van de bronhouder of de aangewezen intermediair. Er is geen wettelijke verplichting voor bronnen om dit te ondersteunen, maar een retrieval-dienst kan functioneel dezelfde implementatie (Authentic Source Interface provider) gebruiken als de verify-dienst die in de eerste variant wordt gebruikt.  </li>
-</ol>
+<p>Een burger vraagt een attestatie op bij een overheidsbron als verifieerbare credential (VC) voor opname in zijn EUDI-Wallet. De wallet initieert een OpenID4VCI-ophaalverzoek richting GBO, dat de bron bevraagt en het resultaat retourneert als SD-JWT VC of mdoc (ISO 18013-5). De attestatie is cryptografisch gezegeld en kan daarna door de burger worden gepresenteerd aan dienstverleners via OpenID4VP, zonder verdere tussenkomst van GBO.<br />
+De uitgifte van attestaties kan rechtstreeks door bronhouders uitgevoerd worden, wat resulteert in PubEAA's. De uitgifte kan ook door Qualified Trust Service Providers (QTSP's) uitgevoerd worden, wat resulteert in QEAA's. Juridisch hebben PubEAA's en QEAA's dezelfde betekenis.</p>
+<p>GBO ondersteunt functioneel/technisch in dit patroon de rol van PubEAA-uitgevende instantie, maar is zelf geen PubEAA verstrekker. De bronhouder gebruikt deze instantie om zelfstandig attestaties uit te geven.<br />
+Voor uitgifte van attestaties via een QTSP ondersteunt GBO de rol van Authentic Source Interface Provider (ASI-P). Deze ASI-P kan zowel een "verify" dienst, waar aangeleverde attributen geverifieerd worden, als een "retrieve" dienst, waar de QTSP namens de bronhouder attributen ophaalt en kwalificeert, bieden. Voor autorisatie en authenticatie kan gebruik gemaakt worden van een autorisatiedienst die ook door GBO aangeboden wordt.</p>
 <p>De attribuutcatalogus die de Europese Commissie op basis van OOTS Common Services implementeert, is relevant voor zowel PubEAA als QEAA: GBO wil vanuit de semantiek-uitwerking aansluiten bij deze catalogus voor de definitie van attributen, informatiemodellen en endpoints.</p>
 <blockquote>
-<p><strong>Afstemming lopend:</strong> Over de keuze tussen PubEAA-uitgifte door overheidsbronnen en attestatie via een QTSP loopt nog afstemming. GBO positioneert beide varianten als ondersteund; de governance-keuze wordt extern belegd.</p>
+<p><strong>Afstemming lopend:</strong> Over de keuze tussen varianten van PubEAA-uitgifte door overheidsbronnen en QEAA-uitgifte via een QTSP loopt nog afstemming. GBO positioneert alle mogelijke varianten als ondersteund; de governance-keuze wordt extern belegd.</p>
 </blockquote>
 <figure>
 <div class="mermaid">sequenceDiagram
@@ -917,7 +915,7 @@
     participant Wallet as EUDI-Wallet
     participant QTSP as QTSP
     participant PubEAA as PubEAA&lt;br/&gt;voorziening
-    participant VerifDienst as Verificatie-&lt;br/&gt;dienst
+    participant VerifDienst as Verificatie-/retrievedienst&lt;br/&gt;(Authentic Source Interface)
     participant Auth as Autorisatie&lt;br/&gt;voorziening
     participant Bron as Overheids-&lt;br/&gt;bron
 
@@ -944,9 +942,9 @@
 
     rect rgb(238, 237, 254)
         Burger-&gt;&gt;QTSP: Attestatie Request&lt;br /&gt;(incl. evt. stukken)
-        Note over QTSP: QTSP verifieert attribuut&lt;br/&gt;via verificatiedienst
-        QTSP-&gt;&gt;VerifDienst: Verificatieverzoek
-        Note over VerifDienst: Verificatiedienst: aangeboden&lt;br/&gt;door bron of centraal via GBO
+        Note over QTSP: QTSP verifieert attribuut (verify)&lt;br/&gt;of haalt attribuut op (retrieve)
+        QTSP-&gt;&gt;VerifDienst: Verificatie- of Retrieveverzoek
+        Note over VerifDienst: Verificatie-/Retrievedienst&lt;br/&gt;aangeboden door bron of centraal via GBO
         VerifDienst-&gt;&gt;Auth: Autorisatieverzoek
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
@@ -1035,14 +1033,14 @@ NB: een gegeven kan als PubEAA (rechtstreeks van overheidsbron) of QEAA (via QTS
 <h3 id="patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp">Patroon C - gegevensverzoek van private dienstverlener (DvTP)<a class="headerlink" href="#patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp" title="Permanent link">&para;</a></h3>
 <p>Een private dienstverlener haalt overheidsgegevens op bij een bronhouder, uitsluitend op basis van een geldige juridische grondslag. In het geval van DvTP is dit een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners. De burger authenticeert zich met een eIDAS authenticatiemiddel op het vereiste betrouwbaarheidsniveau en geeft geïnformeerde toestemming voor een specifiek doel, een specifieke afnemer en een specifieke set gegevens. GBO registreert de toestemming in een toestemmingenregister, levert een consent-id aan de private dienstverlener, valideert deze op het moment van uitvraag real-time, en zorgt dat het BSN de private dienstverlener nooit bereikt - in de plaats daarvan ontvangt de afnemer een partijspecifiek pseudoniem.</p>
 <p>De bronhouder controleert of de private dienstverlener bevoegd is om de gegevens op te vragen, controleert het consent-id en beoordeelt of de gegevensvraag binnen de scope valt. Via het consent-id wordt het BSN van de betrokkene herleid en het antwoord aan de private dienstverlener wordt geleverd als response in het afnemersformaat.</p>
-<p>GBO kiest voor een <strong>centraal toestemmingenregister</strong> als kern van dit patroon. Decentrale alternatieven (zoals toestemmingsregistratie per bronhouder) zijn overwogen, maar het centrale model heeft doorslaggevende voordelen:</p>
+<p>GBO stelt een <strong>centrale toestemmingsvoorziening</strong> voor als kern van dit patroon. Decentrale alternatieven (zoals toestemmingsregistratie per bronhouder) zijn overwogen, maar het centrale model heeft doorslaggevende voordelen:</p>
 <ul>
 <li><strong>Kostenbesparing:</strong> eenmalig inrichten en beheren is goedkoper dan dat iedere bronhouder dit zelf regelt.</li>
 <li><strong>Herkenbaarheid voor de burger:</strong> een centrale voorziening biedt de burger telkens dezelfde ervaring, wat herkenning en vertrouwen opbouwt.</li>
-<li><strong>Inzage voor de burger:</strong> met een centrale voorziening is het aanzienlijk eenvoudiger om de burger inzage te geven in al zijn toestemmingen via het Toestemmingsportaal.</li>
+<li><strong>Inzage voor de burger:</strong> met een centrale voorziening is het aanzienlijk eenvoudiger om de burger inzage te geven in al zijn toestemmingen via een toestemmingsportaal.</li>
 <li><strong>Eén keer toestemmen:</strong> de burger kan in één handeling toestemming geven voor een set gegevens die mogelijk uit meerdere bronnen afkomstig zijn. Bij decentrale registratie per bron zou de burger voor elke bron apart moeten toestemmen.</li>
 </ul>
-<p>Het Toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en de mogelijkheid toestemming in te trekken.</p>
+<p>Het toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en de mogelijkheid toestemming in te trekken.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -1061,7 +1059,7 @@ NB: een gegeven kan als PubEAA (rechtstreeks van overheidsbron) of QEAA (via QTS
         DV-&gt;&gt;Burger: Redirect naar toestemmingsvoorziening GBO&lt;br/&gt;(met scope + doelbinding)
         Burger-&gt;&gt;TV: Volgt redirect
         TV-&gt;&gt;Auth: Authenticatieverzoek
-        Note over Auth: DigiD of ander identificatiemiddel (eIDAS 2.0)
+        Note over Auth: DigiD of ander identificatiemiddel
         Auth-&gt;&gt;Burger: Authenticeer burger
         Burger--&gt;&gt;Auth: Authenticatie
         Auth--&gt;&gt;TV: BSN (geverifieerde identiteit)
@@ -1071,23 +1069,22 @@ NB: een gegeven kan als PubEAA (rechtstreeks van overheidsbron) of QEAA (via QTS
         TV-&gt;&gt;TV: Registreer PI/PP
         TV-&gt;&gt;PP: Transformeer PI/PP
         PP--&gt;&gt;TV: Versleutelde PI/PP (VI/VP)
-        TV-&gt;&gt;Burger: Toon gegevens waarvoor toestemming&lt;br/&gt;gevraagd wordt (scope + doelbinding)
+        TV-&gt;&gt;Burger: Toon gegevensset waarvoor toestemming&lt;br/&gt;gevraagd wordt (scope + doelbinding)
         Burger--&gt;&gt;TV: Verleent toestemming
         TV-&gt;&gt;TR: Schrijf toestemming in register&lt;br/&gt;(VI · scope · doelbinding · TTL)
         TR--&gt;&gt;TV: consent-id
-        TV-&gt;&gt;DV: Redirect terug naar dienstverlener&lt;br/&gt;(met consent-id en VP)
+        TV-&gt;&gt;DV: Redirect terug naar dienstverlener&lt;br/&gt;(met consent-id en VI/VP)
     end
 
-    Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder
+    Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder (per bron een verzoek)
 
     rect rgb(238, 237, 254)
         DV-&gt;&gt;BRH: Gegevensverzoek&lt;br/&gt;(consent-id · mTLS / certificaat)
         BRH-&gt;&gt;BRH: Authenticeer dienstverlener&lt;br /&gt;(via certificaat)
         BRH-&gt;&gt;BRH: Controleer bevoegdheid&lt;br /&gt;(via FSC contract/Trusted List)
-        BRH-&gt;&gt;TR: Valideer consent-id&lt;br/&gt;(geldig? scope? TTL?)*
-        TR--&gt;&gt;BRH: Consent geldig&lt;br /&gt;(incl. VI)
-        Note over TR, BRH: Als consent in token zit, is&lt;br/&gt;bevraging toestemmingenregister&lt;br /&gt;niet nodig
-        BRH-&gt;&gt;BRH: Controleer data scope&lt;br /&gt;(template match)
+        BRH-&gt;&gt;TR: Valideer consent-id
+        TR--&gt;&gt;BRH: Consent geldig
+        BRH-&gt;&gt;BRH: Controleer data scope
         BRH-&gt;&gt;BRH: Ontsleutel VI naar BSN
         BRH--&gt;&gt;DV: Gevraagde gegevens
     end

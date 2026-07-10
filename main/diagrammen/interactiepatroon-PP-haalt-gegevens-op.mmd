@@ -35,7 +35,7 @@ sequenceDiagram
     Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder (per bron een verzoek)
 
     rect rgb(238, 237, 254)
-        DV->>BRH: Gegevensverzoek<br/>(consent-id · mTLS / certificaat)
+        DV->>BRH: Gegevensverzoek<br/>(consent-id · VI · mTLS / certificaat)
         BRH->>BRH: Authenticeer dienstverlener<br />(via certificaat)
         BRH->>BRH: Controleer bevoegdheid<br />(via FSC contract/Trusted List)
         BRH->>TR: Valideer consent-id

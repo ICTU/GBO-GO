@@ -947,13 +947,13 @@ GBO biedt een voorziening die de benodigde semantische transformatie - naar de s
 
     rect rgb(225, 245, 238)
         Note over GBO: ④ Semantische mapping
-        Note over GBO: SDG Evidence type ↔ GBO-formaat
+        Note over GBO: SDG Evidence type ↔ Bron-formaat
     end
 
     rect rgb(225, 245, 238)
         Note over GBO,BRH: ⑤ Bronontsluiting (GBO generieke API)
         GBO-&gt;&gt;BRH: API-aanroep (GraphQL)
-        BRH-&gt;&gt;GBO: Gegevens (GBO-formaat)
+        BRH-&gt;&gt;GBO: Gegevens (Bron-formaat)
     end
 
     rect rgb(250, 238, 218)
@@ -1030,7 +1030,7 @@ GBO biedt een voorziening die de benodigde semantische transformatie - naar de s
     Note over DV,BRH: Fase 2 — Gegevensopvraging bij bronhouder (per bron een verzoek)
 
     rect rgb(238, 237, 254)
-        DV-&gt;&gt;BRH: Gegevensverzoek&lt;br/&gt;(consent-id · mTLS / certificaat)
+        DV-&gt;&gt;BRH: Gegevensverzoek&lt;br/&gt;(consent-id · VI · mTLS / certificaat)
         BRH-&gt;&gt;BRH: Authenticeer dienstverlener&lt;br /&gt;(via certificaat)
         BRH-&gt;&gt;BRH: Controleer bevoegdheid&lt;br /&gt;(via FSC contract/Trusted List)
         BRH-&gt;&gt;TR: Valideer consent-id
@@ -1353,8 +1353,8 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   eudi_asi -- retrieve --- eudi_qeaa
   eudi_qeaa -- OpenID4VCI --- eudi_wallet
   gbo -- GraphQL --- eudi_asi &amp; eudi_pubeaa &amp; oots_adapter &amp; dvtp_afnemer
-  eudi_pubeaa -- OpenID4VCI ---- eudi_wallet
-  oots_adapter --- oots_basis
+  eudi_pubeaa -- OpenID4VCI --- eudi_wallet
+  oots_adapter -- GraphQL --- oots_basis
   oots_basis -- eDelivery-AS4 --- oots_afnemer
   gbo -- REST-JSON&lt;br/&gt;(PIP) --- dvtp_toestemming
   dvtp_toestemming -. consent-id .- dvtp_afnemer
@@ -1364,17 +1364,17 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   oots_afnemer --- burger
   dvtp_afnemer --- burger
 
-  fsc_pap:::gbo
-  fsc:::gbo
-  fsc_tools:::gbo
-  eudi_asi:::gbo
-  eudi_pubeaa:::gbo
+  fsc_pap:::gbo_d
+  fsc:::gbo_d
+  fsc_tools:::gbo_d
+  eudi_asi:::gbo_k
+  eudi_pubeaa:::gbo_c
   eudi_qeaa:::eudi
   eudi_wallet:::eudi
-  oots_adapter:::gbo
+  oots_adapter:::gbo_k
   oots_basis:::oots
   oots_afnemer:::oots
-  dvtp_toestemming:::gbo
+  dvtp_toestemming:::gbo_c
   dvtp_pseudoniem:::dvtp
   dvtp_afnemer:::dvtp
   bron:::bron
@@ -1385,7 +1385,9 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef gbo fill:#fff0e8,stroke:#000000,color:#000000
+  classDef gbo_k fill:#fff0e8,stroke:#000000,color:#000000
+  classDef gbo_c fill:#fff0e8,stroke:#000000,color:#000000
+  classDef gbo_d fill:#fff0e8,stroke:#000000,color:#000000
   classDef burger fill:#edf7df,stroke:#6aa13a,color:#27500a
 </div>
 <figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.</figcaption>

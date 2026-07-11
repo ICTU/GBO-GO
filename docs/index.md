@@ -244,13 +244,13 @@ _Legenda: ⚠️ = nog te realiseren als nieuwe GBO-voorziening._
 
 ### Overzichtsplaat oplossing
 
-De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingevuld worden. In de onderstaande figuur zijn in het overzicht de componenten benoemd die invulling geven aan de vereiste functies.
+De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingevuld worden. In de onderstaande figuur zijn in het overzicht de componenten benoemd die invulling kunnen geven aan de vereiste functies.
 
 <figure>
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
-<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.</figcaption>
+<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (PAP is wel centraal); lichtbruin = centrale adapters (optioneel - de bronhouder kan hier een alternatieve keuze maken); donkerbruin = te ontwikkelen centrale voorzieningen; grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
 </figure>
 
 In de volgende paragrafen wordt aangegeven welke componenten hergebruikt kunnen worden en waar aanpassingen/aanvullingen nodig zijn om de gemeenschappelijke bronontsluiting mogelijk te maken.

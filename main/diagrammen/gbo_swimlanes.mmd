@@ -32,6 +32,7 @@ flowchart LR
   eudi_asi -- retrieve --- eudi_qeaa
   eudi_qeaa -- OpenID4VCI --- eudi_wallet
   gbo -- GraphQL --- eudi_asi & eudi_pubeaa & oots_adapter & dvtp_afnemer
+  eudi_asi ~~~ eudi_pubeaa
   eudi_pubeaa -- OpenID4VCI --- eudi_wallet
   oots_adapter -- GraphQL --- oots_basis
   oots_basis -- eDelivery-AS4 --- oots_afnemer
@@ -47,7 +48,7 @@ flowchart LR
   fsc:::gbo_d
   fsc_tools:::gbo_d
   eudi_asi:::gbo_k
-  eudi_pubeaa:::gbo_c
+  eudi_pubeaa:::gbo_k
   eudi_qeaa:::eudi
   eudi_wallet:::eudi
   oots_adapter:::gbo_k
@@ -64,7 +65,7 @@ flowchart LR
   classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef gbo_k fill:#fff0e8,stroke:#000000,color:#000000
-  classDef gbo_c fill:#fff0e8,stroke:#000000,color:#000000
-  classDef gbo_d fill:#fff0e8,stroke:#000000,color:#000000
+  classDef gbo_k fill:#FAB79B,stroke:#000000,color:#000000
+  classDef gbo_c fill:#F57138,stroke:#000000,color:#000000
+  classDef gbo_d fill:#BFFA7F,stroke:#000000,color:#000000
   classDef burger fill:#edf7df,stroke:#6aa13a,color:#27500a

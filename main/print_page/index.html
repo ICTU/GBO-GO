@@ -1317,7 +1317,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 <p><em>Legenda: ⚠️ = nog te realiseren als nieuwe GBO-voorziening.</em></p>
 <h2 id="index-te-ontwikkelen-componenten">Te ontwikkelen componenten<a class="headerlink" href="#index-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h2>
 <h3 id="index-overzichtsplaat-oplossing">Overzichtsplaat oplossing<a class="headerlink" href="#index-overzichtsplaat-oplossing" title="Permanent link">&para;</a></h3>
-<p>De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingevuld worden. In de onderstaande figuur zijn in het overzicht de componenten benoemd die invulling geven aan de vereiste functies.</p>
+<p>De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingevuld worden. In de onderstaande figuur zijn in het overzicht de componenten benoemd die invulling kunnen geven aan de vereiste functies.</p>
 <figure>
 <div class="mermaid">flowchart LR
   subgraph gbo["GBO Basis"]
@@ -1353,6 +1353,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   eudi_asi -- retrieve --- eudi_qeaa
   eudi_qeaa -- OpenID4VCI --- eudi_wallet
   gbo -- GraphQL --- eudi_asi &amp; eudi_pubeaa &amp; oots_adapter &amp; dvtp_afnemer
+  eudi_asi ~~~ eudi_pubeaa
   eudi_pubeaa -- OpenID4VCI --- eudi_wallet
   oots_adapter -- GraphQL --- oots_basis
   oots_basis -- eDelivery-AS4 --- oots_afnemer
@@ -1368,7 +1369,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   fsc:::gbo_d
   fsc_tools:::gbo_d
   eudi_asi:::gbo_k
-  eudi_pubeaa:::gbo_c
+  eudi_pubeaa:::gbo_k
   eudi_qeaa:::eudi
   eudi_wallet:::eudi
   oots_adapter:::gbo_k
@@ -1385,12 +1386,12 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef gbo_k fill:#fff0e8,stroke:#000000,color:#000000
-  classDef gbo_c fill:#fff0e8,stroke:#000000,color:#000000
-  classDef gbo_d fill:#fff0e8,stroke:#000000,color:#000000
+  classDef gbo_k fill:#FAB79B,stroke:#000000,color:#000000
+  classDef gbo_c fill:#F57138,stroke:#000000,color:#000000
+  classDef gbo_d fill:#BFFA7F,stroke:#000000,color:#000000
   classDef burger fill:#edf7df,stroke:#6aa13a,color:#27500a
 </div>
-<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.</figcaption>
+<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (PAP is wel centraal); lichtbruin = centrale adapters (optioneel - de bronhouder kan hier een alternatieve keuze maken); donkerbruin = te ontwikkelen centrale voorzieningen; grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
 </figure>
 
 <p>In de volgende paragrafen wordt aangegeven welke componenten hergebruikt kunnen worden en waar aanpassingen/aanvullingen nodig zijn om de gemeenschappelijke bronontsluiting mogelijk te maken.</p>

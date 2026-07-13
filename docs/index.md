@@ -348,12 +348,12 @@ Alle te ontwikkelen voorzieningen en afspraken moeten in een stelsel landen. Er 
 ## Impact op betrokken partijen
 
 GBO wil bronhouders ontzorgen door het bieden van een generieke bronontsluiting die eenmalig geïmplementeerd moet worden, en voor diverse gegevensstromen gebruikt kan worden. Maar daarvoor moeten de bronhouders wel die bronontsluiting implementeren. De afnemers worden ook zoveel mogelijk ontzorgd, maar ook voor hen heeft GBO impact.  
-In de onderstaande tabel is kort weergegeven wat de verwachte impact is op de betrokken partijen. NB: dit is een eerste inschatting op basis van hetgeen in dit globaal ontwerp is beschreven. Na uitwerking zal de werkelijke impact blijken en moet dit overzicht herijkt worden.  
+In de onderstaande tabel is kort weergegeven wat de verwachte impact is op de betrokken partijen. NB: dit is een eerste inschatting op basis van hetgeen in dit globaal ontwerp is beschreven. Na uitwerking van het ontwerp in PSA, technisch ontwerp en technische requirements zal dit overzicht herijkt worden.  
 
 | Partij | Impact | Toelichting |
 |--------|--------|-------------|
 | Bronhouder | Implementatie van de componenten om de bron te ontsluiten: een GraphQL API, FSC, FTV; Beheer van de relevante catalogi (dienstencatalogus, semantische mapping, data request registry) | GBO ondersteunt met referentiecomponenten en een "GBO-vertaallaag" voor bronnen die (nog) geen GraphQL API kunnen ontsluiten. |
 | QTSP | Aansluiting op de ASI-P | Deze aansluiting volgt de Europese standaarden en moet de QTSP sowieso maken om QEAA's te kunnen uitgeven. |
-| Basisinrichting OOTS | Ondersteuning van GraphQL (OOTS-V) | De huidige OOTS-V heeft al een FSC koppeling, maar ondersteunt alleen REST/JSON (wat ook het standaard protocol voor FSC is). |
+| Basisinrichting OOTS | Ondersteuning van GraphQL (OOTS-V) | De huidige OOTS-V heeft al een FSC koppeling. |
 | Private dienstverleners | Toetreden tot het stelsel; Aansluiten op BSNk; Implementatie FSC outway met GraphQL; Koppelen met toestemmingsvoorziening | Er is nog geen stelsel - dit moet nog uitgewerkt worden. |
-| Burger | Mogelijkheid om gegevens te delen met private dienstverleners op basis van toestemming, die centraal gegeven en beheerd wordt. Houdt verschillende ingangen en stelsels voor het delen van persoonsgegevens met verschillende partijen. | Hoewel GBO uitgaat van door de burger geïnitieerde gegevensstromen, is het burger perspectief (nog) niet in scope. |
+| Burger | Mogelijkheid om gegevens te delen met private dienstverleners op basis van toestemming, die centraal gegeven en beheerd wordt. Houdt verschillende ingangen en stelsels voor het delen van persoonsgegevens met verschillende partijen. | Burger perspectief is (nog) niet in scope. |

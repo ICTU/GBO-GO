@@ -250,7 +250,7 @@ De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingev
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
-<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (PAP is wel centraal); lichtbruin = centrale adapters (optioneel - de bronhouder kan hier een alternatieve keuze maken); donkerbruin = te ontwikkelen centrale voorzieningen; grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
+<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (PAP is wel centraal); lichtbruin = centrale voorzieningen t.b.v. aansluiting (optioneel - de bronhouder kan in deze gegevensstroom een alternatieve keuze maken); donkerbruin = centrale voorzieningen (verplicht als gegevens in deze gegevensstroom uitgewisseld worden); grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
 </figure>
 
 In de volgende paragrafen wordt aangegeven welke componenten hergebruikt kunnen worden en waar aanpassingen/aanvullingen nodig zijn om de gemeenschappelijke bronontsluiting mogelijk te maken.

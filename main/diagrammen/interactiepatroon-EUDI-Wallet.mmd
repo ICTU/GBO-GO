@@ -4,7 +4,7 @@ sequenceDiagram
     participant Wallet as EUDI-Wallet
     participant QTSP as QTSP
     participant PubEAA as PubEAA<br/>voorziening
-    participant VerifDienst as Verificatie-/retrievedienst<br/>(Authentic Source Interface)
+    participant VerifDienst as Verify-/retrievedienst<br/>(Authentic Source Interface)
     participant Auth as Autorisatie<br/>voorziening
     participant Bron as Overheids-<br/>bron
 
@@ -32,9 +32,10 @@ sequenceDiagram
     rect rgb(238, 237, 254)
         Burger->>QTSP: Attestatie Request<br />(incl. evt. stukken)
         Note over QTSP: QTSP verifieert attribuut (verify)<br/>of haalt attribuut op (retrieve)
-        QTSP->>VerifDienst: Verificatie- of Retrieveverzoek
-        Note over VerifDienst: Verificatie-/Retrievedienst<br/>aangeboden door bron of centraal via GBO
+        QTSP->>VerifDienst: Verify- of Retrieveverzoek
+        Note over VerifDienst: Verify-/Retrievedienst<br/>aangeboden door bron of centraal via GBO
         VerifDienst->>Auth: Autorisatieverzoek
+        Note over Auth: Bij gebruik ISO15000 geen autorisatie/authenticatie nodig
         Auth->>Wallet: Authenticatie- & autorisatieverzoek
         Wallet->>Burger: Toont verzoek & vraagt consent
         Burger->>Wallet: Geeft consent & presenteert PID / eID

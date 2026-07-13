@@ -863,7 +863,7 @@ GBO kan bronhouders ondersteunen door het aanbieden van een gedeelde voorziening
     participant Wallet as EUDI-Wallet
     participant QTSP as QTSP
     participant PubEAA as PubEAA&lt;br/&gt;voorziening
-    participant VerifDienst as Verificatie-/retrievedienst&lt;br/&gt;(Authentic Source Interface)
+    participant VerifDienst as Verify-/retrievedienst&lt;br/&gt;(Authentic Source Interface)
     participant Auth as Autorisatie&lt;br/&gt;voorziening
     participant Bron as Overheids-&lt;br/&gt;bron
 
@@ -891,9 +891,10 @@ GBO kan bronhouders ondersteunen door het aanbieden van een gedeelde voorziening
     rect rgb(238, 237, 254)
         Burger-&gt;&gt;QTSP: Attestatie Request&lt;br /&gt;(incl. evt. stukken)
         Note over QTSP: QTSP verifieert attribuut (verify)&lt;br/&gt;of haalt attribuut op (retrieve)
-        QTSP-&gt;&gt;VerifDienst: Verificatie- of Retrieveverzoek
-        Note over VerifDienst: Verificatie-/Retrievedienst&lt;br/&gt;aangeboden door bron of centraal via GBO
+        QTSP-&gt;&gt;VerifDienst: Verify- of Retrieveverzoek
+        Note over VerifDienst: Verify-/Retrievedienst&lt;br/&gt;aangeboden door bron of centraal via GBO
         VerifDienst-&gt;&gt;Auth: Autorisatieverzoek
+        Note over Auth: Bij gebruik ISO15000 geen autorisatie/authenticatie nodig
         Auth-&gt;&gt;Wallet: Authenticatie- &amp; autorisatieverzoek
         Wallet-&gt;&gt;Burger: Toont verzoek &amp; vraagt consent
         Burger-&gt;&gt;Wallet: Geeft consent &amp; presenteert PID / eID

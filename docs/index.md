@@ -25,6 +25,7 @@ Voor de beschrijving van de doelen van de gemeenschappelijke bronontsluiting wor
 NB: Het FDS maakt voor de gegevensuitwisseling gebruik van de GDI-standaarden en zorgt voor aanvullingen op deze GDI-standaarden indien hiervoor nog geen standaarden of afspraken gemaakt zijn. Voorbeelden is bijvoorbeeld: Federatieve Toegangsverlening dat gebaseerd is op AuthZen en als standaard op dit moment is aangeboden bij Forum Standaardisatie.  
 - Beleidsgedreven autorisatie (PBAC): PBAC-architectuur voor autorisatie en toegang.  
 - Waardengedreven inrichting: De organisatorische en technische inrichting is gebaseerd op publieke waarden en op het principe van een gelijk speelveld bij de rollen en verantwoordelijkheden.  
+- Keuzevrijheid: Bronhouders zijn volledig vrij om gebruik te maken van GBO of een alternatief te kiezen. Ook als een bronhouder voor een gegevensstroom een eigen oplossing gebruikt, kan voor de andere GBO gebruikt worden.  
 
 
 ### Leeswijzer
@@ -69,7 +70,7 @@ Deze paragraaf beschrijft de voorgestelde oplossingsrichting voor GBO. Het onder
 <figcaption>Figuur 1: Oplossingsrichting GBO.</figcaption>
 </figure>
 
-Voor GBO stellen bronhouders hun gegevens bloot via een generieke API, die voor verschillende gegevensverzoeken gebruikt kan worden. Een nieuw gegevensverzoek kan dan met configuraties ingesteld worden, in plaats van het moeten inrichten en beheren van een nieuw endpoint.  
+Voor GBO stellen bronhouders hun gegevens bloot via één API, die voor verschillende gegevensverzoeken gebruikt kan worden. Een nieuw gegevensverzoek kan met configuraties ingesteld worden, in plaats van het moeten inrichten en beheren van een nieuw endpoint.  
 Generieke ontsluiting vraagt extra autorisatieregels, die met beleidsregels (eventueel ook federatief) in te stellen moeten zijn. Het koppelvlak moet met een betrouwbare en veilige standaard beschikbaar gesteld worden; zaken als versleuteling, identificatie, authenticatie en logging moeten daarin geborgd zijn. Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels.  
 
 In de volgende paragrafen worden deze componenten uitgewerkt en wordt toegewerkt naar een invulling daarvan.  
@@ -144,7 +145,7 @@ Het toestemmingsportaal biedt de burger inzage in alle actieve toestemmingen en 
 
 ## Generieke functies en stelselfuncties
 
-GBO is opgebouwd uit acht generieke functies die samen de volledige gegevensstroom afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. Deze generieke functies zijn technologieneutraal.  
+GBO is opgebouwd uit acht generieke functies die samen de volledige gegevensstromen afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. Deze generieke functies zijn technologieneutraal.  
 Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies uitgewerkt, met de stelselfuncties die GBO in beeld heeft om de functie in te vullen en hun huidige inrichtingsstatus.  
 
 ### F1 — Identiteit & Vertrouwen
@@ -237,7 +238,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 | **Stelselfunctie**                     | **Status**                                   | **Voornaamste gap / actie**                                                |
 | -------------------------------------- | -------------------------------------------- | -------------------------------------------------------------------------- |
-| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerking (LDV) beschikbaar; GBO-invulling nodig | Centraal auditlog; herleidbaarheidsprofiel; koppeling aan autorisatieketen |
+| S09 — Logging, Audit & Traceerbaarheid | FSC Logging en Logboek Dataverwerking (LDV) beschikbaar; GBO-invulling nodig | Centraal auditlog; herleidbaarheidsprofiel; koppeling aan autorisatieketen |
 
 ---
 
@@ -282,11 +283,13 @@ GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel en bouwt
 
 De oplossingsrichting gaat uit van hergebruik van de volgende bouwstenen:
 
-**FSC (Federated Service Connectivity).** Binnenlands koppelnetwerk dat mTLS-gebaseerde verbindingen tussen GBO, bronhouders en private afnemers verzorgt. Elke deelnemer beheert een eigen FSC Inway (bronhouder) of Outway (afnemer). FSC is beschikbaar als open referentie-implementatie en is de standaard voor binnenlands dataverkeer in het FDS.
+**FSC (Federated Service Connectivity).** Binnenlands koppelnetwerk dat mTLS-gebaseerde verbindingen tussen GBO, bronhouders en private dienstverleners verzorgt. Elke deelnemer beheert een eigen FSC Inway (bronhouder) en/of Outway (afnemer). FSC is beschikbaar als open referentie-implementatie en is de standaard voor binnenlands dataverkeer in het FDS.
+
+**LDV (Logboek Dataverwerking).** Voor logging en verantwoording wordt de LDV standaard toegepast. Door gebruik te maken van deze standaard kunnen dataverwerkingen van verschillende bronnen en afnemers aan elkaar gekoppeld worden.
 
 **GraphQL.** Voorgesteld bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting-API, naast REST als huidige standaard. Toegestane gegevensverzoeken zijn vooraf geregistreerd in de dienstencatalogus en afdwingbaar door het PDP-beleid. Bronhouders die geen eigen GraphQL-implementatie realiseren kunnen gebruik maken van GBO-tooling voor vertaling naar GraphQL. Formele standaardisatie als FDS-datadienst-type verloopt via Digikoppeling en Forum Standaardisatie.
 
-**OAuth 2.0 / OpenID Connect.** Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel). Het toestemmingstoken bevat de consent-id als brug naar het toestemmingenregister; het BSN zit niet in het token.
+**OAuth 2.0 / OpenID Connect.** Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel), als deze nodig is. Indien het authenticatiemiddel geen BSN bevat, dan zal deze via **Identity Matching** achterhaald moeten worden.
 
 **AuthZEN.** Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de OPA-PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.
 
@@ -307,7 +310,7 @@ Voor de toepassingen die in beeld zijn is echter meer nodig. In dit hoofdstuk wo
 
 ### GraphQL als selectief bevragingsmechanisme
 
-FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST-API Design Rules). Voor onderdelen (in elk geval bronontsluiting) stelt GBO GraphQL voor. Hiermee worden hergebruik, dataminimalisatie  
+FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST-API Design Rules). Voor onderdelen (in elk geval bronontsluiting) stelt GBO GraphQL voor. Hiermee worden hergebruik en dataminimalisatie eenvoudiger en minder beheer-intensief.  
 
 Wat er nog moet worden afgesproken of gerealiseerd:
 
@@ -368,12 +371,12 @@ Alle te ontwikkelen voorzieningen en afspraken moeten in een stelsel landen. Er 
 
 ## Impact op betrokken partijen
 
-GBO wil bronhouders ontzorgen door het bieden van een generieke bronontsluiting die eenmalig geïmplementeerd moet worden, en voor diverse gegevensstromen gebruikt kan worden. Maar daarvoor moeten de bronhouders wel die bronontsluiting implementeren. De afnemers worden ook zoveel mogelijk ontzorgd, maar ook voor hen heeft GBO impact.  
+Om gebruik te maken van GBO moeten bronhouders enkele componenten implementeren en beheren. De afnemers worden ook zoveel mogelijk ontzorgd, maar ook voor hen kan GBO impact hebben.  
 In de onderstaande tabel is kort weergegeven wat de verwachte impact is op de betrokken partijen. NB: dit is een eerste inschatting op basis van hetgeen in dit globaal ontwerp is beschreven. Na uitwerking van het ontwerp in PSA, technisch ontwerp en technische requirements zal dit overzicht herijkt moeten worden.  
 
 | Partij | Impact | Toelichting |
 |--------|--------|-------------|
-| Bronhouder | Implementatie van de componenten om de bron te ontsluiten: een GraphQL API, FSC, FTV; Beheer van de relevante catalogi (zoals de dienstencatalogus, semantische mapping, data request registry) | GBO ondersteunt met referentiecomponenten en een "GBO-vertaallaag" voor bronnen die (nog) geen GraphQL API kunnen ontsluiten. |
+| Bronhouder | Implementatie van de componenten om de bron te ontsluiten: een GraphQL API, FSC, FTV; Beheer van de relevante catalogi (zoals de dienstencatalogus, semantische mapping, data request registry) | GBO ondersteunt met referentiecomponenten en een "GBO-vertaallaag" voor bronnen die (nog) geen GraphQL API ontsluiten. Bronhouders hoeven niet alle componenten van GBO te gebruiken, maar kunnen voor onderdelen ook eigen oplossingen gebruiken. |
 | QTSP | Aansluiting op de Authentic Source Interface | Deze aansluiting volgt de Europese standaarden en moet de QTSP sowieso maken om QEAA's te kunnen uitgeven. |
 | Basisinrichting OOTS | Ondersteuning van GraphQL (OOTS-V) | De huidige OOTS-V heeft al een FSC koppeling. |
 | Private dienstverleners | Toetreden tot het stelsel; Aansluiten op BSNk; Implementatie FSC outway met een GraphQL API; Koppelen met toestemmingsvoorziening | Er is nog geen stelsel - dit moet nog uitgewerkt worden. |

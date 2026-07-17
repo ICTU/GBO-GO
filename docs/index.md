@@ -167,12 +167,12 @@ _Gegevensvragen worden geautoriseerd met behulp van beleidsregels (PBAC). Als er
 Hiervoor zijn de volgende stelselfuncties nodig:
 
 
-| **Stelselfunctie**                            | **Status**                         | **Voornaamste gap / actie**                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| S01 — Toestemmingenregistratie (primair voor DvTP)               | Nog te realiseren ⚠️               | Toestemmingsregister; gebruik als PIP; afhankelijk van benodigde wet- en regelgeving                                                                                                                                                                                                                                                                                                                                                                         |
-| S02 — Toestemmingsportaal (primair voor DvTP) | Nog te realiseren ⚠️               | DvTP; inzage & intrekking; koppeling toestemmingenregister; aansluiting MijnOverheid                                                                                                                                                                                                                                                                                                                                                                        |
-| S05 — Autorisatie (PEP/PDP/PIP)               | OPA/Rego; GBO-inrichting nog nodig | PEP/PDP referentie-implementatie per bronhouder; AuthZEN NLGov profiel; Policy Store / PAP (zie S06)                                                                                                                                                                                                                                                                                                                                                                     |
-| S06 — Beleidsbeheer & -distributie (PAP)      | Nog te ontwerpen ⚠️                | Centrale voorziening voor het beheren en distribueren van OPA/Rego-policy-bundles naar alle bronhouder-PDP-instanties en de FSC Manager. Policies worden als gesigneerde OCI-bundles beschikbaar gesteld en asynchroon opgehaald door decentrale PDP-instanties (OPA Bundle API). De PAP is het technisch-bestuurlijke gezagspunt van het stelsel: hij bepaalt wat iedere deelnemer mag. Vereist een expliciete governance-afspraak over wie policies mag schrijven, wijzigen en goedkeuren. |
+| **Stelselfunctie**                            | **Status**                         | **Voornaamste gap / actie** |
+| --------------------------------------------- | ---------------------------------- | --------------------------- |
+| S01 — Toestemmingenregistratie (primair voor DvTP)               | Nog te realiseren ⚠️               | Toestemmingsregister; gebruik als PIP; afhankelijk van benodigde wet- en regelgeving |
+| S02 — Toestemmingsportaal (primair voor DvTP) | Nog te realiseren ⚠️               | DvTP; inzage & intrekking; koppeling toestemmingenregister; aansluiting MijnOverheid |
+| S05 — Autorisatie (PEP/PDP/PIP)               |  GBO-inrichting nog nodig | PEP/PDP referentie-implementatie per bronhouder; AuthZEN NLGov profiel; Policy Store / PAP (zie S06)  |
+| S06 — Beleidsbeheer & -distributie (PAP)      | Nog te ontwerpen ⚠️                | Centrale voorziening voor het beheren en distribueren van policy-bundles naar alle bronhouder-PDP-instanties en de FSC Manager. Policies worden als gesigneerde OCI-bundles beschikbaar gesteld en asynchroon opgehaald door decentrale PDP-instanties. De PAP is het technisch-bestuurlijke gezagspunt van het stelsel: hij bepaalt wat iedere deelnemer mag. Vereist een expliciete governance-afspraak over wie policies mag schrijven, wijzigen en goedkeuren. |
 
 ### F3 — Gegevensvoorziening
 
@@ -216,7 +216,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 | **Stelselfunctie**                       | **Status**                                                     | **Voornaamste gap / actie** |
 | ---------------------------------------- | -------------------------------------------------------------- | --------------------------- |
 | S01 — Toestemmingenregistratie           | Nog te realiseren ⚠️                                           | Zie F2                      |
-| S05 — Autorisatie (PEP/PDP/PIP)          | OPA/Rego (als bewezen implementatie); GBO-inrichting nog nodig | Zie F2                      |
+| S05 — Autorisatie (PEP/PDP/PIP)          | OPA/Rego implementatie bij iWlz als inspiratie; GBO-inrichting nog nodig | Zie F2                      |
 | S06 — Beleidsbeheer & -distributie (PAP) | Nog te ontwerpen ⚠️                                            | Zie F2                      |
 
 ### F7 — Orkestratie & Integratie
@@ -252,7 +252,7 @@ De onderstaande tabel geeft een totaaloverzicht van alle stelselfuncties met hun
 | S02 — Toestemmingsportaal (Burger Interactie)        | F2                       | Nog te realiseren ⚠️                                             |
 | S03 — Burgeridentificatie & Pseudonimisering         | F1                       | BSNk PP beschikbaar; integratie nodig                            |
 | S04 — Organisatie-authenticatie & Vertrouwensstelsel | F1                       | FDS Poortwachter/Marktmeester uitgewerkt als concept; GBO-toepassing nog te bepalen |
-| S05 — Autorisatie (PEP/PDP/PIP)                      | F2, F6                   | OPA/Rego; GBO-inrichting nog nodig                               |
+| S05 — Autorisatie (PEP/PDP/PIP)                      | F2, F6                   | GBO-inrichting nog nodig                               |
 | S06 — Beleidsbeheer & -distributie (PAP)             | F2, F6                   | Nog te ontwerpen ⚠️                                              |
 | S07 — Gegevensontsluiting (bronontsluiting-API)      | F3, F7                   | Nederlandse API Strategie beschikbaar; Digikoppeling (met FSC) beschikbaar; GraphQL nog niet gestandaardiseerd als API profiel |
 | S08 — OOTS-adapter (Grensoverschrijdend)             | F3, F7                   | OOTS-basisinrichting beschikbaar                                |
@@ -291,11 +291,9 @@ De oplossingsrichting gaat uit van hergebruik van de volgende bouwstenen:
 
 **OAuth 2.0 / OpenID Connect.** Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel), als deze nodig is. Indien het authenticatiemiddel geen BSN bevat, dan zal deze via **Identity Matching** achterhaald moeten worden.
 
-**AuthZEN.** Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de OPA-PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.
+**AuthZEN.** Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.
 
-**OPA/Rego (Open Policy Agent).** Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.
-
-**ODRL (Open Digital Rights Language).** W3C-standaard voor machineleesbare beleidsrepresentatie. Ingezet als beschrijvingstaal voor beleidsregels in de PAP (zie §4.1), aansluitend op de toepassing in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).
+**ODRL (Open Digital Rights Language).** W3C-standaard voor machineleesbare beleidsrepresentatie. Ingezet als beschrijvingstaal voor beleidsregels in de PAP (zie §4.1), aansluitend op de toepassing in FDS en DCAT-AP NL.
 
 **BSNk PP (Polymorf Pseudonimiseringsstelsel).** In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.
 

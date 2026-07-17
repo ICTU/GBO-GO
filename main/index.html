@@ -1178,13 +1178,13 @@ Burgers authenticeren zich met DigiD of een ander EIDAS middel met een betrouwba
 </tr>
 <tr>
 <td>S05 — Autorisatie (PEP/PDP/PIP)</td>
-<td>OPA/Rego; GBO-inrichting nog nodig</td>
+<td>GBO-inrichting nog nodig</td>
 <td>PEP/PDP referentie-implementatie per bronhouder; AuthZEN NLGov profiel; Policy Store / PAP (zie S06)</td>
 </tr>
 <tr>
 <td>S06 — Beleidsbeheer &amp; -distributie (PAP)</td>
 <td>Nog te ontwerpen ⚠️</td>
-<td>Centrale voorziening voor het beheren en distribueren van OPA/Rego-policy-bundles naar alle bronhouder-PDP-instanties en de FSC Manager. Policies worden als gesigneerde OCI-bundles beschikbaar gesteld en asynchroon opgehaald door decentrale PDP-instanties (OPA Bundle API). De PAP is het technisch-bestuurlijke gezagspunt van het stelsel: hij bepaalt wat iedere deelnemer mag. Vereist een expliciete governance-afspraak over wie policies mag schrijven, wijzigen en goedkeuren.</td>
+<td>Centrale voorziening voor het beheren en distribueren van policy-bundles naar alle bronhouder-PDP-instanties en de FSC Manager. Policies worden als gesigneerde OCI-bundles beschikbaar gesteld en asynchroon opgehaald door decentrale PDP-instanties. De PAP is het technisch-bestuurlijke gezagspunt van het stelsel: hij bepaalt wat iedere deelnemer mag. Vereist een expliciete governance-afspraak over wie policies mag schrijven, wijzigen en goedkeuren.</td>
 </tr>
 </tbody>
 </table>
@@ -1275,7 +1275,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 </tr>
 <tr>
 <td>S05 — Autorisatie (PEP/PDP/PIP)</td>
-<td>OPA/Rego (als bewezen implementatie); GBO-inrichting nog nodig</td>
+<td>OPA/Rego implementatie bij iWlz als inspiratie; GBO-inrichting nog nodig</td>
 <td>Zie F2</td>
 </tr>
 <tr>
@@ -1363,7 +1363,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 <tr>
 <td>S05 — Autorisatie (PEP/PDP/PIP)</td>
 <td>F2, F6</td>
-<td>OPA/Rego; GBO-inrichting nog nodig</td>
+<td>GBO-inrichting nog nodig</td>
 </tr>
 <tr>
 <td>S06 — Beleidsbeheer &amp; -distributie (PAP)</td>
@@ -1485,9 +1485,8 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 <p><strong>LDV (Logboek Dataverwerking).</strong> Voor logging en verantwoording wordt de LDV standaard toegepast. Door gebruik te maken van deze standaard kunnen dataverwerkingen van verschillende bronnen en afnemers aan elkaar gekoppeld worden.</p>
 <p><strong>GraphQL.</strong> Voorgesteld bevragingsprotocol voor selectieve gegevensuitvraag op de bronontsluiting-API, naast REST als huidige standaard. Toegestane gegevensverzoeken zijn vooraf geregistreerd in de dienstencatalogus en afdwingbaar door het PDP-beleid. Bronhouders die geen eigen GraphQL-implementatie realiseren kunnen gebruik maken van GBO-tooling voor vertaling naar GraphQL. Formele standaardisatie als FDS-datadienst-type verloopt via Digikoppeling en Forum Standaardisatie.</p>
 <p><strong>OAuth 2.0 / OpenID Connect.</strong> Autorisatieprotocol voor de uitgifte van toestemmingstokens na succesvolle burgeridentificatie (DigiD of ander eIDAS-middel), als deze nodig is. Indien het authenticatiemiddel geen BSN bevat, dan zal deze via <strong>Identity Matching</strong> achterhaald moeten worden.</p>
-<p><strong>AuthZEN.</strong> Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de OPA-PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.</p>
-<p><strong>OPA/Rego (Open Policy Agent).</strong> Policy Decision Point voor real-time beleidsevaluatie. Policies zijn machineleesbaar, per traject instelbaar en centraal beheerd in een PAP. OPA/Rego is in productie bij het iWlz-afsprakenstelsel voor gevoelige zorgdata en is daarmee een bewezen keuze voor een overheidscontext met hoge privacyvereisten.</p>
-<p><strong>ODRL (Open Digital Rights Language).</strong> W3C-standaard voor machineleesbare beleidsrepresentatie. Ingezet als beschrijvingstaal voor beleidsregels in de PAP (zie §4.1), aansluitend op de toepassing in FDS en DCAT-AP NL. De machine-executeerbare invulling vindt plaats in Rego (OPA).</p>
+<p><strong>AuthZEN.</strong> Gestandaardiseerde koppelinterface (OpenID Foundation, draft) tussen de PEP en de PDP. Maakt de autorisatieketen protocolonafhankelijk en vervangbaar per component.</p>
+<p><strong>ODRL (Open Digital Rights Language).</strong> W3C-standaard voor machineleesbare beleidsrepresentatie. Ingezet als beschrijvingstaal voor beleidsregels in de PAP (zie §4.1), aansluitend op de toepassing in FDS en DCAT-AP NL.</p>
 <p><strong>BSNk PP (Polymorf Pseudonimiseringsstelsel).</strong> In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.</p>
 <p><strong>OpenID4VCI / OpenID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EUDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
 <p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> Attestatieformaten voor de EUDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>

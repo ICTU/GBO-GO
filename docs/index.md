@@ -44,13 +44,15 @@ Het globaal ontwerp wordt als volgt uitgewerkt:
 
 ### Knelpuntenanalyse
 
-Op het tabblad [Gemeenschappelijke Bronontsluiting](https://ictu.github.io/GBO/) worden de voordelen van een gemeenschappelijke bronontsluiting benoemd. De redenen waardoor deze voordelen nog niet bereikt worden, zijn samen te vatten in de volgende knelpunten:  
+Op het tabblad [Gemeenschappelijke Bronontsluiting](https://ictu.github.io/GBO/) worden de voordelen van een gemeenschappelijke bronontsluiting benoemd. De redenen waardoor deze voordelen nog niet bereikt worden, zijn samen te vatten in de volgende knelpunten:
+
 - Verschillende gegevensstromen vragen verschillende gegevenssets.  
 - Verschillende gegevensstromen hanteren verschillende autorisatiemodellen.  
 - Verschillende gegevensstromen gebruiken verschillende protocollen.  
 - Verschillende gegevensstromen vallen onder verschillende wet- en regelgeving.  
 
-Om te voorkomen dat overheidsbronnen hier aparte oplossingen voor implementeren, stelt GBO een gemeenschappelijke bronontsluiting voor die:  
+Om te voorkomen dat overheidsbronnen hier aparte oplossingen voor implementeren, stelt GBO een gemeenschappelijke bronontsluiting voor die:
+
 - Bronhouders eenmalig implementeren en meervoudig gebruiken.  
 - Door middel van configureren (in plaats van programmeren) gegevens beschikbaar stelt voor EUDI-wallet, OOTS en private dienstverleners.  
 - Alleen de gegevens beschikbaar stelt die de gegevensvrager mag (en kan) vragen.  

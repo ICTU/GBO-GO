@@ -1125,9 +1125,13 @@ GBO biedt een voorziening die de benodigde semantische transformatie - naar de s
 </figure>
 
 <h2 id="4-generieke-functies-en-stelselfuncties">4 Generieke functies en stelselfuncties<a class="headerlink" href="#4-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h2>
-<p>GBO is opgebouwd uit acht generieke functies die samen de volledige gegevensstromen afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. Deze generieke functies zijn technologieneutraal.<br />
-Het werken met generieke functies is geen GBO-specifieke keuze, maar sluit aan bij een bredere beweging binnen de Nederlandse overheid. Het begrip is via de GDI-Architectuur in de NORA geïntroduceerd en wordt inmiddels door meerdere stelsels toegepast om onderliggende technische keuzevrijheid te combineren met eenduidige, herkenbare functionaliteit voor gebruikers. Zo hanteert het Gezondheidsinformatiestelsel een indeling op ongeveer hetzelfde abstractieniveau als de generieke functies die GBO gebruikt. De indeling van GBO is toegesneden op de eigen interactiepatronen (zie vorige paragraaf) en bouwt waar mogelijk voort op deze bestaande stelsels — met name het GDI.<br />
-Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies beschreven en uitgewerkt naar de stelselfuncties die GBO in beeld heeft en hun huidige inrichtingsstatus.  </p>
+<p>Het werken met generieke functies is geen GBO-specifieke keuze, maar sluit aan bij een bredere beweging binnen de Nederlandse overheid. Het begrip is via de GDI-Architectuur in de NORA geïntroduceerd en wordt inmiddels door meerdere stelsels toegepast om onderliggende technische keuzevrijheid te combineren met eenduidige, herkenbare functionaliteit voor gebruikers. Zo hanteert het Gezondheidsinformatiestelsel een indeling op ongeveer hetzelfde abstractieniveau als de generieke functies die GBO gebruikt. De indeling van GBO bouwt voort op de indeling van GDI, maar is toegesneden op de eigen interactiepatronen (zie vorige paragraaf). Dit resulteert in acht generieke functies:<br />
+| GDI Domein | Generieke functies GBO |
+| Toegang | F1 -Identiteit &amp; Vertrouwen; F2 - Toegang &amp; Interactie; F6 - Grondslag &amp; Beleid |
+| Interactie | F2 - Toegang &amp; Interactie |
+| Gegevensuitwisseling | F3 - Gegevensvoorziening; F4 - Semantiek &amp; Eenheid van Taal; F5 - Gegevenskwaliteit &amp; Validatie; F7 - Orkestratie &amp; Integratie |
+| Infrastructuur | F8 - Beheer &amp; Continuïteit |  </p>
+<p>Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies beschreven en uitgewerkt naar de stelselfuncties die GBO voorstelt en hun huidige inrichtingsstatus.  </p>
 <h3 id="f1-identiteit-vertrouwen">F1 — Identiteit &amp; Vertrouwen<a class="headerlink" href="#f1-identiteit-vertrouwen" title="Permanent link">&para;</a></h3>
 <p><em>Burgers worden geïdentificeerd via het BSN, organisaties worden geïdentificeerd via het (sub)OIN. Om het BSN te verbergen voor afnemers die geen wettelijke grondslag hebben om het BSN te verwerken, wordt dit gegeven gepseudonimiseerd. Burgers authenticeren zich met DigiD of een ander EIDAS middel met een betrouwbaarheidsniveau dat past bij de afgenomen dienst en de op te vragen gegevens. Als een burger inlogt met een EIDAS middel waar geen BSN aan is gekoppeld, moet het BSN via "identity matching" achterhaald worden. Systemen authenticeren zich met PKIo certificaten. Organisaties mogen enkel deelnemen aan het stelsel als ze voldoen aan de aansluitvoorwaarden.</em></p>
 <p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
@@ -1153,7 +1157,7 @@ Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete
 </tbody>
 </table>
 <h3 id="f2-toegang-interactie">F2 — Toegang &amp; Interactie<a class="headerlink" href="#f2-toegang-interactie" title="Permanent link">&para;</a></h3>
-<p><em>Gegevensvragen worden geautoriseerd met behulp van beleidsregels (PBAC). Als er toestemming (in de betekenis van de AVG) van de burger nodig is, wordt hiervoor een toestemmingsvoorziening gebruikt.</em></p>
+<p><em>Als er toestemming (in de betekenis van de AVG) van de burger nodig is, wordt hiervoor een toestemmingsvoorziening gebruikt. Gegevensvragen worden geautoriseerd met behulp van beleidsregels (PBAC). Hiervoor biedt GBO een referentie implementatie (op basis van FTV) aan, maar de bronhouder mag hier ook een eigen implementatie gebruiken, als deze de centrale beleidsregels kan toepassen.</em></p>
 <p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>

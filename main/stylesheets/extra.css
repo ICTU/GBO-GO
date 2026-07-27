@@ -2,6 +2,10 @@
 .md-typeset figure {
   width: 100% !important;
 }
+.md-typeset figcaption {
+  max-width: 32rem;
+  font-size: small;
+}
 .md-typeset .mermaid {
   text-align: center;
 }

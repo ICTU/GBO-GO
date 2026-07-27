@@ -755,7 +755,7 @@
 <li>Europees interoperabel: Europese afspraken en standaarden (o.a. EIF, eIDAS, OOTS en EUDI) en de Nederlandse invulling hiervan, zoals de NL-Wallet en de Basisinrichting OOTS.  </li>
 <li>Generieke Digitale Infrastructuur (GDI): de verzameling van afspraken(stelsels), standaarden en voorzieningen die alle publieke dienstverleners gebruiken voor hun digitale dienstverlening aan burgers en ondernemers. Deze afspraken, standaarden en voorzieningen zijn verdeeld in 4 domeinen: toegang, interactie, gegevensuitwisseling en infrastructuur.  </li>
 <li>Federatief Datastelsel (FDS): een afsprakenstelsel dat organisaties met een publieke taak hierbij ondersteunt. De gezamenlijke afspraken zijn erop gericht dat overheden werken op basis van dezelfde standaarden, waardoor ze op een uniforme manier met data omgaan.<br />
-NB: Het FDS maakt voor de gegevensuitwisseling gebruik van de GDI-standaarden en zorgt voor aanvullingen op deze GDI-standaarden indien hiervoor nog geen standaarden of afspraken gemaakt zijn. Voorbeelden is bijvoorbeeld: Federatieve Toegangsverlening dat gebaseerd is op AuthZen en als standaard op dit moment is aangeboden bij Forum Standaardisatie.  </li>
+NB: Het FDS maakt voor de gegevensuitwisseling gebruik van de GDI-standaarden en zorgt voor aanvullingen op deze GDI-standaarden indien hiervoor nog geen standaarden of afspraken gemaakt zijn. Een voorbeeld is "Federatieve Toegangsverlening" dat gebaseerd is op AuthZen en als standaard op dit moment is aangeboden bij Forum Standaardisatie.  </li>
 <li>Beleidsgedreven autorisatie (PBAC): PBAC-architectuur voor autorisatie en toegang.  </li>
 <li>Waardengedreven inrichting: De organisatorische en technische inrichting is gebaseerd op publieke waarden en op het principe van een gelijk speelveld bij de rollen en verantwoordelijkheden.  </li>
 <li>Keuzevrijheid: Bronhouders zijn volledig vrij om gebruik te maken van GBO componenten of een alternatief te kiezen. Het is ook mogelijk om GBO componenten te combineren met alternatieve, eventueel eigen, oplossingen.  </li>
@@ -848,15 +848,15 @@ Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aanslui
   bron:::bron
   burger:::burger
 
-  classDef bron fill:#edf7df,stroke:#6aa13a,color:#27500a
+  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#263746
   classDef generiek fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef gbo fill:#fff0e8,stroke:#000000,color:#000000
-  classDef burger fill:#edf7df,stroke:#6aa13a,color:#27500a
+  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#263746
 </div>
-<figcaption>Figuur 1: Oplossingsrichting GBO.</figcaption>
+<figcaption>Figuur 1: Oplossingsrichting GBO. De grijze componenten zijn actoren of bestaande voorzieningen die hergebruikt worden.</figcaption>
 </figure>
 
 <p>In de volgende paragrafen worden deze componenten uitgewerkt en wordt toegewerkt naar een invulling daarvan.  </p>
@@ -895,13 +895,13 @@ GBO kan bronhouders ondersteunen door het aanbieden van een gedeelde voorziening
         Wallet-&gt;&gt;Auth: Authenticatie / consent (incl. PID / eID)
         Auth-&gt;&gt;PubEAA: Autorisatie (incl. identificatie burger)
         PubEAA-&gt;&gt;Bron: Bevraag bron
-        Bron--&gt;&gt;PubEAA: Attribuutgegevens
+        Bron-&gt;&gt;PubEAA: Attribuutgegevens
         PubEAA-&gt;&gt;PubEAA: Kwalificeer attribuutgegevens
-        PubEAA--&gt;&gt;Wallet: PubEAA attestatie
-        Wallet--&gt;&gt;Burger: PubEAA opgeslagen in wallet
+        PubEAA-&gt;&gt;Wallet: PubEAA
+        Wallet-&gt;&gt;Burger: PubEAA opgeslagen in wallet
     end
 
-    Note over Burger,Bron: Stroom B — QEAA: QTSP kwalificeert attribuut via verificatiedienst
+    Note over Burger,Bron: Stroom B — QEAA: QTSP levert attribuut via verificatie- of retrievedienst
 
     rect rgb(238, 237, 254)
         Burger-&gt;&gt;QTSP: Attestatie Request&lt;br /&gt;(incl. evt. stukken)
@@ -915,12 +915,12 @@ GBO kan bronhouders ondersteunen door het aanbieden van een gedeelde voorziening
         Wallet-&gt;&gt;Auth: Authenticatie / consent (met PID / eID)
         Auth-&gt;&gt;VerifDienst: Autorisatie (incl. identificatie burger)
         VerifDienst-&gt;&gt;Bron: Bevraag bron
-        Bron--&gt;&gt;VerifDienst: Attribuutgegevens
-        VerifDienst-&gt;&gt;VerifDienst: Verifieer attribuutgegevens
-        VerifDienst--&gt;&gt;QTSP: Geverifieerd attribuut
+        Bron-&gt;&gt;VerifDienst: Attribuutgegevens
+        VerifDienst-&gt;&gt;VerifDienst: Bij verify: Verifieer attribuutgegevens
+        VerifDienst-&gt;&gt;QTSP: (geverifieerd) attribuut
         QTSP-&gt;&gt;QTSP: Issue QEAA
-        QTSP--&gt;&gt;Wallet: QEAA attestatie
-        Wallet--&gt;&gt;Burger: QEAA opgeslagen in wallet
+        QTSP-&gt;&gt;Wallet: QEAA
+        Wallet-&gt;&gt;Burger: QEAA opgeslagen in wallet
     end
 </div>
 <figcaption>Figuur 2: Interactiepatroon burger haalt gegeven op in EUDI-Wallet.  
@@ -1155,7 +1155,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 </tbody>
 </table>
 <h3 id="index-f4-semantiek-eenheid-van-taal">F4 — Semantiek &amp; Eenheid van Taal<a class="headerlink" href="#index-f4-semantiek-eenheid-van-taal" title="Permanent link">&para;</a></h3>
-<p><em>GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB (Nederlandse standaard voor het beschrijven van begrippen). Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF (Resource Description Framework) en/of SKOS (Simple Kowlegde Oranization System). Catalogi worden beschreven conform DCAT-AP NL (NL applicatieprofiel van Data Catalogue Vocabulary). Waar nodig biedt GBO mapping naar gegevensmodellen zoals SDG-EDM (Evidence Data Model) en attestatieschema's.</em></p>
+<p><em>GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB (Nederlandse standaard voor het beschrijven van begrippen). Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF (Resource Description Framework) en/of SKOS (Simple Kowlegde Oranization System). Catalogi worden beschreven conform DCAT-AP NL (NL applicatieprofiel van Data Catalogue Vocabulary). GBO biedt inzicht in beschikbare gegevenssets (canonieke gegevensmodellen per bronhouder en koppeling aan gedeeld begrippenkader) en de voorwaarden (grondslag, dienst, etc.) waaronder deze opvraagbaar zijn. Waar nodig biedt GBO mapping naar gegevensmodellen zoals SDG-EDM (Evidence Data Model) en attestatieschema's. NB: GBO biedt de voorzieningen en instrumenten om hier invulling aan te geven; bronhouders blijven verantwoordelijk voor de wijze waarop hun gegevens beschikbaar komen en gekoppeld worden aan gegevensverzoeken.</em></p>
 <p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
@@ -1169,7 +1169,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 <tr>
 <td>S10 — Semantiek &amp; Gegevenscatalogus</td>
 <td>Nog te realiseren ⚠️</td>
-<td>GBO-canonieke definities per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; catalogi vastleggen DCAT-AP NL; mapping tussen GraphQL- en SDG-formaten en attestatieschema's</td>
+<td>canonieke gegevensmodellen per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; catalogi vastleggen DCAT-AP NL; mapping tussen GraphQL- en SDG-formaten en attestatieschema's</td>
 </tr>
 </tbody>
 </table>
@@ -1381,7 +1381,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   eudi_pubeaa -- OpenID4VCI --- eudi_wallet
   oots_adapter -- GraphQL --- oots_basis
   oots_basis -- eDelivery-AS4 --- oots_afnemer
-  gbo -- REST-JSON&lt;br/&gt;(PIP) --- dvtp_toestemming
+  gbo -. PIP .- dvtp_toestemming
   dvtp_toestemming -. consent-id .- dvtp_afnemer
   dvtp_toestemming -- REST-JSON --- dvtp_pseudoniem
   dvtp_pseudoniem ~~~ dvtp_afnemer
@@ -1405,17 +1405,17 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
   bron:::bron
   burger:::burger
 
-  classDef bron fill:#edf7df,stroke:#6aa13a,color:#27500a
+  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#263746
   classDef generiek fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef gbo_k fill:#FAB79B,stroke:#000000,color:#000000
-  classDef gbo_c fill:#F57138,stroke:#000000,color:#000000
-  classDef gbo_d fill:#BFFA7F,stroke:#000000,color:#000000
-  classDef burger fill:#edf7df,stroke:#6aa13a,color:#27500a
+  classDef eudi fill:#EEEEEE,stroke:#999999,color:#444441
+  classDef oots fill:#EEEEEE,stroke:#999999,color:#444441
+  classDef dvtp fill:#EEEEEE,stroke:#999999,color:#444441
+  classDef gbo_k fill:#EEE4F2,stroke:#9C86B7,color:#5f5e5a
+  classDef gbo_c fill:#FEDCD8,stroke:#E28F80,color:#5f5e5a
+  classDef gbo_d fill:#E5EFDC,stroke:#7E9F72,color:#5f5e5a
+  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#263746
 </div>
-<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (NB: PAP is wel centraal); lichtbruin = centrale voorzieningen t.b.v. aansluiting (optioneel - de bronhouder kan in deze gegevensstroom een alternatieve keuze maken); donkerbruin = centrale voorzieningen (verplicht als gegevens in deze gegevensstroom uitgewisseld worden); grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
+<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (NB: PAP is wel centraal); paars = centrale voorzieningen t.b.v. aansluiting (optioneel - de bronhouder kan in deze gegevensstroom een alternatieve keuze maken); rood = centrale voorzieningen (verplicht als gegevens in deze gegevensstroom uitgewisseld worden); grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
 </figure>
 
 <p>In de volgende paragrafen wordt aangegeven welke componenten hergebruikt kunnen worden en waar aanpassingen/aanvullingen nodig zijn om de gemeenschappelijke bronontsluiting mogelijk te maken.</p>
@@ -1431,7 +1431,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 <p><strong>BSNk PP (Polymorf Pseudonimiseringsstelsel).</strong> In productie bij Logius. Verplicht voor alle DvTP-uitvragen: zet het BSN om naar een partijspecifiek, onomkeerbaar pseudoniem vóór enige verstrekking aan een private dienstverlener.</p>
 <p><strong>OpenID4VCI / OpenID4VP.</strong> OpenID-protocollen voor respectievelijk de uitgifte (GBO → wallet) en de presentatie (wallet → dienstverlener) van verifieerbare credentials. Vormt het technische fundament van het EUDI-Wallet-patroon en mogelijke andere toepassingen van VC's.</p>
 <p><strong>SD-JWT VC / mdoc (ISO 18013-5).</strong> Attestatieformaten voor de EUDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.</p>
-<p><strong>AS4 / eDelivery (via OOTS-basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS-basisinrichting; de AS4-laag is volledig bij de OOTS-basisinrichting belegd.</p>
+<p><strong>AS4 / eDelivery (via OOTS-basisinrichting).</strong> EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via GraphQL met de OOTS-basisinrichting; de AS4-laag is volledig bij de OOTS-basisinrichting belegd.</p>
 <p>Voor de toepassingen die in beeld zijn is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.</p>
 <h3 id="index-graphql-als-selectief-bevragingsmechanisme">GraphQL als selectief bevragingsmechanisme<a class="headerlink" href="#index-graphql-als-selectief-bevragingsmechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS hanteert REST als standaard datadienst-type (NL API Strategie / REST-API Design Rules). Voor onderdelen (in elk geval bronontsluiting) stelt GBO GraphQL voor. Hiermee worden hergebruik en dataminimalisatie eenvoudiger en minder beheer-intensief.  </p>
@@ -1458,7 +1458,7 @@ Voor aansluiting op OOTS wordt een adapter beschikbaar gesteld waarmee brongegev
 <p>Wat er nog moet worden afgesproken of gerealiseerd:</p>
 <ul>
 <li>Een <strong>protocolvertaler</strong> (onderdeel van OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar GraphQL richting GBO en vice-versa, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.  </li>
-<li><strong>Semantische mappings</strong> van GBO-canonieke definities naar SDG-EDM XML per evidence type.  </li>
+<li><strong>Semantische mappings</strong> van canonieke gegevensmodellen naar SDG-EDM XML per evidence type.  </li>
 </ul>
 <h3 id="index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-provider">Uitgifte van attestaties voor de EUDI-Wallet (PubEAA provider)<a class="headerlink" href="#index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-provider" title="Permanent link">&para;</a></h3>
 <p>Het EUDI-Wallet-traject vereist dat overheidsbronnen attestaties kunnen uitreiken als verifieerbare credentials (VC) die de burger in zijn wallet opslaat en vervolgens presenteert aan dienstverleners. Dit patroon valt volledig buiten de scope van FDS.  </p>

@@ -22,7 +22,7 @@ Voor de beschrijving van de doelen van de gemeenschappelijke bronontsluiting wor
 - Europees interoperabel: Europese afspraken en standaarden (o.a. EIF, eIDAS, OOTS en EUDI) en de Nederlandse invulling hiervan, zoals de NL-Wallet en de Basisinrichting OOTS.  
 - Generieke Digitale Infrastructuur (GDI): de verzameling van afspraken(stelsels), standaarden en voorzieningen die alle publieke dienstverleners gebruiken voor hun digitale dienstverlening aan burgers en ondernemers. Deze afspraken, standaarden en voorzieningen zijn verdeeld in 4 domeinen: toegang, interactie, gegevensuitwisseling en infrastructuur.  
 - Federatief Datastelsel (FDS): een afsprakenstelsel dat organisaties met een publieke taak hierbij ondersteunt. De gezamenlijke afspraken zijn erop gericht dat overheden werken op basis van dezelfde standaarden, waardoor ze op een uniforme manier met data omgaan.  
-NB: Het FDS maakt voor de gegevensuitwisseling gebruik van de GDI-standaarden en zorgt voor aanvullingen op deze GDI-standaarden indien hiervoor nog geen standaarden of afspraken gemaakt zijn. Voorbeelden is bijvoorbeeld: Federatieve Toegangsverlening dat gebaseerd is op AuthZen en als standaard op dit moment is aangeboden bij Forum Standaardisatie.  
+NB: Het FDS maakt voor de gegevensuitwisseling gebruik van de GDI-standaarden en zorgt voor aanvullingen op deze GDI-standaarden indien hiervoor nog geen standaarden of afspraken gemaakt zijn. Een voorbeeld is "Federatieve Toegangsverlening" dat gebaseerd is op AuthZen en als standaard op dit moment is aangeboden bij Forum Standaardisatie.  
 - Beleidsgedreven autorisatie (PBAC): PBAC-architectuur voor autorisatie en toegang.  
 - Waardengedreven inrichting: De organisatorische en technische inrichting is gebaseerd op publieke waarden en op het principe van een gelijk speelveld bij de rollen en verantwoordelijkheden.  
 - Keuzevrijheid: Bronhouders zijn volledig vrij om gebruik te maken van GBO componenten of een alternatief te kiezen. Het is ook mogelijk om GBO componenten te combineren met alternatieve, eventueel eigen, oplossingen.  
@@ -70,7 +70,7 @@ In het onderstaande diagram zijn deze componenten schematisch weergegeven.
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes_simpel.mmd"
 ```
-<figcaption>Figuur 1: Oplossingsrichting GBO.</figcaption>
+<figcaption>Figuur 1: Oplossingsrichting GBO. De grijze componenten zijn actoren of bestaande voorzieningen die hergebruikt worden.</figcaption>
 </figure>
 
 In de volgende paragrafen worden deze componenten uitgewerkt en wordt toegewerkt naar een invulling daarvan.  
@@ -192,13 +192,13 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 ### F4 — Semantiek & Eenheid van Taal
 
-_GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB (Nederlandse standaard voor het beschrijven van begrippen). Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF (Resource Description Framework) en/of SKOS (Simple Kowlegde Oranization System). Catalogi worden beschreven conform DCAT-AP NL (NL applicatieprofiel van Data Catalogue Vocabulary). Waar nodig biedt GBO mapping naar gegevensmodellen zoals SDG-EDM (Evidence Data Model) en attestatieschema's._
+_GBO werkt vanuit een gedeeld begrippenkader conform NL-SBB (Nederlandse standaard voor het beschrijven van begrippen). Informatiemodellen worden beoordeeld op toepassing van MIM (Metamodel Informatiemodellering). Verankering van semantiek naar RDF (Resource Description Framework) en/of SKOS (Simple Kowlegde Oranization System). Catalogi worden beschreven conform DCAT-AP NL (NL applicatieprofiel van Data Catalogue Vocabulary). GBO biedt inzicht in beschikbare gegevenssets (canonieke gegevensmodellen per bronhouder en koppeling aan gedeeld begrippenkader) en de voorwaarden (grondslag, dienst, etc.) waaronder deze opvraagbaar zijn. Waar nodig biedt GBO mapping naar gegevensmodellen zoals SDG-EDM (Evidence Data Model) en attestatieschema's. NB: GBO biedt de voorzieningen en instrumenten om hier invulling aan te geven; bronhouders blijven verantwoordelijk voor de wijze waarop hun gegevens beschikbaar komen en gekoppeld worden aan gegevensverzoeken._
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
 | **Stelselfunctie**                  | **Status**                  | **Voornaamste gap / actie**                                                  |
 | ----------------------------------- | --------------------------- | ---------------------------------------------------------------------------- |
-| S10 — Semantiek & Gegevenscatalogus | Nog te realiseren ⚠️ | GBO-canonieke definities per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; catalogi vastleggen DCAT-AP NL; mapping tussen GraphQL- en SDG-formaten en attestatieschema's |
+| S10 — Semantiek & Gegevenscatalogus | Nog te realiseren ⚠️ | canonieke gegevensmodellen per bronhouder en generiek; begrippenkader conform NL-SBB; toepassing MIM voor informatiemodellen; catalogi vastleggen DCAT-AP NL; mapping tussen GraphQL- en SDG-formaten en attestatieschema's |
 
 ### F5 — Gegevenskwaliteit & Validatie
 
@@ -277,7 +277,7 @@ De oplossingsrichting die in het tweede hoofdstuk voorgesteld werd, kan nu ingev
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
-<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (NB: PAP is wel centraal); lichtbruin = centrale voorzieningen t.b.v. aansluiting (optioneel - de bronhouder kan in deze gegevensstroom een alternatieve keuze maken); donkerbruin = centrale voorzieningen (verplicht als gegevens in deze gegevensstroom uitgewisseld worden); grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
+<figcaption>Figuur 5: De oplossingsrichting met de gekozen componenten.<br />Toelichting: groen = generieke decentrale bronontsluiting (NB: PAP is wel centraal); paars = centrale voorzieningen t.b.v. aansluiting (optioneel - de bronhouder kan in deze gegevensstroom een alternatieve keuze maken); rood = centrale voorzieningen (verplicht als gegevens in deze gegevensstroom uitgewisseld worden); grijs = bestaande voorzieningen waarop aangesloten wordt.</figcaption>
 </figure>
 
 In de volgende paragrafen wordt aangegeven welke componenten hergebruikt kunnen worden en waar aanpassingen/aanvullingen nodig zijn om de gemeenschappelijke bronontsluiting mogelijk te maken.
@@ -306,7 +306,7 @@ De oplossingsrichting gaat uit van hergebruik van de volgende bouwstenen:
 
 **SD-JWT VC / mdoc (ISO 18013-5).** Attestatieformaten voor de EUDI-Wallet, conform het ARF. SD-JWT VC is het standaardformaat voor online presentatie; mdoc ondersteunt ook offline (proximity) scenario's.
 
-**AS4 / eDelivery (via OOTS-basisinrichting).** EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via REST/JSON met de OOTS-basisinrichting; de AS4-laag is volledig bij de OOTS-basisinrichting belegd.
+**AS4 / eDelivery (via OOTS-basisinrichting).** EU-transportprotocol voor het OOTS-berichtenverkeer. GBO communiceert via GraphQL met de OOTS-basisinrichting; de AS4-laag is volledig bij de OOTS-basisinrichting belegd.
 
 
 Voor de toepassingen die in beeld zijn is echter meer nodig. In dit hoofdstuk wordt per onderwerp beschreven wat er nog ontbreekt, en wat er dus afgesproken of ontwikkeld moet worden.
@@ -343,7 +343,7 @@ FDS is een binnenlands afsprakenstelsel en voorziet niet in grensoverschrijdende
 Wat er nog moet worden afgesproken of gerealiseerd:
 
 - Een **protocolvertaler** (onderdeel van OOTS basisinrichting) die AS4/eDelivery-verkeer van EU-lidstaten vertaalt naar GraphQL richting GBO en vice-versa, zodat bronhouders geen OOTS-kennis nodig hebben en uitsluitend de GBO-API zien.  
-- **Semantische mappings** van GBO-canonieke definities naar SDG-EDM XML per evidence type.  
+- **Semantische mappings** van canonieke gegevensmodellen naar SDG-EDM XML per evidence type.  
 
 
 ### Uitgifte van attestaties voor de EUDI-Wallet (PubEAA provider)

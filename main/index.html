@@ -837,18 +837,22 @@ NB: Het FDS maakt voor de gegevensuitwisseling gebruik van de GDI-standaarden en
 </ul>
 <h2 id="2-voorgestelde-oplossingsrichting">2 Voorgestelde oplossingsrichting<a class="headerlink" href="#2-voorgestelde-oplossingsrichting" title="Permanent link">&para;</a></h2>
 <h3 id="knelpuntenanalyse">Knelpuntenanalyse<a class="headerlink" href="#knelpuntenanalyse" title="Permanent link">&para;</a></h3>
-<p>Op het tabblad <a href="https://ictu.github.io/GBO/">Gemeenschappelijke Bronontsluiting</a> worden de voordelen van een gemeenschappelijke bronontsluiting benoemd. De redenen waardoor deze voordelen nog niet bereikt worden, zijn samen te vatten in de volgende knelpunten:<br />
-- Verschillende gegevensstromen vragen verschillende gegevenssets.<br />
-- Verschillende gegevensstromen hanteren verschillende autorisatiemodellen.<br />
-- Verschillende gegevensstromen gebruiken verschillende protocollen.<br />
-- Verschillende gegevensstromen vallen onder verschillende wet- en regelgeving.  </p>
-<p>Om te voorkomen dat overheidsbronnen hier aparte oplossingen voor implementeren, stelt GBO een gemeenschappelijke bronontsluiting voor die:<br />
-- Bronhouders eenmalig implementeren en meervoudig gebruiken.<br />
-- Door middel van configureren (in plaats van programmeren) gegevens beschikbaar stelt voor EUDI-wallet, OOTS en private dienstverleners.<br />
-- Alleen de gegevens beschikbaar stelt die de gegevensvrager mag (en kan) vragen.<br />
-- De toegang tot de gegevens regelt met een configurabele autorisatie en complete audit trail.<br />
-- Via gemeenschappelijke oplossingen aansluit op OOTS, attribuutverstrekking en attribuutverificatie.<br />
-- Via een gemeenschappelijke toestemmingsvoorziening private dienstverleners toegang geeft tot gegevens die zij mogen opvragen.  </p>
+<p>Op het tabblad <a href="https://ictu.github.io/GBO/">Gemeenschappelijke Bronontsluiting</a> worden de voordelen van een gemeenschappelijke bronontsluiting benoemd. De redenen waardoor deze voordelen nog niet bereikt worden, zijn samen te vatten in de volgende knelpunten:</p>
+<ul>
+<li>Verschillende gegevensstromen vragen verschillende gegevenssets.  </li>
+<li>Verschillende gegevensstromen hanteren verschillende autorisatiemodellen.  </li>
+<li>Verschillende gegevensstromen gebruiken verschillende protocollen.  </li>
+<li>Verschillende gegevensstromen vallen onder verschillende wet- en regelgeving.  </li>
+</ul>
+<p>Om te voorkomen dat overheidsbronnen hier aparte oplossingen voor implementeren, stelt GBO een gemeenschappelijke bronontsluiting voor die:</p>
+<ul>
+<li>Bronhouders eenmalig implementeren en meervoudig gebruiken.  </li>
+<li>Door middel van configureren (in plaats van programmeren) gegevens beschikbaar stelt voor EUDI-wallet, OOTS en private dienstverleners.  </li>
+<li>Alleen de gegevens beschikbaar stelt die de gegevensvrager mag (en kan) vragen.  </li>
+<li>De toegang tot de gegevens regelt met een configurabele autorisatie en complete audit trail.  </li>
+<li>Via gemeenschappelijke oplossingen aansluit op OOTS, attribuutverstrekking en attribuutverificatie.  </li>
+<li>Via een gemeenschappelijke toestemmingsvoorziening private dienstverleners toegang geeft tot gegevens die zij mogen opvragen.  </li>
+</ul>
 <h3 id="oplossingsrichting">Oplossingsrichting<a class="headerlink" href="#oplossingsrichting" title="Permanent link">&para;</a></h3>
 <p>Voor GBO stellen bronhouders hun gegevens bloot via één API, die voor verschillende gegevensverzoeken gebruikt kan worden. Een nieuwe gegevensstroom kan met configuraties ingesteld worden, in plaats van het moeten inrichten en beheren van een nieuw endpoint. Een dergelijke generieke ontsluiting vraagt extra autorisatieregels, die met lokale en/of centrale beleidsregels in te stellen moeten zijn. Het koppelvlak moet met een betrouwbare en veilige standaard beschikbaar gesteld worden; zaken als versleuteling, identificatie, authenticatie en logging moeten daarin geborgd zijn. Als een bronhouder dit (nog) niet zelf kan inrichten, biedt GBO instrumenten om toch (al) gebruik te maken van de GBO componenten.<br />
 Voor de verschillende gegevensstromen zorgen centrale voorzieningen voor aansluiting op bestaande protocollen en vertrouwensstelsels. Voor ontsluiting naar de EUDI-Wallet is dat een "Authentic Source Interface" (toegang voor QTSP's die QEAA's uitgeven) en/of een PubEAA-provider (voorziening waarmee overheidsbronnen zelf PubEAA's kunnen uitgeven). Voor ontsluiting naar OOTS is dat een semantische mapping om de juiste gegevens aan te bieden aan de Basisinrichting OOTS, waar de verdere afhandeling van gegevensverzoeken plaatsvindt. Voor ontsluiting naar private dienstverleners zijn dit een toestemmingsvoorziening (voor het afhandelen van de toestemming) en een pseudonimiseervoorziening (om te voorkomen dat het BSN terechtkomt bij organisaties die hier geen wettelijke grondslag voor hebben).  </p>

@@ -13,7 +13,6 @@ sequenceDiagram
     rect rgb(225, 245, 238)
         Burger->>Wallet: Vraag attribuut op
         Wallet->>PubEAA: Credential Request
-        Note over PubEAA: PubEAA voorziening: aangeboden<br/>door bron zelf óf centraal via GBO
         PubEAA->>Auth: Autorisatieverzoek
         Auth->>Wallet: Authenticatie- & autorisatieverzoek
         Wallet->>Burger: Toont verzoek & vraagt consent
@@ -23,7 +22,7 @@ sequenceDiagram
         PubEAA->>Bron: Bevraag bron
         Bron-->>PubEAA: Attribuutgegevens
         PubEAA->>PubEAA: Kwalificeer attribuutgegevens
-        PubEAA-->>Wallet: PubEAA credential
+        PubEAA-->>Wallet: PubEAA attestatie
         Wallet-->>Burger: PubEAA opgeslagen in wallet
     end
 
@@ -33,7 +32,6 @@ sequenceDiagram
         Burger->>QTSP: Attestatie Request<br />(incl. evt. stukken)
         Note over QTSP: QTSP verifieert attribuut (verify)<br/>of haalt attribuut op (retrieve)
         QTSP->>VerifDienst: Verify- of Retrieveverzoek
-        Note over VerifDienst: Verify-/Retrievedienst<br/>aangeboden door bron of centraal via GBO
         VerifDienst->>Auth: Autorisatieverzoek
         Note over Auth: Bij gebruik ISO15000 geen<br/>autorisatie/authenticatie nodig
         Auth->>Wallet: Authenticatie- & autorisatieverzoek

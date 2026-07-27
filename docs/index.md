@@ -143,9 +143,14 @@ GBO stelt een **centrale toestemmingsvoorziening** voor als kern van dit patroon
 
 ## 4 Generieke functies en stelselfuncties
 
-GBO is opgebouwd uit acht generieke functies die samen de volledige gegevensstromen afdekken, van identiteitsvaststelling en toestemmingsbeheer tot bronontsluiting en beheer. Deze generieke functies zijn technologieneutraal.  
-Het werken met generieke functies is geen GBO-specifieke keuze, maar sluit aan bij een bredere beweging binnen de Nederlandse overheid. Het begrip is via de GDI-Architectuur in de NORA geïntroduceerd en wordt inmiddels door meerdere stelsels toegepast om onderliggende technische keuzevrijheid te combineren met eenduidige, herkenbare functionaliteit voor gebruikers. Zo hanteert het Gezondheidsinformatiestelsel een indeling op ongeveer hetzelfde abstractieniveau als de generieke functies die GBO gebruikt. De indeling van GBO is toegesneden op de eigen interactiepatronen (zie vorige paragraaf) en bouwt waar mogelijk voort op deze bestaande stelsels — met name het GDI.  
-Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies beschreven en uitgewerkt naar de stelselfuncties die GBO in beeld heeft en hun huidige inrichtingsstatus.  
+Het werken met generieke functies is geen GBO-specifieke keuze, maar sluit aan bij een bredere beweging binnen de Nederlandse overheid. Het begrip is via de GDI-Architectuur in de NORA geïntroduceerd en wordt inmiddels door meerdere stelsels toegepast om onderliggende technische keuzevrijheid te combineren met eenduidige, herkenbare functionaliteit voor gebruikers. Zo hanteert het Gezondheidsinformatiestelsel een indeling op ongeveer hetzelfde abstractieniveau als de generieke functies die GBO gebruikt. De indeling van GBO bouwt voort op de indeling van GDI, maar is toegesneden op de eigen interactiepatronen (zie vorige paragraaf). Dit resulteert in acht generieke functies:  
+| GDI Domein | Generieke functies GBO |
+| Toegang | F1 -Identiteit & Vertrouwen; F2 - Toegang & Interactie; F6 - Grondslag & Beleid |
+| Interactie | F2 - Toegang & Interactie |
+| Gegevensuitwisseling | F3 - Gegevensvoorziening; F4 - Semantiek & Eenheid van Taal; F5 - Gegevenskwaliteit & Validatie; F7 - Orkestratie & Integratie |
+| Infrastructuur | F8 - Beheer & Continuïteit |  
+
+Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies beschreven en uitgewerkt naar de stelselfuncties die GBO voorstelt en hun huidige inrichtingsstatus.  
 
 ### F1 — Identiteit & Vertrouwen
 
@@ -160,7 +165,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 ### F2 — Toegang & Interactie
 
-_Gegevensvragen worden geautoriseerd met behulp van beleidsregels (PBAC). Als er toestemming (in de betekenis van de AVG) van de burger nodig is, wordt hiervoor een toestemmingsvoorziening gebruikt._
+_Als er toestemming (in de betekenis van de AVG) van de burger nodig is, wordt hiervoor een toestemmingsvoorziening gebruikt. Gegevensvragen worden geautoriseerd met behulp van beleidsregels (PBAC). Hiervoor biedt GBO een referentie implementatie (op basis van FTV) aan, maar de bronhouder mag hier ook een eigen implementatie gebruiken, als deze de centrale beleidsregels kan toepassen._
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 

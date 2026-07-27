@@ -17,18 +17,18 @@ sequenceDiagram
         TV->>Auth: Authenticatieverzoek
         Note over Auth: DigiD of ander identificatiemiddel
         Auth->>Burger: Authenticeer burger
-        Burger-->>Auth: Authenticatie
-        Auth-->>TV: BSN (geverifieerde identiteit)
+        Burger->>Auth: Authenticatie
+        Auth->>TV: BSN (geverifieerde identiteit)
         TV->>TV: PI/PP aanwezig?
         TV->>PP: Activeer BSN
         PP->>TV: PI/PP
         TV->>TV: Registreer PI/PP
         TV->>PP: Transformeer PI/PP
-        PP-->>TV: Versleutelde PI/PP (VI/VP)
+        PP->>TV: Versleutelde PI/PP (VI/VP)
         TV->>Burger: Toon gegevensset waarvoor toestemming<br/>gevraagd wordt (scope + doelbinding)
-        Burger-->>TV: Verleent toestemming
+        Burger->>TV: Verleent toestemming
         TV->>TR: Schrijf toestemming in register<br/>(VI · scope · doelbinding · TTL)
-        TR-->>TV: consent-id
+        TR->>TV: consent-id
         TV->>DV: Redirect terug naar dienstverlener<br/>(met consent-id en VI/VP)
     end
 
@@ -39,8 +39,9 @@ sequenceDiagram
         BRH->>BRH: Authenticeer dienstverlener<br />(via certificaat)
         BRH->>BRH: Controleer bevoegdheid<br />(via FSC contract/Trusted List)
         BRH->>TR: Valideer consent-id
-        TR-->>BRH: Consent geldig
+        TR->>BRH: Consent geldig
         BRH->>BRH: Controleer data scope
         BRH->>BRH: Ontsleutel VI naar BSN
-        BRH-->>DV: Gevraagde gegevens
+        BRH->>DV: Gevraagde gegevens
+        DV->>Burger: Levert dienst
     end

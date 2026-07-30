@@ -154,7 +154,7 @@ Het werken met generieke functies is geen GBO-specifieke keuze, maar sluit aan b
 | Gegevensuitwisseling | F3 - Gegevensvoorziening; F4 - Semantiek & Eenheid van Taal; F5 - Gegevenskwaliteit & Validatie; F7 - Orkestratie & Integratie |
 | Infrastructuur | F8 - Beheer & Continuïteit |  
 
-Elke generieke functie wordt ingevuld door een of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies beschreven en uitgewerkt naar de stelselfuncties die GBO voorstelt en hun huidige inrichtingsstatus.  
+Elke generieke functie wordt ingevuld door één of meer stelselfuncties: concrete afspraken, standaarden en/of voorzieningen. In de paragrafen hieronder zijn de generieke functies beschreven en uitgewerkt naar de stelselfuncties die GBO voorstelt en hun huidige inrichtingsstatus.  
 
 ### F1 — Identiteit & Vertrouwen
 

@@ -146,6 +146,7 @@ GBO stelt een **centrale toestemmingsvoorziening** voor als kern van dit patroon
 ## 4 Generieke functies en stelselfuncties
 
 Het werken met generieke functies is geen GBO-specifieke keuze, maar sluit aan bij een bredere beweging binnen de Nederlandse overheid. Het begrip is via de GDI-Architectuur in de NORA geïntroduceerd en wordt inmiddels door meerdere stelsels toegepast om onderliggende technische keuzevrijheid te combineren met eenduidige, herkenbare functionaliteit voor gebruikers. Zo hanteert het Gezondheidsinformatiestelsel een indeling op ongeveer hetzelfde abstractieniveau als de generieke functies die GBO gebruikt. De indeling van GBO bouwt voort op de indeling van GDI, maar is toegesneden op de eigen interactiepatronen (zie vorige paragraaf). Dit resulteert in acht generieke functies:  
+
 | GDI Domein | Generieke functies GBO |
 | ---------- | ---------------------- |
 | Toegang | F1 -Identiteit & Vertrouwen; F2 - Toegang & Interactie; F6 - Grondslag & Beleid |

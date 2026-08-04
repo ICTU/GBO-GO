@@ -5,7 +5,7 @@ extra:
     provider: mike
     alias: true
   document_version: "0.9.3"
-  document_date: "juli 2026"
+  document_date: "augustus 2026"
   document_author: "ICTU"
   document_status: "voor vaststelling"
 
@@ -58,7 +58,7 @@ markdown_extensions:
   # Automatische inhoudsopgave
   - toc:
       permalink: true
-      toc_depth: 2
+      toc_depth: 3
 
 site_url: https://ictu.github.io/GBO-GO/
 repo_url: https://github.com/ictu/gbo-go
@@ -92,7 +92,9 @@ plugins:
 nav:
   - Gemeenschappelijke Bronontsluiting: https://ictu.github.io/GBO/
   - Context: https://ictu.github.io/GBO/latest/context
-  - Globaal Ontwerp: index.md
+  - Globaal Ontwerp:
+      - Globaal Ontwerp: index.md
+      - Begrippenlijst: bijlage_begrippenlijst.md
   - Projectstartarchitectuur: https://ictu.github.io/GBO-PSA/
   - Technisch Ontwerp: https://ictu.github.io/GBO/main/underconstruction_to/
   - Technische Requirements: https://ictu.github.io/GBO/main/underconstruction_tr/

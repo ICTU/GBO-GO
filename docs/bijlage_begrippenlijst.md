@@ -94,8 +94,8 @@ In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal on
 | **PBAC** { #begrip-pbac } | *Policy Based Access Control*. Autorisatiemodel waarbij toegangsbeslissingen worden genomen op basis van [beleidsregels](#begrip-beleidsregel) en kenmerken van het verzoek, de [afnemer](#begrip-afnemer), de gebruiker, het doel en de gegevens. |
 | **PDP** { #begrip-pdp } | *Policy Decision Point*. Component die op basis van [beleidsregels](#begrip-beleidsregel) en beschikbare context bepaalt of een gegevensverzoek moet worden toegestaan. |
 | **PEP** { #begrip-pep } | *Policy Enforcement Point*. Component die een gegevensverzoek onderschept, een autorisatiebeslissing opvraagt en de uitkomst daarvan afdwingt. |
-| **PI** { #begrip-pi } | Polymorfe identiteit die binnen [BSNk PP](#begrip-bsnk-pp) wordt gebruikt als tussenrepresentatie van een identiteit. |
-| **PP** { #begrip-pp } | Polymorf pseudoniem dat binnen [BSNk PP](#begrip-bsnk-pp) wordt gebruikt als tussenrepresentatie voor een pseudoniem. |
+| **PI** { #begrip-pi } | Polymorfe identiteit die binnen [BSNk PP](#begrip-bsnk-pp) wordt gebruikt als tussenrepresentatie van een identiteit. Binnen GBO is deze identiteit het [BSN](#begrip-bsn). |
+| **PP** { #begrip-pp } | Polymorf pseudoniem dat binnen [BSNk PP](#begrip-bsnk-pp) wordt gebruikt als tussenrepresentatie voor een [pseudoniem](#begrip-partijspecifiek-pseudoniem). |
 | **PID** { #begrip-pid } | *Person Identification Data*. Set identificerende persoonsgegevens die binnen het EUDI-Walletstelsel wordt gebruikt om de identiteit van een persoon aan te tonen. |
 | **PIP** { #begrip-pip } | *Policy Information Point*. Bron waaruit een [PDP](#begrip-pdp) aanvullende informatie opvraagt die nodig is voor een autorisatiebeslissing, bijvoorbeeld een [toestemmingsregister](#begrip-toestemmingsregister), deelnemersregister of [dienstencatalogus](#begrip-dienstencatalogus). |
 | **PKIoverheid-certificaat** { #begrip-pkioverheid-certificaat } | Digitaal certificaat binnen de Nederlandse PKIoverheid waarmee organisaties en systemen zich kunnen authenticeren en berichten kunnen beveiligen of ondertekenen. |
@@ -133,6 +133,6 @@ In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal on
 | **VC** { #begrip-vc } | *Verifiable [Credential](#begrip-credential)*. Digitaal bewijs waarvan de herkomst en integriteit cryptografisch kunnen worden gecontroleerd. |
 | **Vertrouwensstelsel** { #begrip-vertrouwensstelsel } | Geheel van afspraken, toelatingsvoorwaarden, certificaten, registers en toezicht waarmee deelnemers elkaars identiteit en bevoegdheden kunnen vertrouwen. |
 | **Verifydienst** { #begrip-verifydienst } | [ASI](#begrip-asi)-functie waarmee een [QTSP](#begrip-qtsp) controleert of door de QTSP aangeleverde [attributen](#begrip-attribuut) overeenkomen met de gegevens bij de authentieke bron. |
-| **VI** { #begrip-vi } | Versleutelde identiteit die binnen [BSNk PP](#begrip-bsnk-pp) voor een specifieke partij wordt afgeleid uit een polymorfe identiteit. |
-| **VP** { #begrip-vp } | Versleuteld pseudoniem dat binnen [BSNk PP](#begrip-bsnk-pp) voor een specifieke partij wordt afgeleid uit een polymorf pseudoniem. |
-| **XML** { #begrip-xml } | Tekstgebaseerd formaat waarmee gestructureerde gegevens volgens een vooraf afgesproken schema kunnen worden vastgelegd en uitgewisseld. |
+| **VI** { #begrip-vi } | Versleutelde identiteit die binnen [BSNk PP](#begrip-bsnk-pp) voor een specifieke partij wordt gegenereerd uit een [polymorfe identiteit](#begrip-pi). |
+| **VP** { #begrip-vp } | Versleuteld pseudoniem dat binnen [BSNk PP](#begrip-bsnk-pp) voor een specifieke partij wordt gegenereerd uit een [polymorf pseudoniem](#begrip-pp). |
+| **XML** { #begrip-xml } | *Extensible Markup Language*. Tekstgebaseerd formaat waarmee gestructureerde gegevens volgens een vooraf afgesproken schema kunnen worden vastgelegd en uitgewisseld. |

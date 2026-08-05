@@ -52,12 +52,12 @@ De pagina [Gemeenschappelijke Bronontsluiting](https://ictu.github.io/GBO/) besc
 
 GBO voorkomt dat bronhouders voor iedere gegevensstroom een aparte oplossing moeten maken. De gemeenschappelijke bronontsluiting:
 
-- is één keer te implementeren en daarna meervoudig te gebruiken.
-- stelt met configuratie gegevens beschikbaar voor de EUDI-Wallet, OOTS en private dienstverleners.
-- verstrekt alleen gegevens die een gegevensvrager mag en kan opvragen.
-- regelt de toegang met configureerbare autorisatie en een volledig audit trail.
-- sluit met gemeenschappelijke oplossingen aan op OOTS, attribuutverstrekking en attribuutverificatie.
-- geeft private dienstverleners toegang via een gemeenschappelijke toestemmingsvoorziening.
+- Is één keer te implementeren en daarna meervoudig te gebruiken.
+- Stelt met configuratie gegevens beschikbaar voor de EUDI-Wallet, OOTS en private dienstverleners.
+- Verstrekt alleen gegevens die een gegevensvrager mag en kan opvragen.
+- Regelt de toegang met configureerbare autorisatie en een volledig audit trail.
+- Sluit met gemeenschappelijke oplossingen aan op OOTS, attribuutverstrekking en attribuutverificatie.
+- Geeft private dienstverleners toegang via een gemeenschappelijke toestemmingsvoorziening.
 
 ### Oplossingsrichting
 
@@ -85,9 +85,7 @@ Het volgende diagram toont deze componenten.
 Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn bestaande voorzieningen waarop GBO aansluit.</figcaption>
 </figure>
 
-De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen kunnen dezelfde inrichting ook gebruiken.
-
-De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen. Partijen kunnen zulke uitwisselingen snel en betrouwbaar inrichten.
+De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen kunnen dezelfde inrichting ook gebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen. Partijen kunnen zulke uitwisselingen snel en betrouwbaar inrichten.
 
 De volgende paragrafen werken de componenten verder uit.
 

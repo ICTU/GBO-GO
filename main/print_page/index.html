@@ -870,14 +870,14 @@
 <li>Is één keer te implementeren en daarna meervoudig te gebruiken.</li>
 <li>Stelt met configuratie gegevens beschikbaar voor de EUDI-Wallet, OOTS en private dienstverleners.</li>
 <li>Verstrekt alleen gegevens die een gegevensvrager mag en kan opvragen.</li>
-<li>Regelt de toegang met configureerbare autorisatie en een volledig audit trail.</li>
+<li>Regelt de toegang met configureerbare autorisatie en een volledige audit trail.</li>
 <li>Sluit met gemeenschappelijke oplossingen aan op OOTS, attribuutverstrekking en attribuutverificatie.</li>
 <li>Geeft private dienstverleners toegang via een gemeenschappelijke toestemmingsvoorziening.</li>
 </ul>
 <h3 id="index-oplossingsrichting">Oplossingsrichting<a class="headerlink" href="#index-oplossingsrichting" title="Permanent link">&para;</a></h3>
 <p>Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken.</p>
 <p>Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.</p>
-<p>Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Lokale en centrale beleidsregels kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.</p>
+<p>Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Beleidsregels (policies) kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.</p>
 <p>GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen maken. Daarmee kunnen zij toch GBO-componenten gebruiken.</p>
 <p>Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:</p>
 <ul>
@@ -1049,7 +1049,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <li>zelf een aansluiting op OOTS ontwikkelen.</li>
 </ul>
 <p>Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.</p>
-<p>Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-A ondersteunt Nederlandse dienstverleners.</p>
+<p>Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners.</p>
 <p>OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.</p>
 <p>OOTS-V:</p>
 <ul>
@@ -1329,7 +1329,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <td>S08 — OOTS-adapter</td>
 <td>-</td>
 <td>De Basisinrichting OOTS is beschikbaar.</td>
-<td>GraphQL aan OOTS-V toevoegen. bronformaat semantisch mappen naar SDG-EDM.</td>
+<td>GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM.</td>
 </tr>
 <tr>
 <td>S11 — Attesteringsuitgifte (voor EUDI-Wallet)</td>
@@ -1467,7 +1467,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <td>S09 — Logging, Audit &amp; Traceerbaarheid</td>
 <td>Logboek Dataverwerkingen. Diginetwerk</td>
 <td>FSC Logging en het Logboek Dataverwerking zijn beschikbaar. De GBO-invulling ontbreekt nog.</td>
-<td>Centraal auditlog en herleidbaarheidsprofiel maken. koppeling met de autorisatieketen maken.</td>
+<td>Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken.</td>
 </tr>
 </tbody>
 </table>
@@ -1635,7 +1635,7 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <p>De oplossingsrichting hergebruikt de volgende bouwstenen.</p>
 <p><strong>FSC (Federated Service Connectivity).</strong> FSC is een binnenlands koppelnetwerk. Het verzorgt verbindingen op basis van mTLS tussen GBO, bronhouders en private dienstverleners. Iedere deelnemer beheert een eigen FSC Inway, Outway of allebei. FSC heeft een open referentie-implementatie en is de FDS-standaard voor binnenlands gegevensverkeer.</p>
 <p><strong>LDV (Logboek Dataverwerking).</strong> GBO gebruikt de LDV-standaard voor logging en verantwoording. Deze standaard koppelt dataverwerkingen van verschillende bronnen en afnemers aan elkaar.</p>
-<p><strong>GraphQL.</strong> GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. De dienstencatalogus bevat vooraf toegestane gegevensverzoeken. Het PDP-beleid dwingt deze beperkingen af. Bronhouders zonder GraphQL-implementatie kunnen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.</p>
+<p><strong>GraphQL.</strong> GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. Bronhouders zonder GraphQL-implementatie kunnen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.</p>
 <p><strong>OAuth 2.0 / OpenID Connect.</strong> Dit protocol geeft toestemmingstokens uit na succesvolle identificatie van de burger. De burger gebruikt DigiD of een ander eIDAS-middel. Als het middel geen BSN bevat, koppelt Identity Matching het middel aan het BSN.</p>
 <p><strong>AuthZEN.</strong> AuthZEN is de gestandaardiseerde koppelinterface tussen de PEP en de PDP. Deze interface maakt de autorisatieketen onafhankelijk van een specifiek protocol of product.</p>
 <p><strong>ODRL (Open Digital Rights Language).</strong> ODRL is een W3C-standaard voor machineleesbare beleidsregels. GBO gebruikt ODRL als beschrijvingstaal voor beleidsregels in de PAP. Zie <a href="#index-f2-toegang-interactie">S06</a>. Dit sluit aan op het gebruik van ODRL in FDS en DCAT-AP NL.</p>
@@ -1649,10 +1649,10 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <p>GraphQL maakt hergebruik en dataminimalisatie eenvoudiger. Het kan ook de beheerlast verlagen.</p>
 <p>Partijen moeten de volgende onderdelen nog afspreken of realiseren:</p>
 <ul>
-<li><strong>GraphQL als type datadienst positioneren.</strong> GBO gebruikt GraphQL naast REST. GraphQL ondersteunt structurele dataminimalisatie en hergebruik via parameters. Het iWlz-afsprakenstelsel gebruikt GraphQL al in productie. GraphQL werkt met FSC Inway en Outway. Formele standaardisatie vraagt om een wijzigingsvoorstel via Forum Standaardisatie en Digikoppeling. De GBO-pilots doen al ervaring op met GraphQL.</li>
+<li><strong>GraphQL als type datadienst positioneren.</strong> GBO stelt voor GraphQL naast REST te gebruiken. GraphQL ondersteunt structurele dataminimalisatie en hergebruik via parameters. GraphQL werkt met FSC Inway en Outway. Formele standaardisatie vraagt om een wijzigingsvoorstel via het kennisplatform API's, Digikoppeling en Forum Standaardisatie. De GBO-pilots doen al ervaring op met GraphQL.</li>
 <li><strong>Een GBO-vertaallaag maken.</strong> Deze laag ondersteunt bronhouders zonder eigen GraphQL-implementatie. De laag vertaalt een REST-API naar een GraphQL-bron. Bronhouders hoeven GraphQL daardoor niet zelf te implementeren.</li>
 <li><strong>DCAT-AP NL gebruiken.</strong> GBO volgt de bestaande FDS-verplichting voor gegevenscatalogi. Als aanvullende metadata nodig zijn, bespreekt GBO deze met de beheerder en gemeenschap van DCAT-AP NL. GBO maakt geen eigen profiel boven op DCAT-AP NL.</li>
-<li><strong>Een dienstencatalogus maken.</strong> Deze centrale catalogus bevat toegestane gegevensvragen per toepassing. Afnemers kunnen alleen de toegestane gegevens opvragen. GBO beheert de catalogus centraal. Dit vraagt geen technisch beheer door de bronhouder. De bronhouder beheert wel de inhoud van de catalogus.</li>
+<li><strong>Een dienstencatalogus maken.</strong> Deze catalogus bevat toegestane gegevensvragen per toepassing. Afnemers kunnen geen gegevens opvragen die buiten de toegestane gegevensvragen vallen. GBO stelt voor om de inhoud van de dienstencatalogus federatief te beheren met een gemeenschappelijk profiel en centrale vindbaarheid.</li>
 </ul>
 <h3 id="index-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">Toestemming en grondslag als afdwingbaar autorisatiemechanisme<a class="headerlink" href="#index-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme" title="Permanent link">&para;</a></h3>
 <p>FDS verplicht een geldige grondslag voor gegevensuitwisseling. FDS schrijft geen technische oplossing voor toestemmingsbeheer of directe raadpleging van de grondslag voor.</p>

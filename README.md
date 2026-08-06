@@ -22,6 +22,10 @@ gbo-go
 │
 ├─ index.md
 │   └─ het Globaal Ontwerp
+├─ bijlage_begrippenlijst.md
+│   └─ uitgebreide begrippenlijst
+├─ change_log.md
+│   └─ de wijzigingen t.o.v. vorige versie
 │
 └─ diagrammen
     └─ diagrammen in Mermaid formaat

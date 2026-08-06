@@ -95,6 +95,7 @@ nav:
   - Globaal Ontwerp:
       - Globaal Ontwerp: index.md
       - Begrippenlijst: bijlage_begrippenlijst.md
+      - Change Log: change_log.md
   - Projectstartarchitectuur: https://ictu.github.io/GBO-PSA/
   - Technisch Ontwerp: https://ictu.github.io/GBO/main/underconstruction_to/
   - Technische Requirements: https://ictu.github.io/GBO/main/underconstruction_tr/

@@ -659,6 +659,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2333,10 +2361,187 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <td><em>Extensible Markup Language</em>. Tekstgebaseerd formaat waarmee gestructureerde gegevens volgens een vooraf afgesproken schema kunnen worden vastgelegd en uitgewisseld.</td>
 </tr>
 </tbody>
+</table></section><section class="print-page" id="change_log" heading-number="3.3"><h1 id="change_log-change-log-globaal-ontwerp-gbo">Change log — Globaal Ontwerp GBO<a class="headerlink" href="#change_log-change-log-globaal-ontwerp-gbo" title="Permanent link">&para;</a></h1>
+<p><strong>Van:</strong> versie 0.9.2 (juni 2026) → <strong>Naar:</strong> 0.9.3 (augustus 2026)</p>
+<p>Bronnen: <a href="https://ictu.github.io/GBO-GO/0.9.2/">0.9.2</a> vs. <a href="https://ictu.github.io/GBO-GO/0.9.3/">0.9.3</a></p>
+<p>Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf. Wil je het nog korter? Bekijk de <a href="#change_log-samenvatting-in-een-oogopslag">samenvatting</a>.</p>
+<hr />
+<h2 id="change_log-algemeen-opzet">Algemeen / opzet<a class="headerlink" href="#change_log-algemeen-opzet" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Nieuw hoofdstuk 6 — "Impact op betrokken partijen"</strong> toegevoegd. Dit is de belangrijkste structurele toevoeging: een tabel die per partij (Bronhouder, QTSP, Basisinrichting OOTS, Private dienstverleners, Burger) de verwachte impact en toelichting beschrijft.</li>
+<li><strong>Nieuwe bijlagen</strong>: <strong>Begrippenlijst</strong> en deze <strong>Change Log</strong>.</li>
+<li>Hoofdstukken zijn nu <strong>doorlopend genummerd</strong> (1 Inleiding, 2 Voorgestelde oplossingsrichting, … 6 Impact op betrokken partijen) — in 0.9.2 hadden hoofdstukken geen nummer in de titel.</li>
+<li>Uitgangspunten (§1) zijn uitgebreid en herschreven:<ul>
+<li>GDI is nu als <strong>apart uitgangspunt</strong> benoemd (met toelichting op de 4 domeinen: toegang, interactie, gegevensuitwisseling, infrastructuur).</li>
+<li>FDS-uitgangspunt is uitgebreider toegelicht, inclusief expliciete koppeling naar GDI-standaarden en het voorbeeld "Federatieve Toegangsverlening" (AuthZen, aangeboden bij Forum Standaardisatie).</li>
+<li>Nieuw uitgangspunt <strong>"Keuzevrijheid"</strong> toegevoegd: bronhouders zijn vrij om GBO-componenten te gebruiken, te combineren met eigen oplossingen, of niet te gebruiken.</li>
+<li>"Federatief Datastelsel"-omschrijving is losgekoppeld van specifieke stelselfuncties (FSC/FTV worden niet meer als uitgangspunt-bullet genoemd, maar verderop uitgewerkt).</li>
+</ul>
+</li>
+<li>§1 Inleiding verwijst nu expliciet door naar de tabbladen "Gemeenschappelijke Bronontsluiting" (doelen) en "Context" (juridisch/organisatorisch kader).</li>
+<li>Verwijzing naar <strong>demo</strong> waar de voorgestelde oplossing in een demo-omgeving getoond wordt.</li>
+</ul>
+<hr />
+<h2 id="change_log-hoofdstuk-2-voorgestelde-oplossingsrichting">Hoofdstuk 2 — Voorgestelde oplossingsrichting<a class="headerlink" href="#change_log-hoofdstuk-2-voorgestelde-oplossingsrichting" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Nieuwe subparagraaf "Knelpuntenanalyse"</strong> toegevoegd vóór de oplossingsrichting zelf: benoemt expliciet de vier knelpunten (verschillende gegevenssets, autorisatiemodellen, protocollen, wet- en regelgeving per gegevensstroom) en de bijbehorende oplossingsrichting in bullets.</li>
+<li>Oplossingsrichting-tekst is aangescherpt:</li>
+<li>"generieke API" is vervangen door <strong>"één API"</strong>.</li>
+<li>Nieuwe zin toegevoegd: als een bronhouder de koppeling (nog) niet zelf kan inrichten, biedt GBO instrumenten om toch gebruik te maken van de componenten.</li>
+<li>De rol van de centrale voorzieningen per gegevensstroom (ASI/PubEAA-provider voor EUDI, semantische mapping voor OOTS, toestemmings-/pseudonimiseervoorziening voor DvTP) wordt nu expliciet in lopende tekst toegelicht, in plaats van alleen in het diagram.</li>
+<li><strong>Figuur 1</strong> (oplossingsrichting-diagram):</li>
+<li>Subgraph-label "SDG / OOTS" → <strong>"OOTS"</strong>.</li>
+<li>Kleurstelling van bron/burger-knopen gewijzigd (van groen naar lichtblauw).</li>
+<li>Bijschrift uitgebreid met legenda-achtige toelichting: "de grijze componenten zijn actoren of bestaande voorzieningen die hergebruikt worden."</li>
+</ul>
+<hr />
+<h2 id="change_log-hoofdstuk-3-interactiepatronen">Hoofdstuk 3 — Interactiepatronen<a class="headerlink" href="#change_log-hoofdstuk-3-interactiepatronen" title="Permanent link">&para;</a></h2>
+<h3 id="change_log-patroon-a-eudi-wallet">Patroon A (EUDI-Wallet)<a class="headerlink" href="#change_log-patroon-a-eudi-wallet" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Nieuwe zin: PubEAA's en QEAA's hebben <strong>juridisch dezelfde betekenis</strong>.</li>
+<li>De rolbeschrijving van GBO is verduidelijkt: GBO ondersteunt de PubEAA-uitgevende instantie én de rol van <strong>Authentic Source Interface Provider (ASI-P)</strong>, die zowel een <em>verify</em>- als een <em>retrieve</em>-dienst kan bieden. De oude tekst met twee losse "varianten" (burger contracteert QTSP / bronhouder contracteert QTSP) is vervangen door deze bredere ASI-P-beschrijving.</li>
+<li>Nieuwe alinea over de <strong>OOTS common services</strong>: mogelijke inzet voor de attributencatalogus (Semantic Repository) en leverancierscatalogus (Data Service Directory), en de rol van GBO daarin (nog in onderzoek).</li>
+<li>Sequentiediagram (Figuur 2): participant "Verificatiedienst" hernoemd naar <strong>"Verify-/retrievedienst (Authentic Source Interface)"</strong>; extra notitie toegevoegd over ISO15000 (geen autorisatie/authenticatie nodig).</li>
+<li>Kader "Afstemming lopend" is verbreed: spreekt nu over "alle mogelijke varianten" i.p.v. alleen PubEAA vs. QTSP.</li>
+</ul>
+<h3 id="change_log-patroon-b-oots">Patroon B (OOTS)<a class="headerlink" href="#change_log-patroon-b-oots" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Grotendeels herschreven en flink uitgebreid.</strong> Oude tekst (RINIS/BZK als nationaal OOTS-toegangspunt) is vervangen door een uitgebreidere beschrijving:</li>
+<li>Onderscheid <strong>OOTS-V</strong> (voor bronhouders) versus <strong>OOTS-A</strong> (voor NL dienstverleners).</li>
+<li>Sectorale aansluitingen (bv. EMREX-brug) en eigen aansluitingen worden nu genoemd als alternatief voor de Basisinrichting OOTS (buiten scope van dit ontwerp).</li>
+<li>Stichting RINIS wordt genoemd als leverancier, in opdracht van BZK/EZK.</li>
+<li>Nieuwe alinea over de Europese transportlaag (eDelivery, AS4, eBMS, Regrep) en het <strong>OOTS Exchange Data Model (OOTS EDM)</strong>.</li>
+<li>Nieuwe alinea over <strong>semantische omvorming</strong>: niet verplicht vanuit de SDG-verordening, maar wel gestimuleerd; voorbeeld uniform bewijs van geboorte; GBO kan deze transformatie namens de bronhouder uitvoeren.</li>
+<li>De oude passage over de <strong>TIP-basisfunctie "Delivering messages"</strong> (uitleg dat dit buiten scope van GBO valt) is <strong>verwijderd</strong>.</li>
+<li>Sequentiediagram (Figuur 3): participant "GBO (GBO voorziening)" hernoemd naar <strong>"OOTS adapter (GBO voorziening)"</strong>; een aparte stap voor <strong>semantische mapping</strong> is toegevoegd (nu stap ④, tussen ontvangst en bronbevraging), met als gevolg herschikte stapnummers t.o.v. 0.9.2.</li>
+</ul>
+<h3 id="change_log-patroon-c-dvtp">Patroon C (DvTP)<a class="headerlink" href="#change_log-patroon-c-dvtp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Terminologie "toestemmingen<strong>register</strong>" is doorgaans vervangen door <strong>"toestemmingsregister"</strong>, en "GBO kiest voor een centraal toestemmingenregister" is herschreven naar <strong>"GBO stelt een centrale toestemmingsvoorziening voor"</strong>.</li>
+<li>De zin over real-time validatie van het consent-id op moment van uitvraag is vereenvoudigd/ingekort.</li>
+<li>Toestemmingsportaal wordt nu specifiek gekoppeld aan een centraal portaal in de openingsalinea (was voorheen pas later genoemd).</li>
+<li>Fase 2-titel in het sequentiediagram aangevuld met <strong>"(per bron een verzoek)"</strong>.</li>
+<li>Sequentiediagram (Figuur 4): kleine technische aanpassingen (consent-id-validatie response, VI/VP-doorgifte in redirect) en een extra laatste stap <strong>"DV → Burger: Levert dienst"</strong> toegevoegd.</li>
+</ul>
+<hr />
+<h2 id="change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties">Hoofdstuk 4 — Generieke functies en stelselfuncties<a class="headerlink" href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Nieuwe tabel</strong> die de generieke functies koppelt aan de vier <strong>GDI-domeinen</strong> (Toegang, Interactie, Gegevensuitwisseling, Infrastructuur), met een toelichtende alinea over hoe dit aansluit bij de NORA/GDI-architectuur en vergelijkbare indelingen (bv. Gezondheidsinformatiestelsel). Dit ontbrak volledig in 0.9.2.</li>
+<li>Elke generieke functie (<strong>F1 t/m F8</strong>) heeft nu een <strong>uitgebreide, inhoudelijke inleidende alinea</strong> i.p.v. de korte cursieve one-liner uit 0.9.2. Bijvoorbeeld:</li>
+<li>F1: nu met uitleg over BSN/OIN-identificatie, pseudonimisering, betrouwbaarheidsniveaus en <strong>identity matching</strong>.</li>
+<li>F2: uitleg over PBAC en dat bronhouders een eigen implementatie mogen gebruiken als deze de centrale beleidsregels toepast.</li>
+<li>F3: uitgebreide uitleg over GraphQL, GBO-vertaallaag, OOTS-adapter en attestatie-uitgifte.</li>
+<li>F7: nu expliciet vermeld dat procesorkestratie voor de huidige use cases (nog) niet relevant is.</li>
+<li>F8: expliciet vermeld dat beheer &amp; continuïteit nog niet diepgaand is uitgewerkt.</li>
+<li>Wijzigingen in specifieke stelselfuncties:</li>
+<li><strong>S03</strong>: status uitgebreid met "Identity Matching nog in onderzoek".</li>
+<li><strong>S05</strong>: status "OPA/Rego" vervangen door <strong>"AuthZEN NLGov profiel beschikbaar; FTV in ontwikkeling"</strong> — minder hard gekoppeld aan één specifieke policy-engine.</li>
+<li><strong>S06</strong>: tekst "OCI-bundles"/PAP-omschrijving vrijwel gelijk gebleven, maar "OPA/Rego-policy-bundles" is verkort naar <strong>"policy-bundles"</strong> (technologieneutraler).</li>
+<li><strong>S07</strong>: gap/actie "Query Template Registry" vervangen door <strong>"Dienstencatalogus"</strong>.</li>
+<li><strong>S08</strong>: naam ingekort van "OOTS-adapter (Grensoverschrijdend)" naar <strong>"OOTS-adapter"</strong>; gap/actie uitgebreid met GraphQL-ondersteuning in OOTS-V en mapping naar het Evidence Exchange Data Model.</li>
+<li><strong>S09</strong>: status nu <strong>"FSC Logging en Logboek Dataverwerking (LDV) beschikbaar"</strong> i.p.v. het generieke "Standaarden beschikbaar".</li>
+<li><strong>S11</strong>: naam gewijzigd van "Attesteringsuitgifte (PubEAA / QEAA)" naar <strong>"Attesteringsuitgifte (voor EUDI-wallet)"</strong>; nu gekoppeld aan <strong>F3 én F7</strong> (was alleen F3).</li>
+<li>Het totaaloverzicht (samenvattende tabel) is dienovereenkomstig bijgewerkt.</li>
+</ul>
+<hr />
+<h2 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Figuur 5 (Overzichtsplaat)</strong> is inhoudelijk het meest veranderde onderdeel:</li>
+<li>Volledig <strong>nieuwe kleurcodering met legenda</strong>: groen = generieke decentrale bronontsluiting, paars = centrale voorzieningen (optioneel, bronhouder mag alternatief kiezen), rood = centrale voorzieningen (verplicht bij deze gegevensstroom), grijs = bestaande voorzieningen. In 0.9.2 was er alleen een generiek onderscheid tussen "gbo"- en "generieke" kleur zonder deze semantiek.</li>
+<li>ASI-provider is nu expliciet "verify/retrieve dienst" i.p.v. alleen "verify dienst".</li>
+<li>Koppeling OOTS-adapter ↔ Basisinrichting OOTS is nu <strong>GraphQL</strong> i.p.v. REST-JSON.</li>
+<li>Koppeling GBO ↔ toestemmingsvoorziening is nu gestippeld en gelabeld als <strong>PIP</strong>-relatie i.p.v. een gewone REST-JSON-lijn.</li>
+<li><strong>Bouwstenen die hergebruikt worden</strong>:</li>
+<li><strong>LDV (Logboek Dataverwerking)</strong> is toegevoegd als nieuwe herbruikbare bouwsteen.</li>
+<li><strong>OPA/Rego</strong> is niet langer als aparte, met naam genoemde bouwsteen opgevoerd; verwijzingen zijn generieker gemaakt ("een policy-taal zoals OPA/Rego").</li>
+<li>GraphQL-bouwsteen: "Query Template Registry" vervangen door <strong>"dienstencatalogus"</strong>.</li>
+<li>OAuth 2.0/OIDC-bouwsteen: aangevuld met een zin over <strong>Identity Matching</strong> wanneer het authenticatiemiddel geen BSN bevat.</li>
+<li>Paragraaf "GraphQL als selectief bevragingsmechanisme": de losse subparagraaf over de <strong>Query Template Registry</strong> is vervallen; hiervoor in de plaats staat nu een bullet over de <strong>dienstencatalogus</strong>.</li>
+<li>Paragraaf "OOTS-aansluiting": "OOTS-adapter" is hernoemd naar <strong>"protocolvertaler"</strong>, met toevoeging "en vice-versa" (dus ook de retourroute).</li>
+<li><strong>Nieuwe slotparagraaf "Stelselafspraken en voorzieningenbeheer"</strong> toegevoegd: benoemt dat alle te ontwikkelen voorzieningen en afspraken in een stelsel moeten landen, met beheer, naleving en monitoring — verder uit te werken in de PSA.</li>
+</ul>
+<hr />
+<h2 id="change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw">Hoofdstuk 6 — Impact op betrokken partijen <em>(volledig nieuw)</em><a class="headerlink" href="#change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw" title="Permanent link">&para;</a></h2>
+<p>Compleet nieuw hoofdstuk met een tabel die per partij de impact en toelichting beschrijft:</p>
+<table>
+<thead>
+<tr>
+<th>Partij</th>
+<th>Kern van de impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bronhouder</td>
+<td>Implementatie GraphQL API, FSC, FTV; beheer van catalogi (dienstencatalogus, semantische mapping, data request registry)</td>
+</tr>
+<tr>
+<td>QTSP</td>
+<td>Aansluiting op de Authentic Source Interface</td>
+</tr>
+<tr>
+<td>Basisinrichting OOTS</td>
+<td>Ondersteuning van GraphQL nodig in OOTS-V</td>
+</tr>
+<tr>
+<td>Private dienstverleners</td>
+<td>Toetreden tot het (nog uit te werken) stelsel, aansluiten op BSNk, FSC outway, koppeling toestemmingsvoorziening</td>
+</tr>
+<tr>
+<td>Burger</td>
+<td>Kan gegevens delen op basis van centraal beheerde toestemming, maar houdt losse ingangen/stelsels per partij — burgerperspectief is nog niet in scope</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="change_log-samenvatting-in-een-oogopslag">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Onderdeel</th>
+<th>Aard van de wijziging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structuur document</td>
+<td>+1 hoofdstuk (Impact op partijen), doorlopende nummering, uitgebreidere inleidingen per generieke functie</td>
+</tr>
+<tr>
+<td>Uitgangspunten</td>
+<td>GDI en "Keuzevrijheid" als nieuwe expliciete uitgangspunten</td>
+</tr>
+<tr>
+<td>Patroon A (EUDI)</td>
+<td>ASI-P met verify/retrieve-rol vervangt de twee-varianten-beschrijving; OOTS-catalogi genoemd</td>
+</tr>
+<tr>
+<td>Patroon B (OOTS)</td>
+<td>Sterk uitgebreid: OOTS-V/OOTS-A, sectorale aansluitingen, semantische omvorming; TIP-verwijzing verwijderd</td>
+</tr>
+<tr>
+<td>Patroon C (DvTP)</td>
+<td>Terminologie "toestemmingsregister"/"-voorziening" aangescherpt; extra afrondstap in diagram</td>
+</tr>
+<tr>
+<td>Generieke functies</td>
+<td>Nieuwe GDI-koppeltabel; minder harde koppeling aan OPA/Rego; diverse status-updates</td>
+</tr>
+<tr>
+<td>Componenten (H5)</td>
+<td>Nieuwe kleurcodering/legenda in overzichtsplaat; LDV toegevoegd; Query Template Registry → dienstencatalogus; nieuwe slotparagraaf over stelselbeheer</td>
+</tr>
+<tr>
+<td>Impact op partijen</td>
+<td>Volledig nieuw hoofdstuk 6</td>
+</tr>
+</tbody>
 </table></section></section></div><style>.print-site-enumerate-headings #section-3 > h1:before { content: '3 ' }
 .print-site-enumerate-headings #index > h1:before { content: '3.1 ' }
 
 .print-site-enumerate-headings #bijlage_begrippenlijst > h1:before { content: '3.2 ' }
+
+.print-site-enumerate-headings #change_log > h1:before { content: '3.3 ' }
 </style>
 
 

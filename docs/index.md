@@ -55,7 +55,7 @@ GBO voorkomt dat bronhouders voor iedere gegevensstroom een aparte oplossing moe
 - Is één keer te implementeren en daarna meervoudig te gebruiken.
 - Stelt met configuratie gegevens beschikbaar voor de EUDI-Wallet, OOTS en private dienstverleners.
 - Verstrekt alleen gegevens die een gegevensvrager mag en kan opvragen.
-- Regelt de toegang met configureerbare autorisatie en een volledig audit trail.
+- Regelt de toegang met configureerbare autorisatie en een volledige audit trail.
 - Sluit met gemeenschappelijke oplossingen aan op OOTS, attribuutverstrekking en attribuutverificatie.
 - Geeft private dienstverleners toegang via een gemeenschappelijke toestemmingsvoorziening.
 
@@ -65,7 +65,7 @@ Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschi
 
 Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.
 
-Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Lokale en centrale beleidsregels kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.
+Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Beleidsregels (policies) kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.
 
 GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen maken. Daarmee kunnen zij toch GBO-componenten gebruiken.
 
@@ -143,7 +143,7 @@ Nederlandse bronhouders moeten op OOTS aansluiten als zij digitale gegevens leve
 
 Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.
 
-Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-A ondersteunt Nederlandse dienstverleners.
+Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners.
 
 OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
 
@@ -278,7 +278,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 | Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | ------------------------ | ------ | ----------------------------- |
 | S07 — Gegevensontsluiting (bronontsluiting-API) | API-standaarden. Digikoppeling | De NL API Strategie, API Design Rules en Digikoppeling met FSC zijn beschikbaar. GraphQL is nog niet gestandaardiseerd als API-profiel. | Dienstencatalogus maken. GraphQL binnen FDS positioneren. GBO-vertaallaag maken. |
-| S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. bronformaat semantisch mappen naar SDG-EDM. |
+| S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM. |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | - | Nog te realiseren ⚠️ | OpenID4VCI-endpoint, attestatieschema's en ondertekeningsinfrastructuur maken. QTSP-diensten voor verify en retrieve maken. |
 
 ### F4 — Semantiek & Eenheid van Taal
@@ -350,7 +350,7 @@ GBO heeft hiervoor in ieder geval stelselfuncties nodig. De tabel noemt de stels
 
 | Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | ------------------------ | ------ | ----------------------------- |
-| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerkingen. Diginetwerk | FSC Logging en het Logboek Dataverwerking zijn beschikbaar. De GBO-invulling ontbreekt nog. | Centraal auditlog en herleidbaarheidsprofiel maken. koppeling met de autorisatieketen maken. |
+| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerkingen. Diginetwerk | FSC Logging en het Logboek Dataverwerking zijn beschikbaar. De GBO-invulling ontbreekt nog. | Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken. |
 
 ---
 
@@ -408,7 +408,7 @@ De oplossingsrichting hergebruikt de volgende bouwstenen.
 
 **LDV (Logboek Dataverwerking).** GBO gebruikt de LDV-standaard voor logging en verantwoording. Deze standaard koppelt dataverwerkingen van verschillende bronnen en afnemers aan elkaar.
 
-**GraphQL.** GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. De dienstencatalogus bevat vooraf toegestane gegevensverzoeken. Het PDP-beleid dwingt deze beperkingen af. Bronhouders zonder GraphQL-implementatie kunnen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.
+**GraphQL.** GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. Bronhouders zonder GraphQL-implementatie kunnen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.
 
 **OAuth 2.0 / OpenID Connect.** Dit protocol geeft toestemmingstokens uit na succesvolle identificatie van de burger. De burger gebruikt DigiD of een ander eIDAS-middel. Als het middel geen BSN bevat, koppelt Identity Matching het middel aan het BSN.
 
@@ -434,10 +434,10 @@ GraphQL maakt hergebruik en dataminimalisatie eenvoudiger. Het kan ook de beheer
 
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
-- **GraphQL als type datadienst positioneren.** GBO gebruikt GraphQL naast REST. GraphQL ondersteunt structurele dataminimalisatie en hergebruik via parameters. Het iWlz-afsprakenstelsel gebruikt GraphQL al in productie. GraphQL werkt met FSC Inway en Outway. Formele standaardisatie vraagt om een wijzigingsvoorstel via Forum Standaardisatie en Digikoppeling. De GBO-pilots doen al ervaring op met GraphQL.
+- **GraphQL als type datadienst positioneren.** GBO stelt voor GraphQL naast REST te gebruiken. GraphQL ondersteunt structurele dataminimalisatie en hergebruik via parameters. GraphQL werkt met FSC Inway en Outway. Formele standaardisatie vraagt om een wijzigingsvoorstel via het kennisplatform API's, Digikoppeling en Forum Standaardisatie. De GBO-pilots doen al ervaring op met GraphQL.
 - **Een GBO-vertaallaag maken.** Deze laag ondersteunt bronhouders zonder eigen GraphQL-implementatie. De laag vertaalt een REST-API naar een GraphQL-bron. Bronhouders hoeven GraphQL daardoor niet zelf te implementeren.
 - **DCAT-AP NL gebruiken.** GBO volgt de bestaande FDS-verplichting voor gegevenscatalogi. Als aanvullende metadata nodig zijn, bespreekt GBO deze met de beheerder en gemeenschap van DCAT-AP NL. GBO maakt geen eigen profiel boven op DCAT-AP NL.
-- **Een dienstencatalogus maken.** Deze centrale catalogus bevat toegestane gegevensvragen per toepassing. Afnemers kunnen alleen de toegestane gegevens opvragen. GBO beheert de catalogus centraal. Dit vraagt geen technisch beheer door de bronhouder. De bronhouder beheert wel de inhoud van de catalogus.
+- **Een dienstencatalogus maken.** Deze catalogus bevat toegestane gegevensvragen per toepassing. Afnemers kunnen geen gegevens opvragen die buiten de toegestane gegevensvragen vallen. GBO stelt voor om de inhoud van de dienstencatalogus federatief te beheren met een gemeenschappelijk profiel en centrale vindbaarheid.
 
 ### Toestemming en grondslag als afdwingbaar autorisatiemechanisme
 

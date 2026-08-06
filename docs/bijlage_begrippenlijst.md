@@ -41,7 +41,7 @@ In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal on
 | **eIDAS** { #begrip-eidas } | Europees juridisch kader voor elektronische identificatie en vertrouwensdiensten. De herziene verordening vormt onder meer de basis voor de [EUDI-Wallet](#begrip-eudi-wallet) en elektronische [attestaties](#begrip-attestatie) van [attributen](#begrip-attribuut). |
 | **eIDAS2** { #begrip-eidas2 } | Informele aanduiding voor de herziene Europese [eIDAS](#begrip-eidas)-verordening, die onder meer de juridische basis vormt voor de [EUDI-Wallet](#begrip-eudi-wallet). |
 | **EER** { #begrip-eer } | Europese Economische Ruimte. Samenwerkingsgebied van de lidstaten van de Europese Unie en enkele andere Europese landen. |
-| **EMREX-brug** { #begrip-emrex-brug } | Sectorale voorziening voor grensoverschrijdende uitwisseling van onderwijsgegevens. In het globaal ontwerp wordt deze genoemd als voorbeeld van een sectorspecifieke aansluiting op [OOTS](#begrip-oots). |
+| **EMREX-brug** { #begrip-emrex-brug } | Sectorale voorziening voor grensoverschrijdende uitwisseling van onderwijsgegevens. Dit is een voorbeeld van een sectorspecifieke aansluiting op [OOTS](#begrip-oots). |
 | **Endpoint** { #begrip-endpoint } | Technisch adres waarop een [API](#begrip-api) of andere digitale dienst kan worden aangeroepen. |
 | **EUDI-Wallet** { #begrip-eudi-wallet } | Europese digitale identiteitswallet waarin een burger identificatiegegevens en digitale [attestaties](#begrip-attestatie) kan ontvangen, bewaren en aan dienstverleners kan presenteren. |
 | **Evidence Request** { #begrip-evidence-request } | Gestandaardiseerd [OOTS](#begrip-oots)-bericht waarmee een organisatie een bewijsstuk bij een [bronhouder](#begrip-bronhouder) in een andere lidstaat opvraagt. |

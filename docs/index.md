@@ -17,7 +17,9 @@ Voor GBO geldt de volgende documenthiërarchie:
 4. De [**technische requirements**](https://ictu.github.io/GBO/main/underconstruction_tr/) specificeren de componenten die partijen moeten maken of aanpassen.
 5. De uitwerking [**Semantiek**](https://ictu.github.io/GBO/main/underconstruction_sem/) beschrijft de informatiemodellen, begrippen, schema's en mappings voor de gegevensuitwisseling.
 
-Bij verschillen over de oplossingsrichting of interactiepatronen is het globaal ontwerp leidend. De PSA is leidend voor de normerende architectuureisen.
+Bij verschillen over de oplossingsrichting of interactiepatronen is het globaal ontwerp leidend. De PSA is leidend voor de normerende architectuureisen.  
+
+De [demo-omgeving](https://gbo.simulatie.datastelsel.nl/) toont aan hoe de voorgestelde oplossing in de praktijk kan werken. Let er wel op dat dit een demonstratie-omgeving is die nog in ontwikkeling is, testdata gebruikt en nog fouten kan bevatten.
 
 ### Uitgangspunten
 

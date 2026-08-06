@@ -19,7 +19,7 @@ Voor GBO geldt de volgende documenthiërarchie:
 
 Bij verschillen over de oplossingsrichting of interactiepatronen is het globaal ontwerp leidend. De PSA is leidend voor de normerende architectuureisen.  
 
-De [demo-omgeving](https://gbo.simulatie.datastelsel.nl/) toont aan hoe de voorgestelde oplossing in de praktijk kan werken. Let er wel op dat dit een demonstratie-omgeving is die nog in ontwikkeling is, testdata gebruikt en nog fouten kan bevatten.
+De [**demo-omgeving**](https://gbo.simulatie.datastelsel.nl/) toont aan hoe de voorgestelde oplossing in de praktijk kan werken. Let er wel op dat dit een demonstratie-omgeving is die nog in ontwikkeling is, testdata gebruikt en nog fouten kan bevatten.
 
 ### Uitgangspunten
 

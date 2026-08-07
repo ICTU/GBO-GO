@@ -1,13 +1,26 @@
-# Change log — Globaal Ontwerp GBO
+## Change Log v0.9.3
 **Van:** versie 0.9.2 (juni 2026) → **Naar:** 0.9.3 (augustus 2026)
 
-Bronnen: [0.9.2](https://ictu.github.io/GBO-GO/0.9.2/) vs. [0.9.3](https://ictu.github.io/GBO-GO/0.9.3/)
-
-Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf. Wil je het nog korter? Bekijk de [samenvatting](#samenvatting-in-een-oogopslag).
+Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf.
 
 ---
 
-## Algemeen / opzet
+### Samenvatting in één oogopslag
+
+| Onderdeel | Aard van de wijziging | Details |
+|---|---| --- |
+| Structuur document | +1 hoofdstuk (Impact op partijen), doorlopende nummering, uitgebreidere inleidingen per generieke functie | [detailbeschrijving](#algemeen-opzet) |
+| Uitgangspunten | GDI en "Keuzevrijheid" als nieuwe expliciete uitgangspunten | [detailbeschrijving](#algemeen-opzet) |
+| Patroon A (EUDI) | ASI-P met verify/retrieve-rol vervangt de twee-varianten-beschrijving; OOTS-catalogi genoemd | [detailbeschrijving](#patroon-a-eudi-wallet) |
+| Patroon B (OOTS) | Sterk uitgebreid: OOTS-V/OOTS-Adapter, sectorale aansluitingen, semantische omvorming; TIP-verwijzing verwijderd | [detailbeschrijving](#patroon-b-oots) |
+| Patroon C (DvTP) | Terminologie "toestemmingsregister"/"-voorziening" aangescherpt; extra afrondstap in diagram | [detailbeschrijving](#patroon-c-dvtp) |
+| Generieke functies | Nieuwe GDI-koppeltabel; minder harde koppeling aan OPA/Rego; diverse status-updates | [detailbeschrijving](#hoofdstuk-4-generieke-functies-en-stelselfuncties) |
+| Componenten (H5) | Nieuwe kleurcodering/legenda in overzichtsplaat; LDV toegevoegd; Query Template Registry → dienstencatalogus; nieuwe slotparagraaf over stelselbeheer | [detailbeschrijving](#hoofdstuk-5-te-ontwikkelen-componenten) |
+| Impact op partijen | Volledig nieuw hoofdstuk 6 | [detailbeschrijving](#hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw) |
+
+---
+
+### Algemeen / opzet
 
 - **Nieuw hoofdstuk 6 — "Impact op betrokken partijen"** toegevoegd. Dit is de belangrijkste structurele toevoeging: een tabel die per partij (Bronhouder, QTSP, Basisinrichting OOTS, Private dienstverleners, Burger) de verwachte impact en toelichting beschrijft.
 - **Nieuwe bijlagen**: **Begrippenlijst** en deze **Change Log**.
@@ -20,9 +33,11 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
 - §1 Inleiding verwijst nu expliciet door naar de tabbladen "Gemeenschappelijke Bronontsluiting" (doelen) en "Context" (juridisch/organisatorisch kader).
 - Verwijzing naar **demo** waar de voorgestelde oplossing in een demo-omgeving getoond wordt.
 
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
 ---
 
-## Hoofdstuk 2 — Voorgestelde oplossingsrichting
+### Hoofdstuk 2 — Voorgestelde oplossingsrichting
 
 - **Nieuwe subparagraaf "Knelpuntenanalyse"** toegevoegd vóór de oplossingsrichting zelf: benoemt expliciet de vier knelpunten (verschillende gegevenssets, autorisatiemodellen, protocollen, wet- en regelgeving per gegevensstroom) en de bijbehorende oplossingsrichting in bullets.
 - Oplossingsrichting-tekst is aangescherpt:
@@ -34,20 +49,23 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
   - Kleurstelling van bron/burger-knopen gewijzigd (van groen naar lichtblauw).
   - Bijschrift uitgebreid met legenda-achtige toelichting: "de grijze componenten zijn actoren of bestaande voorzieningen die hergebruikt worden."
 
+  [terug naar overzicht](#samenvatting-in-een-oogopslag)
+
 ---
 
-## Hoofdstuk 3 — Interactiepatronen
+### Hoofdstuk 3 — Interactiepatronen
 
-### Patroon A (EUDI-Wallet)
+#### Patroon A (EUDI-Wallet)
 - Nieuwe zin: PubEAA's en QEAA's hebben **juridisch dezelfde betekenis**.
 - De rolbeschrijving van GBO is verduidelijkt: GBO ondersteunt de PubEAA-uitgevende instantie én de rol van **Authentic Source Interface Provider (ASI-P)**, die zowel een *verify*- als een *retrieve*-dienst kan bieden. De oude tekst met twee losse "varianten" (burger contracteert QTSP / bronhouder contracteert QTSP) is vervangen door deze bredere ASI-P-beschrijving.
 - Nieuwe alinea over de **OOTS common services**: mogelijke inzet voor de attributencatalogus (Semantic Repository) en leverancierscatalogus (Data Service Directory), en de rol van GBO daarin (nog in onderzoek).
 - Sequentiediagram (Figuur 2): participant "Verificatiedienst" hernoemd naar **"Verify-/retrievedienst (Authentic Source Interface)"**; extra notitie toegevoegd over ISO15000 (geen autorisatie/authenticatie nodig).
 - Kader "Afstemming lopend" is verbreed: spreekt nu over "alle mogelijke varianten" i.p.v. alleen PubEAA vs. QTSP.
 
-### Patroon B (OOTS)
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
+#### Patroon B (OOTS)
 - **Grotendeels herschreven en flink uitgebreid.** Oude tekst (RINIS/BZK als nationaal OOTS-toegangspunt) is vervangen door een uitgebreidere beschrijving:
-  - Onderscheid **OOTS-V** (voor bronhouders) versus **OOTS-A** (voor NL dienstverleners).
   - Sectorale aansluitingen (bv. EMREX-brug) en eigen aansluitingen worden nu genoemd als alternatief voor de Basisinrichting OOTS (buiten scope van dit ontwerp).
   - Stichting RINIS wordt genoemd als leverancier, in opdracht van BZK/EZK.
   - Nieuwe alinea over de Europese transportlaag (eDelivery, AS4, eBMS, Regrep) en het **OOTS Exchange Data Model (OOTS EDM)**.
@@ -55,16 +73,20 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
   - De oude passage over de **TIP-basisfunctie "Delivering messages"** (uitleg dat dit buiten scope van GBO valt) is **verwijderd**.
 - Sequentiediagram (Figuur 3): participant "GBO (GBO voorziening)" hernoemd naar **"OOTS adapter (GBO voorziening)"**; een aparte stap voor **semantische mapping** is toegevoegd (nu stap ④, tussen ontvangst en bronbevraging), met als gevolg herschikte stapnummers t.o.v. 0.9.2.
 
-### Patroon C (DvTP)
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
+#### Patroon C (DvTP)
 - Terminologie "toestemmingen**register**" is doorgaans vervangen door **"toestemmingsregister"**, en "GBO kiest voor een centraal toestemmingenregister" is herschreven naar **"GBO stelt een centrale toestemmingsvoorziening voor"**.
 - De zin over real-time validatie van het consent-id op moment van uitvraag is vereenvoudigd/ingekort.
 - Toestemmingsportaal wordt nu specifiek gekoppeld aan een centraal portaal in de openingsalinea (was voorheen pas later genoemd).
 - Fase 2-titel in het sequentiediagram aangevuld met **"(per bron een verzoek)"**.
 - Sequentiediagram (Figuur 4): kleine technische aanpassingen (consent-id-validatie response, VI/VP-doorgifte in redirect) en een extra laatste stap **"DV → Burger: Levert dienst"** toegevoegd.
 
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
 ---
 
-## Hoofdstuk 4 — Generieke functies en stelselfuncties
+### Hoofdstuk 4 — Generieke functies en stelselfuncties
 
 - **Nieuwe tabel** die de generieke functies koppelt aan de vier **GDI-domeinen** (Toegang, Interactie, Gegevensuitwisseling, Infrastructuur), met een toelichtende alinea over hoe dit aansluit bij de NORA/GDI-architectuur en vergelijkbare indelingen (bv. Gezondheidsinformatiestelsel). Dit ontbrak volledig in 0.9.2.
 - Elke generieke functie (**F1 t/m F8**) heeft nu een **uitgebreide, inhoudelijke inleidende alinea** i.p.v. de korte cursieve one-liner uit 0.9.2. Bijvoorbeeld:
@@ -83,9 +105,11 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
   - **S11**: naam gewijzigd van "Attesteringsuitgifte (PubEAA / QEAA)" naar **"Attesteringsuitgifte (voor EUDI-wallet)"**; nu gekoppeld aan **F3 én F7** (was alleen F3).
 - Het totaaloverzicht (samenvattende tabel) is dienovereenkomstig bijgewerkt.
 
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
 ---
 
-## Hoofdstuk 5 — Te ontwikkelen componenten
+### Hoofdstuk 5 — Te ontwikkelen componenten
 
 - **Figuur 5 (Overzichtsplaat)** is inhoudelijk het meest veranderde onderdeel:
   - Volledig **nieuwe kleurcodering met legenda**: groen = generieke decentrale bronontsluiting, paars = centrale voorzieningen (optioneel, bronhouder mag alternatief kiezen), rood = centrale voorzieningen (verplicht bij deze gegevensstroom), grijs = bestaande voorzieningen. In 0.9.2 was er alleen een generiek onderscheid tussen "gbo"- en "generieke" kleur zonder deze semantiek.
@@ -101,9 +125,11 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
 - Paragraaf "OOTS-aansluiting": "OOTS-adapter" is hernoemd naar **"protocolvertaler"**, met toevoeging "en vice-versa" (dus ook de retourroute).
 - **Nieuwe slotparagraaf "Stelselafspraken en voorzieningenbeheer"** toegevoegd: benoemt dat alle te ontwikkelen voorzieningen en afspraken in een stelsel moeten landen, met beheer, naleving en monitoring — verder uit te werken in de PSA.
 
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
 ---
 
-## Hoofdstuk 6 — Impact op betrokken partijen *(volledig nieuw)*
+### Hoofdstuk 6 — Impact op betrokken partijen *(volledig nieuw)*
 
 Compleet nieuw hoofdstuk met een tabel die per partij de impact en toelichting beschrijft:
 
@@ -115,17 +141,6 @@ Compleet nieuw hoofdstuk met een tabel die per partij de impact en toelichting b
 | Private dienstverleners | Toetreden tot het (nog uit te werken) stelsel, aansluiten op BSNk, FSC outway, koppeling toestemmingsvoorziening |
 | Burger | Kan gegevens delen op basis van centraal beheerde toestemming, maar houdt losse ingangen/stelsels per partij — burgerperspectief is nog niet in scope |
 
+[terug naar overzicht](#samenvatting-in-een-oogopslag)
+
 ---
-
-## Samenvatting in één oogopslag
-
-| Onderdeel | Aard van de wijziging |
-|---|---|
-| Structuur document | +1 hoofdstuk (Impact op partijen), doorlopende nummering, uitgebreidere inleidingen per generieke functie |
-| Uitgangspunten | GDI en "Keuzevrijheid" als nieuwe expliciete uitgangspunten |
-| Patroon A (EUDI) | ASI-P met verify/retrieve-rol vervangt de twee-varianten-beschrijving; OOTS-catalogi genoemd |
-| Patroon B (OOTS) | Sterk uitgebreid: OOTS-V/OOTS-A, sectorale aansluitingen, semantische omvorming; TIP-verwijzing verwijderd |
-| Patroon C (DvTP) | Terminologie "toestemmingsregister"/"-voorziening" aangescherpt; extra afrondstap in diagram |
-| Generieke functies | Nieuwe GDI-koppeltabel; minder harde koppeling aan OPA/Rego; diverse status-updates |
-| Componenten (H5) | Nieuwe kleurcodering/legenda in overzichtsplaat; LDV toegevoegd; Query Template Registry → dienstencatalogus; nieuwe slotparagraaf over stelselbeheer |
-| Impact op partijen | Volledig nieuw hoofdstuk 6 |

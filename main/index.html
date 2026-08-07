@@ -1515,12 +1515,12 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <li>laat de gebruiker de gegevens voor verzending bekijken.</li>
 </ul>
 <p>OOTS-V verstuurt de gegevens pas nadat de gebruiker daarmee heeft ingestemd.</p>
-<p>De lidstaten gebruiken eDelivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten.</p>
+<p>De lidstaten gebruiken eDelivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.</p>
 <p>OOTS-V gebruikt nationale standaarden voor de interactie met bronhouders. Op dit moment is dat de Digikoppeling REST API. Bronhouders hoeven daardoor de OOTS-afspraken en standaarden niet zelf toe te passen.</p>
 <p>Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.</p>
 <p>Bronhouders kunnen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel.</p>
 <p>Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.</p>
-<p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. OOTS-V bevraagt dan niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het OOTS-datamodelformaat levert.</p>
+<p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. OOTS-V bevraagt dan niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM formaat levert.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber

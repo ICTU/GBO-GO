@@ -1135,12 +1135,12 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <li>laat de gebruiker de gegevens voor verzending bekijken.</li>
 </ul>
 <p>OOTS-V verstuurt de gegevens pas nadat de gebruiker daarmee heeft ingestemd.</p>
-<p>De lidstaten gebruiken eDelivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten.</p>
+<p>De lidstaten gebruiken eDelivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.</p>
 <p>OOTS-V gebruikt nationale standaarden voor de interactie met bronhouders. Op dit moment is dat de Digikoppeling REST API. Bronhouders hoeven daardoor de OOTS-afspraken en standaarden niet zelf toe te passen.</p>
 <p>Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.</p>
 <p>Bronhouders kunnen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel.</p>
 <p>Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.</p>
-<p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. OOTS-V bevraagt dan niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het OOTS-datamodelformaat levert.</p>
+<p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. OOTS-V bevraagt dan niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM formaat levert.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -2360,12 +2360,64 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <td><em>Extensible Markup Language</em>. Tekstgebaseerd formaat waarmee gestructureerde gegevens volgens een vooraf afgesproken schema kunnen worden vastgelegd en uitgewisseld.</td>
 </tr>
 </tbody>
-</table></section><section class="print-page" id="change_log" heading-number="3.3"><h1 id="change_log-change-log-globaal-ontwerp-gbo">Change log — Globaal Ontwerp GBO<a class="headerlink" href="#change_log-change-log-globaal-ontwerp-gbo" title="Permanent link">&para;</a></h1>
+</table></section><section class="print-page" id="change_log" heading-number="3.3"><h1 id="change_log-change_log">Change Log</h1><h2 id="change-log-v093">Change Log v0.9.3<a class="headerlink" href="#change_log-change-log-v093" title="Permanent link">&para;</a></h2>
 <p><strong>Van:</strong> versie 0.9.2 (juni 2026) → <strong>Naar:</strong> 0.9.3 (augustus 2026)</p>
-<p>Bronnen: <a href="https://ictu.github.io/GBO-GO/0.9.2/">0.9.2</a> vs. <a href="https://ictu.github.io/GBO-GO/0.9.3/">0.9.3</a></p>
-<p>Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf. Wil je het nog korter? Bekijk de <a href="#change_log-samenvatting-in-een-oogopslag">samenvatting</a>.</p>
+<p>Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf.</p>
 <hr />
-<h2 id="change_log-algemeen-opzet">Algemeen / opzet<a class="headerlink" href="#change_log-algemeen-opzet" title="Permanent link">&para;</a></h2>
+<h3 id="change_log-samenvatting-in-een-oogopslag">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Onderdeel</th>
+<th>Aard van de wijziging</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structuur document</td>
+<td>+1 hoofdstuk (Impact op partijen), doorlopende nummering, uitgebreidere inleidingen per generieke functie</td>
+<td><a href="#change_log-algemeen-opzet">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Uitgangspunten</td>
+<td>GDI en "Keuzevrijheid" als nieuwe expliciete uitgangspunten</td>
+<td><a href="#change_log-algemeen-opzet">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Patroon A (EUDI)</td>
+<td>ASI-P met verify/retrieve-rol vervangt de twee-varianten-beschrijving; OOTS-catalogi genoemd</td>
+<td><a href="#change_log-patroon-a-eudi-wallet">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Patroon B (OOTS)</td>
+<td>Sterk uitgebreid: OOTS-V/OOTS-Adapter, sectorale aansluitingen, semantische omvorming; TIP-verwijzing verwijderd</td>
+<td><a href="#change_log-patroon-b-oots">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Patroon C (DvTP)</td>
+<td>Terminologie "toestemmingsregister"/"-voorziening" aangescherpt; extra afrondstap in diagram</td>
+<td><a href="#change_log-patroon-c-dvtp">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Generieke functies</td>
+<td>Nieuwe GDI-koppeltabel; minder harde koppeling aan OPA/Rego; diverse status-updates</td>
+<td><a href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Componenten (H5)</td>
+<td>Nieuwe kleurcodering/legenda in overzichtsplaat; LDV toegevoegd; Query Template Registry → dienstencatalogus; nieuwe slotparagraaf over stelselbeheer</td>
+<td><a href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten">detailbeschrijving</a></td>
+</tr>
+<tr>
+<td>Impact op partijen</td>
+<td>Volledig nieuw hoofdstuk 6</td>
+<td><a href="#change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw">detailbeschrijving</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="change_log-algemeen-opzet">Algemeen / opzet<a class="headerlink" href="#change_log-algemeen-opzet" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Nieuw hoofdstuk 6 — "Impact op betrokken partijen"</strong> toegevoegd. Dit is de belangrijkste structurele toevoeging: een tabel die per partij (Bronhouder, QTSP, Basisinrichting OOTS, Private dienstverleners, Burger) de verwachte impact en toelichting beschrijft.</li>
 <li><strong>Nieuwe bijlagen</strong>: <strong>Begrippenlijst</strong> en deze <strong>Change Log</strong>.</li>
@@ -2380,8 +2432,9 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li>§1 Inleiding verwijst nu expliciet door naar de tabbladen "Gemeenschappelijke Bronontsluiting" (doelen) en "Context" (juridisch/organisatorisch kader).</li>
 <li>Verwijzing naar <strong>demo</strong> waar de voorgestelde oplossing in een demo-omgeving getoond wordt.</li>
 </ul>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
 <hr />
-<h2 id="change_log-hoofdstuk-2-voorgestelde-oplossingsrichting">Hoofdstuk 2 — Voorgestelde oplossingsrichting<a class="headerlink" href="#change_log-hoofdstuk-2-voorgestelde-oplossingsrichting" title="Permanent link">&para;</a></h2>
+<h3 id="change_log-hoofdstuk-2-voorgestelde-oplossingsrichting">Hoofdstuk 2 — Voorgestelde oplossingsrichting<a class="headerlink" href="#change_log-hoofdstuk-2-voorgestelde-oplossingsrichting" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Nieuwe subparagraaf "Knelpuntenanalyse"</strong> toegevoegd vóór de oplossingsrichting zelf: benoemt expliciet de vier knelpunten (verschillende gegevenssets, autorisatiemodellen, protocollen, wet- en regelgeving per gegevensstroom) en de bijbehorende oplossingsrichting in bullets.</li>
 <li>Oplossingsrichting-tekst is aangescherpt:</li>
@@ -2393,9 +2446,10 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li>Kleurstelling van bron/burger-knopen gewijzigd (van groen naar lichtblauw).</li>
 <li>Bijschrift uitgebreid met legenda-achtige toelichting: "de grijze componenten zijn actoren of bestaande voorzieningen die hergebruikt worden."</li>
 </ul>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
 <hr />
-<h2 id="change_log-hoofdstuk-3-interactiepatronen">Hoofdstuk 3 — Interactiepatronen<a class="headerlink" href="#change_log-hoofdstuk-3-interactiepatronen" title="Permanent link">&para;</a></h2>
-<h3 id="change_log-patroon-a-eudi-wallet">Patroon A (EUDI-Wallet)<a class="headerlink" href="#change_log-patroon-a-eudi-wallet" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-hoofdstuk-3-interactiepatronen">Hoofdstuk 3 — Interactiepatronen<a class="headerlink" href="#change_log-hoofdstuk-3-interactiepatronen" title="Permanent link">&para;</a></h3>
+<h4 id="change_log-patroon-a-eudi-wallet">Patroon A (EUDI-Wallet)<a class="headerlink" href="#change_log-patroon-a-eudi-wallet" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Nieuwe zin: PubEAA's en QEAA's hebben <strong>juridisch dezelfde betekenis</strong>.</li>
 <li>De rolbeschrijving van GBO is verduidelijkt: GBO ondersteunt de PubEAA-uitgevende instantie én de rol van <strong>Authentic Source Interface Provider (ASI-P)</strong>, die zowel een <em>verify</em>- als een <em>retrieve</em>-dienst kan bieden. De oude tekst met twee losse "varianten" (burger contracteert QTSP / bronhouder contracteert QTSP) is vervangen door deze bredere ASI-P-beschrijving.</li>
@@ -2403,10 +2457,10 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li>Sequentiediagram (Figuur 2): participant "Verificatiedienst" hernoemd naar <strong>"Verify-/retrievedienst (Authentic Source Interface)"</strong>; extra notitie toegevoegd over ISO15000 (geen autorisatie/authenticatie nodig).</li>
 <li>Kader "Afstemming lopend" is verbreed: spreekt nu over "alle mogelijke varianten" i.p.v. alleen PubEAA vs. QTSP.</li>
 </ul>
-<h3 id="change_log-patroon-b-oots">Patroon B (OOTS)<a class="headerlink" href="#change_log-patroon-b-oots" title="Permanent link">&para;</a></h3>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
+<h4 id="change_log-patroon-b-oots">Patroon B (OOTS)<a class="headerlink" href="#change_log-patroon-b-oots" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Grotendeels herschreven en flink uitgebreid.</strong> Oude tekst (RINIS/BZK als nationaal OOTS-toegangspunt) is vervangen door een uitgebreidere beschrijving:</li>
-<li>Onderscheid <strong>OOTS-V</strong> (voor bronhouders) versus <strong>OOTS-A</strong> (voor NL dienstverleners).</li>
 <li>Sectorale aansluitingen (bv. EMREX-brug) en eigen aansluitingen worden nu genoemd als alternatief voor de Basisinrichting OOTS (buiten scope van dit ontwerp).</li>
 <li>Stichting RINIS wordt genoemd als leverancier, in opdracht van BZK/EZK.</li>
 <li>Nieuwe alinea over de Europese transportlaag (eDelivery, AS4, eBMS, Regrep) en het <strong>OOTS Exchange Data Model (OOTS EDM)</strong>.</li>
@@ -2414,7 +2468,8 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li>De oude passage over de <strong>TIP-basisfunctie "Delivering messages"</strong> (uitleg dat dit buiten scope van GBO valt) is <strong>verwijderd</strong>.</li>
 <li>Sequentiediagram (Figuur 3): participant "GBO (GBO voorziening)" hernoemd naar <strong>"OOTS adapter (GBO voorziening)"</strong>; een aparte stap voor <strong>semantische mapping</strong> is toegevoegd (nu stap ④, tussen ontvangst en bronbevraging), met als gevolg herschikte stapnummers t.o.v. 0.9.2.</li>
 </ul>
-<h3 id="change_log-patroon-c-dvtp">Patroon C (DvTP)<a class="headerlink" href="#change_log-patroon-c-dvtp" title="Permanent link">&para;</a></h3>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
+<h4 id="change_log-patroon-c-dvtp">Patroon C (DvTP)<a class="headerlink" href="#change_log-patroon-c-dvtp" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Terminologie "toestemmingen<strong>register</strong>" is doorgaans vervangen door <strong>"toestemmingsregister"</strong>, en "GBO kiest voor een centraal toestemmingenregister" is herschreven naar <strong>"GBO stelt een centrale toestemmingsvoorziening voor"</strong>.</li>
 <li>De zin over real-time validatie van het consent-id op moment van uitvraag is vereenvoudigd/ingekort.</li>
@@ -2422,8 +2477,9 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li>Fase 2-titel in het sequentiediagram aangevuld met <strong>"(per bron een verzoek)"</strong>.</li>
 <li>Sequentiediagram (Figuur 4): kleine technische aanpassingen (consent-id-validatie response, VI/VP-doorgifte in redirect) en een extra laatste stap <strong>"DV → Burger: Levert dienst"</strong> toegevoegd.</li>
 </ul>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
 <hr />
-<h2 id="change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties">Hoofdstuk 4 — Generieke functies en stelselfuncties<a class="headerlink" href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h2>
+<h3 id="change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties">Hoofdstuk 4 — Generieke functies en stelselfuncties<a class="headerlink" href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Nieuwe tabel</strong> die de generieke functies koppelt aan de vier <strong>GDI-domeinen</strong> (Toegang, Interactie, Gegevensuitwisseling, Infrastructuur), met een toelichtende alinea over hoe dit aansluit bij de NORA/GDI-architectuur en vergelijkbare indelingen (bv. Gezondheidsinformatiestelsel). Dit ontbrak volledig in 0.9.2.</li>
 <li>Elke generieke functie (<strong>F1 t/m F8</strong>) heeft nu een <strong>uitgebreide, inhoudelijke inleidende alinea</strong> i.p.v. de korte cursieve one-liner uit 0.9.2. Bijvoorbeeld:</li>
@@ -2442,8 +2498,9 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li><strong>S11</strong>: naam gewijzigd van "Attesteringsuitgifte (PubEAA / QEAA)" naar <strong>"Attesteringsuitgifte (voor EUDI-wallet)"</strong>; nu gekoppeld aan <strong>F3 én F7</strong> (was alleen F3).</li>
 <li>Het totaaloverzicht (samenvattende tabel) is dienovereenkomstig bijgewerkt.</li>
 </ul>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
 <hr />
-<h2 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h2>
+<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Figuur 5 (Overzichtsplaat)</strong> is inhoudelijk het meest veranderde onderdeel:</li>
 <li>Volledig <strong>nieuwe kleurcodering met legenda</strong>: groen = generieke decentrale bronontsluiting, paars = centrale voorzieningen (optioneel, bronhouder mag alternatief kiezen), rood = centrale voorzieningen (verplicht bij deze gegevensstroom), grijs = bestaande voorzieningen. In 0.9.2 was er alleen een generiek onderscheid tussen "gbo"- en "generieke" kleur zonder deze semantiek.</li>
@@ -2459,8 +2516,9 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <li>Paragraaf "OOTS-aansluiting": "OOTS-adapter" is hernoemd naar <strong>"protocolvertaler"</strong>, met toevoeging "en vice-versa" (dus ook de retourroute).</li>
 <li><strong>Nieuwe slotparagraaf "Stelselafspraken en voorzieningenbeheer"</strong> toegevoegd: benoemt dat alle te ontwikkelen voorzieningen en afspraken in een stelsel moeten landen, met beheer, naleving en monitoring — verder uit te werken in de PSA.</li>
 </ul>
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
 <hr />
-<h2 id="change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw">Hoofdstuk 6 — Impact op betrokken partijen <em>(volledig nieuw)</em><a class="headerlink" href="#change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw" title="Permanent link">&para;</a></h2>
+<h3 id="change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw">Hoofdstuk 6 — Impact op betrokken partijen <em>(volledig nieuw)</em><a class="headerlink" href="#change_log-hoofdstuk-6-impact-op-betrokken-partijen-volledig-nieuw" title="Permanent link">&para;</a></h3>
 <p>Compleet nieuw hoofdstuk met een tabel die per partij de impact en toelichting beschrijft:</p>
 <table>
 <thead>
@@ -2492,50 +2550,8 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="change_log-samenvatting-in-een-oogopslag">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Onderdeel</th>
-<th>Aard van de wijziging</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Structuur document</td>
-<td>+1 hoofdstuk (Impact op partijen), doorlopende nummering, uitgebreidere inleidingen per generieke functie</td>
-</tr>
-<tr>
-<td>Uitgangspunten</td>
-<td>GDI en "Keuzevrijheid" als nieuwe expliciete uitgangspunten</td>
-</tr>
-<tr>
-<td>Patroon A (EUDI)</td>
-<td>ASI-P met verify/retrieve-rol vervangt de twee-varianten-beschrijving; OOTS-catalogi genoemd</td>
-</tr>
-<tr>
-<td>Patroon B (OOTS)</td>
-<td>Sterk uitgebreid: OOTS-V/OOTS-A, sectorale aansluitingen, semantische omvorming; TIP-verwijzing verwijderd</td>
-</tr>
-<tr>
-<td>Patroon C (DvTP)</td>
-<td>Terminologie "toestemmingsregister"/"-voorziening" aangescherpt; extra afrondstap in diagram</td>
-</tr>
-<tr>
-<td>Generieke functies</td>
-<td>Nieuwe GDI-koppeltabel; minder harde koppeling aan OPA/Rego; diverse status-updates</td>
-</tr>
-<tr>
-<td>Componenten (H5)</td>
-<td>Nieuwe kleurcodering/legenda in overzichtsplaat; LDV toegevoegd; Query Template Registry → dienstencatalogus; nieuwe slotparagraaf over stelselbeheer</td>
-</tr>
-<tr>
-<td>Impact op partijen</td>
-<td>Volledig nieuw hoofdstuk 6</td>
-</tr>
-</tbody>
-</table></section></section></div><style>.print-site-enumerate-headings #section-3 > h1:before { content: '3 ' }
+<p><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></p>
+<hr /></section></section></div><style>.print-site-enumerate-headings #section-3 > h1:before { content: '3 ' }
 .print-site-enumerate-headings #index > h1:before { content: '3.1 ' }
 
 .print-site-enumerate-headings #bijlage_begrippenlijst > h1:before { content: '3.2 ' }

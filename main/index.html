@@ -2126,17 +2126,16 @@ Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centr
 <p>Partijen moeten de volgende onderdelen nog afspreken of realiseren:</p>
 <ul>
 <li><strong>Een protocolvertaler in de Basisinrichting OOTS.</strong> Deze vertaler zet AS4/eDelivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.</li>
-<li><strong>Semantische mappings.</strong> Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM XML voor ieder evidence type.</li>
+<li><strong>Semantische mappings.</strong> Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM voor ieder evidence type.</li>
 </ul>
 <h3 id="uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte">Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)<a class="headerlink" href="#uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte" title="Permanent link">&para;</a></h3>
-<p>Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credentials. De burger slaat deze credentials op in de EUDI-Wallet en kan ze daarna aan dienstverleners tonen.</p>
-<p>Dit interactiepatroon valt buiten de scope van FDS.</p>
+<p>Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credentials. De burger slaat deze credentials op in de EUDI-Wallet en kan ze daarna aan dienstverleners tonen (dit interactiepatroon valt buiten de scope van FDS).</p>
 <p>Partijen moeten de volgende onderdelen nog afspreken of realiseren:</p>
 <ul>
 <li><strong>De rol van GBO als ondersteuner van PubEAA-uitgifte.</strong> GBO biedt infrastructuur voor uitgifte via OpenID4VCI en presentatie via OpenID4VP. GBO is juridisch geen PubEAA-verstrekker.</li>
 <li><strong>Attestatieschema's per gebruikssituatie.</strong> Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's.</li>
 <li><strong>Een ondertekeningsinfrastructuur.</strong> Deze infrastructuur ondertekent attestaties digitaal volgens eIDAS2, het ARF en de relevante Europese Trusted Lists.</li>
-<li><strong>Standaardisatie van attestatieformaten.</strong> SD-JWT VC ondersteunt online presentatie. mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.</li>
+<li><strong>Standaardisatie van attestatieformaten.</strong> SD-JWT VC ondersteunt online presentatie. Mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.</li>
 <li><strong>Duidelijkheid over de rol van QTSP's.</strong> Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder kan wel kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog niet bepaald.</li>
 </ul>
 <h3 id="verificatiedienst-voor-qtsps-asi-provider">Verificatiedienst voor QTSP's (ASI-provider)<a class="headerlink" href="#verificatiedienst-voor-qtsps-asi-provider" title="Permanent link">&para;</a></h3>

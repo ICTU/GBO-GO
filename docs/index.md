@@ -464,20 +464,18 @@ FDS is een binnenlands afsprakenstelsel en ondersteunt geen grensoverschrijdende
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een protocolvertaler in de Basisinrichting OOTS.** Deze vertaler zet AS4/eDelivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.
-- **Semantische mappings.** Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM XML voor ieder evidence type.
+- **Semantische mappings.** Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM voor ieder evidence type.
 
 ### Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)
 
-Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credentials. De burger slaat deze credentials op in de EUDI-Wallet en kan ze daarna aan dienstverleners tonen.
-
-Dit interactiepatroon valt buiten de scope van FDS.
+Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credentials. De burger slaat deze credentials op in de EUDI-Wallet en kan ze daarna aan dienstverleners tonen (dit interactiepatroon valt buiten de scope van FDS).
 
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **De rol van GBO als ondersteuner van PubEAA-uitgifte.** GBO biedt infrastructuur voor uitgifte via OpenID4VCI en presentatie via OpenID4VP. GBO is juridisch geen PubEAA-verstrekker.
 - **Attestatieschema's per gebruikssituatie.** Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's.
 - **Een ondertekeningsinfrastructuur.** Deze infrastructuur ondertekent attestaties digitaal volgens eIDAS2, het ARF en de relevante Europese Trusted Lists.
-- **Standaardisatie van attestatieformaten.** SD-JWT VC ondersteunt online presentatie. mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.
+- **Standaardisatie van attestatieformaten.** SD-JWT VC ondersteunt online presentatie. Mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.
 - **Duidelijkheid over de rol van QTSP's.** Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder kan wel kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog niet bepaald.
 
 ### Verificatiedienst voor QTSP's (ASI-provider)

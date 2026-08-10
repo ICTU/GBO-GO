@@ -2,7 +2,7 @@ In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal on
 
 | Begrip | Uitleg |
 | ------ | ------ |
-| **Afnemer** { #begrip-afnemer } | Organisatie die gegevens opvraagt bij een [bronhouder](#begrip-bronhouder). Dit kan bijvoorbeeld een overheidsorganisatie, een private dienstverlener, een [QTSP](#begrip-qtsp) of een voorziening binnen een Europese gegevensuitwisseling zijn. |
+| **Afnemer** { #begrip-afnemer } | Organisatie of persoon die gegevens opvraagt bij een [bronhouder](#begrip-bronhouder). Dit kan bijvoorbeeld een overheidsorganisatie, een private dienstverlener, een burger met een [EUDI-Wallet](#begrip-eudi-wallet), een [QTSP](#begrip-qtsp) of een voorziening binnen een Europese gegevensuitwisseling zijn. |
 | **API** { #begrip-api } | *Application Programming Interface*. Een gestandaardiseerd koppelvlak waarmee systemen geautomatiseerd gegevens of functionaliteit kunnen opvragen. |
 | **ARF** { #begrip-arf } | *Architecture and Reference Framework*. Het Europese architectuur- en referentiekader met afspraken, protocollen en formaten voor de [EUDI-Wallet](#begrip-eudi-wallet). |
 | **AS4** { #begrip-as4 } | Berichtenstandaard die binnen [eDelivery](#begrip-edelivery) en [OOTS](#begrip-oots) wordt gebruikt voor veilige grensoverschrijdende uitwisseling van berichten. De [Basisinrichting OOTS](#begrip-basisinrichting-oots) handelt het AS4-verkeer voor Nederlandse [bronhouders](#begrip-bronhouder) af. |

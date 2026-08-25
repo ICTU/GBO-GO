@@ -1,5 +1,5 @@
 ## Change Log v0.9.3
-**Van:** versie 0.9.2 (juni 2026) → **Naar:** 0.9.3 (augustus 2026)
+**Van:** versie [0.9.2](https://ictu.github.io/GBO-GO/0.9.2/) (juni 2026) → **Naar:** 0.9.3 (augustus 2026)
 
 Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf.
 

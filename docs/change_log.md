@@ -33,7 +33,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
 - §1 Inleiding verwijst nu expliciet door naar de tabbladen "Gemeenschappelijke Bronontsluiting" (doelen) en "Context" (juridisch/organisatorisch kader).
 - Verwijzing naar **demo** waar de voorgestelde oplossing in een demo-omgeving getoond wordt.
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 ---
 
@@ -49,7 +49,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
   - Kleurstelling van bron/burger-knopen gewijzigd (van groen naar lichtblauw).
   - Bijschrift uitgebreid met legenda-achtige toelichting: "de grijze componenten zijn actoren of bestaande voorzieningen die hergebruikt worden."
 
-  [terug naar overzicht](#samenvatting-in-een-oogopslag)
+  <span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 ---
 
@@ -62,7 +62,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
 - Sequentiediagram (Figuur 2): participant "Verificatiedienst" hernoemd naar **"Verify-/retrievedienst (Authentic Source Interface)"**; extra notitie toegevoegd over ISO15000 (geen autorisatie/authenticatie nodig).
 - Kader "Afstemming lopend" is verbreed: spreekt nu over "alle mogelijke varianten" i.p.v. alleen PubEAA vs. QTSP.
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 #### Patroon B (OOTS)
 - **Grotendeels herschreven en flink uitgebreid.** Oude tekst (RINIS/BZK als nationaal OOTS-toegangspunt) is vervangen door een uitgebreidere beschrijving:
@@ -73,7 +73,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
   - De oude passage over de **TIP-basisfunctie "Delivering messages"** (uitleg dat dit buiten scope van GBO valt) is **verwijderd**.
 - Sequentiediagram (Figuur 3): participant "GBO (GBO voorziening)" hernoemd naar **"OOTS adapter (GBO voorziening)"**; een aparte stap voor **semantische mapping** is toegevoegd (nu stap ④, tussen ontvangst en bronbevraging), met als gevolg herschikte stapnummers t.o.v. 0.9.2.
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 #### Patroon C (DvTP)
 - Terminologie "toestemmingen**register**" is doorgaans vervangen door **"toestemmingsregister"**, en "GBO kiest voor een centraal toestemmingenregister" is herschreven naar **"GBO stelt een centrale toestemmingsvoorziening voor"**.
@@ -82,7 +82,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
 - Fase 2-titel in het sequentiediagram aangevuld met **"(per bron een verzoek)"**.
 - Sequentiediagram (Figuur 4): kleine technische aanpassingen (consent-id-validatie response, VI/VP-doorgifte in redirect) en een extra laatste stap **"DV → Burger: Levert dienst"** toegevoegd.
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 ---
 
@@ -105,7 +105,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
   - **S11**: naam gewijzigd van "Attesteringsuitgifte (PubEAA / QEAA)" naar **"Attesteringsuitgifte (voor EUDI-wallet)"**; nu gekoppeld aan **F3 én F7** (was alleen F3).
 - Het totaaloverzicht (samenvattende tabel) is dienovereenkomstig bijgewerkt.
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 ---
 
@@ -125,7 +125,7 @@ Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzich
 - Paragraaf "OOTS-aansluiting": "OOTS-adapter" is hernoemd naar **"protocolvertaler"**, met toevoeging "en vice-versa" (dus ook de retourroute).
 - **Nieuwe slotparagraaf "Stelselafspraken en voorzieningenbeheer"** toegevoegd: benoemt dat alle te ontwikkelen voorzieningen en afspraken in een stelsel moeten landen, met beheer, naleving en monitoring — verder uit te werken in de PSA.
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 ---
 
@@ -141,6 +141,6 @@ Compleet nieuw hoofdstuk met een tabel die per partij de impact en toelichting b
 | Private dienstverleners | Toetreden tot het (nog uit te werken) stelsel, aansluiten op BSNk, FSC outway, koppeling toestemmingsvoorziening |
 | Burger | Kan gegevens delen op basis van centraal beheerde toestemming, maar houdt losse ingangen/stelsels per partij — burgerperspectief is nog niet in scope |
 
-[terug naar overzicht](#samenvatting-in-een-oogopslag)
+<span style='font-size: small;'>[terug naar overzicht](#samenvatting-in-een-oogopslag)</span>
 
 ---

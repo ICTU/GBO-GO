@@ -479,17 +479,19 @@ Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 - **Standaardisatie van attestatieformaten.** SD-JWT VC ondersteunt online presentatie. Mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.
 - **Duidelijkheid over de rol van QTSP's.** Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder kan wel kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog niet bepaald.
 
-### Verificatiedienst voor QTSP's (ASI-provider)
+### Verificatie- en retrievedienst voor QTSP's (ASI-provider)
 
 Artikel 45e van eIDAS2 verplicht overheidsbronnen om een verificatiefunctie aan QTSP's te bieden. Hiermee kunnen QTSP's attributen bij de bronhouder controleren voordat zij een attestatie uitgeven.
 
 Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.
 
+Naast een verificatiedienst stelt GBO voor om ook een retrievedienst aan t bieden aan QTSP's. Daarmee kunnen zij attributen namens de bronhouder uitgeven. Deze dienst is niet verplicht, maar biedt de bronhouders meer opties om attributen uit te geven.
+
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
-- **Een ASI-provider.** Deze GBO-component volgt ETSI TS 119 478 en bevat de interfaces I2 Verify en I4 Authorize.
+- **Een ASI-provider.** Dit component volgt ETSI TS 119 478 en bevat de interfaces I2 Verify, I3 Retrieve en I4 Authorize.
 - **Aansluitvoorwaarden voor QTSP's.** Deze voorwaarden kunnen het FDS-Poortwachterproces aanvullen. Ze bevatten certificaatprofielen volgens ETSI EN 319 412.
-- **Erkenning van QTSP's.** Het GBO-stelsel moet afspraken maken over QTSP-erkenning en het bijbehorende vertrouwensanker.
+- **Erkenning van QTSP's.** Het stelsel moet afspraken maken over QTSP-erkenning en het bijbehorende vertrouwensanker.
 
 ### Stelselafspraken en voorzieningenbeheer
 

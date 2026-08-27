@@ -379,7 +379,7 @@ _Legenda: ⚠️ betekent dat partijen een onderdeel nog moeten realiseren._
 
 ## 5 Te ontwikkelen componenten
 
-### Overzichtsplaat oplossing
+### Overzichtsplaat voorgestelde oplossing
 
 Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies kunnen invullen.
 
@@ -387,7 +387,7 @@ Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze op
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
-<figcaption>Figuur 5: Oplossingsrichting met de gekozen componenten.<br>
+<figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
 Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.</figcaption>
 </figure>
 

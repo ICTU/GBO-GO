@@ -419,7 +419,7 @@ De oplossingsrichting hergebruikt de volgende bouwstenen.
 
 **Authorization Decision Log 1.0.0.** Authorisation Decision Log 1.0.0 beschrijft hoe organisaties autorisatiebeslissingen vastleggen. Daarmee kan men achteraf nagaan wie toegang kreeg, wanneer en op welke grondslag. Een uniek kenmerk koppelt registraties van meerdere organisaties in een proces aan elkaar.
 
-**ODRL (Open Digital Rights Language).** ODRL is een W3C-standaard voor machineleesbare beleidsregels. GBO gebruikt ODRL als beschrijvingstaal voor beleidsregels in de PAP. Zie [S06](#f2-toegang-interactie). Dit sluit aan op het gebruik van ODRL in FDS en DCAT-AP-NL.
+**ODRL (Open Digital Rights Language).** ODRL is een W3C-standaard voor machineleesbare beleidsregels. GBO gebruikt ODRL als beschrijvingstaal voor beleidsregels in de PAP. Dit sluit aan op het gebruik van ODRL in FDS en DCAT-AP-NL.
 
 **BSNk PP (Polymorfe Pseudonimisering).** BSNk PP is bij Logius in productie. GBO gebruikt deze voorziening voor alle DvTP-verzoeken. De voorziening zet het BSN om naar een partijspecifiek en onomkeerbaar pseudoniem. Dit gebeurt voordat een private dienstverlener gegevens ontvangt.
 
@@ -434,13 +434,12 @@ Voor de beoogde toepassingen zijn aanvullende afspraken en componenten nodig. De
 ### GraphQL als selectief bevragingsmechanisme
 
 FDS gebruikt REST als standaardtype voor datadiensten volgens de NL API Strategie en REST API Design Rules. GBO stelt voor de bronontsluiting ook GraphQL voor.
-
-GraphQL maakt hergebruik en dataminimalisatie eenvoudiger. Het kan ook de beheerlast verlagen.
+GraphQL maakt hergebruik eenvoudiger: met één API kunnen verschillende gegevensstromen bediend worden. Dit kan met configuratie in plaats van het moeten intrichten (en beheren) van een extra endpoint. Ook biedt GraphQL meer mogelijkheden voor dataminimalisatie: de vragende partij hoeft niet alle beschikbare gegevens op te vragen. Bij een REST API krijgt de vragende partij altijd alle gegevens die de API aanbiedt.
 
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **GraphQL als type datadienst positioneren.** GBO stelt voor GraphQL naast REST te gebruiken. GraphQL ondersteunt structurele dataminimalisatie en hergebruik via parameters. GraphQL werkt met FSC Inway en Outway. Formele standaardisatie vraagt om een wijzigingsvoorstel via het kennisplatform API's, Digikoppeling en Forum Standaardisatie. De GBO-pilots doen al ervaring op met GraphQL.
-- **Een GBO-vertaallaag maken.** Deze laag ondersteunt bronhouders zonder eigen GraphQL-implementatie. De laag vertaalt een REST-API naar een GraphQL-bron. Bronhouders hoeven GraphQL daardoor niet zelf te implementeren.
+- **Een GBO-vertaallaag maken.** Deze laag ondersteunt bronhouders zonder eigen GraphQL-implementatie. De laag vertaalt een bestaande API naar een GraphQL-bron. Bronhouders hoeven GraphQL daardoor niet zelf te implementeren.
 - **DCAT-AP-NL gebruiken.** GBO volgt de bestaande FDS-verplichting voor gegevenscatalogi. Als aanvullende metadata nodig zijn, bespreekt GBO deze met de beheerder en gemeenschap van DCAT-AP-NL. GBO maakt geen eigen profiel boven op het bestaande DCAT-AP-NL profiel.
 - **Een dienstencatalogus maken.** Deze catalogus bevat toegestane gegevensvragen per toepassing. Afnemers kunnen geen gegevens opvragen die buiten de toegestane gegevensvragen vallen. GBO stelt voor om de inhoud van de dienstencatalogus federatief te beheren met een gemeenschappelijk profiel en centrale vindbaarheid.
 

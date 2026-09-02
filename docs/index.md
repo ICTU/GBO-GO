@@ -246,8 +246,8 @@ Organisaties kunnen alleen deelnemen als zij aan de aansluitvoorwaarden voldoen.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S03 — Burgeridentificatie & Pseudonimisering | BSNk PP. DigiD | BSNk PP is beschikbaar. Integratie is nodig. Identity Matching is nog in onderzoek. | DvTP-partijen als deelnemer aansluiten. consent-id koppelen. |
 | S04 — Organisatie-authenticatie & Vertrouwensstelsel | eHerkenning. PKIoverheid. Organisatie-identificatienummer (OIN). Centrale OIN Raadpleegvoorziening | FDS Poortwachter en Marktmeester zijn als concept uitgewerkt. De beschikbaarheid en toepassing binnen GBO zijn nog niet bepaald. | GBO-aansluitvoorwaarden opstellen. KvK, OIN en eIDAS koppelen. |
 
@@ -259,8 +259,8 @@ GBO autoriseert gegevensvragen met beleidsregels volgens PBAC. GBO biedt hiervoo
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S01 — Toestemmingsregister (primair voor DvTP) | Mogelijk functioneel verwant aan DigiD Machtigen | Nog te realiseren ⚠️ | Toestemmingsregister realiseren. register als PIP gebruiken. benodigde wet- en regelgeving vaststellen. |
 | S02 — Toestemmingsportaal (primair voor DvTP) | MijnOverheid | Nog te realiseren ⚠️ | Inzage en intrekking mogelijk maken. koppelen aan het toestemmingsregister en MijnOverheid. |
 | S05 — Autorisatie (PEP/PDP/PIP) | - | AuthZEN NLGov-profiel (NLgov Profile for OpenID AuthZEN Authorization API 1.0.0) is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog. | Referentie-implementatie per bronhouder maken. Policy Store en PAP inrichten. |
@@ -278,8 +278,8 @@ Voor de EUDI-Wallet geven bronhouders PubEAA's uit. QTSP's kunnen namens bronhou
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S07 — Gegevensontsluiting (bronontsluiting-API) | API-standaarden. Digikoppeling | De NL API Strategie, API Design Rules en Digikoppeling met FSC zijn beschikbaar. GraphQL is nog niet gestandaardiseerd als API-profiel. | Dienstencatalogus maken. GraphQL binnen FDS positioneren. GBO-vertaallaag maken. |
 | S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM. |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | - | Nog te realiseren ⚠️ | OpenID4VCI-endpoint, attestatieschema's en ondertekeningsinfrastructuur maken. QTSP-diensten voor verify en retrieve maken. |
@@ -298,8 +298,8 @@ GBO biedt hiervoor voorzieningen en hulpmiddelen. Bronhouders blijven verantwoor
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. begrippenkader volgens NL-SBB maken. MIM toepassen. catalogi volgens DCAT-AP-NL vastleggen. mappings maken. |
 
 ### F5 — Gegevenskwaliteit & Validatie
@@ -314,8 +314,8 @@ Afnemers moeten onjuiste, onvolledige of verouderde gegevens kunnen terugmelden 
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Validatieprofielen per gegevensset maken. herkomst registreren. gegevenskwaliteit meten. terugmeldproces inrichten. |
 
 ### F6 — Grondslag & Beleid
@@ -326,8 +326,8 @@ Als een andere grondslag geldt, controleren beleidsregels deze grondslag. De PEP
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S01 — Toestemmingsregister | Zie [F2](#f2-toegang-interactie) | Zie [F2](#f2-toegang-interactie) | Zie [F2](#f2-toegang-interactie) |
 | S05 — Autorisatie (PEP/PDP/PIP) | Zie [F2](#f2-toegang-interactie) | Zie [F2](#f2-toegang-interactie) | Zie [F2](#f2-toegang-interactie) |
 | S06 — Beleidsbeheer & -distributie (PAP) | Zie [F2](#f2-toegang-interactie) | Zie [F2](#f2-toegang-interactie) | Zie [F2](#f2-toegang-interactie) |
@@ -340,8 +340,8 @@ De aansluiting op het OOTS Intermediair Platform vraagt om een OOTS-adapter. De 
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S08 — OOTS-adapter | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) |
 
@@ -351,8 +351,8 @@ Dit globaal ontwerp werkt beheer en continuïteit nog niet volledig uit. De volg
 
 GBO heeft hiervoor in ieder geval stelselfuncties nodig. De tabel noemt de stelselfunctie die nu het meest voor de hand ligt.
 
-| Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
-| -------------- | ------------------------ | ------ | ----------------------------- |
+| Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
+| -------------- | -------------------- | ------ | ----------------------------- |
 | S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerkingen. Diginetwerk | FSC Logging, het Logboek Dataverwerking en de standaard Authorization Decision Log 1.0.0 zijn beschikbaar. De GBO-invulling ontbreekt nog. | Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken. |
 
 ---
@@ -395,7 +395,7 @@ De volgende paragrafen beschrijven welke componenten GBO kan hergebruiken. Ze be
 
 ### Bouwstenen die hergebruikt worden
 
-GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel. GBO bouwt zoveel mogelijk voort op bestaande FDS-bouwstenen:
+GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel en de GDI-voorzieningen als basisvoorzieningen. GBO bouwt zoveel mogelijk voort op bestaande bouwstenen die daaruit voortkomen:
 
 - FSC voor koppelingen.
 - FTV voor autorisatie.

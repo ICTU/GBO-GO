@@ -160,7 +160,7 @@ OOTS-V:
 
 OOTS-V verstuurt de gegevens pas nadat de gebruiker daarmee heeft ingestemd.
 
-De lidstaten gebruiken eDelivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.
+De lidstaten gebruiken e-Delivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.
 
 OOTS-V gebruikt nationale standaarden voor de interactie met bronhouders. Op dit moment is dat de Digikoppeling REST API. Bronhouders hoeven daardoor de OOTS-afspraken en standaarden niet zelf toe te passen.
 
@@ -263,7 +263,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 | -------------- | ------------------------ | ------ | ----------------------------- |
 | S01 — Toestemmingsregister (primair voor DvTP) | Mogelijk functioneel verwant aan DigiD Machtigen | Nog te realiseren ⚠️ | Toestemmingsregister realiseren. register als PIP gebruiken. benodigde wet- en regelgeving vaststellen. |
 | S02 — Toestemmingsportaal (primair voor DvTP) | MijnOverheid | Nog te realiseren ⚠️ | Inzage en intrekking mogelijk maken. koppelen aan het toestemmingsregister en MijnOverheid. |
-| S05 — Autorisatie (PEP/PDP/PIP) | - | AuthZEN NLGov-profiel is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog. | Referentie-implementatie per bronhouder maken. Policy Store en PAP inrichten. |
+| S05 — Autorisatie (PEP/PDP/PIP) | - | AuthZEN NLGov-profiel (NLgov Profile for OpenID AuthZEN Authorization API 1.0.0) is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog. | Referentie-implementatie per bronhouder maken. Policy Store en PAP inrichten. |
 | S06 — Beleidsbeheer & -distributie (PAP) | - | Nog te ontwerpen ⚠️ | Policybundels beheren en verspreiden naar de PDP-instanties van bronhouders. Ook moet de governance bepalen wie policies mag opstellen, wijzigen en goedkeuren. |
 
 ### F3 — Gegevensvoorziening
@@ -272,7 +272,7 @@ Bronhouders ontsluiten hun gegevens via een generieke bronontsluiting-API. GBO s
 
 GBO biedt een vertaallaag aan bronhouders zonder GraphQL-API. Deze laag vertaalt een bestaand protocol naar GraphQL. GBO gebruikt daarnaast de FSC-standaard.
 
-Voor OOTS zet een adapter de brongegevens om naar de vereiste evidence types. De Basisinrichting OOTS regelt de toestemming van de burger, de omzetting naar AS4/eDelivery en de aansluiting op portalen in andere EER-lidstaten.
+Voor OOTS zet een adapter de brongegevens om naar de vereiste evidence types. De Basisinrichting OOTS regelt de toestemming van de burger, de omzetting naar AS4/e-Delivery en de aansluiting op portalen in andere EER-lidstaten.
 
 Voor de EUDI-Wallet geven bronhouders PubEAA's uit. QTSP's kunnen namens bronhouders QEAA's uitgeven.
 
@@ -288,7 +288,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 GBO gebruikt een gedeeld begrippenkader volgens NL-SBB. GBO beoordeelt informatiemodellen op de toepassing van MIM.
 
-GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens DCAT-AP NL.
+GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens DCAT-AP-NL.
 
 GBO geeft inzicht in beschikbare gegevenssets. Dit inzicht bevat de canonieke gegevensmodellen van bronhouders en de koppeling aan het gedeelde begrippenkader.
 
@@ -300,7 +300,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | ------------------------ | ------ | ----------------------------- |
-| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. begrippenkader volgens NL-SBB maken. MIM toepassen. catalogi volgens DCAT-AP NL vastleggen. mappings maken. |
+| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. begrippenkader volgens NL-SBB maken. MIM toepassen. catalogi volgens DCAT-AP-NL vastleggen. mappings maken. |
 
 ### F5 — Gegevenskwaliteit & Validatie
 
@@ -353,7 +353,7 @@ GBO heeft hiervoor in ieder geval stelselfuncties nodig. De tabel noemt de stels
 
 | Stelselfunctie | Relevante GDI-bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | ------------------------ | ------ | ----------------------------- |
-| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerkingen. Diginetwerk | FSC Logging en het Logboek Dataverwerking zijn beschikbaar. De GBO-invulling ontbreekt nog. | Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken. |
+| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerkingen. Diginetwerk | FSC Logging, het Logboek Dataverwerking en de standaard Authorization Decision Log 1.0.0 zijn beschikbaar. De GBO-invulling ontbreekt nog. | Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken. |
 
 ---
 
@@ -371,7 +371,7 @@ De volgende tabel toont alle stelselfuncties en hun relatie met de generieke fun
 | S06 — Beleidsbeheer & -distributie (PAP) | F2, F6 | Nog te ontwerpen ⚠️ |
 | S07 — Gegevensontsluiting (bronontsluiting-API) | F3, F7 | De NL API Strategie, API Design Rules en Digikoppeling met FSC zijn beschikbaar. GraphQL is nog niet gestandaardiseerd als API-profiel ⚠️. |
 | S08 — OOTS-adapter | F3, F7 | De Basisinrichting OOTS is beschikbaar. Partijen moeten de semantische mapping nog ontwikkelen ⚠️. |
-| S09 — Logging, Audit & Traceerbaarheid | F8 | FSC Logging en het Logboek Dataverwerking zijn beschikbaar. De GBO-invulling ontbreekt nog ⚠️. |
+| S09 — Logging, Audit & Traceerbaarheid | F8 | FSC Logging, Logboek Dataverwerking en Authorization Decision Log 1.0.0 zijn beschikbaar. De GBO-invulling ontbreekt nog ⚠️. |
 | S10 — Semantiek & Gegevenscatalogus | F4, F5 | Nog te realiseren ⚠️ |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | F3, F7 | Nog te realiseren ⚠️ |
 
@@ -400,7 +400,7 @@ GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel. GBO bou
 - FSC voor koppelingen.
 - FTV voor autorisatie.
 - LDV voor logging en verantwoording.
-- DCAT-AP NL voor gegevenscatalogi.
+- DCAT-AP-NL voor gegevenscatalogi.
 - Poortwachter en Marktmeester voor aansluiting en naleving.
 
 Poortwachter en Marktmeester zijn nog in ontwikkeling.
@@ -413,11 +413,13 @@ De oplossingsrichting hergebruikt de volgende bouwstenen.
 
 **GraphQL.** GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. Bronhouders zonder GraphQL-implementatie kunnen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.
 
-**OAuth 2.0 / OpenID Connect.** Dit protocol geeft toestemmingstokens uit na succesvolle identificatie van de burger. De burger gebruikt DigiD of een ander eIDAS-middel. Als het middel geen BSN bevat, koppelt Identity Matching het middel aan het BSN.
+**OAuth 2.0 / OpenID Connect.** Dit protocol geeft toestemmingstokens uit na succesvolle identificatie van de burger. Voor de Nederlandse overheid wordt **NL GOV Assurance profile for OpenID Connect 1.0.1** gebruikt. De burger gebruikt DigiD of een ander eIDAS-middel. Als het middel geen BSN bevat, koppelt Identity Matching het middel aan het BSN.
 
-**AuthZEN.** AuthZEN is de gestandaardiseerde koppelinterface tussen de PEP en de PDP. Deze interface maakt de autorisatieketen onafhankelijk van een specifiek protocol of product.
+**AuthZEN.** AuthZEN is de gestandaardiseerde koppelinterface tussen de PEP en de PDP. Deze interface maakt de autorisatieketen onafhankelijk van een specifiek protocol of product. Voor de Nederlandse overheid wordt **NLgov Profile for OpenID AuthZEN Authorization API 1.0.0** gebruikt.
 
-**ODRL (Open Digital Rights Language).** ODRL is een W3C-standaard voor machineleesbare beleidsregels. GBO gebruikt ODRL als beschrijvingstaal voor beleidsregels in de PAP. Zie [S06](#f2-toegang-interactie). Dit sluit aan op het gebruik van ODRL in FDS en DCAT-AP NL.
+**Authorization Decision Log 1.0.0.** Authorisation Decision Log 1.0.0 beschrijft hoe organisaties autorisatiebeslissingen vastleggen. Daarmee kan men achteraf nagaan wie toegang kreeg, wanneer en op welke grondslag. Een uniek kenmerk koppelt registraties van meerdere organisaties in een proces aan elkaar.
+
+**ODRL (Open Digital Rights Language).** ODRL is een W3C-standaard voor machineleesbare beleidsregels. GBO gebruikt ODRL als beschrijvingstaal voor beleidsregels in de PAP. Zie [S06](#f2-toegang-interactie). Dit sluit aan op het gebruik van ODRL in FDS en DCAT-AP-NL.
 
 **BSNk PP (Polymorfe Pseudonimisering).** BSNk PP is bij Logius in productie. GBO gebruikt deze voorziening voor alle DvTP-verzoeken. De voorziening zet het BSN om naar een partijspecifiek en onomkeerbaar pseudoniem. Dit gebeurt voordat een private dienstverlener gegevens ontvangt.
 
@@ -425,7 +427,7 @@ De oplossingsrichting hergebruikt de volgende bouwstenen.
 
 **SD-JWT VC / mdoc (ISO 18013-5).** Dit zijn attestatieformaten voor de EUDI-Wallet volgens het ARF. SD-JWT VC is het standaardformaat voor online presentatie. mdoc ondersteunt ook offline presentaties op korte afstand.
 
-**AS4 / eDelivery via de Basisinrichting OOTS.** AS4 en eDelivery verzorgen het Europese OOTS-berichtenverkeer. GBO communiceert via GraphQL met de Basisinrichting OOTS. De Basisinrichting OOTS beheert de volledige AS4-laag.
+**AS4 / e-Delivery via de Basisinrichting OOTS.** AS4 en e-Delivery verzorgen het Europese OOTS-berichtenverkeer. GBO communiceert via GraphQL met de Basisinrichting OOTS. De Basisinrichting OOTS beheert de volledige AS4-laag.
 
 Voor de beoogde toepassingen zijn aanvullende afspraken en componenten nodig. De volgende paragrafen beschrijven deze aanvullingen.
 
@@ -439,7 +441,7 @@ Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **GraphQL als type datadienst positioneren.** GBO stelt voor GraphQL naast REST te gebruiken. GraphQL ondersteunt structurele dataminimalisatie en hergebruik via parameters. GraphQL werkt met FSC Inway en Outway. Formele standaardisatie vraagt om een wijzigingsvoorstel via het kennisplatform API's, Digikoppeling en Forum Standaardisatie. De GBO-pilots doen al ervaring op met GraphQL.
 - **Een GBO-vertaallaag maken.** Deze laag ondersteunt bronhouders zonder eigen GraphQL-implementatie. De laag vertaalt een REST-API naar een GraphQL-bron. Bronhouders hoeven GraphQL daardoor niet zelf te implementeren.
-- **DCAT-AP NL gebruiken.** GBO volgt de bestaande FDS-verplichting voor gegevenscatalogi. Als aanvullende metadata nodig zijn, bespreekt GBO deze met de beheerder en gemeenschap van DCAT-AP NL. GBO maakt geen eigen profiel boven op DCAT-AP NL.
+- **DCAT-AP-NL gebruiken.** GBO volgt de bestaande FDS-verplichting voor gegevenscatalogi. Als aanvullende metadata nodig zijn, bespreekt GBO deze met de beheerder en gemeenschap van DCAT-AP-NL. GBO maakt geen eigen profiel boven op het bestaande DCAT-AP-NL profiel.
 - **Een dienstencatalogus maken.** Deze catalogus bevat toegestane gegevensvragen per toepassing. Afnemers kunnen geen gegevens opvragen die buiten de toegestane gegevensvragen vallen. GBO stelt voor om de inhoud van de dienstencatalogus federatief te beheren met een gemeenschappelijk profiel en centrale vindbaarheid.
 
 ### Toestemming en grondslag als afdwingbaar autorisatiemechanisme
@@ -454,17 +456,17 @@ Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 - **Een toestemmingsportaal voor burgers.** Burgers kunnen hierin toestemming geven, bekijken en intrekken. Het portaal is gekoppeld aan het toestemmingsregister.
 - **Een centraal toestemmingsregister.** Het register koppelt iedere toestemming aan een doel, afnemer en gegevensset. Intrekking heeft direct effect. De autorisatieketen kan het register direct als PIP raadplegen.
 - **Een PEP/PDP/PIP-keten.** Deze keten gebruikt AuthZEN en een policytaal zoals OPA/Rego. De keten vult het FTV-autorisatieraamwerk voor GBO in. Een PAP beheert de policies en verspreidt ze naar de PDP-instanties van bronhouders.
-- **Een PAP (Policy Administration Point).** Dit component beheert en verspreidt ondertekende policybundels. De PAP is ook het bestuurlijke gezagspunt voor toegangsregels. De governance moet bepalen wie policies mag opstellen, wijzigen en goedkeuren. GBO beschrijft de beleidsregels in ODRL. Dit sluit aan op FDS en DCAT-AP NL.
+- **Een PAP (Policy Administration Point).** Dit component beheert en verspreidt ondertekende policybundels. De PAP is ook het bestuurlijke gezagspunt voor toegangsregels. De governance moet bepalen wie policies mag opstellen, wijzigen en goedkeuren. GBO beschrijft de beleidsregels in ODRL. Dit sluit aan op FDS en DCAT-AP-NL.
 
 _Juridische voorwaarde: toestemming kan pas als afdwingbare grondslag werken nadat de benodigde wet- en regelgeving in werking is getreden. De technische uitwerking loopt parallel aan het wetgevingstraject._
 
 ### OOTS-aansluiting
 
-FDS is een binnenlands afsprakenstelsel en ondersteunt geen grensoverschrijdende gegevensuitwisseling. OOTS gebruikt AS4/eDelivery als transportprotocol en SDG-EDM als semantisch kader. Beide vallen buiten de scope van FDS.
+FDS is een binnenlands afsprakenstelsel en ondersteunt geen grensoverschrijdende gegevensuitwisseling. OOTS gebruikt AS4/e-Delivery als transportprotocol en SDG-EDM als semantisch kader. Beide vallen buiten de scope van FDS.
 
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
-- **Een protocolvertaler in de Basisinrichting OOTS.** Deze vertaler zet AS4/eDelivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.
+- **Een protocolvertaler in de Basisinrichting OOTS.** Deze vertaler zet AS4/e-Delivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.
 - **Semantische mappings.** Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM voor ieder evidence type.
 
 ### Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)

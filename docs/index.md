@@ -272,7 +272,7 @@ Bronhouders ontsluiten hun gegevens via een generieke bronontsluiting-API. GBO s
 
 GBO biedt een vertaallaag aan bronhouders zonder GraphQL-API. Deze laag vertaalt een bestaand protocol naar GraphQL. GBO gebruikt daarnaast de FSC-standaard.
 
-Voor OOTS zet een adapter de brongegevens om naar de vereiste evidence types. De Basisinrichting OOTS regelt de toestemming van de burger, de omzetting naar AS4/e-Delivery en de aansluiting op portalen in andere EER-lidstaten.
+Deze architectuur introduceert een adapter waarmee bronhouders de gegevens vanuit hun bron kunnen omvormen naar de gegevensformaten die zij via OOTS willen leveren. Bronhouders kunnen hiervan gebruik maken zodra zij gegevens voor het OOTS gaan omvormen. Voor de uitwisseling van gegevens via het OOTS is geen AVG toestemming nodig. De Basisinrichting OOTS zorgt voor het verpakken van de gegevens van de bronhouder, zodat het voldoet aan de Europese voorschriften voor bewijsuitwisseling, zoals RegRep en OOTS EDM. De Basisinrichting OOTS onderhoudt ook de verbindingen naar de lidstaten.
 
 Voor de EUDI-Wallet geven bronhouders PubEAA's uit. QTSP's kunnen namens bronhouders QEAA's uitgeven.
 
@@ -290,7 +290,7 @@ GBO gebruikt een gedeeld begrippenkader volgens NL-SBB. GBO beoordeelt informati
 
 GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens DCAT-AP-NL.
 
-GBO geeft inzicht in beschikbare gegevenssets. Dit inzicht bevat de canonieke gegevensmodellen van bronhouders en de koppeling aan het gedeelde begrippenkader.
+GBO geeft inzicht in beschikbare gegevenssets. Dit inzicht bevat de canonieke gegevensmodellen van bronhouders en de koppeling aan het gedeelde begrippenkader. Daarmee kunnen afnemers hun gegevensvraag beter afstemmen op het aanbod van de bronhouders.
 
 GBO beschrijft ook de voorwaarden waaronder gegevens opvraagbaar zijn, zoals de grondslag en de dienst. Waar nodig biedt GBO mappings naar SDG-EDM en attestatieschema's.
 
@@ -300,7 +300,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
-| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. begrippenkader volgens NL-SBB maken. MIM toepassen. catalogi volgens DCAT-AP-NL vastleggen. mappings maken. |
+| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. begrippenkader volgens NL-SBB maken. MIM toepassen. Catalogi volgens DCAT-AP-NL vastleggen. Mappings maken. |
 
 ### F5 — Gegevenskwaliteit & Validatie
 
@@ -316,7 +316,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
-| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Validatieprofielen per gegevensset maken. herkomst registreren. gegevenskwaliteit meten. terugmeldproces inrichten. |
+| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Validatieprofielen per gegevensset maken. Herkomst registreren. Gegevenskwaliteit meten. Terugmeldproces inrichten. |
 
 ### F6 — Grondslag & Beleid
 

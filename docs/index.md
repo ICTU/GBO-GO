@@ -88,7 +88,7 @@ Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn be
 
 De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen.
 
-De volgende paragrafen werken de componenten verder uit.
+
 
 ## 3 Interactiepatronen
 
@@ -108,7 +108,7 @@ GBO ondersteunt de technische rol van een gecentraliseerde voorziening voor PubE
 
 Voor uitgifte via een QTSP ondersteunt GBO de rol van Authentic Source Interface Provider (ASI-provider). De ASI-provider biedt twee diensten:
 
-- een verify-dienst die aangeleverde attributen controleert. Deze dienst is voor bronhouders wettelijk verplicht (eIDAS2, artikel 45e).
+- een verify-dienst die aangeleverde attributen controleert. Deze dienst geeft invulling de verplichting van lidstaten om ervoor te zorgen dat QTSP's de in artikel 45e bedoelde attributen elektronisch kunnen verifiëren bij authentieke bronnen, rechtstreeks of via een aangewezen intermediair.
 - een retrieve-dienst waarmee de QTSP namens de bronhouder attributen ophaalt en kwalificeert. Deze dienst is optioneel.
 
 De ASI-provider van GBO gebruikt voor autorisatie en authenticatie de autorisatiedienst van GBO. Een bronhouder mag een eigen ASI-provider met een eigen autorisatiedienst gebruiken. Die eigen dienst valt buiten de scope van GBO.
@@ -142,9 +142,7 @@ Nederlandse bronhouders moeten op OOTS aansluiten als zij digitale gegevens leve
 
 Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.
 
-Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners.
-
-OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
+Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners. OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
 
 OOTS-V:
 
@@ -163,6 +161,7 @@ OOTS-V gebruikt nationale standaarden voor de interactie met bronhouders. Op dit
 Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.
 
 Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.  
+
 GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.
 
 <figure>
@@ -225,7 +224,7 @@ De volgende paragrafen beschrijven de generieke functies, voorgestelde stelselfu
 
 ### F1 — Identiteit & Vertrouwen
 
-GBO identificeert burgers met het BSN en organisaties met het OIN of sub-OIN. GBO pseudonimiseert het BSN voor afnemers zonder wettelijke grondslag om het BSN te verwerken.
+GBO identificeert burgers met het BSN en organisaties met het organisatie-identificatienummer (OIN) of het handelsregisternummer (HRN). GBO pseudonimiseert het BSN voor afnemers zonder wettelijke grondslag om het BSN te verwerken.
 
 Burgers authenticeren zich met DigiD of een ander eIDAS-middel. Het betrouwbaarheidsniveau past bij de dienst en de opgevraagde gegevens.
 

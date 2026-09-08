@@ -1,18 +1,20 @@
 publiccodeYmlVersion: "0.2"
 
 name: GBO Globaal Ontwerp
-url: "https://github.com/ICTU/gbo-go.git"
-# softwareVersion: "1.0"    # Optional
-releaseDate: "tbd"
+url: "https://github.com/ICTU/GBO-GO.git"
+landingURL: "https://ictu.github.io/GBO-GO/"
+softwareVersion: "0.9"
+releaseDate: "2026-08-01"
+
 platforms:
   - web
 
 categories:
- - documentation
+ - digital-citizenship
 
 developmentStatus: development
 
-softwareType: "documentation"
+softwareType: "standalone/other"
 
 description:
  en:
@@ -31,7 +33,7 @@ legal:
  license: EUPL-1.2
 
 maintenance:
-  type: internal
+  type: "community"
   contacts:
     - name: Govert Claus
       email: "govert.claus@ictu.nl"

@@ -26,10 +26,11 @@ description:
          Het globaal ontwerp voor het project Gemeenschappelijke Bronontsluiting (GBO) zet de oplossingsrichting voor een gemeenschappelijke bronontsluiting op hoofdlijnen uiteen. Op basis daarvan wordt beredeneerd welke stelselfuncties nodig zijn en hoe deze ingericht kunnen worden. Het doel is om input op de voorgestelde oplossingsrichting op te halen en het ontwerp vast te stellen, zodat dit als basis kan dienen voor verdere uitwerking in projectstratarchitectuur, technisch ontwerp, technische requirements en semantiek.
 
    features:
-      - Globaal ontwerp
+      - Op 1 manier ontsluiten - meervoudig gebruiken
+      - Interactiepatronen
+      - Generieke functies
+      - Stelselfuncties
       - Begrippenlijst
-      - Change Log
-      - Diagrammen in Mermaid
 
 legal:
  license: EUPL-1.2

@@ -397,7 +397,8 @@ De volgende tabel geeft per voorziening de status.
 | Toestemmingsvoorziening (portaal en register) | DvTP | Centrale voorziening | Verplicht voor de DvTP-stroom | Nog te bepalen (zie PSA). Vereist wettelijke verankering. |
 | Pseudonimiseervoorziening (BSNk PP) | DvTP | Bestaande GDI-voorziening | Verplicht voor de DvTP-stroom | Logius |
 
-Voor publieke partijen geldt: een bronhouder die een gegevensstroom via GBO ontsluit, volgt de afspraken en standaarden van die stroom. Voor private partijen geldt: deelname aan de DvTP-stroom is vrijwillig. Een private dienstverlener die deelneemt, moet de toestemmingsvoorziening en BSNk PP gebruiken en aan de aansluitvoorwaarden voldoen. Het vertrouwensstelsel voor private partijen is nog niet uitgewerkt (zie [hoofdstuk 6](#6-impact-op-betrokken-partijen)).
+Voor publieke partijen geldt: een bronhouder die een gegevensstroom via GBO ontsluit, volgt de afspraken en standaarden van die stroom.  
+Voor private dienstverleners geldt: deelname aan de DvTP-stroom is vrijwillig. Een private dienstverlener die deelneemt, moet de toestemmingsvoorziening en BSNk PP gebruiken en aan de aansluitvoorwaarden voldoen. Het vertrouwensstelsel voor private dienstverleners is nog niet uitgewerkt.
 
 
 ### Bouwstenen die hergebruikt worden

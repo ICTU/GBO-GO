@@ -954,94 +954,16 @@
 <li>Geeft private dienstverleners toegang via een gemeenschappelijke toestemmingsvoorziening.</li>
 </ul>
 <h3 id="index-oplossingsrichting">Oplossingsrichting<a class="headerlink" href="#index-oplossingsrichting" title="Permanent link">&para;</a></h3>
-<p>Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken.</p>
-<p>Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.</p>
+<p>Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken. Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.</p>
 <p>Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Beleidsregels (policies) kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.</p>
 <p>GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen maken. Daarmee kunnen zij toch GBO-componenten gebruiken.</p>
 <p>Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:</p>
 <ul>
-<li>Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen.</li>
-<li>Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af.</li>
-<li>Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag.</li>
+<li>Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken als zij alternatieve oplossingen willen gebruiken.</li>
+<li>Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af. Bronhouders hoeven deze voorziening niet te gebruiken als zij OOTS verzoeken op een andere manier afhandelen.</li>
+<li>Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruik maken van deze gegevensstroom worden zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.</li>
 </ul>
-<h3 id="index-wat-gbo-maakt-afspraken-referentiecomponenten-en-centrale-voorzieningen">Wat GBO maakt: afspraken, referentiecomponenten en centrale voorzieningen<a class="headerlink" href="#index-wat-gbo-maakt-afspraken-referentiecomponenten-en-centrale-voorzieningen" title="Permanent link">&para;</a></h3>
-<p>GBO levert drie soorten resultaten. De verplichting verschilt per soort:</p>
-<ol>
-<li><strong>Afspraken en standaarden.</strong> Deze zijn verplicht voor iedere deelnemer. Zij gelden voor de bronontsluiting-API, de autorisatieketen, de logging en de aansluitvoorwaarden. GBO legt deze afspraken vast in bestaande afsprakenstelsels (zie <a href="#index-stelselafspraken-en-voorzieningenbeheer">Stelselafspraken en voorzieningenbeheer</a>).</li>
-<li><strong>Referentiecomponenten.</strong> Deze zijn optioneel. Een bronhouder mag een referentiecomponent, de GBO-vertaallaag of een functioneel gelijkwaardig alternatief gebruiken. Het alternatief moet aan de afspraken en standaarden voldoen.</li>
-<li><strong>Centrale voorzieningen.</strong> Of een centrale voorziening verplicht is, hangt af van de gegevensstroom. De volgende tabel geeft per voorziening de status.</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Voorziening</th>
-<th>Gegevensstroom</th>
-<th>Soort</th>
-<th>Verplicht of optioneel</th>
-<th>Beheerder</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bronontsluiting-API, PEP/PDP, FSC Inway</td>
-<td>Alle</td>
-<td>Decentraal, bij de bronhouder</td>
-<td>Afspraken verplicht. Referentiecomponent optioneel.</td>
-<td>Bronhouder</td>
-</tr>
-<tr>
-<td>GBO-vertaallaag</td>
-<td>Alle</td>
-<td>Referentiecomponent</td>
-<td>Optioneel</td>
-<td>Nog te bepalen (zie PSA)</td>
-</tr>
-<tr>
-<td>PAP (beleidsbeheer en -distributie)</td>
-<td>Alle</td>
-<td>GBO-basis</td>
-<td>Optioneel</td>
-<td>Nog te bepalen (zie PSA)</td>
-</tr>
-<tr>
-<td>Voorziening voor PubEAA-uitgifte</td>
-<td>EUDI-Wallet</td>
-<td>Centrale aansluitvoorziening</td>
-<td>Optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven.</td>
-<td>Nog te bepalen (zie PSA)</td>
-</tr>
-<tr>
-<td>ASI-provider (verify en retrieve)</td>
-<td>EUDI-Wallet</td>
-<td>Centrale aansluitvoorziening</td>
-<td>Optioneel. De verify-functie is voor bronhouders wel wettelijk verplicht (eIDAS2, artikel 45e), maar niet via GBO.</td>
-<td>Nog te bepalen (zie PSA)</td>
-</tr>
-<tr>
-<td>OOTS-adapter (semantische mapping)</td>
-<td>OOTS</td>
-<td>Centrale aansluitvoorziening</td>
-<td>Optioneel. Een bronhouder mag zelf rechtstreeks op OOTS of OOTS-V aansluiten.</td>
-<td>Nog te bepalen (zie PSA)</td>
-</tr>
-<tr>
-<td>Toestemmingsvoorziening (portaal en register)</td>
-<td>DvTP</td>
-<td>Centrale voorziening</td>
-<td>Verplicht voor de DvTP-stroom</td>
-<td>Nog te bepalen (zie PSA). Vereist wettelijke verankering.</td>
-</tr>
-<tr>
-<td>Pseudonimiseervoorziening (BSNk PP)</td>
-<td>DvTP</td>
-<td>Bestaande GDI-voorziening</td>
-<td>Verplicht voor de DvTP-stroom</td>
-<td>Logius</td>
-</tr>
-</tbody>
-</table>
-<p>Voor publieke partijen geldt: een bronhouder die een gegevensstroom via GBO ontsluit, volgt de afspraken en standaarden van die stroom. Voor private partijen geldt: deelname aan de DvTP-stroom is vrijwillig. Een private dienstverlener die deelneemt, moet de toestemmingsvoorziening en BSNk PP gebruiken en aan de aansluitvoorwaarden voldoen. Het vertrouwensstelsel voor private partijen is nog niet uitgewerkt (zie <a href="#index-6-impact-op-betrokken-partijen">hoofdstuk 6</a>).</p>
-<p>Het volgende diagram toont deze componenten.</p>
+<p>Het volgende diagram toont deze componenten in relatie tot elkaar.</p>
 <figure>
 <div class="mermaid">flowchart LR
   subgraph gbo["GBO Basis"]
@@ -1698,7 +1620,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 </table>
 <p><em>Legenda: ⚠️ betekent dat partijen een onderdeel nog moeten realiseren.</em></p>
 <h2 id="index-5-te-ontwikkelen-componenten">5 Te ontwikkelen componenten<a class="headerlink" href="#index-5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h2>
-<h3 id="index-overzichtsplaat-voorgestelde-oplossing">Overzichtsplaat voorgestelde oplossing<a class="headerlink" href="#index-overzichtsplaat-voorgestelde-oplossing" title="Permanent link">&para;</a></h3>
+<h3 id="index-overzicht-voorgestelde-oplossing">Overzicht voorgestelde oplossing<a class="headerlink" href="#index-overzicht-voorgestelde-oplossing" title="Permanent link">&para;</a></h3>
 <p>Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies invullen.</p>
 <figure>
 <div class="mermaid">flowchart LR
@@ -1774,10 +1696,79 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
   classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#263746
 </div>
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
-Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit. De tabel in [hoofdstuk 2](#wat-gbo-maakt-afspraken-referentiecomponenten-en-centrale-voorzieningen) geeft per voorziening de status.</figcaption>
+Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.</figcaption>
 </figure>
 
-<p>De volgende paragrafen beschrijven welke componenten GBO hergebruikt. Ze beschrijven ook welke aanpassingen en aanvullingen nog nodig zijn.</p>
+<p>GBO levert drie soorten resultaten. De verplichting verschilt per soort:</p>
+<ol>
+<li><strong>Afspraken en standaarden.</strong> Deze zijn verplicht voor iedere deelnemer. Zij gelden voor de bronontsluiting-API, de autorisatieketen, de logging en de aansluitvoorwaarden. GBO legt deze afspraken vast in bestaande afsprakenstelsels (zie <a href="#index-stelselafspraken-en-voorzieningenbeheer">Stelselafspraken en voorzieningenbeheer</a>).</li>
+<li><strong>Referentiecomponenten.</strong> Deze zijn optioneel. Een bronhouder mag een referentiecomponent, de GBO-vertaallaag of een functioneel gelijkwaardig alternatief gebruiken. Het alternatief moet aan de afspraken en standaarden voldoen.</li>
+<li><strong>Centrale voorzieningen.</strong> Of een centrale voorziening verplicht is, hangt af van de gegevensstroom.<br />
+De volgende tabel geeft per voorziening de status.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Voorziening</th>
+<th>Gegevensstroom</th>
+<th>Soort</th>
+<th>Verplicht of optioneel</th>
+<th>Beheerder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bronontsluiting-API, PEP/PDP/PAP, FSC Inway</td>
+<td>Alle</td>
+<td>Decentraal, bij de bronhouder</td>
+<td>Afspraken verplicht. Referentiecomponent optioneel.</td>
+<td>Bronhouder</td>
+</tr>
+<tr>
+<td>GBO-vertaallaag</td>
+<td>Alle</td>
+<td>Referentiecomponent</td>
+<td>Optioneel</td>
+<td>Nog te bepalen (zie PSA)</td>
+</tr>
+<tr>
+<td>Voorziening voor PubEAA-uitgifte</td>
+<td>EUDI-Wallet</td>
+<td>Centrale aansluitvoorziening</td>
+<td>Optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven.</td>
+<td>Nog te bepalen (zie PSA)</td>
+</tr>
+<tr>
+<td>ASI-provider (verify en retrieve)</td>
+<td>EUDI-Wallet</td>
+<td>Centrale aansluitvoorziening</td>
+<td>Optioneel. De verify-functie is voor bronhouders wel wettelijk verplicht (eIDAS2, artikel 45e), maar niet via GBO.</td>
+<td>Nog te bepalen (zie PSA)</td>
+</tr>
+<tr>
+<td>OOTS-adapter (semantische mapping)</td>
+<td>OOTS</td>
+<td>Centrale aansluitvoorziening</td>
+<td>Optioneel. Een bronhouder mag zelf rechtstreeks op OOTS of OOTS-V aansluiten.</td>
+<td>Nog te bepalen (zie PSA)</td>
+</tr>
+<tr>
+<td>Toestemmingsvoorziening (portaal en register)</td>
+<td>DvTP</td>
+<td>Centrale voorziening</td>
+<td>Verplicht voor de DvTP-stroom</td>
+<td>Nog te bepalen (zie PSA). Vereist wettelijke verankering.</td>
+</tr>
+<tr>
+<td>Pseudonimiseervoorziening (BSNk PP)</td>
+<td>DvTP</td>
+<td>Bestaande GDI-voorziening</td>
+<td>Verplicht voor de DvTP-stroom</td>
+<td>Logius</td>
+</tr>
+</tbody>
+</table>
+<p>Voor publieke partijen geldt: een bronhouder die een gegevensstroom via GBO ontsluit, volgt de afspraken en standaarden van die stroom. Voor private partijen geldt: deelname aan de DvTP-stroom is vrijwillig. Een private dienstverlener die deelneemt, moet de toestemmingsvoorziening en BSNk PP gebruiken en aan de aansluitvoorwaarden voldoen. Het vertrouwensstelsel voor private partijen is nog niet uitgewerkt (zie <a href="#index-6-impact-op-betrokken-partijen">hoofdstuk 6</a>).</p>
 <h3 id="index-bouwstenen-die-hergebruikt-worden">Bouwstenen die hergebruikt worden<a class="headerlink" href="#index-bouwstenen-die-hergebruikt-worden" title="Permanent link">&para;</a></h3>
 <p>GBO gebruikt het Federatief Datastelsel (FDS) als basisafsprakenstelsel en de GDI-voorzieningen als basisvoorzieningen. GBO bouwt zoveel mogelijk voort op bestaande bouwstenen die daaruit voortkomen:</p>
 <ul>
@@ -1828,7 +1819,7 @@ GraphQL maakt hergebruik eenvoudiger: met één API kunnen verschillende gegeven
 <p>Partijen moeten de volgende onderdelen nog afspreken of realiseren:</p>
 <ul>
 <li><strong>Een protocolvertaler in de Basisinrichting OOTS.</strong> Deze vertaler zet AS4/e-Delivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.</li>
-<li><strong>Semantische mappings.</strong> Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM voor ieder evidence type.</li>
+<li><strong>Semantische mappings.</strong> Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, als dat nodig is.</li>
 </ul>
 <h3 id="index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte">Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)<a class="headerlink" href="#index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte" title="Permanent link">&para;</a></h3>
 <p>Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credentials. De burger slaat deze credentials op in de EUDI-Wallet en kan ze daarna aan dienstverleners tonen (dit interactiepatroon valt buiten de scope van FDS).</p>
@@ -1849,112 +1840,6 @@ GraphQL maakt hergebruik eenvoudiger: met één API kunnen verschillende gegeven
 <li><strong>Een ASI-provider.</strong> Dit component volgt ETSI TS 119 478 en bevat de interfaces I2 Verify, I3 Retrieve en I4 Authorize.</li>
 <li><strong>Technische aansluitvoorwaarden voor QTSP's op de ASI-provider.</strong> Deze voorwaarden vullen het FDS-Poortwachterproces aan. QTSP-erkenning, het vertrouwensanker en de certificaatprofielen (ETSI EN 319 412) volgen uit het eIDAS/EUDI-stelsel. GBO maakt hiervoor geen eigen afspraken.</li>
 </ul>
-<h3 id="index-overzicht-wat-ontbreekt-per-afsprakenstelsel">Overzicht: wat ontbreekt per afsprakenstelsel<a class="headerlink" href="#index-overzicht-wat-ontbreekt-per-afsprakenstelsel" title="Permanent link">&para;</a></h3>
-<p>De vorige paragrafen beschrijven de aanvullingen per thema. De volgende tabel groepeert dezelfde aanvullingen per afsprakenstelsel of standaard. Zo is zichtbaar welk stelsel nu welke afspraak mist, en waar GBO de aanvulling wil beleggen.</p>
-<table>
-<thead>
-<tr>
-<th>Afsprakenstelsel of standaard</th>
-<th>Wat ontbreekt voor GBO</th>
-<th>Voorgestelde aanvulling</th>
-<th>Waar GBO de aanvulling belegt</th>
-<th>Zie</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FDS</td>
-<td>Geen technische oplossing voor toestemmingsbeheer of raadpleging van de grondslag.</td>
-<td>Pseudonimiseringsprofiel, toestemmingsregister als PIP, toestemmingsportaal.</td>
-<td>FDS, na wettelijke verankering van toestemming.</td>
-<td><a href="#index-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">Toestemming en grondslag</a></td>
-</tr>
-<tr>
-<td>FDS</td>
-<td>GraphQL is geen FDS-datadiensttype.</td>
-<td>GraphQL naast REST positioneren.</td>
-<td>FDS, via Digikoppeling en Forum Standaardisatie.</td>
-<td><a href="#index-graphql-als-selectief-bevragingsmechanisme">GraphQL</a></td>
-</tr>
-<tr>
-<td>FDS</td>
-<td>Geen grensoverschrijdende uitwisseling (OOTS) en geen EUDI-attestatie-uitgifte in scope.</td>
-<td>Protocolvertaler, semantische mappings, PubEAA-uitgifte, ASI-provider.</td>
-<td>Buiten FDS. Stelsel nog te bepalen (zie PSA).</td>
-<td><a href="#index-oots-aansluiting">OOTS-aansluiting</a>, <a href="#index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte">PubEAA-uitgifte</a></td>
-</tr>
-<tr>
-<td>FDS Poortwachter en Marktmeester</td>
-<td>Concept. Geen aansluitvoorwaarden voor private dienstverleners.</td>
-<td>GBO-aansluitvoorwaarden. QTSP-erkenning en certificaatprofielen volgen uit het eIDAS/EUDI-stelsel en zijn geen GBO-taak.</td>
-<td>FDS Poortwachter, als aanvulling.</td>
-<td><a href="#index-f1-identiteit-vertrouwen">S04</a>, <a href="#index-verificatie-en-retrievedienst-voor-qtsps-asi-provider">ASI-provider</a></td>
-</tr>
-<tr>
-<td>Digikoppeling, NL API Strategie, API Design Rules</td>
-<td>Geen API-profiel voor GraphQL.</td>
-<td>Wijzigingsvoorstel voor een GraphQL-profiel.</td>
-<td>Kennisplatform API's, Digikoppeling, Forum Standaardisatie.</td>
-<td><a href="#index-f3-gegevensvoorziening">S07</a></td>
-</tr>
-<tr>
-<td>FSC</td>
-<td>Geen afspraak over toegestane gegevensvragen per toepassing.</td>
-<td>Dienstencatalogus met federatief beheer en centrale vindbaarheid.</td>
-<td>FDS.</td>
-<td><a href="#index-graphql-als-selectief-bevragingsmechanisme">GraphQL</a></td>
-</tr>
-<tr>
-<td>FTV en AuthZEN NLGov-profiel</td>
-<td>FTV is in ontwikkeling. Geen GBO-inrichting van PEP/PDP/PIP en PAP. Geen governance voor policies.</td>
-<td>PEP/PDP/PIP-keten, PAP, ODRL-beleidsregels, policy-governance.</td>
-<td>FTV.</td>
-<td><a href="#index-f2-toegang-interactie">S05, S06</a></td>
-</tr>
-<tr>
-<td>LDV en Authorization Decision Log</td>
-<td>Geen GBO-invulling voor ketenbrede herleidbaarheid.</td>
-<td>Afspraken voor herleidbaarheid en koppeling met de autorisatieketen.</td>
-<td>LDV.</td>
-<td><a href="#index-f8-beheer-continuiteit">S09</a></td>
-</tr>
-<tr>
-<td>DCAT-AP-NL</td>
-<td>Geen bekend hiaat. Mogelijk aanvullende metadata.</td>
-<td>Geen eigen profiel. Aanvullingen via de beheerder van DCAT-AP-NL.</td>
-<td>DCAT-AP-NL.</td>
-<td><a href="#index-f4-semantiek-eenheid-van-taal">S10</a></td>
-</tr>
-<tr>
-<td>GDI-voorzieningen (BSNk PP, DigiD, OIN)</td>
-<td>DvTP-partijen zijn geen BSNk-deelnemer. Identity Matching is in onderzoek.</td>
-<td>DvTP-partijen aansluiten, consent-id koppelen, KvK/OIN/eIDAS koppelen.</td>
-<td>GDI (Logius).</td>
-<td><a href="#index-f1-identiteit-vertrouwen">S03, S04</a></td>
-</tr>
-<tr>
-<td>Basisinrichting OOTS</td>
-<td>OOTS-V ondersteunt geen GraphQL. Geen semantische mappings naar SDG-EDM.</td>
-<td>GraphQL in OOTS-V, protocolvertaler, mappings per evidence type.</td>
-<td>Basisinrichting OOTS (RINIS).</td>
-<td><a href="#index-f3-gegevensvoorziening">S08</a></td>
-</tr>
-<tr>
-<td>eIDAS2, ARF, EUDI-Wallet</td>
-<td>Geen Nederlandse inrichting voor PubEAA-uitgifte en de ASI-verplichting (artikel 45e). Voorkeursroute PubEAA of QEAA niet bepaald.</td>
-<td>OpenID4VCI-endpoint, attestatieschema's, ondertekeningsinfrastructuur, ASI-provider (ETSI TS 119 478).</td>
-<td>Stelsel nog te bepalen (zie PSA).</td>
-<td><a href="#index-f3-gegevensvoorziening">S11</a></td>
-</tr>
-<tr>
-<td>Wet- en regelgeving DvTP</td>
-<td>Geen wettelijke grondslag voor toestemming als afdwingbare grondslag.</td>
-<td>Wetgevingstraject.</td>
-<td>Buiten GBO. GBO werkt technisch parallel uit.</td>
-<td><a href="#index-toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme">Toestemming en grondslag</a></td>
-</tr>
-</tbody>
-</table>
 <h3 id="index-stelselafspraken-en-voorzieningenbeheer">Stelselafspraken en voorzieningenbeheer<a class="headerlink" href="#index-stelselafspraken-en-voorzieningenbeheer" title="Permanent link">&para;</a></h3>
 <p>Alle nieuwe afspraken en voorzieningen moeten onderdeel worden van een stelsel. Het stelsel moet het beheer, de naleving en de monitoring organiseren.</p>
 <p>GBO wil de nieuwe afspraken en voorzieningen zo veel mogelijk opnemen in bestaande stelsels. De PSA geeft hiervoor een eerste voorstel. Verdere uitwerking blijft nodig.</p>

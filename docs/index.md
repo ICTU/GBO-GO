@@ -90,10 +90,10 @@ GBO levert drie soorten resultaten. De verplichting verschilt per soort:
 | ----------- | -------------- | ---- | ---------------------- | --------- |
 | Bronontsluiting-API, PEP/PDP, FSC Inway | Alle | Decentraal, bij de bronhouder | Afspraken verplicht. Referentiecomponent optioneel. | Bronhouder |
 | GBO-vertaallaag | Alle | Referentiecomponent | Optioneel | Nog te bepalen (zie PSA) |
-| PAP (beleidsbeheer en -distributie) | Alle | GBO-basis | Nog te besluiten. S06 is nog te ontwerpen. | Nog te bepalen (zie PSA) |
-| Instantie voor PubEAA-uitgifte | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag een eigen instantie gebruiken. | Nog te bepalen (zie PSA) |
+| PAP (beleidsbeheer en -distributie) | Alle | GBO-basis | Optioneel | Nog te bepalen (zie PSA) |
+| Voorziening voor PubEAA-uitgifte | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven. | Nog te bepalen (zie PSA) |
 | ASI-provider (verify en retrieve) | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. De verify-functie is voor bronhouders wel wettelijk verplicht (eIDAS2, artikel 45e), maar niet via GBO. | Nog te bepalen (zie PSA) |
-| OOTS-adapter (semantische mapping) | OOTS | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag OOTS-V rechtstreeks bedienen. | Nog te bepalen (zie PSA) |
+| OOTS-adapter (semantische mapping) | OOTS | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag zelf rechtstreeks op OOTS of OOTS-V aansluiten. | Nog te bepalen (zie PSA) |
 | Toestemmingsvoorziening (portaal en register) | DvTP | Centrale voorziening | Verplicht voor de DvTP-stroom | Nog te bepalen (zie PSA). Vereist wettelijke verankering. |
 | Pseudonimiseervoorziening (BSNk PP) | DvTP | Bestaande GDI-voorziening | Verplicht voor de DvTP-stroom | Logius |
 
@@ -127,7 +127,7 @@ De uitgever verzegelt de attestatie cryptografisch. Daarna kan de burger de atte
 
 Een bronhouder mag attestaties rechtstreeks uitgeven als PubEAA's. Een Qualified Trust Service Provider (QTSP) mag attestaties uitgeven als QEAA's. PubEAA's en QEAA's hebben juridisch dezelfde betekenis.
 
-GBO ondersteunt de technische rol van een instantie voor PubEAA-uitgifte. GBO is zelf geen PubEAA-verstrekker. De bronhouder gebruikt de instantie om zelfstandig attestaties uit te geven. De GBO-instantie is optioneel. Een bronhouder mag een eigen instantie gebruiken. Die eigen instantie valt buiten de scope van GBO.
+GBO ondersteunt de technische rol van een gecentraliseerde voorziening voor PubEAA-uitgifte. GBO is zelf geen PubEAA-verstrekker. Welke organisatie deze rol mogelijk gaat vervullen, moet nog worden bepaald. De bronhouder gebruikt de voorziening om zelfstandig attestaties uit te geven. Het gebruik van de voorziening is optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven. Die eigen uitgifte valt buiten de scope van GBO.
 
 Voor uitgifte via een QTSP ondersteunt GBO de rol van Authentic Source Interface Provider (ASI-provider). De ASI-provider biedt twee diensten:
 
@@ -145,7 +145,7 @@ De Europese Commissie onderzoekt of de OOTS Common Services twee catalogi kunnen
 
 QTSP's en uitgevers van PubEAA's moeten de voorgeschreven catalogi gebruiken. Bronhouders zijn verantwoordelijk voor de juiste configuratie van deze catalogi.
 
-GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht. Het gebruik van deze voorziening is optioneel. Een bronhouder mag eigen mappings gebruiken.
+GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.
 
 GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.
 
@@ -512,8 +512,7 @@ Naast een verificatiedienst stelt GBO voor om ook een retrievedienst aan t biede
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een ASI-provider.** Dit component volgt ETSI TS 119 478 en bevat de interfaces I2 Verify, I3 Retrieve en I4 Authorize.
-- **Aansluitvoorwaarden voor QTSP's.** Deze voorwaarden vullen het FDS-Poortwachterproces aan. Ze bevatten certificaatprofielen volgens ETSI EN 319 412.
-- **Erkenning van QTSP's.** Het stelsel moet afspraken maken over QTSP-erkenning en het bijbehorende vertrouwensanker.
+- **Technische aansluitvoorwaarden voor QTSP's op de ASI-provider.** Deze voorwaarden vullen het FDS-Poortwachterproces aan. QTSP-erkenning, het vertrouwensanker en de certificaatprofielen (ETSI EN 319 412) volgen uit het eIDAS/EUDI-stelsel. GBO maakt hiervoor geen eigen afspraken.
 
 ### Overzicht: wat ontbreekt per afsprakenstelsel
 
@@ -524,7 +523,7 @@ De vorige paragrafen beschrijven de aanvullingen per thema. De volgende tabel gr
 | FDS | Geen technische oplossing voor toestemmingsbeheer of raadpleging van de grondslag. | Pseudonimiseringsprofiel, toestemmingsregister als PIP, toestemmingsportaal. | FDS, na wettelijke verankering van toestemming. | [Toestemming en grondslag](#toestemming-en-grondslag-als-afdwingbaar-autorisatiemechanisme) |
 | FDS | GraphQL is geen FDS-datadiensttype. | GraphQL naast REST positioneren. | FDS, via Digikoppeling en Forum Standaardisatie. | [GraphQL](#graphql-als-selectief-bevragingsmechanisme) |
 | FDS | Geen grensoverschrijdende uitwisseling (OOTS) en geen EUDI-attestatie-uitgifte in scope. | Protocolvertaler, semantische mappings, PubEAA-uitgifte, ASI-provider. | Buiten FDS. Stelsel nog te bepalen (zie PSA). | [OOTS-aansluiting](#oots-aansluiting), [PubEAA-uitgifte](#uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte) |
-| FDS Poortwachter en Marktmeester | Concept. Geen aansluitvoorwaarden voor private dienstverleners en QTSP's. | GBO-aansluitvoorwaarden, QTSP-certificaatprofielen (ETSI EN 319 412), QTSP-erkenning. | FDS Poortwachter, als aanvulling. | [S04](#f1-identiteit-vertrouwen), [ASI-provider](#verificatie-en-retrievedienst-voor-qtsps-asi-provider) |
+| FDS Poortwachter en Marktmeester | Concept. Geen aansluitvoorwaarden voor private dienstverleners. | GBO-aansluitvoorwaarden. QTSP-erkenning en certificaatprofielen volgen uit het eIDAS/EUDI-stelsel en zijn geen GBO-taak. | FDS Poortwachter, als aanvulling. | [S04](#f1-identiteit-vertrouwen), [ASI-provider](#verificatie-en-retrievedienst-voor-qtsps-asi-provider) |
 | Digikoppeling, NL API Strategie, API Design Rules | Geen API-profiel voor GraphQL. | Wijzigingsvoorstel voor een GraphQL-profiel. | Kennisplatform API's, Digikoppeling, Forum Standaardisatie. | [S07](#f3-gegevensvoorziening) |
 | FSC | Geen afspraak over toegestane gegevensvragen per toepassing. | Dienstencatalogus met federatief beheer en centrale vindbaarheid. | FDS. | [GraphQL](#graphql-als-selectief-bevragingsmechanisme) |
 | FTV en AuthZEN NLGov-profiel | FTV is in ontwikkeling. Geen GBO-inrichting van PEP/PDP/PIP en PAP. Geen governance voor policies. | PEP/PDP/PIP-keten, PAP, ODRL-beleidsregels, policy-governance. | FTV. | [S05, S06](#f2-toegang-interactie) |

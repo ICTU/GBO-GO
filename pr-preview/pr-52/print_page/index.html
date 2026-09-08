@@ -959,8 +959,8 @@
 <p>GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen maken. Daarmee kunnen zij toch GBO-componenten gebruiken.</p>
 <p>Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:</p>
 <ul>
-<li>Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken als zij alternatieve oplossingen willen gebruiken.</li>
-<li>Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af. Bronhouders hoeven deze voorziening niet te gebruiken als zij OOTS verzoeken op een andere manier afhandelen.</li>
+<li>Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.</li>
+<li>Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.</li>
 <li>Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruik maken van deze gegevensstroom worden zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.</li>
 </ul>
 <p>Het volgende diagram toont deze componenten in relatie tot elkaar.</p>
@@ -1061,9 +1061,9 @@ Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn be
 <li>de Semantic Repository met regelingen voor de attestering van attributen.</li>
 <li>de Data Service Directory met leveranciers van attesteringen van attributen.</li>
 </ul>
-<p>QTSP's en uitgevers van PubEAA's moeten de voorgeschreven catalogi gebruiken. Bronhouders zijn verantwoordelijk voor de juiste configuratie van deze catalogi.</p>
-<p>GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.</p>
-<p>GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.</p>
+<p>QTSP's en uitgevers van PubEAA's moeten de voorgeschreven catalogi gebruiken. Bronhouders zijn verantwoordelijk voor de juiste configuratie van deze catalogi.<br />
+GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.<br />
+GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -1141,9 +1141,8 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <p>De lidstaten gebruiken e-Delivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.</p>
 <p>OOTS-V gebruikt nationale standaarden voor de interactie met bronhouders. Op dit moment is dat de Digikoppeling REST API. Bronhouders hoeven daardoor de OOTS-afspraken en standaarden niet zelf toe te passen.</p>
 <p>Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.</p>
-<p>Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel.</p>
-<p>Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.</p>
-<p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM formaat levert.</p>
+<p>Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.<br />
+GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM formaat levert.</p>
 <figure>
 <div class="mermaid">sequenceDiagram
     autonumber
@@ -1207,11 +1206,10 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 </figure>
 
 <h3 id="index-patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp">Patroon C - gegevensverzoek van private dienstverlener (DvTP)<a class="headerlink" href="#index-patroon-c-gegevensverzoek-van-private-dienstverlener-dvtp" title="Permanent link">&para;</a></h3>
-<p>Een private dienstverlener vraagt overheidsgegevens op bij een bronhouder. Dit mag alleen met een geldige juridische grondslag.</p>
-<p>Voor DvTP is deze grondslag een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners.</p>
-<p>De burger authenticeert zich op een centraal toestemmingsportaal. De burger gebruikt daarvoor een eIDAS-middel met het vereiste betrouwbaarheidsniveau.</p>
-<p>Daarna geeft de burger geïnformeerde toestemming. De toestemming geldt voor een specifiek doel, een specifieke afnemer en een specifieke gegevensset.</p>
-<p>GBO registreert de toestemming in een toestemmingsregister. De private dienstverlener ontvangt een consent-id. De private dienstverlener ontvangt nooit het BSN, maar een partijspecifiek pseudoniem.</p>
+<p>Een private dienstverlener vraagt overheidsgegevens op bij een bronhouder. Dit mag alleen met een geldige juridische grondslag. Voor DvTP is deze grondslag een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners.  </p>
+<p>De burger authenticeert zich op een centraal toestemmingsportaal. De burger gebruikt daarvoor een eIDAS-middel met het vereiste betrouwbaarheidsniveau.<br />
+Daarna geeft de burger geïnformeerde toestemming. De toestemming geldt voor een specifiek doel, een specifieke afnemer en een specifieke gegevensset.<br />
+GBO registreert de toestemming in een toestemmingsregister. De private dienstverlener ontvangt een consent-id. De private dienstverlener ontvangt nooit het BSN, maar een partijspecifiek pseudoniem.</p>
 <p>De bronhouder controleert:</p>
 <ul>
 <li>of de private dienstverlener de gegevens mag opvragen.</li>

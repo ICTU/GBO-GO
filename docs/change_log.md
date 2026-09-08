@@ -1,3 +1,13 @@
+## Wijzigingen na v0.9.3 (concept, nog niet uitgebracht)
+
+Naar aanleiding van reviewfeedback op v0.9.3:
+
+- **§2, nieuwe paragraaf "Wat GBO maakt: afspraken, referentiecomponenten en centrale voorzieningen".** Benoemt expliciet de drie soorten resultaten van GBO en geeft per centrale voorziening in een tabel: gegevensstroom, soort, verplicht of optioneel, beheerder. Beschrijft ook wat verplicht is voor publieke en private partijen. De legenda van figuur 5 verwijst naar deze tabel.
+- **§5, nieuwe paragraaf "Overzicht: wat ontbreekt per afsprakenstelsel".** Groepeert de aanvullingen uit §4 en §5 per afsprakenstelsel of standaard (FDS, Digikoppeling, FSC, FTV, LDV, DCAT-AP-NL, GDI, Basisinrichting OOTS, eIDAS2/ARF, wetgeving DvTP) met de voorgestelde aanvulling en de plek waar GBO deze wil beleggen.
+- **Minder "kan".** Waar een keuze of verplichting bedoeld is, staat nu "mag", "biedt", "is optioneel", "is verplicht" of "nog te besluiten (zie PSA)". Onder andere: keuzevrijheid (§1), scope andere gegevensstromen (§2), PubEAA-instantie en ASI-provider (§3 patroon A), semantische mapping (§3 patroon A en B), toestemmingsvoorziening verplicht voor DvTP (§3 patroon C), register als PIP (§5), QTSP-aansluitvoorwaarden (§5), alternatieven voor bronhouders (§6).
+
+---
+
 ## Change Log v0.9.3
 **Van:** versie [0.9.2](https://ictu.github.io/GBO-GO/0.9.2/) (juni 2026) → **Naar:** 0.9.3 (augustus 2026)
 

@@ -15,7 +15,7 @@ Voor GBO geldt de volgende documenthiërarchie:
 2. De [**projectstartarchitectuur**](https://ictu.github.io/GBO-PSA/) (PSA) beschrijft de kaders, eisen en ontwerpkeuzes voor de generieke functies en stelselfuncties.
 3. Het [**technisch ontwerp**](https://ictu.github.io/GBO/main/underconstruction_to/) beschrijft de technische inrichting van de voorzieningen en koppelvlakken.
 4. De [**technische requirements**](https://ictu.github.io/GBO/main/underconstruction_tr/) specificeren de componenten die partijen moeten maken of aanpassen.
-5. De uitwerking [**Semantiek**](https://ictu.github.io/GBO/main/underconstruction_sem/) beschrijft de informatiemodellen, begrippen, schema's en mappings voor de gegevensuitwisseling.
+5. De uitwerking [**Semantiek**](https://ictu.github.io/GBO-Semantiek/) beschrijft de informatiemodellen, begrippen, schema's en mappings voor de gegevensuitwisseling.
 
 Bij verschillen over de oplossingsrichting of interactiepatronen is het globaal ontwerp leidend. De PSA is leidend voor de normerende architectuureisen.  
 
@@ -31,7 +31,7 @@ De [**demo-omgeving**](https://gbo.simulatie.datastelsel.nl/) toont aan hoe de v
 
 - **Beleidsgedreven autorisatie (PBAC):** GBO gebruikt een PBAC-architectuur voor autorisatie en toegang.
 - **Waardengedreven inrichting:** de organisatorische en technische inrichting volgt publieke waarden. De verdeling van rollen en verantwoordelijkheden ondersteunt een gelijk speelveld.
-- **Keuzevrijheid:** een bronhouder kan referentiecomponenten, onderdelen uit de GBO-vertaallaag of functioneel gelijkwaardige alternatieven gebruiken. Iedere oplossing moet wel voldoen aan de vastgestelde afspraken, standaarden en koppelvlakken.
+- **Keuzevrijheid:** een bronhouder mag referentiecomponenten, onderdelen uit de GBO-vertaallaag of functioneel gelijkwaardige alternatieven gebruiken. Iedere oplossing moet voldoen aan de vastgestelde afspraken, standaarden en koppelvlakken.
 
 ### Leeswijzer
 
@@ -40,7 +40,7 @@ De [**demo-omgeving**](https://gbo.simulatie.datastelsel.nl/) toont aan hoe de v
 - [Hoofdstuk 4](#4-generieke-functies-en-stelselfuncties) beschrijft de benodigde generieke functies en stelselfuncties.
 - [Hoofdstuk 5](#5-te-ontwikkelen-componenten) beschrijft de componenten en afspraken die partijen nog moeten ontwikkelen.
 - [Hoofdstuk 6](#6-impact-op-betrokken-partijen) beschrijft de verwachte impact op de betrokken partijen.
-- [Bijlage begrippenlijst](bijlage_begrippenlijst/) bevat een lijst van begrippen die in dit globaal ontwerp gebruikt worden.
+- [Bijlage begrippenlijst](bijlage_begrippenlijst.md) bevat een lijst van begrippen die in dit globaal ontwerp gebruikt worden.
 
 ## 2 Voorgestelde oplossingsrichting
 
@@ -64,9 +64,7 @@ GBO voorkomt dat bronhouders voor iedere gegevensstroom een aparte oplossing moe
 
 ### Oplossingsrichting
 
-Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken.
-
-Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.
+Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken. Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.
 
 Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Beleidsregels (policies) kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.
 
@@ -74,11 +72,11 @@ GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen 
 
 Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:
 
-- Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen.
-- Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af.
-- Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag.
+- Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
+- Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
+- Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruikmaken van deze gegevensstroom, zijn zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.
 
-Het volgende diagram toont deze componenten.
+Het volgende diagram toont deze componenten in relatie tot elkaar.
 
 <figure>
 ``` mermaid
@@ -88,9 +86,9 @@ Het volgende diagram toont deze componenten.
 Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn bestaande voorzieningen waarop GBO aansluit.</figcaption>
 </figure>
 
-De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen kunnen dezelfde inrichting ook gebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen. Partijen kunnen zulke uitwisselingen snel en betrouwbaar inrichten.
+De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen.
 
-De volgende paragrafen werken de componenten verder uit.
+
 
 ## 3 Interactiepatronen
 
@@ -104,16 +102,16 @@ De wallet start via OpenID4VCI een ophaalverzoek bij GBO. GBO bevraagt de bron e
 
 De uitgever verzegelt de attestatie cryptografisch. Daarna kan de burger de attestatie via OpenID4VP aan een dienstverlener tonen. GBO is niet betrokken bij deze presentatie.
 
-Een bronhouder kan attestaties rechtstreeks uitgeven als PubEAA's. Een Qualified Trust Service Provider (QTSP) kan attestaties uitgeven als QEAA's. PubEAA's en QEAA's hebben juridisch dezelfde betekenis.
+Een bronhouder mag attestaties rechtstreeks uitgeven als PubEAA's. Een Qualified Trust Service Provider (QTSP) mag attestaties uitgeven als QEAA's. PubEAA's en QEAA's hebben juridisch dezelfde betekenis.
 
-GBO ondersteunt de technische rol van een instantie voor PubEAA-uitgifte. GBO is zelf geen PubEAA-verstrekker. De bronhouder gebruikt de instantie om zelfstandig attestaties uit te geven. Een bronhouder kan hiervoor ook een eigen instantie gebruiken. Die eigen instantie valt buiten de scope van GBO.
+GBO ondersteunt de technische rol van een gecentraliseerde voorziening voor PubEAA-uitgifte. GBO is zelf geen PubEAA-verstrekker. Welke organisatie deze rol mogelijk gaat vervullen, moet nog worden bepaald. De bronhouder gebruikt de voorziening om zelfstandig attestaties uit te geven. Het gebruik van de voorziening is optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven. Die eigen uitgifte valt buiten de scope van GBO.
 
-Voor uitgifte via een QTSP ondersteunt GBO de rol van Authentic Source Interface Provider (ASI-provider). De ASI-provider kan twee diensten aanbieden:
+Voor uitgifte via een QTSP ondersteunt GBO de rol van Authentic Source Interface Provider (ASI-provider). De ASI-provider biedt twee diensten:
 
-- een verify-dienst die aangeleverde attributen controleert.
-- een retrieve-dienst waarmee de QTSP namens de bronhouder attributen ophaalt en kwalificeert.
+- een verify-dienst die aangeleverde attributen controleert. Deze dienst geeft invulling de verplichting van lidstaten om ervoor te zorgen dat QTSP's de in artikel 45e bedoelde attributen elektronisch kunnen verifiëren bij authentieke bronnen, rechtstreeks of via een aangewezen intermediair.
+- een retrieve-dienst waarmee de QTSP namens de bronhouder attributen ophaalt en kwalificeert. Deze dienst is optioneel.
 
-De ASI-provider kan voor autorisatie en authenticatie de autorisatiedienst van GBO gebruiken. Een bronhouder kan hiervoor ook een eigen dienst gebruiken. Die eigen dienst valt buiten de scope van GBO.
+De ASI-provider van GBO gebruikt voor autorisatie en authenticatie de autorisatiedienst van GBO. Een bronhouder mag een eigen ASI-provider met een eigen autorisatiedienst gebruiken. Die eigen dienst valt buiten de scope van GBO.
 
 > **Afstemming loopt:** De betrokken partijen bepalen nog de voorkeur voor PubEAA-uitgifte door overheidsbronnen of QEAA-uitgifte via een QTSP. GBO ondersteunt beide varianten. De governance voor deze keuze valt buiten GBO.
 
@@ -122,10 +120,8 @@ De Europese Commissie onderzoekt of de OOTS Common Services twee catalogi kunnen
 - de Semantic Repository met regelingen voor de attestering van attributen.
 - de Data Service Directory met leveranciers van attesteringen van attributen.
 
-QTSP's en uitgevers van PubEAA's moeten de voorgeschreven catalogi gebruiken. Bronhouders zijn verantwoordelijk voor de juiste configuratie van deze catalogi.
-
-GBO kan een gedeelde voorziening bieden voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.
-
+QTSP's en uitgevers van PubEAA's moeten de voorgeschreven catalogi gebruiken. Bronhouders zijn verantwoordelijk voor de juiste configuratie van deze catalogi.  
+GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.  
 GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.
 
 <figure>
@@ -146,9 +142,7 @@ Nederlandse bronhouders moeten op OOTS aansluiten als zij digitale gegevens leve
 
 Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.
 
-Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners.
-
-OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
+Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners. OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
 
 OOTS-V:
 
@@ -160,17 +154,15 @@ OOTS-V:
 
 OOTS-V verstuurt de gegevens pas nadat de gebruiker daarmee heeft ingestemd.
 
-De lidstaten gebruiken e-Delivery, AS4, eBMS en Regrep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.
+De lidstaten gebruiken e-Delivery, AS4, eBMS en RegRep volgens de Europese voorschriften. Het OOTS Exchange Data Model (OOTS-EDM) specificeert de verzoek- en antwoordberichten. Het SDG Evidence Data Model (SDG-EDM) beschrijft het semantische model of schema waarmee bewijsgegevens worden beschreven.
 
 OOTS-V gebruikt nationale standaarden voor de interactie met bronhouders. Op dit moment is dat de Digikoppeling REST API. Bronhouders hoeven daardoor de OOTS-afspraken en standaarden niet zelf toe te passen.
 
 Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.
 
-Bronhouders kunnen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel.
+Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.  
 
-Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.
-
-GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. OOTS-V bevraagt dan niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM formaat levert.
+GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.
 
 <figure>
 ``` mermaid
@@ -181,14 +173,10 @@ GBO biedt een voorziening die de semantische transformatie volgens de specificat
 
 ### Patroon C - gegevensverzoek van private dienstverlener (DvTP)
 
-Een private dienstverlener vraagt overheidsgegevens op bij een bronhouder. Dit mag alleen met een geldige juridische grondslag.
+Een private dienstverlener vraagt overheidsgegevens op bij een bronhouder. Dit mag alleen met een geldige juridische grondslag. Voor DvTP is deze grondslag een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners.  
 
-Voor DvTP is deze grondslag een wettelijk vastgestelde toestemming voor het delen van gegevens met private dienstverleners.
-
-De burger authenticeert zich op een centraal toestemmingsportaal. De burger gebruikt daarvoor een eIDAS-middel met het vereiste betrouwbaarheidsniveau.
-
-Daarna geeft de burger geïnformeerde toestemming. De toestemming geldt voor een specifiek doel, een specifieke afnemer en een specifieke gegevensset.
-
+De burger authenticeert zich op een centraal toestemmingsportaal. De burger gebruikt daarvoor een eIDAS-middel met het vereiste betrouwbaarheidsniveau.  
+Daarna geeft de burger geïnformeerde toestemming. De toestemming geldt voor een specifiek doel, een specifieke afnemer en een specifieke gegevensset.  
 GBO registreert de toestemming in een toestemmingsregister. De private dienstverlener ontvangt een consent-id. De private dienstverlener ontvangt nooit het BSN, maar een partijspecifiek pseudoniem.
 
 De bronhouder controleert:
@@ -199,7 +187,7 @@ De bronhouder controleert:
 
 De bronhouder herleidt het BSN uit de versleutelde identiteit. Daarna levert de bronhouder het antwoord aan de private dienstverlener.
 
-GBO stelt een **centrale toestemmingsvoorziening** voor. Deze voorziening bestaat uit een toestemmingsportaal en een toestemmingsregister.
+GBO stelt een **centrale toestemmingsvoorziening** voor. Deze voorziening bestaat uit een toestemmingsportaal en een toestemmingsregister. De voorziening is verplicht voor de DvTP-stroom: iedere private dienstverlener en iedere bronhouder in deze stroom gebruikt dezelfde voorziening. Dit vereist wettelijke verankering.
 
 GBO heeft ook decentrale registratie per bronhouder onderzocht. Het centrale model heeft de volgende voordelen:
 
@@ -236,7 +224,7 @@ De volgende paragrafen beschrijven de generieke functies, voorgestelde stelselfu
 
 ### F1 — Identiteit & Vertrouwen
 
-GBO identificeert burgers met het BSN en organisaties met het OIN of sub-OIN. GBO pseudonimiseert het BSN voor afnemers zonder wettelijke grondslag om het BSN te verwerken.
+GBO identificeert burgers met het BSN en organisaties met het organisatie-identificatienummer (OIN) of het handelsregisternummer (HRN). GBO pseudonimiseert het BSN voor afnemers zonder wettelijke grondslag om het BSN te verwerken.
 
 Burgers authenticeren zich met DigiD of een ander eIDAS-middel. Het betrouwbaarheidsniveau past bij de dienst en de opgevraagde gegevens.
 
@@ -248,21 +236,21 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
-| S03 — Burgeridentificatie & Pseudonimisering | BSNk PP. DigiD | BSNk PP is beschikbaar. Integratie is nodig. Identity Matching is nog in onderzoek. | DvTP-partijen als deelnemer aansluiten. consent-id koppelen. |
+| S03 — Burgeridentificatie & Pseudonimisering | BSNk PP. DigiD | BSNk PP is beschikbaar. Integratie is nodig. Identity Matching (wordt nog door GBO onderzocht). | DvTP-partijen als deelnemer aansluiten. Consent-id koppelen. |
 | S04 — Organisatie-authenticatie & Vertrouwensstelsel | eHerkenning. PKIoverheid. Organisatie-identificatienummer (OIN). Centrale OIN Raadpleegvoorziening | FDS Poortwachter en Marktmeester zijn als concept uitgewerkt. De beschikbaarheid en toepassing binnen GBO zijn nog niet bepaald. | GBO-aansluitvoorwaarden opstellen. KvK, OIN en eIDAS koppelen. |
 
 ### F2 — Toegang & Interactie
 
 Als toestemming volgens de AVG nodig is, gebruikt GBO een toestemmingsvoorziening. Deze voorziening bestaat uit een toestemmingsportaal en een toestemmingsregister.
 
-GBO autoriseert gegevensvragen met beleidsregels volgens PBAC. GBO biedt hiervoor een referentie-implementatie op basis van FTV. Een bronhouder kan ook een eigen implementatie gebruiken als deze aan de eisen voldoet.
+GBO autoriseert gegevensvragen met beleidsregels volgens PBAC. GBO biedt hiervoor een referentie-implementatie op basis van FTV. Een bronhouder mag een eigen implementatie gebruiken als deze aan de eisen voldoet.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
-| S01 — Toestemmingsregister (primair voor DvTP) | Mogelijk functioneel verwant aan DigiD Machtigen | Nog te realiseren ⚠️ | Toestemmingsregister realiseren. register als PIP gebruiken. benodigde wet- en regelgeving vaststellen. |
-| S02 — Toestemmingsportaal (primair voor DvTP) | MijnOverheid | Nog te realiseren ⚠️ | Inzage en intrekking mogelijk maken. koppelen aan het toestemmingsregister en MijnOverheid. |
+| S01 — Toestemmingsregister (primair voor DvTP) | Mogelijk functioneel verwant aan DigiD Machtigen | Nog te realiseren ⚠️ | Toestemmingsregister realiseren. Register als PIP gebruiken. Benodigde wet- en regelgeving vaststellen. |
+| S02 — Toestemmingsportaal (primair voor DvTP) | MijnOverheid | Nog te realiseren ⚠️ | Inzage en intrekking mogelijk maken. Koppelen aan het toestemmingsregister en MijnOverheid. |
 | S05 — Autorisatie (PEP/PDP/PIP) | - | AuthZEN NLGov-profiel (NLgov Profile for OpenID AuthZEN Authorization API 1.0.0) is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog. | Referentie-implementatie per bronhouder maken. Policy Store en PAP inrichten. |
 | S06 — Beleidsbeheer & -distributie (PAP) | - | Nog te ontwerpen ⚠️ | Policybundels beheren en verspreiden naar de PDP-instanties van bronhouders. Ook moet de governance bepalen wie policies mag opstellen, wijzigen en goedkeuren. |
 
@@ -272,9 +260,9 @@ Bronhouders ontsluiten hun gegevens via een generieke bronontsluiting-API. GBO s
 
 GBO biedt een vertaallaag aan bronhouders zonder GraphQL-API. Deze laag vertaalt een bestaand protocol naar GraphQL. GBO gebruikt daarnaast de FSC-standaard.
 
-Deze architectuur introduceert een adapter waarmee bronhouders de gegevens vanuit hun bron kunnen omvormen naar de gegevensformaten die zij via OOTS willen leveren. Bronhouders kunnen hiervan gebruik maken zodra zij gegevens voor het OOTS gaan omvormen. Voor de uitwisseling van gegevens via het OOTS is geen AVG toestemming nodig. De Basisinrichting OOTS zorgt voor het verpakken van de gegevens van de bronhouder, zodat het voldoet aan de Europese voorschriften voor bewijsuitwisseling, zoals RegRep en OOTS EDM. De Basisinrichting OOTS onderhoudt ook de verbindingen naar de lidstaten.
+Deze architectuur introduceert een adapter waarmee bronhouders de gegevens vanuit hun bron kunnen omvormen naar de gegevensformaten die zij via OOTS willen leveren. Bronhouders mogen deze adapter gebruiken zodra zij gegevens voor het OOTS gaan omvormen. Voor de uitwisseling van gegevens via OOTS is geen toestemming op grond van de AVG nodig. De Basisinrichting OOTS zorgt voor het verpakken van de gegevens van de bronhouder, zodat de uitwisseling voldoet aan de Europese voorschriften voor bewijsuitwisseling, zoals RegRep en OOTS-EDM. De Basisinrichting OOTS onderhoudt ook de verbindingen naar de lidstaten.
 
-Voor de EUDI-Wallet geven bronhouders PubEAA's uit. QTSP's kunnen namens bronhouders QEAA's uitgeven.
+Voor de EUDI-Wallet geven bronhouders PubEAA's uit. QTSP's mogen namens bronhouders QEAA's uitgeven.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
@@ -300,7 +288,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
-| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. begrippenkader volgens NL-SBB maken. MIM toepassen. Catalogi volgens DCAT-AP-NL vastleggen. Mappings maken. |
+| S10 — Semantiek & Gegevenscatalogus | Samenwerkende Catalogi. Begrippenvoorziening. Stelselcatalogus | Nog te realiseren ⚠️ | Canonieke gegevensmodellen maken. Begrippenkader volgens NL-SBB maken. MIM toepassen. Catalogi volgens DCAT-AP-NL vastleggen. Mappings maken. |
 
 ### F5 — Gegevenskwaliteit & Validatie
 
@@ -353,7 +341,7 @@ GBO heeft hiervoor in ieder geval stelselfuncties nodig. De tabel noemt de stels
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
-| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerkingen. Diginetwerk | FSC Logging, het Logboek Dataverwerking en de standaard Authorization Decision Log 1.0.0 zijn beschikbaar. De GBO-invulling ontbreekt nog. | Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken. |
+| S09 — Logging, Audit & Traceerbaarheid | Logboek Dataverwerking. Diginetwerk | FSC Logging, het Logboek Dataverwerking en de standaard Authorization Decision Log 1.0.0 zijn beschikbaar. De GBO-invulling ontbreekt nog. | Afspraken voor ketenbrede herleidbaarheid en verantwoording. Koppeling met de autorisatieketen maken. |
 
 ---
 
@@ -379,9 +367,9 @@ _Legenda: ⚠️ betekent dat partijen een onderdeel nog moeten realiseren._
 
 ## 5 Te ontwikkelen componenten
 
-### Overzichtsplaat voorgestelde oplossing
+### Overzicht voorgestelde oplossing
 
-Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies kunnen invullen.
+Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies invullen.
 
 <figure>
 ``` mermaid
@@ -391,7 +379,27 @@ Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze op
 Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.</figcaption>
 </figure>
 
-De volgende paragrafen beschrijven welke componenten GBO kan hergebruiken. Ze beschrijven ook welke aanpassingen en aanvullingen nog nodig zijn.
+GBO levert drie soorten resultaten. De verplichting verschilt per soort:
+
+1. **Afspraken en standaarden.** Deze zijn verplicht voor iedere deelnemer. Zij gelden voor de bronontsluiting-API, de autorisatieketen, de logging en de aansluitvoorwaarden. GBO legt deze afspraken vast in bestaande afsprakenstelsels (zie [Stelselafspraken en voorzieningenbeheer](#stelselafspraken-en-voorzieningenbeheer)).
+2. **Referentiecomponenten.** Deze zijn optioneel. Een bronhouder mag een referentiecomponent, de GBO-vertaallaag of een functioneel gelijkwaardig alternatief gebruiken. Het alternatief moet aan de afspraken en standaarden voldoen.
+3. **Centrale voorzieningen.** Of een centrale voorziening verplicht is, hangt af van de gegevensstroom.  
+De volgende tabel geeft per voorziening de status.
+
+| Voorziening | Gegevensstroom | Soort | Verplicht of optioneel | Beheerder |
+| ----------- | -------------- | ---- | ---------------------- | --------- |
+| Bronontsluiting-API, PEP/PDP/PAP, FSC Inway | Alle | Decentraal, bij de bronhouder | Afspraken verplicht. Referentiecomponent optioneel. | Bronhouder |
+| PAP | Alle | Centraal en/of decentraal | Afspraken verplicht. Referentiecomponent optioneel. | Nog te bepalen (zie PSA) |
+| GBO-vertaallaag | Alle | Referentiecomponent | Optioneel | Nog te bepalen (zie PSA) |
+| Voorziening voor PubEAA-uitgifte | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven. | Nog te bepalen (zie PSA) |
+| ASI-provider (verify en retrieve) | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. De verify-functie is voor bronhouders wel wettelijk verplicht (eIDAS2, artikel 45e), maar niet via GBO. | Nog te bepalen (zie PSA) |
+| OOTS-adapter (semantische mapping) | OOTS | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag zelf rechtstreeks op OOTS of OOTS-V aansluiten. | Nog te bepalen (zie PSA) |
+| Toestemmingsvoorziening (portaal en register) | DvTP | Centrale voorziening | Verplicht voor de DvTP-stroom | Nog te bepalen (zie PSA). Vereist wettelijke verankering. |
+| Pseudonimiseervoorziening (BSNk PP) | DvTP | Bestaande GDI-voorziening | Verplicht voor de DvTP-stroom | Logius |
+
+Voor publieke partijen geldt: een bronhouder die een gegevensstroom via GBO ontsluit, volgt de afspraken en standaarden van die stroom.  
+Voor private dienstverleners geldt: deelname aan de DvTP-stroom is vrijwillig. Een private dienstverlener die deelneemt, moet de toestemmingsvoorziening en BSNk PP gebruiken en aan de aansluitvoorwaarden voldoen. Het vertrouwensstelsel voor private dienstverleners is nog niet uitgewerkt.
+
 
 ### Bouwstenen die hergebruikt worden
 
@@ -411,13 +419,13 @@ De oplossingsrichting hergebruikt de volgende bouwstenen.
 
 **LDV (Logboek Dataverwerking).** GBO gebruikt de LDV-standaard voor logging en verantwoording. Deze standaard koppelt dataverwerkingen van verschillende bronnen en afnemers aan elkaar.
 
-**GraphQL.** GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. Bronhouders zonder GraphQL-implementatie kunnen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.
+**GraphQL.** GBO stelt GraphQL voor als protocol voor selectieve gegevensvragen aan de bronontsluiting-API. GraphQL is een aanvulling op REST. Bronhouders zonder GraphQL-implementatie mogen de GBO-vertaallaag gebruiken. Formele standaardisatie als FDS-datadiensttype verloopt via Digikoppeling en Forum Standaardisatie.
 
 **OAuth 2.0 / OpenID Connect.** Dit protocol geeft toestemmingstokens uit na succesvolle identificatie van de burger. Voor de Nederlandse overheid wordt **NL GOV Assurance profile for OpenID Connect 1.0.1** gebruikt. De burger gebruikt DigiD of een ander eIDAS-middel. Als het middel geen BSN bevat, koppelt Identity Matching het middel aan het BSN.
 
 **AuthZEN.** AuthZEN is de gestandaardiseerde koppelinterface tussen de PEP en de PDP. Deze interface maakt de autorisatieketen onafhankelijk van een specifiek protocol of product. Voor de Nederlandse overheid wordt **NLgov Profile for OpenID AuthZEN Authorization API 1.0.0** gebruikt.
 
-**Authorization Decision Log 1.0.0.** Authorisation Decision Log 1.0.0 beschrijft hoe organisaties autorisatiebeslissingen vastleggen. Daarmee kan men achteraf nagaan wie toegang kreeg, wanneer en op welke grondslag. Een uniek kenmerk koppelt registraties van meerdere organisaties in een proces aan elkaar.
+**Authorization Decision Log 1.0.0.** Authorization Decision Log 1.0.0 beschrijft hoe organisaties autorisatiebeslissingen vastleggen. Daarmee kan men achteraf nagaan wie toegang kreeg, wanneer en op welke grondslag. Een uniek kenmerk koppelt registraties van meerdere organisaties in een proces aan elkaar.
 
 **ODRL (Open Digital Rights Language).** ODRL is een W3C-standaard voor machineleesbare beleidsregels. GBO gebruikt ODRL als beschrijvingstaal voor beleidsregels in de PAP. Dit sluit aan op het gebruik van ODRL in FDS en DCAT-AP-NL.
 
@@ -429,12 +437,13 @@ De oplossingsrichting hergebruikt de volgende bouwstenen.
 
 **AS4 / e-Delivery via de Basisinrichting OOTS.** AS4 en e-Delivery verzorgen het Europese OOTS-berichtenverkeer. GBO communiceert via GraphQL met de Basisinrichting OOTS. De Basisinrichting OOTS beheert de volledige AS4-laag.
 
+
 Voor de beoogde toepassingen zijn aanvullende afspraken en componenten nodig. De volgende paragrafen beschrijven deze aanvullingen.
 
 ### GraphQL als selectief bevragingsmechanisme
 
 FDS gebruikt REST als standaardtype voor datadiensten volgens de NL API Strategie en REST API Design Rules. GBO stelt voor de bronontsluiting ook GraphQL voor.
-GraphQL maakt hergebruik eenvoudiger: met één API kunnen verschillende gegevensstromen bediend worden. Dit kan met configuratie in plaats van het moeten intrichten (en beheren) van een extra endpoint. Ook biedt GraphQL meer mogelijkheden voor dataminimalisatie: de vragende partij hoeft niet alle beschikbare gegevens op te vragen. Bij een REST API krijgt de vragende partij altijd alle gegevens die de API aanbiedt.
+GraphQL maakt hergebruik eenvoudiger: met één API kunnen verschillende gegevensstromen bediend worden. Dit kan met configuratie in plaats van het moeten inrichten (en beheren) van een extra endpoint. Ook biedt GraphQL meer mogelijkheden voor dataminimalisatie: de vragende partij hoeft niet alle beschikbare gegevens op te vragen. GraphQL maakt selectieve veldopvraging standaard onderdeel van het querymodel. Bij REST moet een API selectieve veldopvraging expliciet ondersteunen.  
 
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
@@ -453,7 +462,7 @@ Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een pseudonimiseringsprofiel voor GBO en DvTP.** Dit profiel verplicht BSNk PP. Daardoor ontvangt een private dienstverlener nooit het BSN.
 - **Een toestemmingsportaal voor burgers.** Burgers kunnen hierin toestemming geven, bekijken en intrekken. Het portaal is gekoppeld aan het toestemmingsregister.
-- **Een centraal toestemmingsregister.** Het register koppelt iedere toestemming aan een doel, afnemer en gegevensset. Intrekking heeft direct effect. De autorisatieketen kan het register direct als PIP raadplegen.
+- **Een centraal toestemmingsregister.** Het register koppelt iedere toestemming aan een doel, afnemer en gegevensset. Intrekking heeft direct effect. De autorisatieketen raadpleegt het register als PIP.
 - **Een PEP/PDP/PIP-keten.** Deze keten gebruikt AuthZEN en een policytaal zoals OPA/Rego. De keten vult het FTV-autorisatieraamwerk voor GBO in. Een PAP beheert de policies en verspreidt ze naar de PDP-instanties van bronhouders.
 - **Een PAP (Policy Administration Point).** Dit component beheert en verspreidt ondertekende policybundels. De PAP is ook het bestuurlijke gezagspunt voor toegangsregels. De governance moet bepalen wie policies mag opstellen, wijzigen en goedkeuren. GBO beschrijft de beleidsregels in ODRL. Dit sluit aan op FDS en DCAT-AP-NL.
 
@@ -466,7 +475,7 @@ FDS is een binnenlands afsprakenstelsel en ondersteunt geen grensoverschrijdende
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een protocolvertaler in de Basisinrichting OOTS.** Deze vertaler zet AS4/e-Delivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.
-- **Semantische mappings.** Deze mappings vertalen canonieke gegevensmodellen naar SDG-EDM voor ieder evidence type.
+- **Semantische mappings.** Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, als dat nodig is.
 
 ### Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)
 
@@ -478,21 +487,19 @@ Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 - **Attestatieschema's per gebruikssituatie.** Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's.
 - **Een ondertekeningsinfrastructuur.** Deze infrastructuur ondertekent attestaties digitaal volgens eIDAS2, het ARF en de relevante Europese Trusted Lists.
 - **Standaardisatie van attestatieformaten.** SD-JWT VC ondersteunt online presentatie. Mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.
-- **Duidelijkheid over de rol van QTSP's.** Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder kan wel kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog niet bepaald.
+- **Duidelijkheid over de rol van QTSP's.** Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder mag kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog te besluiten (zie PSA).
 
 ### Verificatie- en retrievedienst voor QTSP's (ASI-provider)
 
-Artikel 45e van eIDAS2 verplicht overheidsbronnen om een verificatiefunctie aan QTSP's te bieden. Hiermee kunnen QTSP's attributen bij de bronhouder controleren voordat zij een attestatie uitgeven.
-
+eIDAS2 verplicht lidstaten ervoor te zorgen dat QTSP's de in artikel 45e bedoelde attributen elektronisch kunnen verifiëren bij authentieke bronnen, rechtstreeks of via een aangewezen intermediair. De verify-dienst van de GBO ASI-provider kan hieraan invulling geven. Hiermee kunnen QTSP's attributen bij de bronhouder controleren voordat zij een attestatie uitgeven.  
 Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.
 
-Naast een verificatiedienst stelt GBO voor om ook een retrievedienst aan t bieden aan QTSP's. Daarmee kunnen zij attributen namens de bronhouder uitgeven. Deze dienst is niet verplicht, maar biedt de bronhouders meer opties om attributen uit te geven.
+Naast een verificatiedienst stelt GBO voor om ook een retrievedienst aan te bieden aan QTSP's. Daarmee kunnen zij attributen namens de bronhouder uitgeven. Deze dienst is niet verplicht, maar biedt de bronhouders meer opties om attributen uit te geven.
 
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een ASI-provider.** Dit component volgt ETSI TS 119 478 en bevat de interfaces I2 Verify, I3 Retrieve en I4 Authorize.
-- **Aansluitvoorwaarden voor QTSP's.** Deze voorwaarden kunnen het FDS-Poortwachterproces aanvullen. Ze bevatten certificaatprofielen volgens ETSI EN 319 412.
-- **Erkenning van QTSP's.** Het stelsel moet afspraken maken over QTSP-erkenning en het bijbehorende vertrouwensanker.
+- **Technische aansluitvoorwaarden voor QTSP's op de ASI-provider.** Deze voorwaarden vullen het FDS-Poortwachterproces aan. QTSP-erkenning, het vertrouwensanker en de certificaatprofielen (ETSI EN 319 412) volgen uit het eIDAS/EUDI-stelsel. GBO maakt hiervoor geen eigen afspraken.
 
 ### Stelselafspraken en voorzieningenbeheer
 
@@ -510,9 +517,9 @@ De volgende tabel geeft een eerste inschatting. De inschatting is gebaseerd op d
 
 | Partij | Impact | Toelichting |
 | ------ | ------ | ----------- |
-| Bronhouder | Een GraphQL-API, FSC en FTV implementeren. Relevante catalogi beheren, waaronder de dienstencatalogus en semantische mappings. | GBO biedt referentiecomponenten en een vertaallaag voor bronnen zonder GraphQL-API. Bronhouders kunnen functioneel gelijkwaardige alternatieven gebruiken. |
+| Bronhouder | Een GraphQL-bronontsluiting aanbieden, rechtstreeks of via een vertaallaag/functioneel gelijkwaardig alternatief. FSC en FTV implementeren. Relevante catalogi beheren, waaronder de dienstencatalogus en semantische mappings. | GBO biedt referentiecomponenten en een vertaallaag voor bronnen zonder GraphQL-API. Bronhouders mogen functioneel gelijkwaardige alternatieven gebruiken. |
 | Integrators en softwareleveranciers | Decentrale componenten in software en dienstverlening implementeren. De afspraken en standaarden van het stelsel volgen. | Een integrator moet voldoen aan de technische aansluitvoorwaarden. De bronhouder blijft verantwoordelijk voor de inhoud van de gegevens. |
-| QTSP | Aansluiten op de ASI-provider. | De aansluiting volgt Europese standaarden. Een QTSP heeft deze aansluiting ook nodig voor de uitgifte van QEAA's. |
+| QTSP | Aansluiten op de ASI-provider. | De aansluiting volgt Europese standaarden. Een QTSP heeft deze aansluiting nodig voor de uitgifte van QEAA's. |
 | Basisinrichting OOTS | GraphQL ondersteunen in OOTS-V. | OOTS-V heeft al een FSC-koppeling. |
 | Private dienstverlener | Toetreden tot het stelsel, aansluiten op BSNk, een FSC Outway implementeren en koppelen met de toestemmingsvoorziening. | Partijen moeten het stelsel nog uitwerken. |
 | Burger | Gegevens met private dienstverleners kunnen delen op basis van centraal beheerde toestemming. | De burger houdt verschillende ingangen en stelsels voor het delen van persoonsgegevens. Het burgerperspectief valt nog buiten de scope. |

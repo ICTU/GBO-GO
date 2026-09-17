@@ -73,7 +73,7 @@ GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen 
 Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:
 
 - Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
-- Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
+- Voor OOTS zorgt de Basisinrichting OOTS voor vertaling naar het vereiste technische formaat. Als de gegevens semantisch vertaald moeten worden, biedt GBO semantische mapping aan. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
 - Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruikmaken van deze gegevensstroom, zijn zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.
 
 Het volgende diagram toont deze componenten in relatie tot elkaar.
@@ -83,7 +83,7 @@ Het volgende diagram toont deze componenten in relatie tot elkaar.
 --8<-- "diagrammen/gbo_swimlanes_simpel.mmd"
 ```
 <figcaption>Figuur 1: Oplossingsrichting GBO.<br>
-Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn bestaande voorzieningen waarop GBO aansluit.</figcaption>
+Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
 </figure>
 
 De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen.
@@ -269,20 +269,20 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
 | S07 — Gegevensontsluiting (bronontsluiting-API) | API-standaarden. Digikoppeling | De NL API Strategie, API Design Rules en Digikoppeling met FSC zijn beschikbaar. GraphQL is nog niet gestandaardiseerd als API-profiel. | Dienstencatalogus maken. GraphQL binnen FDS positioneren. GBO-vertaallaag maken. |
-| S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM. |
+| S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM als dat nodig is. |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | - | Nog te realiseren ⚠️ | OpenID4VCI-endpoint, attestatieschema's en ondertekeningsinfrastructuur maken. QTSP-diensten voor verify en retrieve maken. |
 
 ### F4 — Semantiek & Eenheid van Taal
 
-GBO gebruikt een gedeeld begrippenkader volgens NL-SBB. GBO beoordeelt informatiemodellen op de toepassing van MIM.
+Om de verschillende gegevensstromen vanuit één bronontsluiting te bedienen, biedt GBO een gedeeld begrippenkader volgens NL-SBB aan. GBO beoordeelt informatiemodellen op de toepassing van MIM.
 
 GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens DCAT-AP-NL.
 
-GBO geeft inzicht in beschikbare gegevenssets. Dit inzicht bevat de canonieke gegevensmodellen van bronhouders en de koppeling aan het gedeelde begrippenkader. Daarmee kunnen afnemers hun gegevensvraag beter afstemmen op het aanbod van de bronhouders.
+Om inzicht te geven in beschikbare gegevenssets, biedt GBO de mogelijkheid om canonieke gegevensmodellen van bronhouders te koppelen aan een gedeeld begrippenkader. Daarmee kunnen afnemers hun gegevensvraag beter afstemmen op het aanbod van de bronhouders.
 
 GBO beschrijft ook de voorwaarden waaronder gegevens opvraagbaar zijn, zoals de grondslag en de dienst. Waar nodig biedt GBO mappings naar SDG-EDM en attestatieschema's.
 
-GBO biedt hiervoor voorzieningen en hulpmiddelen. Bronhouders blijven verantwoordelijk voor hun gegevens en de koppeling aan gegevensverzoeken.
+GBO biedt hiervoor voorzieningen en hulpmiddelen. Bronhouders blijven verantwoordelijk voor hun gegevens en de koppeling aan gegevensverzoeken. Hiervoor biedt GBO een decentraal configuratiecomponent aan de bronhouders. Als er gebruik gemaakt wordt van centrale componenten, roepen deze dit decentrale configuratiecomponent aan voor de juiste instellingen.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
@@ -324,7 +324,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 GBO voorziet voor de huidige interactiepatronen geen afzonderlijke centrale procesorkestratie.
 
-De aansluiting op het OOTS Intermediair Platform vraagt om een OOTS-adapter. De aansluiting op de EUDI-Wallet vraagt om integratie met EUDI-standaarden.
+Om met GBO aan te sluiten op het OOTS Intermediair Platform, is een OOTS-adapter nodig. De aansluiting op de EUDI-Wallet van de gemeenschappelijke bronontsluiting vraagt om integratie met EUDI-standaarden.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
@@ -358,7 +358,7 @@ De volgende tabel toont alle stelselfuncties en hun relatie met de generieke fun
 | S05 — Autorisatie (PEP/PDP/PIP) | F2, F6 | AuthZEN NLGov-profiel is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog ⚠️. |
 | S06 — Beleidsbeheer & -distributie (PAP) | F2, F6 | Nog te ontwerpen ⚠️ |
 | S07 — Gegevensontsluiting (bronontsluiting-API) | F3, F7 | De NL API Strategie, API Design Rules en Digikoppeling met FSC zijn beschikbaar. GraphQL is nog niet gestandaardiseerd als API-profiel ⚠️. |
-| S08 — OOTS-adapter | F3, F7 | De Basisinrichting OOTS is beschikbaar. Partijen moeten de semantische mapping nog ontwikkelen ⚠️. |
+| S08 — OOTS-adapter | F3, F7 | De Basisinrichting OOTS is beschikbaar. Waar afspraken over gegevensformaten zijn gemaakt, moeten partijen de semantische mapping nog ontwikkelen ⚠️. |
 | S09 — Logging, Audit & Traceerbaarheid | F8 | FSC Logging, Logboek Dataverwerking en Authorization Decision Log 1.0.0 zijn beschikbaar. De GBO-invulling ontbreekt nog ⚠️. |
 | S10 — Semantiek & Gegevenscatalogus | F4, F5 | Nog te realiseren ⚠️ |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | F3, F7 | Nog te realiseren ⚠️ |
@@ -376,7 +376,7 @@ Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze op
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
-Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.</figcaption>
+Groen toont de generieke decentrale bronontsluiting. Oranje toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
 </figure>
 
 GBO levert drie soorten resultaten. De verplichting verschilt per soort:
@@ -391,6 +391,7 @@ De volgende tabel geeft per voorziening de status.
 | Bronontsluiting-API, PEP/PDP/PAP, FSC Inway | Alle | Decentraal, bij de bronhouder | Afspraken verplicht. Referentiecomponent optioneel. | Bronhouder |
 | PAP | Alle | Centraal en/of decentraal | Afspraken verplicht. Referentiecomponent optioneel. | Nog te bepalen (zie PSA) |
 | GBO-vertaallaag | Alle | Referentiecomponent | Optioneel | Nog te bepalen (zie PSA) |
+| GBO-configuratie | Alle | Decentraal | Verplicht (voor de centrale componenten waar de bronhouder gebruik van wil maken) | Bronhouder |
 | Voorziening voor PubEAA-uitgifte | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag ook zelf PubEAA's buiten GBO uitgeven. | Nog te bepalen (zie PSA) |
 | ASI-provider (verify en retrieve) | EUDI-Wallet | Centrale aansluitvoorziening | Optioneel. De verify-functie is voor bronhouders wel wettelijk verplicht (eIDAS2, artikel 45e), maar niet via GBO. | Nog te bepalen (zie PSA) |
 | OOTS-adapter (semantische mapping) | OOTS | Centrale aansluitvoorziening | Optioneel. Een bronhouder mag zelf rechtstreeks op OOTS of OOTS-V aansluiten. | Nog te bepalen (zie PSA) |
@@ -475,7 +476,7 @@ FDS is een binnenlands afsprakenstelsel en ondersteunt geen grensoverschrijdende
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een protocolvertaler in de Basisinrichting OOTS.** Deze vertaler zet AS4/e-Delivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.
-- **Semantische mappings.** Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, als dat nodig is.
+- **Semantische mappings.** Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, alleen als dat nodig is. De vertaling gebeurt centraal met de instellingen uit het decentrale configuratiecomponent.
 
 ### Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)
 
@@ -484,7 +485,7 @@ Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credential
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **De rol van GBO als ondersteuner van PubEAA-uitgifte.** GBO biedt infrastructuur voor uitgifte via OpenID4VCI en presentatie via OpenID4VP. GBO is juridisch geen PubEAA-verstrekker.
-- **Attestatieschema's per gebruikssituatie.** Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's.
+- **Attestatieschema's per gebruikssituatie.** Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's. De mapping gebeurt centraal met de instellingen uit het decentrale configuratiecomponent.
 - **Een ondertekeningsinfrastructuur.** Deze infrastructuur ondertekent attestaties digitaal volgens eIDAS2, het ARF en de relevante Europese Trusted Lists.
 - **Standaardisatie van attestatieformaten.** SD-JWT VC ondersteunt online presentatie. Mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.
 - **Duidelijkheid over de rol van QTSP's.** Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder mag kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog te besluiten (zie PSA).
@@ -517,7 +518,7 @@ De volgende tabel geeft een eerste inschatting. De inschatting is gebaseerd op d
 
 | Partij | Impact | Toelichting |
 | ------ | ------ | ----------- |
-| Bronhouder | Een GraphQL-bronontsluiting aanbieden, rechtstreeks of via een vertaallaag/functioneel gelijkwaardig alternatief. FSC en FTV implementeren. Relevante catalogi beheren, waaronder de dienstencatalogus en semantische mappings. | GBO biedt referentiecomponenten en een vertaallaag voor bronnen zonder GraphQL-API. Bronhouders mogen functioneel gelijkwaardige alternatieven gebruiken. |
+| Bronhouder | Een GraphQL-bronontsluiting aanbieden, rechtstreeks of via een vertaallaag/functioneel gelijkwaardig alternatief. FSC en FTV implementeren. Relevante catalogi beheren, waaronder de dienstencatalogus en semantische mappings voor de verschillende gegegvensstromen. Voor het beheer hiervan gebruikt de bronhouder één decentraal configuratiecomponent. | GBO biedt referentiecomponenten en een vertaallaag voor bronnen zonder GraphQL-API. Bronhouders mogen functioneel gelijkwaardige alternatieven gebruiken. |
 | Integrators en softwareleveranciers | Decentrale componenten in software en dienstverlening implementeren. De afspraken en standaarden van het stelsel volgen. | Een integrator moet voldoen aan de technische aansluitvoorwaarden. De bronhouder blijft verantwoordelijk voor de inhoud van de gegevens. |
 | QTSP | Aansluiten op de ASI-provider. | De aansluiting volgt Europese standaarden. Een QTSP heeft deze aansluiting nodig voor de uitgifte van QEAA's. |
 | Basisinrichting OOTS | GraphQL ondersteunen in OOTS-V. | OOTS-V heeft al een FSC-koppeling. |

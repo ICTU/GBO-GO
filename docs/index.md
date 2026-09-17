@@ -274,7 +274,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 ### F4 — Semantiek & Eenheid van Taal
 
-Om de verschillende gegevensstromen vanuit één bronontsluiting te bedienen, biedt GBO een gedeeld begrippenkader volgens NL-SBB aan. GBO beoordeelt informatiemodellen op de toepassing van MIM.
+Om de verschillende gegevensstromen vanuit één bronontsluiting te bedienen, biedt GBO een gedeeld begrippenkader volgens NL-SBB als hulpmiddel aan. GBO beoordeelt informatiemodellen op de toepassing van MIM.
 
 GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens DCAT-AP-NL.
 

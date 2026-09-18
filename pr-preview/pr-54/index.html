@@ -1465,7 +1465,19 @@ Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bron
 GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.<br />
 GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.</p>
 <figure>
-<div class="mermaid">sequenceDiagram
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+sequenceDiagram
     autonumber
     actor Burger
     participant Wallet as EUDI-Wallet
@@ -1515,6 +1527,7 @@ GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de D
         Wallet-&gt;&gt;Burger: QEAA opgeslagen in wallet
     end
 </div>
+</div>
 <figcaption>Figuur 2: Een burger haalt een gegeven op in de EUDI-Wallet.<br>
 Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA komt via een QTSP.</figcaption>
 </figure>
@@ -1543,7 +1556,19 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <p>Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.  </p>
 <p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.</p>
 <figure>
-<div class="mermaid">sequenceDiagram
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+sequenceDiagram
     autonumber
     participant BRG as Burger&lt;br/&gt;(rechthebbende)
     participant EU as EU dienst&lt;br/&gt;(OOTS)
@@ -1604,6 +1629,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
         EU-&gt;&gt;BRG: Levert dienst
     end
 </div>
+</div>
 <figcaption>Figuur 3: Gegevensverzoek van een Europese overheidsorganisatie via OOTS.</figcaption>
 </figure>
 
@@ -1628,7 +1654,19 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 <li><strong>Eén toestemming:</strong> de burger kan in één handeling toestemming geven voor gegevens uit meerdere bronnen. Bij decentrale registratie is per bron een afzonderlijke toestemming nodig.</li>
 </ul>
 <figure>
-<div class="mermaid">sequenceDiagram
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+sequenceDiagram
     autonumber
     actor Burger
     participant DV as Dienst-&lt;br/&gt;verlener
@@ -1675,6 +1713,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
         BRH-&gt;&gt;DV: Gevraagde gegevens
         DV-&gt;&gt;Burger: Levert dienst
     end
+</div>
 </div>
 <figcaption>Figuur 4: Gegevensverzoek van een private dienstverlener binnen DvTP.</figcaption>
 </figure>

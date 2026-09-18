@@ -282,7 +282,7 @@ Om inzicht te geven in beschikbare gegevenssets, biedt GBO de mogelijkheid om ca
 
 GBO beschrijft ook de voorwaarden waaronder gegevens opvraagbaar zijn, zoals de grondslag en de dienst. Waar nodig biedt GBO mappings naar SDG-EDM en attestatieschema's.
 
-GBO biedt hiervoor voorzieningen en hulpmiddelen. Bronhouders blijven verantwoordelijk voor hun gegevens en de koppeling aan gegevensverzoeken. Hiervoor biedt GBO een decentraal configuratiecomponent aan de bronhouders. Als er gebruik gemaakt wordt van centrale componenten, roepen deze dit decentrale configuratiecomponent aan voor de juiste instellingen.
+Bronhouders blijven zelf verantwoordelijk voor hun gegevens en hoe ze deze aanbieden aan de centrale GBO voorzieningen. Om dit te configureren biedt GBO een decentraal configuratiecomponent aan bronhouders. Deze decentrale configuratie wordt bevraagd per gemeenschappelijke voorziening om gegevensvragen voor een specifiek kanaal af te handelen.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 

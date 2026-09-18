@@ -960,32 +960,44 @@
 <p>Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:</p>
 <ul>
 <li>Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.</li>
-<li>Voor OOTS gaat het om een semantische mapping naar de Basisinrichting OOTS. De Basisinrichting OOTS handelt het verdere gegevensverzoek af. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.</li>
+<li>Voor OOTS zorgt de OOTS-adapter voor de aansluiting op de Basisinrichting OOTS conform GBO. Als de gegevens semantisch vertaald worden, biedt de adapter een optionele vertaalfunctie aan volgens configuratie van de bronhouder. Bronhouders hoeven deze voorziening niet te gebruiken en mogen alternatieve oplossingen gebruiken om direct op OOTS of de Basisinrichting OOTS aan te sluiten.</li>
 <li>Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruikmaken van deze gegevensstroom, zijn zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.</li>
 </ul>
 <p>Het volgende diagram toont deze componenten in relatie tot elkaar.</p>
 <figure>
-<div class="mermaid">flowchart LR
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
         fsc_pap("Beleidsregels")
         fsc("Standaard koppelvlak&lt;br/&gt;Generieke bronontsluiting&lt;br/&gt;Configurabele autorisatie")
         fsc_tools("GBO tools&lt;br/&gt;(ondersteuning bronhouders)")
   end
-  subgraph eudi["EUDI-Wallet"]
+  subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
         eudi_asi("Bronontsluiting voor QTSP&lt;br/&gt;(Authentic Source Interface)")
         eudi_pubeaa("Uitgifte van publieke EAA&lt;br/&gt;(PubEAA)")
         eudi_qeaa["QTSP&lt;br/&gt;(QEAA)"]
         eudi_wallet["EUDI-Wallet"]
   end
-  subgraph oots["OOTS"]
+  subgraph oots["OOTS kanaal"]
     direction LR
         oots_adapter("OOTS-adapter&lt;br/&gt;(semantische mapping)")
         oots_basis["Basisinrichting OOTS"]
         oots_afnemer["Europese overheid&lt;br/&gt;SDG-portaal"]
   end
-  subgraph dvtp["DvTP"]
+  subgraph dvtp["DvTP kanaal"]
     direction LR
         dvtp_toestemming("Toestemmingsvoorziening")
         dvtp_pseudoniem["Pseudonimiseervoorziening"]
@@ -1025,16 +1037,25 @@
   bron:::bron
   burger:::burger
 
-  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#263746
-  classDef generiek fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  %% Subgraph Stijlen (vervangt het geel)
+  style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style dvtp fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+
+  %% Onderscheidende Elementstijlen (zachte pasteltinten)
+  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
+  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
+
   classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef gbo fill:#fff0e8,stroke:#000000,color:#000000
-  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#263746
+
+  classDef gbo fill:#DCFCE7,stroke:#16A34A,color:#0F172A
+</div>
 </div>
 <figcaption>Figuur 1: Oplossingsrichting GBO.<br>
-Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn bestaande voorzieningen waarop GBO aansluit.</figcaption>
+Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
 </figure>
 
 <p>De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen.</p>
@@ -1064,7 +1085,19 @@ Toelichting: de rode componenten vormen samen GBO. De grijze componenten zijn be
 GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening vertaalt het formaat van de bronhouder naar het formaat dat de afnemer verwacht.<br />
 GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.</p>
 <figure>
-<div class="mermaid">sequenceDiagram
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+sequenceDiagram
     autonumber
     actor Burger
     participant Wallet as EUDI-Wallet
@@ -1114,6 +1147,7 @@ GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de D
         Wallet-&gt;&gt;Burger: QEAA opgeslagen in wallet
     end
 </div>
+</div>
 <figcaption>Figuur 2: Een burger haalt een gegeven op in de EUDI-Wallet.<br>
 Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA komt via een QTSP.</figcaption>
 </figure>
@@ -1142,7 +1176,19 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <p>Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.  </p>
 <p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.</p>
 <figure>
-<div class="mermaid">sequenceDiagram
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+sequenceDiagram
     autonumber
     participant BRG as Burger&lt;br/&gt;(rechthebbende)
     participant EU as EU dienst&lt;br/&gt;(OOTS)
@@ -1151,54 +1197,58 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
     participant BRH as Bron&lt;br/&gt;(BRP / BD / …)
 
     rect rgb(250, 241, 251)
-        Note over BRG,EU: ① Burger neemt dienst af
+        Note over BRG,EU: Burger neemt dienst af
         BRG-&gt;&gt;EU: Verzoek dienst
         Note over EU: Gegeven van bronhouder nodig
     end
 
     rect rgb(230, 241, 251)
-        Note over EU,RINIS: ② OOTS-verzoek&lt;br /&gt;(eDelivery/AS4)
+        Note over EU,RINIS: OOTS-verzoek&lt;br /&gt;(eDelivery/AS4)
         EU-&gt;&gt;RINIS: Evidence Request (eDelivery/AS4)
     end
 
     rect rgb(250, 238, 218)
-        Note over RINIS,GBO: ③ Doorzetten naar bron via GBO
+        Note over RINIS,GBO: Doorzetten naar bron via GBO
         RINIS-&gt;&gt;GBO: OOTS-payload (GraphQL)
         Note over RINIS: eDelivery → GraphQL ontkoppeling
     end
 
     rect rgb(225, 245, 238)
-        Note over GBO: ④ Semantische mapping
-        Note over GBO: SDG Evidence type ↔ Bron-formaat
+        Note over GBO: Semantische mapping (optioneel)&lt;br/&gt;SDG Evidence type ↔ Bron-formaat
     end
 
     rect rgb(225, 245, 238)
-        Note over GBO,BRH: ⑤ Bronontsluiting (GBO generieke API)
+        Note over GBO,BRH: Bronontsluiting (GBO generieke API)
         GBO-&gt;&gt;BRH: API-aanroep (GraphQL)
         BRH-&gt;&gt;GBO: Gegevens (Bron-formaat)
     end
 
+    rect rgb(225, 245, 238)
+        Note over GBO: Semantische mapping&lt;br/&gt;Bron-formaat ↔ SDG Evidence type
+    end
+
     rect rgb(250, 238, 218)
-        Note over GBO,RINIS: ⑥ Terugkoppeling naar OOTS-basisinrichting
+        Note over GBO,RINIS: Terugkoppeling naar OOTS-basisinrichting
         GBO-&gt;&gt;RINIS: Evidence Response (SDG Evidence type formaat)
         Note over RINIS: GraphQL → eDelivery/AS4 vertaling
     end
 
     rect rgb(230, 241, 251)
-        Note over RINIS,BRG: ⑦ Toestemming burger (User Review)
+        Note over RINIS,BRG: Toestemming burger (User Review)
         RINIS-&gt;&gt;BRG: Tonen te delen gegevens
         BRG-&gt;&gt;RINIS: Keuze te delen gegevens
     end
 
     rect rgb(230, 241, 251)
-        Note over EU,RINIS: ⑧ OOTS-antwoord&lt;br /&gt;(eDelivery/AS4)
+        Note over EU,RINIS: OOTS-antwoord&lt;br /&gt;(eDelivery/AS4)
         RINIS-&gt;&gt;EU: Evidence Response
     end
 
     rect rgb(250, 241, 251)
-        Note over BRG,EU: ⑨ Burger neemt dienst af
+        Note over BRG,EU: Burger neemt dienst af
         EU-&gt;&gt;BRG: Levert dienst
     end
+</div>
 </div>
 <figcaption>Figuur 3: Gegevensverzoek van een Europese overheidsorganisatie via OOTS.</figcaption>
 </figure>
@@ -1224,7 +1274,19 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 <li><strong>Eén toestemming:</strong> de burger kan in één handeling toestemming geven voor gegevens uit meerdere bronnen. Bij decentrale registratie is per bron een afzonderlijke toestemming nodig.</li>
 </ul>
 <figure>
-<div class="mermaid">sequenceDiagram
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+sequenceDiagram
     autonumber
     actor Burger
     participant DV as Dienst-&lt;br/&gt;verlener
@@ -1271,6 +1333,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
         BRH-&gt;&gt;DV: Gevraagde gegevens
         DV-&gt;&gt;Burger: Levert dienst
     end
+</div>
 </div>
 <figcaption>Figuur 4: Gegevensverzoek van een private dienstverlener binnen DvTP.</figcaption>
 </figure>
@@ -1403,7 +1466,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 <td>S08 — OOTS-adapter</td>
 <td>-</td>
 <td>De Basisinrichting OOTS is beschikbaar.</td>
-<td>GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM.</td>
+<td>GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM indien geconfigureerd, anders ongestructureerd doorleveren.</td>
 </tr>
 <tr>
 <td>S11 — Attesteringsuitgifte (voor EUDI-Wallet)</td>
@@ -1414,11 +1477,11 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 </tbody>
 </table>
 <h3 id="index-f4-semantiek-eenheid-van-taal">F4 — Semantiek &amp; Eenheid van Taal<a class="headerlink" href="#index-f4-semantiek-eenheid-van-taal" title="Permanent link">&para;</a></h3>
-<p>GBO gebruikt een gedeeld begrippenkader volgens NL-SBB. GBO beoordeelt informatiemodellen op de toepassing van MIM.</p>
+<p>Om de verschillende gegevensstromen vanuit één bronontsluiting te bedienen, biedt GBO een gedeeld begrippenkader volgens NL-SBB als hulpmiddel aan. GBO beoordeelt informatiemodellen op de toepassing van MIM.</p>
 <p>GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens DCAT-AP-NL.</p>
-<p>GBO geeft inzicht in beschikbare gegevenssets. Dit inzicht bevat de canonieke gegevensmodellen van bronhouders en de koppeling aan het gedeelde begrippenkader. Daarmee kunnen afnemers hun gegevensvraag beter afstemmen op het aanbod van de bronhouders.</p>
+<p>Om inzicht te geven in beschikbare gegevenssets, biedt GBO de mogelijkheid om canonieke gegevensmodellen van bronhouders te koppelen aan een gedeeld begrippenkader. Daarmee kunnen afnemers hun gegevensvraag beter afstemmen op het aanbod van de bronhouders.</p>
 <p>GBO beschrijft ook de voorwaarden waaronder gegevens opvraagbaar zijn, zoals de grondslag en de dienst. Waar nodig biedt GBO mappings naar SDG-EDM en attestatieschema's.</p>
-<p>GBO biedt hiervoor voorzieningen en hulpmiddelen. Bronhouders blijven verantwoordelijk voor hun gegevens en de koppeling aan gegevensverzoeken.</p>
+<p>Bronhouders blijven zelf verantwoordelijk voor hun gegevens en hoe ze deze aanbieden aan de centrale GBO voorzieningen. Om dit te configureren biedt GBO een decentraal configuratiecomponent aan bronhouders. Deze decentrale configuratie wordt bevraagd per gemeenschappelijke voorziening om gegevensvragen voor een specifiek kanaal af te handelen.</p>
 <p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
@@ -1498,7 +1561,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 </table>
 <h3 id="index-f7-orkestratie-integratie">F7 — Orkestratie &amp; Integratie<a class="headerlink" href="#index-f7-orkestratie-integratie" title="Permanent link">&para;</a></h3>
 <p>GBO voorziet voor de huidige interactiepatronen geen afzonderlijke centrale procesorkestratie.</p>
-<p>De aansluiting op het OOTS Intermediair Platform vraagt om een OOTS-adapter. De aansluiting op de EUDI-Wallet vraagt om integratie met EUDI-standaarden.</p>
+<p>Om met GBO aan te sluiten op het OOTS Intermediair Platform, is een OOTS-adapter nodig. De aansluiting op de EUDI-Wallet van de gemeenschappelijke bronontsluiting vraagt om integratie met EUDI-standaarden.</p>
 <p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
@@ -1595,7 +1658,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 <tr>
 <td>S08 — OOTS-adapter</td>
 <td>F3, F7</td>
-<td>De Basisinrichting OOTS is beschikbaar. Partijen moeten de semantische mapping nog ontwikkelen ⚠️.</td>
+<td>De Basisinrichting OOTS is beschikbaar. Waar afspraken over gegevensformaten zijn gemaakt, moeten partijen de semantische mapping nog ontwikkelen ⚠️.</td>
 </tr>
 <tr>
 <td>S09 — Logging, Audit &amp; Traceerbaarheid</td>
@@ -1619,34 +1682,46 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 <h3 id="index-overzicht-voorgestelde-oplossing">Overzicht voorgestelde oplossing<a class="headerlink" href="#index-overzicht-voorgestelde-oplossing" title="Permanent link">&para;</a></h3>
 <p>Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies invullen.</p>
 <figure>
-<div class="mermaid">flowchart LR
+<div style="background-color: white; padding: 10px;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
-        fsc_pap("PAP&lt;br/&gt;(beleidsregels)")
+        fsc_config("configuratie&lt;br/&gt;(services/mappings/etc.)")
         fsc("FSC / GraphQL / PBAC&lt;br/&gt;(generieke bronontsluiting)")
         fsc_tools("GBO tools&lt;br/&gt;(vertaallaag)")
   end
-  subgraph eudi["EUDI-Wallet"]
+  subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
         eudi_asi("ASI-provider&lt;br/&gt;(verify/retrieve dienst)")
         eudi_pubeaa("PubEAA-provider&lt;br/&gt;(PubEAA)")
         eudi_qeaa["QTSP&lt;br/&gt;(QEAA)"]
         eudi_wallet["EUDI-Wallet"]
   end
-  subgraph oots["OOTS"]
+  subgraph oots["OOTS kanaal"]
     direction LR
         oots_adapter("OOTS-adapter&lt;br/&gt;(semantische mapping)")
         oots_basis["Basisinrichting OOTS&lt;br/&gt;(incl. OOTS-V backend)"]
         oots_afnemer["Europese overheid&lt;br/&gt;SDG-portaal"]
   end
-  subgraph dvtp["DvTP"]
+  subgraph dvtp["DvTP kanaal"]
     direction LR
         dvtp_toestemming("Toestemmingsvoorziening")
         dvtp_pseudoniem["Pseudonimiseervoorziening&lt;br/&gt;(BSNk PP)"]
         dvtp_afnemer["Private dienstverlener"]
   end
 
-  fsc_pap --- fsc
+  fsc_config --- fsc
   fsc --- fsc_tools
   bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] -- Bron API&lt;br/&gt;(GraphQL / REST-JSON / ...) --- gbo
   eudi_asi -- verify --- eudi_qeaa
@@ -1665,9 +1740,9 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
   oots_afnemer --- burger
   dvtp_afnemer --- burger
 
-  fsc_pap:::gbo_d
   fsc:::gbo_d
   fsc_tools:::gbo_d
+  fsc_config:::gbo_d
   eudi_asi:::gbo_k
   eudi_pubeaa:::gbo_k
   eudi_qeaa:::eudi
@@ -1681,18 +1756,26 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
   bron:::bron
   burger:::burger
 
-  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#263746
-  classDef generiek fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef eudi fill:#EEEEEE,stroke:#999999,color:#444441
-  classDef oots fill:#EEEEEE,stroke:#999999,color:#444441
-  classDef dvtp fill:#EEEEEE,stroke:#999999,color:#444441
-  classDef gbo_k fill:#EEE4F2,stroke:#9C86B7,color:#5f5e5a
-  classDef gbo_c fill:#FEDCD8,stroke:#E28F80,color:#5f5e5a
-  classDef gbo_d fill:#E5EFDC,stroke:#7E9F72,color:#5f5e5a
-  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#263746
+  %% Subgraph Stijlen
+  style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style dvtp fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+
+  %% Elementstijlen
+  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
+  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
+
+  classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
+
+  classDef gbo_c fill:#FEDCD8,stroke:#E28F80,color:#1E293B
+  classDef gbo_d fill:#DCFCE7,stroke:#16A34A,color:#0F172A
+  classDef gbo_k fill:#FFEDD5,stroke:#EA580C,color:#0F172A</div>
 </div>
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
-Groen toont de generieke decentrale bronontsluiting. Paars toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.</figcaption>
+Groen toont de generieke decentrale bronontsluiting. Oranje toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
 </figure>
 
 <p>GBO levert drie soorten resultaten. De verplichting verschilt per soort:</p>
@@ -1733,6 +1816,13 @@ De volgende tabel geeft per voorziening de status.</li>
 <td>Referentiecomponent</td>
 <td>Optioneel</td>
 <td>Nog te bepalen (zie PSA)</td>
+</tr>
+<tr>
+<td>GBO-configuratie</td>
+<td>Alle</td>
+<td>Decentraal</td>
+<td>Verplicht (voor de centrale componenten waar de bronhouder gebruik van wil maken)</td>
+<td>Bronhouder</td>
 </tr>
 <tr>
 <td>Voorziening voor PubEAA-uitgifte</td>
@@ -1823,14 +1913,14 @@ GraphQL maakt hergebruik eenvoudiger: met één API kunnen verschillende gegeven
 <p>Partijen moeten de volgende onderdelen nog afspreken of realiseren:</p>
 <ul>
 <li><strong>Een protocolvertaler in de Basisinrichting OOTS.</strong> Deze vertaler zet AS4/e-Delivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.</li>
-<li><strong>Semantische mappings.</strong> Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, als dat nodig is.</li>
+<li><strong>Semantische mappings.</strong> Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, indien geconfigureerd door de bronhouder. De vertaling gebeurt centraal met de instellingen uit het decentrale configuratiecomponent.</li>
 </ul>
 <h3 id="index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte">Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)<a class="headerlink" href="#index-uitgifte-van-attestaties-voor-de-eudi-wallet-pubeaa-uitgifte" title="Permanent link">&para;</a></h3>
 <p>Overheidsbronnen moeten attestaties kunnen uitgeven als verifieerbare credentials. De burger slaat deze credentials op in de EUDI-Wallet en kan ze daarna aan dienstverleners tonen (dit interactiepatroon valt buiten de scope van FDS).</p>
 <p>Partijen moeten de volgende onderdelen nog afspreken of realiseren:</p>
 <ul>
 <li><strong>De rol van GBO als ondersteuner van PubEAA-uitgifte.</strong> GBO biedt infrastructuur voor uitgifte via OpenID4VCI en presentatie via OpenID4VP. GBO is juridisch geen PubEAA-verstrekker.</li>
-<li><strong>Attestatieschema's per gebruikssituatie.</strong> Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's.</li>
+<li><strong>Attestatieschema's per gebruikssituatie.</strong> Deze schema's mappen attributen van bronhouders naar de vereiste EUDI-Walletschema's. De mapping gebeurt centraal met de instellingen uit het decentrale configuratiecomponent.</li>
 <li><strong>Een ondertekeningsinfrastructuur.</strong> Deze infrastructuur ondertekent attestaties digitaal volgens eIDAS2, het ARF en de relevante Europese Trusted Lists.</li>
 <li><strong>Standaardisatie van attestatieformaten.</strong> SD-JWT VC ondersteunt online presentatie. Mdoc volgens ISO 18013-5 ondersteunt offline presentaties op korte afstand.</li>
 <li><strong>Duidelijkheid over de rol van QTSP's.</strong> Een PubEAA heeft onder eIDAS2 dezelfde juridische waarde als een QEAA. Een QTSP is daarom niet verplicht voor grensoverschrijdend gebruik. Een bronhouder mag kiezen voor uitgifte via een QTSP. GBO ondersteunt beide varianten. De voorkeursroute is nog te besluiten (zie PSA).</li>
@@ -1862,7 +1952,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <tbody>
 <tr>
 <td>Bronhouder</td>
-<td>Een GraphQL-bronontsluiting aanbieden, rechtstreeks of via een vertaallaag/functioneel gelijkwaardig alternatief. FSC en FTV implementeren. Relevante catalogi beheren, waaronder de dienstencatalogus en semantische mappings.</td>
+<td>Een GraphQL-bronontsluiting aanbieden, rechtstreeks of via een vertaallaag/functioneel gelijkwaardig alternatief. FSC en FTV implementeren. Relevante catalogi beheren, waaronder de dienstencatalogus en semantische mappings voor de verschillende gegevensstromen. Voor het beheer hiervan gebruikt de bronhouder één decentraal configuratiecomponent.</td>
 <td>GBO biedt referentiecomponenten en een vertaallaag voor bronnen zonder GraphQL-API. Bronhouders mogen functioneel gelijkwaardige alternatieven gebruiken.</td>
 </tr>
 <tr>

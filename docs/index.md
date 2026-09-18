@@ -269,7 +269,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
 | S07 — Gegevensontsluiting (bronontsluiting-API) | API-standaarden. Digikoppeling | De NL API Strategie, API Design Rules en Digikoppeling met FSC zijn beschikbaar. GraphQL is nog niet gestandaardiseerd als API-profiel. | Dienstencatalogus maken. GraphQL binnen FDS positioneren. GBO-vertaallaag maken. |
-| S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM als dat nodig is. |
+| S08 — OOTS-adapter | - | De Basisinrichting OOTS is beschikbaar. | GraphQL aan OOTS-V toevoegen. Bronformaat semantisch mappen naar SDG-EDM indien geconfigureerd, anders ongestructureerd doorleveren.
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | - | Nog te realiseren ⚠️ | OpenID4VCI-endpoint, attestatieschema's en ondertekeningsinfrastructuur maken. QTSP-diensten voor verify en retrieve maken. |
 
 ### F4 — Semantiek & Eenheid van Taal

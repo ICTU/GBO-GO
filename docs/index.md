@@ -127,9 +127,11 @@ GBO biedt een gedeelde voorziening voor semantische mappings. Deze voorziening v
 GBO onderzoekt nog of en hoe het bronhouders ondersteunt bij het vullen van de Data Service Directory.
 
 <figure>
+<div style="background-color: white;">
 ``` mermaid
 --8<-- "diagrammen/interactiepatroon-EUDI-Wallet.mmd"
 ```
+</div>
 <figcaption>Figuur 2: Een burger haalt een gegeven op in de EUDI-Wallet.<br>
 Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA komt via een QTSP.</figcaption>
 </figure>
@@ -167,9 +169,11 @@ Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. 
 GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.
 
 <figure>
+<div style="background-color: white;">
 ``` mermaid
 --8<-- "diagrammen/interactiepatroon-OOTS-verzoek.mmd"
 ```
+</div>
 <figcaption>Figuur 3: Gegevensverzoek van een Europese overheidsorganisatie via OOTS.</figcaption>
 </figure>
 
@@ -199,9 +203,11 @@ GBO heeft ook decentrale registratie per bronhouder onderzocht. Het centrale mod
 - **Eén toestemming:** de burger kan in één handeling toestemming geven voor gegevens uit meerdere bronnen. Bij decentrale registratie is per bron een afzonderlijke toestemming nodig.
 
 <figure>
+<div style="background-color: white;">
 ``` mermaid
 --8<-- "diagrammen/interactiepatroon-PP-haalt-gegevens-op.mmd"
 ```
+</div>
 <figcaption>Figuur 4: Gegevensverzoek van een private dienstverlener binnen DvTP.</figcaption>
 </figure>
 

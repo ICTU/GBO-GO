@@ -79,9 +79,11 @@ Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en
 Het volgende diagram toont deze componenten in relatie tot elkaar.
 
 <figure>
+<div style="background-color: white;">
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes_simpel.mmd"
 ```
+</div>
 <figcaption>Figuur 1: Oplossingsrichting GBO.<br>
 Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
 </figure>
@@ -372,9 +374,11 @@ _Legenda: ⚠️ betekent dat partijen een onderdeel nog moeten realiseren._
 Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies invullen.
 
 <figure>
+<div style="background-color: white; padding: 10px;">
 ``` mermaid
 --8<-- "diagrammen/gbo_swimlanes.mmd"
 ```
+</div>
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
 Groen toont de generieke decentrale bronontsluiting. Oranje toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
 </figure>

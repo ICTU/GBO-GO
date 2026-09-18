@@ -73,7 +73,7 @@ GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen 
 Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:
 
 - Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
-- Voor OOTS zorgt de Basisinrichting OOTS voor vertaling naar het vereiste technische formaat. Als de gegevens semantisch vertaald moeten worden, biedt GBO semantische mapping aan. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
+- Voor OOTS zorgt de OOTS-adapter voor de aansluiting op de Basisinrichting OOTS conform GBO. Als de gegevens semantisch vertaald worden, biedt de adapter een optionele vertaalfunctie aan volgens configuratie van de bronhouder. Bronhouders hoeven deze voorziening niet te gebruiken en mogen alternatieve oplossingen gebruiken om direct op OOTS of de Basisinrichting OOTS aan te sluiten.
 - Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruikmaken van deze gegevensstroom, zijn zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.
 
 Het volgende diagram toont deze componenten in relatie tot elkaar.

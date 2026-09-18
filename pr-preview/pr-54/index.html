@@ -1345,7 +1345,19 @@
 </ul>
 <p>Het volgende diagram toont deze componenten in relatie tot elkaar.</p>
 <figure>
-<div class="mermaid">flowchart LR
+<div style="background-color: white;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
         fsc_pap("Beleidsregels")
@@ -1420,6 +1432,7 @@
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
 
   classDef gbo fill:#DCFCE7,stroke:#16A34A,color:#0F172A
+</div>
 </div>
 <figcaption>Figuur 1: Oplossingsrichting GBO.<br>
 Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
@@ -2010,13 +2023,24 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 <h3 id="overzicht-voorgestelde-oplossing">Overzicht voorgestelde oplossing<a class="headerlink" href="#overzicht-voorgestelde-oplossing" title="Permanent link">&para;</a></h3>
 <p>Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze oplossingsrichting aan de componenten die de vereiste functies invullen.</p>
 <figure>
-<div class="mermaid">flowchart LR
+<div style="background-color: white; padding: 10px;">
+<div class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid &gt; svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
+flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
-        fsc_pap("PAP&lt;br/&gt;(beleidsregels)")
+        fsc_config("configuratie&lt;br/&gt;(services/mappings/etc.)")
         fsc("FSC / GraphQL / PBAC&lt;br/&gt;(generieke bronontsluiting)")
         fsc_tools("GBO tools&lt;br/&gt;(vertaallaag)")
-        fsc_config(["configuratie&lt;br/&gt;(services/mapping/etc.)"])
   end
   subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
@@ -2038,7 +2062,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
         dvtp_afnemer["Private dienstverlener"]
   end
 
-  fsc_pap --- fsc
+  fsc_config --- fsc
   fsc --- fsc_tools
   bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] -- Bron API&lt;br/&gt;(GraphQL / REST-JSON / ...) --- gbo
   eudi_asi -- verify --- eudi_qeaa
@@ -2057,7 +2081,6 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
   oots_afnemer --- burger
   dvtp_afnemer --- burger
 
-  fsc_pap:::gbo_d
   fsc:::gbo_d
   fsc_tools:::gbo_d
   fsc_config:::gbo_d
@@ -2074,13 +2097,13 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
   bron:::bron
   burger:::burger
 
-  %% Subgraph Stijlen (vervangt het geel)
+  %% Subgraph Stijlen
   style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style dvtp fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
 
-  %% Onderscheidende Elementstijlen (zachte pasteltinten)
+  %% Elementstijlen
   classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
   classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
 
@@ -2090,7 +2113,7 @@ GBO registreert de toestemming in een toestemmingsregister. De private dienstver
 
   classDef gbo_c fill:#FEDCD8,stroke:#E28F80,color:#1E293B
   classDef gbo_d fill:#DCFCE7,stroke:#16A34A,color:#0F172A
-  classDef gbo_k fill:#FFEDD5,stroke:#EA580C,color:#0F172A
+  classDef gbo_k fill:#FFEDD5,stroke:#EA580C,color:#0F172A</div>
 </div>
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
 Groen toont de generieke decentrale bronontsluiting. Oranje toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>

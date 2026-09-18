@@ -476,7 +476,7 @@ FDS is een binnenlands afsprakenstelsel en ondersteunt geen grensoverschrijdende
 Partijen moeten de volgende onderdelen nog afspreken of realiseren:
 
 - **Een protocolvertaler in de Basisinrichting OOTS.** Deze vertaler zet AS4/e-Delivery-verkeer uit andere lidstaten om naar GraphQL voor GBO en andersom. Bronhouders hoeven daardoor geen OOTS-kennis te hebben. Zij gebruiken alleen de bronontsluiting-API.
-- **Semantische mappings.** Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, alleen als dat nodig is. De vertaling gebeurt centraal met de instellingen uit het decentrale configuratiecomponent.
+- **Semantische mappings.** Deze mappings vertalen de gegevens in het bronformaat naar SDG-EDM, indien geconfigureerd door de bronhouder. De vertaling gebeurt centraal met de instellingen uit het decentrale configuratiecomponent.
 
 ### Uitgifte van attestaties voor de EUDI-Wallet (PubEAA-uitgifte)
 

@@ -1,3 +1,14 @@
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'darkMode': false,
+      'background': '#FFFFFF',
+      'edgeLabelBackground': '#FFFFFF'
+    },
+    'themeCSS': 'svg, .mermaid, #mermaid-svg, .mermaid > svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } @media (prefers-color-scheme: dark) { svg, .mermaid, #mermaid-svg, .mermaid > svg { background-color: #FFFFFF !important; background: #FFFFFF !important; } }'
+  }
+}%%
 flowchart LR
   subgraph gbo["GBO Basis"]
     direction TB
@@ -5,20 +16,20 @@ flowchart LR
         fsc("Standaard koppelvlak<br/>Generieke bronontsluiting<br/>Configurabele autorisatie")
         fsc_tools("GBO tools<br/>(ondersteuning bronhouders)")
   end
-  subgraph eudi["EUDI-Wallet"]
+  subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
         eudi_asi("Bronontsluiting voor QTSP<br/>(Authentic Source Interface)")
         eudi_pubeaa("Uitgifte van publieke EAA<br/>(PubEAA)")
         eudi_qeaa["QTSP<br/>(QEAA)"]
         eudi_wallet["EUDI-Wallet"]
   end
-  subgraph oots["OOTS"]
+  subgraph oots["OOTS kanaal"]
     direction LR
         oots_adapter("OOTS-adapter<br/>(semantische mapping)")
         oots_basis["Basisinrichting OOTS"]
         oots_afnemer["Europese overheid<br/>SDG-portaal"]
   end
-  subgraph dvtp["DvTP"]
+  subgraph dvtp["DvTP kanaal"]
     direction LR
         dvtp_toestemming("Toestemmingsvoorziening")
         dvtp_pseudoniem["Pseudonimiseervoorziening"]
@@ -58,10 +69,18 @@ flowchart LR
   bron:::bron
   burger:::burger
 
-  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#263746
-  classDef generiek fill:#f1efe8,stroke:#5f5e5a,color:#444441
+  %% Subgraph Stijlen (vervangt het geel)
+  style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+  style dvtp fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
+
+  %% Onderscheidende Elementstijlen (zachte pasteltinten)
+  classDef bron fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
+  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#1E293B
+
   classDef eudi fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
-  classDef gbo fill:#fff0e8,stroke:#000000,color:#000000
-  classDef burger fill:#DDEBF7,stroke:#6F94B8,color:#263746
+
+  classDef gbo fill:#DCFCE7,stroke:#16A34A,color:#0F172A

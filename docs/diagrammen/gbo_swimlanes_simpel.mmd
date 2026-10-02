@@ -10,11 +10,15 @@
   }
 }%%
 flowchart LR
-  subgraph gbo["GBO Basis"]
-    direction TB
-        fsc_pap("Beleidsregels")
-        fsc("Standaard koppelvlak<br/>Generieke bronontsluiting<br/>Configurabele autorisatie")
-        fsc_tools("GBO tools<br/>(ondersteuning bronhouders)")
+  subgraph bronhouder["Bronhouder"]
+    direction LR
+        bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")]
+    subgraph gbo["GBO Basis"]
+      direction TB
+          fsc_pap("Beleidsregels")
+          fsc("Standaard koppelvlak<br/>Generieke bronontsluiting<br/>Configurabele autorisatie")
+          fsc_tools("GBO tools<br/>(ondersteuning bronhouders)")
+    end
   end
   subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
@@ -38,7 +42,7 @@ flowchart LR
 
   fsc_pap --- fsc
   fsc --- fsc_tools
-  bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")] --- gbo
+  bron --- gbo
   eudi_asi --- eudi_qeaa
   eudi_qeaa --- eudi_wallet
   gbo --- eudi_asi & eudi_pubeaa & oots_adapter & dvtp_afnemer
@@ -70,6 +74,7 @@ flowchart LR
   burger:::burger
 
   %% Subgraph Stijlen (vervangt het geel)
+  style bronhouder fill:#FFFFFF,stroke:#6F94B8,stroke-width:1px,stroke-dasharray:4 3
   style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px

@@ -64,17 +64,25 @@ GBO voorkomt dat bronhouders voor iedere gegevensstroom een aparte oplossing moe
 
 ### Oplossingsrichting
 
-Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken. Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.
+De oplossingsrichting bestaat uit twee samenhangende onderdelen.
 
-Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Beleidsregels (policies) kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.
+#### 1. Gestandaardiseerde bronontsluiting
 
-GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen maken. Daarmee kunnen zij toch GBO-componenten gebruiken.
+Bronhouders ontsluiten hun gegevens volgens de bestaande afspraken en standaarden van de GDI en het FDS. GBO vult deze afspraken en standaarden aan. Zo is één ontsluiting herbruikbaar voor verschillende afnemers. Dit is de gemeenschappelijke bronontsluiting. De centrale voorzieningen voor de EUDI-Wallet, OOTS en private dienstverleners (zie onderdeel 2) gebruiken deze ontsluiting. Andere afnemers en toekomstige toepassingen kunnen dat ook. De aanvullingen worden uiteindelijk geborgd in de GDI en het FDS. De bronontsluiting voldoet daarmee aan de afspraken van het FDS.
 
-Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:
+Bronhouders richten de ontsluiting zelf in of laten dat doen door hun leverancier. Zij ontsluiten hun gegevens via één API. Deze API kan verschillende gegevensverzoeken verwerken. Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren. Beleidsregels (policies) bepalen wie welke gegevens mag opvragen (PBAC). Het koppelvlak gebruikt betrouwbare en veilige standaarden voor versleuteling, identificatie, authenticatie en logging.
 
-- Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.
-- Voor OOTS zorgt de OOTS-adapter voor de aansluiting op de Basisinrichting OOTS conform GBO. Als de gegevens semantisch vertaald worden, biedt de adapter een optionele vertaalfunctie aan volgens configuratie van de bronhouder. Bronhouders hoeven deze voorziening niet te gebruiken en mogen alternatieve oplossingen gebruiken om direct op OOTS of de Basisinrichting OOTS aan te sluiten.
-- Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruikmaken van deze gegevensstroom, zijn zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.
+GBO laat een referentie-implementatie realiseren als werkend voorbeeld. Bronhouders mogen deze gebruiken, of een eigen oplossing die aan dezelfde afspraken voldoet.
+
+#### 2. Centrale voorzieningen
+
+Centrale voorzieningen verbinden de kanalen met de gemeenschappelijke bronontsluiting. GBO realiseert deze voorzieningen één keer. Bronhouders hoeven ze daardoor niet ieder zelf te maken. Een deel van de voorzieningen ontbreekt nog in een kanaal. Een ander deel laat bestaande voorzieningen van een kanaal werken met de bronontsluiting.
+
+- **EUDI-Wallet:** een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Gebruik is optioneel.
+- **OOTS:** een OOTS-adapter voor de aansluiting op de Basisinrichting OOTS. De adapter biedt een optionele semantische vertaalfunctie. Gebruik is optioneel.
+- **Private dienstverleners (DvTP):** een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Private dienstverleners die deze gegevensstroom gebruiken, moeten beide voorzieningen gebruiken.
+
+De voorzieningen voor OOTS worden geborgd in de GDI. Voor de EUDI-Wallet is dat de voorgestelde koers. Later wordt bepaald waar de toestemmingsvoorziening wordt geborgd.
 
 Het volgende diagram toont deze componenten in relatie tot elkaar.
 
@@ -88,7 +96,7 @@ Het volgende diagram toont deze componenten in relatie tot elkaar.
 Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
 </figure>
 
-De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen.
+De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken, bijvoorbeeld voor gegevensuitwisseling tussen overheidspartijen.
 
 
 

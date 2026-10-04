@@ -4,7 +4,7 @@ extra:
   version:
     provider: mike
     alias: true
-  document_version: "0.9.4"
+  document_version: "0.9.5"
   document_date: "september 2026"
   document_author: "ICTU"
   document_status: "voor vaststelling"

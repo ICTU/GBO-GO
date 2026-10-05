@@ -394,7 +394,7 @@ Hoofdstuk 2 beschrijft de oplossingsrichting. De volgende figuur koppelt deze op
 ```
 </div>
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
-Groen toont de generieke decentrale bronontsluiting. Oranje toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
+Groen toont de generieke decentrale bronontsluiting. Oranje toont de optionele centrale voorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
 </figure>
 
 GBO levert drie soorten resultaten. De verplichting verschilt per soort:

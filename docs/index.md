@@ -93,7 +93,7 @@ Het volgende diagram toont deze componenten in relatie tot elkaar.
 ```
 </div>
 <figcaption>Figuur 1: Oplossingsrichting GBO.<br>
-Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
+Toelichting: Groen toont de decentrale componenten voor de gemeenschappelijke bronontsluiting. Oranje toont de centrale voorzieningen die GBO aanbiedt. Grijs toont bestaande voorzieningen waar GBO op aansluit.</figcaption>
 </figure>
 
 De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken, bijvoorbeeld voor gegevensuitwisseling tussen overheidspartijen.

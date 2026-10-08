@@ -1,6 +1,6 @@
 # Globaal Ontwerp Gemeenschappelijke Bronontsluiting
 
-_ICTU | Augustus 2026_
+_ICTU | September 2026_
 
 > **LET OP:** Het programma Gemeenschappelijke Bronontsluiting (GBO) is in ontwikkeling. Daarom is dit globaal ontwerp nog niet definitief. Bekijk [de status van de documentatie](https://ictu.github.io/GBO/latest/#reviewproces).
 

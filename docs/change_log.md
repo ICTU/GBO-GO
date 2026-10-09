@@ -1,11 +1,121 @@
 # Change Log
 
-## Wijzigingen na v0.9.3 (concept, nog niet uitgebracht)
+## Change Log v0.9.5
 
-Naar aanleiding van reviewfeedback op v0.9.3:
+Van: versie [0.9.4](https://ictu.github.io/GBO-GO/0.9.4/) (augustus 2026) → Naar: 0.9.5 (september 2026)
 
-- **§5, "GBO levert drie soorten resultaten.".** Benoemt expliciet de drie soorten resultaten van GBO en geeft per centrale voorziening in een tabel: gegevensstroom, soort, verplicht of optioneel, beheerder. Beschrijft ook wat verplicht is voor publieke en private partijen.
-- **Minder "kan".** Waar een keuze of verplichting bedoeld is, staat nu "mag", "biedt", "is optioneel", "is verplicht" of "nog te besluiten (zie PSA)". Onder andere: keuzevrijheid (§1), scope andere gegevensstromen (§2), PubEAA-instantie en ASI-provider (§3 patroon A), semantische mapping (§3 patroon A en B), toestemmingsvoorziening verplicht voor DvTP (§3 patroon C), register als PIP (§5), QTSP-aansluitvoorwaarden (§5), alternatieven voor bronhouders (§6).
+De wijzigingen in v0.9.5 verduidelijken vooral de oplossingsrichting en de verantwoordelijkheidsverdeling. De inhoud van de interactiepatronen, generieke functies, stelselfuncties en impact op betrokken partijen is niet wezenlijk gewijzigd.
+
+### Samenvatting in één oogopslag
+
+| Onderdeel | Aard van de wijziging |
+|---|---|
+| Terminologie | GBO wordt aangeduid als programma in plaats van project. |
+| Oplossingsrichting | Expliciet onderscheid aangebracht tussen de gemeenschappelijke bronontsluiting bij de bronhouder en centrale voorzieningen per kanaal. |
+| GDI en FDS | Verduidelijkt dat de gemeenschappelijke bronontsluiting voortbouwt op afspraken en standaarden van GDI en FDS en dat aanvullingen daarop daar bij voorkeur worden geborgd. |
+| Verantwoordelijkheid bronhouder | Explicieter gemaakt dat de bronhouder de gemeenschappelijke bronontsluiting zelf inricht of dit door een leverancier laat doen. GBO realiseert een referentie-implementatie als werkend voorbeeld. |
+| Centrale voorzieningen | Verduidelijkt welke voorzieningen GBO centraal coördineert voor EUDI-Wallet, OOTS en DvTP, en of het gebruik daarvan optioneel of verplicht is. |
+| Scope en hergebruik | De drie huidige toepassingen worden nu als kanalen benoemd. De afspraken, koppelvlakken en voorzieningen worden zo ingericht dat toekomstige kanalen en gegevensstromen dezelfde bronontsluiting kunnen hergebruiken. |
+| Diagrammen | Figuur 1 en figuur 5 maken nu expliciet onderscheid tussen de bronhouder, decentrale bronontsluiting en centrale voorzieningen. |
+
+---
+
+### Algemeen
+
+- De aanduiding **"project Gemeenschappelijke Bronontsluiting"** is gewijzigd in **"programma Gemeenschappelijke Bronontsluiting"**.
+- De terminologie rond *gegevensstromen* en *kanalen* is aangescherpt. EUDI-Wallet, OOTS en private dienstverleners (DvTP) worden in de oplossingsrichting als drie **kanalen** onderscheiden. Een kanaal kan gebruikmaken van de gemeenschappelijke bronontsluiting voor één of meer gegevensstromen.
+- In de diagrammen is duidelijker aangegeven welke onderdelen bij de bronhouder horen en welke voorzieningen centraal beschikbaar worden gesteld.
+
+---
+
+### Hoofdstuk 2 — Voorgestelde oplossingsrichting
+
+De paragraaf **Oplossingsrichting** is grotendeels herschreven en nu expliciet opgebouwd uit twee samenhangende onderdelen.
+
+#### 1. Gemeenschappelijke bronontsluiting
+
+- Het begrip **gemeenschappelijke bronontsluiting** is expliciet geïntroduceerd en afgebakend.
+- Verduidelijkt is dat bronhouders hun gegevens ontsluiten volgens bestaande afspraken en standaarden van **GDI** en **FDS**, aangevuld met afspraken die voor GBO nodig zijn.
+- De intentie is toegevoegd om deze aanvullingen uiteindelijk te borgen in de GDI en/of het FDS, zodat de gemeenschappelijke bronontsluiting onderdeel wordt van bestaande afsprakenstelsels in plaats van een afzonderlijk GBO-specifiek stelsel te vormen.
+- Expliciet gemaakt dat dezelfde ontsluiting kan worden hergebruikt door verschillende typen afnemers en door de kanalen EUDI-Wallet, OOTS en private dienstverleners. Ook toekomstige kanalen kunnen deze ontsluiting gebruiken.
+- De verantwoordelijkheid van de bronhouder is verduidelijkt: de bronhouder richt de gemeenschappelijke bronontsluiting zelf in of laat dit door een leverancier doen.
+- De bestaande uitgangspunten van één API, configuratie per gegevensstroom, PBAC en betrouwbare standaarden voor versleuteling, identificatie, authenticatie en logging zijn in deze beschrijving samengebracht.
+- Toegevoegd is dat het programma GBO een **referentie-implementatie** van de gemeenschappelijke bronontsluiting laat realiseren. Gebruik daarvan is niet verplicht; een bronhouder mag een eigen oplossing gebruiken die aan dezelfde afspraken en standaarden voldoet.
+
+#### 2. Centrale voorzieningen
+
+- De centrale voorzieningen zijn als afzonderlijk onderdeel van de oplossingsrichting beschreven.
+- Verduidelijkt is dat deze voorzieningen de drie kanalen verbinden met de gemeenschappelijke bronontsluiting.
+- Het programma GBO **coördineert de realisatie** van deze voorzieningen, zodat bronhouders deze niet ieder afzonderlijk hoeven te ontwikkelen.
+- Expliciet gemaakt dat sommige voorzieningen nieuw worden gerealiseerd en dat voor andere bestaande voorzieningen worden aangepast om met de gemeenschappelijke bronontsluiting te kunnen werken.
+- De voorzieningen zijn compact per kanaal beschreven:
+    - **EUDI-Wallet:** Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte. Gebruik is optioneel.
+    - **OOTS:** OOTS-adapter voor de aansluiting op de Basisinrichting OOTS, inclusief een optionele semantische vertaalfunctie. Gebruik is optioneel.
+    - **Private dienstverleners (DvTP):** toestemmingsvoorziening en pseudonimiseervoorziening. Deze zijn verplicht voor private dienstverleners die van deze gegevensstroom gebruikmaken.
+- Toegevoegd is hoe de centrale voorzieningen naar verwachting worden geborgd:
+    - voorzieningen voor OOTS worden geborgd in de GDI;
+    - voor de voorzieningen voor de EUDI-Wallet wordt dezelfde benadering voorgesteld;
+    - voor de toestemmingsvoorziening moet nog worden bepaald waar deze wordt geborgd.
+- De slottekst van hoofdstuk 2 is aangepast. Niet langer alleen andere *gegevensstromen*, maar ook andere **kanalen** worden expliciet genoemd als mogelijke toekomstige gebruikers van dezelfde afspraken, koppelvlakken en voorzieningen.
+
+#### Figuur 1 — Oplossingsrichting GBO
+
+- Een afzonderlijke begrenzing **Bronhouder** is toegevoegd rondom de overheidsbron en de GBO-basis. Daarmee is zichtbaar gemaakt dat de gemeenschappelijke bronontsluiting een verantwoordelijkheid van de bronhouder is.
+- Het diagram maakt nu onderscheid tussen:
+    - groen: decentrale componenten voor de gemeenschappelijke bronontsluiting;
+    - oranje: centrale voorzieningen;
+    - grijs: bestaande voorzieningen waarop GBO aansluit.
+- De eerdere aanduiding **"Bronontsluiting voor QTSP (Authentic Source Interface)"** is vervangen door **"Authentic Source Interface voor QTSP's"**, in lijn met de tekst van de oplossingsrichting.
+- De toelichting onder het diagram is aangepast aan dit onderscheid.
+
+---
+
+### Hoofdstuk 5 — Te ontwikkelen componenten
+
+#### Figuur 5 — Overzicht voorgestelde oplossing
+
+- Ook in de gedetailleerde overzichtsplaat is een afzonderlijke begrenzing **Bronhouder** toegevoegd rondom de overheidsbron en GBO-basis.
+- Hiermee wordt duidelijker dat de generieke bronontsluiting, configuratie en eventuele GBO-vertaallaag bij de bronhouder horen en niet centrale GBO-voorzieningen zijn.
+- De legenda is terminologisch aangepast: **"optionele centrale aansluitvoorzieningen"** is vervangen door **"optionele centrale voorzieningen"**.
+- De inhoudelijke indeling in afspraken en standaarden, referentiecomponenten en centrale voorzieningen blijft ongewijzigd.
+
+---
+
+## Change Log v0.9.4
+
+Van: versie [0.9.3](https://ictu.github.io/GBO-GO/0.9.3/) (augustus 2026) → Naar: 0.9.4 (augustus 2026)
+
+v0.9.4 bevat voornamelijk verduidelijkingen naar aanleiding van reviewfeedback op v0.9.3. De oplossingsrichting zelf is niet gewijzigd, maar de status, keuzevrijheid en verplichting van onderdelen is explicieter beschreven.
+
+### Hoofdstuk 5 — Te ontwikkelen componenten
+
+- Expliciet gemaakt dat GBO **drie soorten resultaten** levert:
+    1. **Afspraken en standaarden** — verplicht voor deelnemers waarop deze afspraken van toepassing zijn.
+    2. **Referentiecomponenten** — optioneel; een bronhouder mag ook een functioneel gelijkwaardig alternatief gebruiken.
+    3. **Centrale voorzieningen** — afhankelijk van de gegevensstroom verplicht of optioneel.
+- Een tabel toegevoegd die per voorziening aangeeft:
+    - voor welke gegevensstroom deze bedoeld is;
+    - om welk soort voorziening het gaat;
+    - of gebruik verplicht of optioneel is;
+    - wie de beheerder is of waar dit nog moet worden bepaald.
+- Expliciet gemaakt dat publieke bronhouders die een gegevensstroom via GBO ontsluiten de bijbehorende afspraken en standaarden moeten volgen.
+- Voor private dienstverleners verduidelijkt dat deelname aan de DvTP-stroom vrijwillig is, maar dat bij deelname gebruik van de toestemmingsvoorziening en BSNk PP verplicht is.
+
+### Verduidelijking van keuzevrijheid en verplichtingen
+
+Op verschillende plaatsen in het document is vrijblijvende formulering met **"kan"** vervangen door preciezere formuleringen die aangeven of iets een keuze, mogelijkheid of verplichting is. Onder meer:
+
+- keuzevrijheid voor bronhouders bij het gebruik van referentiecomponenten;
+- hergebruik voor andere gegevensstromen;
+- keuze tussen PubEAA-uitgifte en diensten van een QTSP;
+- gebruik van de ASI-provider;
+- semantische mapping bij OOTS;
+- verplicht gebruik van de toestemmings- en pseudonimiseervoorziening binnen DvTP;
+- gebruik van het toestemmingsregister als PIP;
+- aansluitvoorwaarden voor QTSP's;
+- gebruik van alternatieve implementaties door bronhouders.
+
+Waar een ontwerpkeuze nog niet is gemaakt, wordt dit expliciet aangegeven, bijvoorbeeld met **"nog te bepalen (zie PSA)"**.
 
 ---
 

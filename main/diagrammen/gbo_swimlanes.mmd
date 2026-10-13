@@ -10,11 +10,15 @@
   }
 }%%
 flowchart LR
-  subgraph gbo["GBO Basis"]
-    direction TB
-        fsc_config("configuratie<br/>(services/mappings/etc.)")
-        fsc("FSC / GraphQL / PBAC<br/>(generieke bronontsluiting)")
-        fsc_tools("GBO tools<br/>(vertaallaag)")
+  subgraph bronhouder["Bronhouder"]
+    direction LR
+        bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")]
+    subgraph gbo["GBO Basis"]
+      direction TB
+          fsc_config("configuratie<br/>(services/mappings/etc.)")
+          fsc("FSC / GraphQL / PBAC<br/>(generieke bronontsluiting)")
+          fsc_tools("GBO tools<br/>(vertaallaag)")
+    end
   end
   subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
@@ -38,7 +42,7 @@ flowchart LR
 
   fsc_config --- fsc
   fsc --- fsc_tools
-  bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")] -- Bron API<br/>(GraphQL / REST-JSON / ...) --- gbo
+  bron -- Bron API<br/>(GraphQL / REST-JSON / ...) --- gbo
   eudi_asi -- verify --- eudi_qeaa
   eudi_asi -- retrieve --- eudi_qeaa
   eudi_qeaa -- OpenID4VCI --- eudi_wallet
@@ -72,6 +76,7 @@ flowchart LR
   burger:::burger
 
   %% Subgraph Stijlen
+  style bronhouder fill:#FFFFFF,stroke:#6F94B8,stroke-width:1px,stroke-dasharray:4 3
   style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px

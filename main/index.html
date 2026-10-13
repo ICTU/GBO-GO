@@ -1275,9 +1275,9 @@
 
 
 <h1 id="globaal-ontwerp-gemeenschappelijke-bronontsluiting">Globaal Ontwerp Gemeenschappelijke Bronontsluiting<a class="headerlink" href="#globaal-ontwerp-gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h1>
-<p><em>ICTU | Augustus 2026</em></p>
+<p><em>ICTU | September 2026</em></p>
 <blockquote>
-<p><strong>LET OP:</strong> Het project Gemeenschappelijke Bronontsluiting (GBO) is in ontwikkeling. Daarom is dit globaal ontwerp nog niet definitief. Bekijk <a href="https://ictu.github.io/GBO/latest/#reviewproces">de status van de documentatie</a>.</p>
+<p><strong>LET OP:</strong> Het programma Gemeenschappelijke Bronontsluiting (GBO) is in ontwikkeling. Daarom is dit globaal ontwerp nog niet definitief. Bekijk <a href="https://ictu.github.io/GBO/latest/#reviewproces">de status van de documentatie</a>.</p>
 </blockquote>
 <h2 id="1-inleiding">1 Inleiding<a class="headerlink" href="#1-inleiding" title="Permanent link">&para;</a></h2>
 <h3 id="documenthierarchie">Documenthiërarchie<a class="headerlink" href="#documenthierarchie" title="Permanent link">&para;</a></h3>
@@ -1334,16 +1334,21 @@
 <li>Geeft private dienstverleners toegang via een gemeenschappelijke toestemmingsvoorziening.</li>
 </ul>
 <h3 id="oplossingsrichting">Oplossingsrichting<a class="headerlink" href="#oplossingsrichting" title="Permanent link">&para;</a></h3>
-<p>Bronhouders ontsluiten hun gegevens voor GBO via één API. Deze API kan verschillende gegevensverzoeken verwerken. Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren.</p>
-<p>Een generieke ontsluiting vraagt om aanvullende autorisatieregels. Beleidsregels (policies) kunnen deze regels instellen. Het koppelvlak gebruikt een betrouwbare en veilige standaard. Deze standaard borgt versleuteling, identificatie, authenticatie en logging.</p>
-<p>GBO biedt hulpmiddelen aan bronhouders die deze inrichting nog niet zelf kunnen maken. Daarmee kunnen zij toch GBO-componenten gebruiken.</p>
-<p>Centrale voorzieningen verbinden de gegevensstromen met bestaande protocollen en vertrouwensstelsels:</p>
+<p>De oplossingsrichting bestaat uit twee samenhangende onderdelen:</p>
+<h4 id="1-gemeenschappelijke-bronontsluiting">1. Gemeenschappelijke bronontsluiting<a class="headerlink" href="#1-gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h4>
+<p>Bronhouders ontsluiten hun gegevens volgens de bestaande afspraken en standaarden van de GDI en het FDS. GBO vult deze afspraken en standaarden aan. Zo is één ontsluiting herbruikbaar voor verschillende typen afnemers. Dit is de gemeenschappelijke bronontsluiting. De centrale voorzieningen voor de kanalen EUDI-Wallet, OOTS en private dienstverleners (zie onderdeel 2) gebruiken deze ontsluiting. Andere afnemers en toekomstige kanalen kunnen dat ook. De intentie is om deze aanvullingen te borgen in de GDI en/of het FDS. De gemeenschappelijke bronontsluiting zal daarmee voldoen aan de afspraken en standaarden van de GDI en het FDS.</p>
+<p>Bronhouders richten de ontsluiting zelf in of laten dat doen door hun leverancier. Zij ontsluiten hun gegevens via één API. Deze API kan verschillende gegevensverzoeken verwerken. Een bronhouder richt een nieuwe gegevensstroom in met configuratie. De bronhouder hoeft daarvoor geen nieuw endpoint te maken en te beheren. Beleidsregels (policies) bepalen wie welke gegevens mag opvragen (PBAC). Het koppelvlak gebruikt betrouwbare en veilige standaarden voor versleuteling, identificatie, authenticatie en logging.</p>
+<p>Het programma GBO laat een referentie-implementatie realiseren als werkend voorbeeld. Bronhouders mogen deze gebruiken, of een eigen oplossing die aan dezelfde afspraken en standaarden voldoet.</p>
+<h4 id="2-centrale-voorzieningen">2. Centrale voorzieningen<a class="headerlink" href="#2-centrale-voorzieningen" title="Permanent link">&para;</a></h4>
+<p>Centrale voorzieningen verbinden de drie kanalen met de gemeenschappelijke bronontsluiting. Het programma GBO coördineert de realisatie van deze voorzieningen. Bronhouders hoeven deze voorzieningen daardoor niet ieder zelf te ontwikkelen. Een deel van deze voorzieningen wordt nieuw gerealiseerd, al dan niet in combinatie met bestaande voorzieningen. Voor een ander deel worden bestaande voorzieningen aangepast, zodat ze kunnen werken met de gemeenschappelijke bronontsluiting.</p>
+<p>GBO richt zich op centrale voorzieningen voor de volgende kanalen:</p>
 <ul>
-<li>Voor de EUDI-Wallet gaat het om een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Bronhouders hoeven deze voorzieningen niet te gebruiken en mogen alternatieve oplossingen gebruiken.</li>
-<li>Voor OOTS zorgt de OOTS-adapter voor de aansluiting op de Basisinrichting OOTS conform GBO. Als de gegevens semantisch vertaald worden, biedt de adapter een optionele vertaalfunctie aan volgens configuratie van de bronhouder. Bronhouders hoeven deze voorziening niet te gebruiken en mogen alternatieve oplossingen gebruiken om direct op OOTS of de Basisinrichting OOTS aan te sluiten.</li>
-<li>Voor private dienstverleners gaat het om een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorzieningen voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Als private dienstverleners gebruikmaken van deze gegevensstroom, zijn zij verplicht de toestemmingsvoorziening en de pseudonimiseringsvoorziening te gebruiken.</li>
+<li><strong>EUDI-Wallet:</strong> een Authentic Source Interface voor QTSP's en een voorziening voor PubEAA-uitgifte door overheidsbronnen. Gebruik is optioneel.</li>
+<li><strong>OOTS:</strong> een OOTS-adapter voor de aansluiting op de Basisinrichting OOTS. De adapter biedt een optionele semantische vertaalfunctie. Gebruik is optioneel.</li>
+<li><strong>Private dienstverleners (DvTP):</strong> een toestemmingsvoorziening en een pseudonimiseervoorziening. Deze voorkomen dat het BSN terechtkomt bij organisaties zonder wettelijke grondslag. Private dienstverleners die deze gegevensstroom gebruiken, moeten beide voorzieningen gebruiken.</li>
 </ul>
-<p>Het volgende diagram toont deze componenten in relatie tot elkaar.</p>
+<p>De voorzieningen voor OOTS worden geborgd in de GDI. Voor de EUDI-Wallet is het voorstel om dit op dezelfde manier te doen. Later wordt bepaald waar de toestemmingsvoorziening wordt geborgd.</p>
+<p>Het volgende diagram toont deze onderdelen in relatie tot elkaar.</p>
 <figure>
 <div style="background-color: white;">
 <div class="mermaid">%%{
@@ -1358,15 +1363,19 @@
   }
 }%%
 flowchart LR
-  subgraph gbo["GBO Basis"]
-    direction TB
-        fsc_pap("Beleidsregels")
-        fsc("Standaard koppelvlak&lt;br/&gt;Generieke bronontsluiting&lt;br/&gt;Configurabele autorisatie")
-        fsc_tools("GBO tools&lt;br/&gt;(ondersteuning bronhouders)")
+  subgraph bronhouder["Bronhouder"]
+    direction LR
+        bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")]
+    subgraph gbo["GBO Basis"]
+      direction TB
+          fsc_pap("Beleidsregels")
+          fsc("Standaard koppelvlak&lt;br/&gt;Generieke bronontsluiting&lt;br/&gt;Configurabele autorisatie")
+          fsc_tools("GBO tools&lt;br/&gt;(ondersteuning bronhouders)")
+    end
   end
   subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
-        eudi_asi("Bronontsluiting voor QTSP&lt;br/&gt;(Authentic Source Interface)")
+        eudi_asi("Authentic Source Interface&lt;br/&gt;voor QTSP's")
         eudi_pubeaa("Uitgifte van publieke EAA&lt;br/&gt;(PubEAA)")
         eudi_qeaa["QTSP&lt;br/&gt;(QEAA)"]
         eudi_wallet["EUDI-Wallet"]
@@ -1386,7 +1395,7 @@ flowchart LR
 
   fsc_pap --- fsc
   fsc --- fsc_tools
-  bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] --- gbo
+  bron --- gbo
   eudi_asi --- eudi_qeaa
   eudi_qeaa --- eudi_wallet
   gbo --- eudi_asi &amp; eudi_pubeaa &amp; oots_adapter &amp; dvtp_afnemer
@@ -1401,23 +1410,24 @@ flowchart LR
   oots_afnemer --- burger
   dvtp_afnemer --- burger
 
-  fsc_pap:::gbo
-  fsc:::gbo
-  fsc_tools:::gbo
-  eudi_asi:::gbo
-  eudi_pubeaa:::gbo
+  fsc_pap:::gbo_d
+  fsc:::gbo_d
+  fsc_tools:::gbo_d
+  eudi_asi:::gbo_c
+  eudi_pubeaa:::gbo_c
   eudi_qeaa:::eudi
   eudi_wallet:::eudi
-  oots_adapter:::gbo
+  oots_adapter:::gbo_c
   oots_basis:::oots
   oots_afnemer:::oots
-  dvtp_toestemming:::gbo
+  dvtp_toestemming:::gbo_c
   dvtp_pseudoniem:::dvtp
   dvtp_afnemer:::dvtp
   bron:::bron
   burger:::burger
 
   %% Subgraph Stijlen (vervangt het geel)
+  style bronhouder fill:#FFFFFF,stroke:#6F94B8,stroke-width:1px,stroke-dasharray:4 3
   style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
@@ -1431,14 +1441,15 @@ flowchart LR
   classDef oots fill:#f1efe8,stroke:#5f5e5a,color:#444441
   classDef dvtp fill:#f1efe8,stroke:#5f5e5a,color:#444441
 
-  classDef gbo fill:#DCFCE7,stroke:#16A34A,color:#0F172A
+  classDef gbo_d fill:#DCFCE7,stroke:#16A34A,color:#0F172A
+  classDef gbo_c fill:#FFEDD5,stroke:#EA580C,color:#0F172A
 </div>
 </div>
 <figcaption>Figuur 1: Oplossingsrichting GBO.<br>
-Toelichting: GBO biedt de groene componenten aan voor de gemeenschappelijke bronontsluiting. De grijze componenten zijn bestaande voorzieningen waar GBO op aansluit.</figcaption>
+Toelichting: Groen toont de decentrale componenten voor de gemeenschappelijke bronontsluiting. Oranje toont de centrale voorzieningen die GBO aanbiedt. Grijs toont bestaande voorzieningen waar GBO op aansluit.</figcaption>
 </figure>
 
-<p>De oplossingsrichting ondersteunt de drie gegevensstromen binnen de scope van GBO. Andere gegevensstromen vallen buiten deze scope. Zij kunnen dezelfde inrichting later hergebruiken. De configureerbare bronontsluiting-API en autorisatieregels ondersteunen bijvoorbeeld gegevensuitwisseling tussen overheidspartijen.</p>
+<p>De oplossingsrichting ondersteunt de drie kanalen binnen de scope van GBO. Andere kanalen en/of gegevensstromen vallen buiten deze scope. De afspraken, koppelvlakken en voorzieningen worden zo ingericht dat later hergebruik mogelijk is, bijvoorbeeld voor gegevensuitwisseling tussen overheidspartijen of andere kanalen.</p>
 <h2 id="3-interactiepatronen">3 Interactiepatronen<a class="headerlink" href="#3-interactiepatronen" title="Permanent link">&para;</a></h2>
 <p>GBO ondersteunt drie interactiepatronen. Ieder patroon heeft eigen actoren, grondslagen en protocollen.</p>
 <h3 id="patroon-a-burger-gebruikt-eudi-wallet">Patroon A - burger gebruikt EUDI-Wallet<a class="headerlink" href="#patroon-a-burger-gebruikt-eudi-wallet" title="Permanent link">&para;</a></h3>
@@ -2075,11 +2086,15 @@ sequenceDiagram
   }
 }%%
 flowchart LR
-  subgraph gbo["GBO Basis"]
-    direction TB
-        fsc_config("configuratie&lt;br/&gt;(services/mappings/etc.)")
-        fsc("FSC / GraphQL / PBAC&lt;br/&gt;(generieke bronontsluiting)")
-        fsc_tools("GBO tools&lt;br/&gt;(vertaallaag)")
+  subgraph bronhouder["Bronhouder"]
+    direction LR
+        bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")]
+    subgraph gbo["GBO Basis"]
+      direction TB
+          fsc_config("configuratie&lt;br/&gt;(services/mappings/etc.)")
+          fsc("FSC / GraphQL / PBAC&lt;br/&gt;(generieke bronontsluiting)")
+          fsc_tools("GBO tools&lt;br/&gt;(vertaallaag)")
+    end
   end
   subgraph eudi["EUDI-Wallet kanaal"]
     direction LR
@@ -2103,7 +2118,7 @@ flowchart LR
 
   fsc_config --- fsc
   fsc --- fsc_tools
-  bron[("Overheidsbronnen&lt;br/&gt;BRP · BD · UWV · KvK · …")] -- Bron API&lt;br/&gt;(GraphQL / REST-JSON / ...) --- gbo
+  bron -- Bron API&lt;br/&gt;(GraphQL / REST-JSON / ...) --- gbo
   eudi_asi -- verify --- eudi_qeaa
   eudi_asi -- retrieve --- eudi_qeaa
   eudi_qeaa -- OpenID4VCI --- eudi_wallet
@@ -2137,6 +2152,7 @@ flowchart LR
   burger:::burger
 
   %% Subgraph Stijlen
+  style bronhouder fill:#FFFFFF,stroke:#6F94B8,stroke-width:1px,stroke-dasharray:4 3
   style gbo fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style eudi fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
   style oots fill:#F4F5F7,stroke:#D1D5DB,stroke-width:1px
@@ -2155,7 +2171,7 @@ flowchart LR
   classDef gbo_k fill:#FFEDD5,stroke:#EA580C,color:#0F172A</div>
 </div>
 <figcaption>Figuur 5: Oplossingsrichting met de voorgestelde componenten.<br>
-Groen toont de generieke decentrale bronontsluiting. Oranje toont optionele centrale aansluitvoorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
+Groen toont de generieke decentrale bronontsluiting. Oranje toont de optionele centrale voorzieningen. Rood toont verplichte centrale voorzieningen voor de betreffende gegevensstroom. Grijs toont bestaande voorzieningen waarop GBO aansluit.<br/>De bronhouder beheert de bronspecifieke configuratie van de centrale componenten met behulp van het decentrale configuratiecomponent.</figcaption>
 </figure>
 
 <p>GBO levert drie soorten resultaten. De verplichting verschilt per soort:</p>

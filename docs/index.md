@@ -156,7 +156,7 @@ Nederlandse bronhouders moeten op OOTS aansluiten als zij digitale gegevens leve
 
 Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.
 
-Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-V ondersteunt Nederlandse dienstverleners. OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
+Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-A ondersteunt Nederlandse dienstverleners. OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
 
 OOTS-V:
 
@@ -177,6 +177,8 @@ Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.
 Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.  
 
 GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.
+
+Voor het publiceren van de diensten haakt GBO aan op de diensten van bNC SDG.
 
 <figure>
 <div style="background-color: white;">
@@ -261,7 +263,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 Als toestemming volgens de AVG nodig is, gebruikt GBO een toestemmingsvoorziening. Deze voorziening bestaat uit een toestemmingsportaal en een toestemmingsregister.
 
-GBO autoriseert gegevensvragen met beleidsregels volgens PBAC. GBO biedt hiervoor een referentie-implementatie op basis van FTV. Een bronhouder mag een eigen implementatie gebruiken als deze aan de eisen voldoet.
+GBO autoriseert gegevensvragen met beleidsregels volgens PBAC. Daarmee kan één technische implementatie de toegang voor verschillende soorten gegevensverzoeken met verschillende toegangsvoorwaarden verwerken. GBO biedt hiervoor een referentie-implementatie op basis van OpenFTV. Een bronhouder mag een eigen implementatie gebruiken als deze aan de eisen voldoet.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
@@ -269,7 +271,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 | -------------- | -------------------- | ------ | ----------------------------- |
 | S01 — Toestemmingsregister (primair voor DvTP) | Mogelijk functioneel verwant aan DigiD Machtigen | Nog te realiseren ⚠️ | Toestemmingsregister realiseren. Register als PIP gebruiken. Benodigde wet- en regelgeving vaststellen. |
 | S02 — Toestemmingsportaal (primair voor DvTP) | MijnOverheid | Nog te realiseren ⚠️ | Inzage en intrekking mogelijk maken. Koppelen aan het toestemmingsregister en MijnOverheid. |
-| S05 — Autorisatie (PEP/PDP/PIP) | - | AuthZEN NLGov-profiel (NLgov Profile for OpenID AuthZEN Authorization API 1.0.0) is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog. | Referentie-implementatie per bronhouder maken. Policy Store en PAP inrichten. |
+| S05 — Autorisatie (PEP/PDP/PIP) | - | AuthZEN NLGov-profiel (NLgov Profile for OpenID AuthZEN Authorization API 1.0.0) is beschikbaar. FTV is in ontwikkeling. De GBO-inrichting ontbreekt nog. | Referentie-implementatie maken. Policy Store en PAP inrichten. |
 | S06 — Beleidsbeheer & -distributie (PAP) | - | Nog te ontwerpen ⚠️ | Policybundels beheren en verspreiden naar de PDP-instanties van bronhouders. Ook moet de governance bepalen wie policies mag opstellen, wijzigen en goedkeuren. |
 
 ### F3 — Gegevensvoorziening
@@ -299,6 +301,8 @@ GBO verankert semantiek in RDF, SKOS of allebei. GBO beschrijft catalogi volgens
 Om inzicht te geven in beschikbare gegevenssets, biedt GBO de mogelijkheid om canonieke gegevensmodellen van bronhouders te koppelen aan een gedeeld begrippenkader. Daarmee kunnen afnemers hun gegevensvraag beter afstemmen op het aanbod van de bronhouders.
 
 GBO beschrijft ook de voorwaarden waaronder gegevens opvraagbaar zijn, zoals de grondslag en de dienst. Waar nodig biedt GBO mappings naar SDG-EDM en attestatieschema's.
+
+NB: GBO stelt beschrijvingen op, maar deze moeten landen bij bestaande stelsels en beheerorganisaties. In de [projectstartarchitectuur](https://ictu.github.io/GBO-PSA/) en het [semantiek-document](https://ictu.github.io/GBO-Semantiek/) wordt dit verder uitgewerkt.
 
 Bronhouders blijven zelf verantwoordelijk voor hun gegevens en hoe ze deze aanbieden aan de centrale GBO voorzieningen. Om dit te configureren biedt GBO een decentraal configuratiecomponent aan bronhouders. Deze decentrale configuratie wordt bevraagd per gemeenschappelijke voorziening om gegevensvragen voor een specifiek kanaal af te handelen.
 
@@ -342,7 +346,7 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 GBO voorziet voor de huidige interactiepatronen geen afzonderlijke centrale procesorkestratie.
 
-Om met GBO aan te sluiten op het OOTS Intermediair Platform, is een OOTS-adapter nodig. De aansluiting op de EUDI-Wallet van de gemeenschappelijke bronontsluiting vraagt om integratie met EUDI-standaarden.
+Om met GBO aan te sluiten op de OOTS Basisinrichting, kan een OOTS-adapter nodig zijn voor semantische vertaling van de gegevens. De aansluiting op de EUDI-Wallet van de gemeenschappelijke bronontsluiting vraagt om integratie met EUDI-standaarden.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 

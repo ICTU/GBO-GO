@@ -156,7 +156,7 @@ Nederlandse bronhouders moeten op OOTS aansluiten als zij digitale gegevens leve
 
 Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.
 
-Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-A ondersteunt Nederlandse dienstverleners. OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
+Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. Deze voorziening ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.
 
 OOTS-V:
 
@@ -178,7 +178,7 @@ Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. 
 
 GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.
 
-Voor het publiceren van de diensten haakt GBO aan op de diensten van bNC SDG.
+Bronhouders moeten de bewijzen die zij via OOTS kunnen leveren bekendmaken in het OOTS-netwerk. GBO biedt hiervoor geen voorziening. Dit valt buiten de scope van GBO. Bronhouders maken hiervoor gebruik van de dienstverlening van bNC SDG.
 
 <figure>
 <div style="background-color: white;">
@@ -346,12 +346,14 @@ Hiervoor zijn de volgende stelselfuncties nodig:
 
 GBO voorziet voor de huidige interactiepatronen geen afzonderlijke centrale procesorkestratie.
 
-Om met GBO aan te sluiten op de OOTS Basisinrichting, kan een OOTS-adapter nodig zijn voor semantische vertaling van de gegevens. De aansluiting op de EUDI-Wallet van de gemeenschappelijke bronontsluiting vraagt om integratie met EUDI-standaarden.
+Integratie vindt plaats aan de rand van de gemeenschappelijke bronontsluiting. Voor OOTS vertaalt de Basisinrichting OOTS het Europese berichtenverkeer naar de bronontsluiting-API. Bronhouders kunnen daarnaast de optionele OOTS-adapter gebruiken voor semantische vertaling naar SDG-EDM.  
+Voor de EUDI-Wallet vraagt de aansluiting om integratie met EUDI-standaarden, zoals OpenID4VCI voor de uitgifte van attestaties en de ASI-interfaces voor QTSP's.
 
 Hiervoor zijn de volgende stelselfuncties nodig:
 
 | Stelselfunctie | Relevante bouwstenen | Status | Ontbrekend onderdeel of actie |
 | -------------- | -------------------- | ------ | ----------------------------- |
+| S07 — Gegevensontsluiting (bronontsluiting-API) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) |
 | S08 — OOTS-adapter | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) |
 | S11 — Attesteringsuitgifte (voor EUDI-Wallet) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) | Zie [F3](#f3-gegevensvoorziening) |
 

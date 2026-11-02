@@ -1551,7 +1551,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <li>zelf een aansluiting op OOTS ontwikkelen.</li>
 </ul>
 <p>Stichting RINIS levert de Basisinrichting OOTS in opdracht van de ministeries van BZK en EZK. Sectorale en eigen aansluitingen vallen buiten de scope van dit globaal ontwerp.</p>
-<p>Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. OOTS-A ondersteunt Nederlandse dienstverleners. OOTS-V ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.</p>
+<p>Voor bronhouders is OOTS-V het relevante onderdeel van de Basisinrichting OOTS. Deze voorziening ontvangt bewijsverzoeken van publieke instanties uit andere lidstaten. Deze verzoeken zijn gericht aan bronhouders die op OOTS-V zijn aangesloten.</p>
 <p>OOTS-V:</p>
 <ul>
 <li>analyseert het verzoek.</li>
@@ -1566,7 +1566,7 @@ Een gegeven kan als PubEAA rechtstreeks van een overheidsbron komen. Een QEAA ko
 <p>Voor GBO moet OOTS-V ook met GraphQL-API's kunnen werken.</p>
 <p>Bronhouders mogen hun brongegevens omvormen volgens afspraken tussen lidstaten. De SDG-verordening verplicht deze semantische omvorming niet, maar stimuleert haar wel. Lidstaten kunnen afspreken om gegevens volgens één OOTS-datamodel te leveren. Zij werken bijvoorbeeld samen aan een uniform bewijs van geboorte.  </p>
 <p>GBO biedt een voorziening die de semantische transformatie volgens de specificatie van de bronhouder uitvoert. Het gebruik van deze voorziening is optioneel. Als een bronhouder de voorziening gebruikt, bevraagt OOTS-V niet rechtstreeks de API van de bronhouder. OOTS-V bevraagt de GBO-voorziening, die gegevens in het SDG-EDM-formaat levert.</p>
-<p>Voor het publiceren van de diensten haakt GBO aan op de diensten van bNC SDG.</p>
+<p>Bronhouders moeten de bewijzen die zij via OOTS kunnen leveren bekendmaken in het OOTS-netwerk. GBO biedt hiervoor geen voorziening. Dit valt buiten de scope van GBO. Bronhouders maken hiervoor gebruik van de dienstverlening van bNC SDG.</p>
 <figure>
 <div style="background-color: white;">
 <div class="mermaid">%%{
@@ -1954,7 +1954,8 @@ sequenceDiagram
 </table>
 <h3 id="f7-orkestratie-integratie">F7 — Orkestratie &amp; Integratie<a class="headerlink" href="#f7-orkestratie-integratie" title="Permanent link">&para;</a></h3>
 <p>GBO voorziet voor de huidige interactiepatronen geen afzonderlijke centrale procesorkestratie.</p>
-<p>Om met GBO aan te sluiten op de OOTS Basisinrichting, kan een OOTS-adapter nodig zijn voor semantische vertaling van de gegevens. De aansluiting op de EUDI-Wallet van de gemeenschappelijke bronontsluiting vraagt om integratie met EUDI-standaarden.</p>
+<p>Integratie vindt plaats aan de rand van de gemeenschappelijke bronontsluiting. Voor OOTS vertaalt de Basisinrichting OOTS het Europese berichtenverkeer naar de bronontsluiting-API. Bronhouders kunnen daarnaast de optionele OOTS-adapter gebruiken voor semantische vertaling naar SDG-EDM.<br />
+Voor de EUDI-Wallet vraagt de aansluiting om integratie met EUDI-standaarden, zoals OpenID4VCI voor de uitgifte van attestaties en de ASI-interfaces voor QTSP's.</p>
 <p>Hiervoor zijn de volgende stelselfuncties nodig:</p>
 <table>
 <thead>
@@ -1966,6 +1967,12 @@ sequenceDiagram
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>S07 — Gegevensontsluiting (bronontsluiting-API)</td>
+<td>Zie <a href="#f3-gegevensvoorziening">F3</a></td>
+<td>Zie <a href="#f3-gegevensvoorziening">F3</a></td>
+<td>Zie <a href="#f3-gegevensvoorziening">F3</a></td>
+</tr>
 <tr>
 <td>S08 — OOTS-adapter</td>
 <td>Zie <a href="#f3-gegevensvoorziening">F3</a></td>

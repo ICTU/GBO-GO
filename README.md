@@ -52,7 +52,7 @@ Bijdragen aan deze architectuur kunnen worden gedaan via:
 
 # Contact
 
-Eigenaar: ICTU - project GBO
+Eigenaar: ICTU - programma GBO  
 Contactpersoon: [Govert Claus](mailto:govert.claus@ictu.nl)
 
 

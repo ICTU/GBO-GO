@@ -2571,10 +2571,170 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 </tr>
 </tbody>
 </table></section><section class="print-page" id="change_log" heading-number="3.3"><h1 id="change_log-change-log">Change Log<a class="headerlink" href="#change_log-change-log" title="Permanent link">&para;</a></h1>
+<h2 id="change_log-change-log-v096">Change Log v0.9.6<a class="headerlink" href="#change_log-change-log-v096" title="Permanent link">&para;</a></h2>
+<p>Van: versie <a href="https://ictu.github.io/GBO-GO/0.9.5/">0.9.5</a> (september 2026) → Naar: 0.9.6 (oktober 2026)</p>
+<p>De wijzigingen in v0.9.6 verduidelijken vooral de status van het ontwerp en de verantwoordelijkheden van het programma GBO, bronhouders, kanaalvoorzieningen en bestaande afsprakenstelsels. De voorgestelde oplossingsrichting is niet wezenlijk gewijzigd, maar de terminologie en beschrijving zijn aangescherpt om te voorkomen dat GBO als standaard, stelsel, voorziening, product of toekomstige beheerorganisatie wordt gelezen.</p>
+<h3 id="change_log-samenvatting-in-een-oogopslag">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Onderdeel</th>
+<th>Aard van de wijziging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status en terminologie</td>
+<td>GBO verwijst nu uitsluitend naar het programma. De voorgestelde oplossing heet het <strong>bronontsluitingsmodel</strong> en bestaat uit een <strong>decentrale bronontsluiting</strong> en <strong>kanaalvoorzieningen</strong>.</td>
+</tr>
+<tr>
+<td>Afspraken en beheer</td>
+<td>Duidelijker gemaakt dat het programma voorstellen doet. Aanvullende afspraken worden pas na besluitvorming onderdeel van bestaande standaarden en afsprakenstelsels; beheer moet bij bestaande stelsels en beheerorganisaties worden belegd.</td>
+</tr>
+<tr>
+<td>Verantwoordelijkheden</td>
+<td>Technische handelingen zijn waar mogelijk toegeschreven aan de verantwoordelijke actor of voorziening, in plaats van aan “GBO” als geheel.</td>
+</tr>
+<tr>
+<td>EUDI-Wallet</td>
+<td>De optionele voorziening voor PubEAA-uitgifte en de voorgestelde ASI-provider zijn preciezer afgebakend. De bronhouder blijft verantwoordelijk voor PubEAA-uitgifte en presentatie aan een dienstverlener valt buiten de uitgiftevoorziening.</td>
+</tr>
+<tr>
+<td>OOTS</td>
+<td>Verduidelijkt dat de Basisinrichting OOTS de protocolvertaling verzorgt en dat de optionele OOTS-adapter bedoeld is voor semantische vertaling. Publicatie van bewijsdiensten verloopt via bNC SDG en valt buiten het bronontsluitingsmodel.</td>
+</tr>
+<tr>
+<td>Functies en componenten</td>
+<td>Benamingen als GBO-basis, GBO-configuratie en GBO-vertaallaag zijn vervangen door decentrale bronontsluiting, bronconfiguratie en referentievertaallaag. De beschrijving van autorisatie, integratie en semantiek is aangescherpt.</td>
+</tr>
+<tr>
+<td>Diagrammen en begrippenlijst</td>
+<td>Diagrammen en begrippen zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling. Nieuwe begrippen zijn toegevoegd en vervallen GBO-specifieke begrippen zijn verwijderd.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="change_log-algemeen-en-hoofdstuk-1-inleiding">Algemeen en hoofdstuk 1 — Inleiding<a class="headerlink" href="#change_log-algemeen-en-hoofdstuk-1-inleiding" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Een afzonderlijke paragraaf <strong>Terminologie en status</strong> is toegevoegd.</li>
+<li>Vastgelegd is dat <strong>GBO</strong> uitsluitend verwijst naar het programma Gemeenschappelijke Bronontsluiting. Het programma onderzoekt en beproeft oplossingsrichtingen, doet voorstellen voor aanvullende afspraken en coördineert de ontwikkeling van referentiecomponenten en voorzieningen.</li>
+<li>De in dit globaal ontwerp voorgestelde oplossing heet nu het <strong>bronontsluitingsmodel</strong>. Dit model bestaat uit:<ol>
+<li>een decentrale, herbruikbare bronontsluiting die iedere bronhouder zelf inricht of laat inrichten;</li>
+<li>kanaalvoorzieningen voor EUDI-Wallet, OOTS en private dienstverleners.</li>
+</ol>
+</li>
+<li>Expliciet gemaakt dat het bronontsluitingsmodel zelf geen standaard, voorziening, organisatie of afsprakenstelsel is.</li>
+<li>Verduidelijkt dat voorgestelde aanvullende afspraken pas na besluitvorming onderdeel worden van de aangewezen standaarden en afsprakenstelsels.</li>
+<li>Formuleringen waarin “GBO” zelf gegevens ontsluit, autoriseert, pseudonimiseert of voorzieningen gebruikt, zijn vervangen door formuleringen die de verantwoordelijke actor of voorziening noemen.</li>
+<li>De documenthiërarchie en de verwijzing naar de uitwerking <strong>Semantiek</strong> zijn terminologisch aangescherpt.</li>
+</ul>
+<hr />
+<h3 id="change_log-hoofdstuk-2-voorgesteld-bronontsluitingsmodel">Hoofdstuk 2 — Voorgesteld bronontsluitingsmodel<a class="headerlink" href="#change_log-hoofdstuk-2-voorgesteld-bronontsluitingsmodel" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Gemeenschappelijke bronontsluiting</strong> is als naam voor een onderdeel vervangen door <strong>decentrale bronontsluiting</strong>.</li>
+<li><strong>Centrale voorzieningen</strong> zijn in de oplossingsrichting hernoemd naar <strong>kanaalvoorzieningen</strong>. Daarmee wordt duidelijker dat deze voorzieningen een specifiek kanaal verbinden met de decentrale bronontsluiting.</li>
+<li>Verduidelijkt is dat het programma GBO voorstellen doet voor aanvullingen op GDI- en FDS-afspraken. De eerdere formulering kon de indruk wekken dat deze aanvullingen al door GBO waren vastgesteld.</li>
+<li>De keuzevrijheid voor bronhouders is preciezer geformuleerd: zij mogen de referentie-implementatie gebruiken of een eigen implementatie die aan dezelfde vastgestelde afspraken en standaarden voldoet.</li>
+<li>De scope is aangescherpt: het model ondersteunt de drie kanalen binnen de huidige programmascope; andere kanalen en gegevensstromen vallen daar nu buiten, maar hergebruik blijft mogelijk.</li>
+</ul>
+<h4 id="change_log-figuur-1-het-voorgestelde-bronontsluitingsmodel">Figuur 1 — Het voorgestelde bronontsluitingsmodel<a class="headerlink" href="#change_log-figuur-1-het-voorgestelde-bronontsluitingsmodel" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Het bijschrift <strong>Oplossingsrichting GBO</strong> is vervangen door <strong>Het voorgestelde bronontsluitingsmodel</strong>.</li>
+<li><strong>GBO Basis</strong> is in het diagram vervangen door <strong>Decentrale bronontsluiting</strong>.</li>
+<li><strong>GBO tools</strong> zijn vervangen door de <strong>optionele referentievertaallaag</strong> of <strong>optionele referentiecomponenten</strong>.</li>
+<li>De legenda spreekt nu over componenten voor de decentrale bronontsluiting en voorgestelde kanaalvoorzieningen, in plaats van over voorzieningen die “GBO aanbiedt”.</li>
+<li>Voorbeelden van specifieke overheidsbronnen zijn uit de generieke diagrammen verwijderd.</li>
+</ul>
+<hr />
+<h3 id="change_log-hoofdstuk-3-interactiepatronen">Hoofdstuk 3 — Interactiepatronen<a class="headerlink" href="#change_log-hoofdstuk-3-interactiepatronen" title="Permanent link">&para;</a></h3>
+<h4 id="change_log-patroon-a-eudi-wallet">Patroon A — EUDI-Wallet<a class="headerlink" href="#change_log-patroon-a-eudi-wallet" title="Permanent link">&para;</a></h4>
+<ul>
+<li>De voorziening voor PubEAA-uitgifte is explicieter als <strong>optionele centrale voorziening</strong> beschreven.</li>
+<li>Verduidelijkt is dat de bronhouder juridisch verantwoordelijk blijft voor de uitgifte. Het programma GBO en de voorziening voor PubEAA-uitgifte zijn zelf geen PubEAA-verstrekker.</li>
+<li>De uitgifte via OpenID4VCI is duidelijker onderscheiden van de latere presentatie via OpenID4VP. De voorziening voor PubEAA-uitgifte is niet betrokken bij die presentatie.</li>
+<li>De ASI-provider wordt nu als een <strong>voorgestelde optionele voorziening</strong> beschreven. De verify- en retrievediensten blijven inhoudelijk ongewijzigd.</li>
+<li>Formuleringen over autorisatie, beheer en varianten verwijzen nu naar de ASI-provider, bronhouder of het bronontsluitingsmodel in plaats van generiek naar GBO.</li>
+</ul>
+<h4 id="change_log-patroon-b-oots">Patroon B — OOTS<a class="headerlink" href="#change_log-patroon-b-oots" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Verduidelijkt is dat <strong>OOTS-V</strong> het relevante onderdeel van de Basisinrichting OOTS voor bronhouders is. De onjuiste suggestie dat OOTS-V Nederlandse dienstverleners ondersteunt, is verwijderd.</li>
+<li>De rolverdeling tussen de Basisinrichting OOTS en de OOTS-adapter is aangescherpt:<ul>
+<li>de Basisinrichting OOTS vertaalt het Europese berichtenverkeer naar de bronontsluiting-API;</li>
+<li>de optionele OOTS-adapter voert, als de bronhouder dit configureert, de semantische vertaling naar SDG-EDM uit.</li>
+</ul>
+</li>
+<li>De OOTS-adapter wordt niet langer beschreven als voorziening voor protocolvertaling.</li>
+<li>Toegevoegd is dat bronhouders hun beschikbare bewijzen in het OOTS-netwerk bekendmaken via de dienstverlening van <strong>bNC SDG</strong>. Het bronontsluitingsmodel bevat hiervoor geen voorziening; dit valt buiten de programmascope.</li>
+<li>Het sequentiediagram gebruikt nu consequent <strong>OOTS-adapter (optionele kanaalvoorziening)</strong> en <strong>decentrale bronontsluiting</strong>.</li>
+</ul>
+<h4 id="change_log-patroon-c-private-dienstverleners-dvtp">Patroon C — Private dienstverleners (DvTP)<a class="headerlink" href="#change_log-patroon-c-private-dienstverleners-dvtp" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Handelingen rond toestemming zijn toegeschreven aan het centrale toestemmingsregister en de centrale toestemmingsvoorziening, in plaats van aan GBO als programma.</li>
+<li>De eis van wettelijke verankering is niet langer in de beschrijving van de technische voorziening zelf opgenomen. De juridische voorwaarde voor toestemming als grondslag blijft elders in het document benoemd.</li>
+<li>Het sequentiediagram verwijst nu naar de <strong>centrale toestemmingsvoorziening</strong> in plaats van de <strong>toestemmingsvoorziening GBO</strong>.</li>
+</ul>
+<hr />
+<h3 id="change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties">Hoofdstuk 4 — Generieke functies en stelselfuncties<a class="headerlink" href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h3>
+<ul>
+<li>De generieke functies worden nu beschreven als functies <strong>in het bronontsluitingsmodel</strong>, niet als functies “van GBO”.</li>
+<li>Bij <strong>F1 Identificatie &amp; Authenticatie</strong> is verduidelijkt welke voorzieningen burgers en organisaties identificeren en dat de pseudonimiseervoorziening het BSN pseudonimiseert.</li>
+<li>Bij <strong>F2 Toegang &amp; Interactie</strong> is toegelicht dat één PBAC-implementatie verschillende soorten gegevensverzoeken en toegangsvoorwaarden kan verwerken. De referentie-implementatie is gekoppeld aan <strong>OpenFTV</strong>.</li>
+<li>Bij <strong>F3 Gegevensvoorziening</strong> is de <strong>GBO-vertaallaag</strong> hernoemd naar <strong>referentievertaallaag</strong>. Toegevoegd is dat deze bijvoorbeeld REST of SOAP naar GraphQL kan vertalen.</li>
+<li>De rolverdeling voor OOTS is ook hier aangescherpt: de optionele OOTS-adapter verzorgt de semantische omvorming; de Basisinrichting OOTS verzorgt de Europese verpakking en verbindingen.</li>
+<li>Bij <strong>F4 Semantiek &amp; Configuratie</strong> is verduidelijkt dat het programma beschrijvingen laat opstellen, maar dat het beheer daarvan bij bestaande stelsels en beheerorganisaties moet landen. De bronspecifieke configuratie heet nu <strong>bronconfiguratie</strong>.</li>
+<li>Bij <strong>F6 Grondslag &amp; Beleid</strong> is de algemene controle van grondslag en overige voorwaarden vóór de specifieke controle van toestemming geplaatst.</li>
+<li>Bij <strong>F7 Orkestratie &amp; Integratie</strong> is expliciet gemaakt dat integratie aan de rand van de decentrale bronontsluiting plaatsvindt. Stelselfunctie <strong>S07 Gegevensontsluiting</strong> is aan het overzicht voor deze functie toegevoegd.</li>
+<li>Bij <strong>F8 Beheer &amp; Continuïteit</strong> is de status van S09 aangepast: de standaarden voor logging en autorisatiebeslissingen zijn beschikbaar; afspraken voor ketenbrede toepassing blijven nodig.</li>
+</ul>
+<hr />
+<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Het hoofdstuk spreekt nu over het <strong>overzicht van het bronontsluitingsmodel</strong> in plaats van over de “oplossing van GBO”.</li>
+<li>De drie soorten programmaresultaten zijn preciezer beschreven:<ol>
+<li><strong>Voorstellen voor afspraken en standaarden</strong> — deze gelden pas na vaststelling en borging in bestaande afsprakenstelsels.</li>
+<li><strong>Referentiecomponenten</strong> — optioneel; een functioneel gelijkwaardig alternatief blijft mogelijk.</li>
+<li><strong>Kanaalvoorzieningen</strong> — afhankelijk van de gegevensstroom verplicht of optioneel.</li>
+</ol>
+</li>
+<li><strong>GBO-vertaallaag</strong> en <strong>GBO-configuratie</strong> zijn in het componentenoverzicht vervangen door <strong>referentievertaallaag</strong> en <strong>bronconfiguratie</strong>.</li>
+<li>Voor PubEAA-uitgifte en de ASI-provider is verduidelijkt dat bronhouders ook zonder de voorgestelde voorziening aan hun verantwoordelijkheden kunnen voldoen.</li>
+<li>Bij de nog af te spreken of te realiseren onderdelen worden de betrokken partijen nu expliciet genoemd: programma GBO, afsprakenstelsels, bronhouders en afnemers.</li>
+<li>De beschrijving van de voorziening voor PubEAA-uitgifte beperkt zich tot uitgifte via OpenID4VCI; presentatie via OpenID4VP vindt daarna plaats tussen wallet en dienstverlener.</li>
+<li>De beschrijvingen van FSC, GraphQL, ODRL, BSNk PP en AS4/e-Delivery zijn aangepast zodat de verantwoordelijke actoren en voorzieningen expliciet zijn.</li>
+</ul>
+<h4 id="change_log-figuur-5-het-bronontsluitingsmodel-met-de-voorgestelde-componenten">Figuur 5 — Het bronontsluitingsmodel met de voorgestelde componenten<a class="headerlink" href="#change_log-figuur-5-het-bronontsluitingsmodel-met-de-voorgestelde-componenten" title="Permanent link">&para;</a></h4>
+<ul>
+<li>De figuurtitel en legenda gebruiken de termen <strong>bronontsluitingsmodel</strong>, <strong>decentrale bronontsluiting</strong> en <strong>kanaalvoorzieningen</strong>.</li>
+<li><strong>GBO Basis</strong>, <strong>GBO tools</strong> en specifieke voorbeeldbronnen zijn vervangen door generieke, rolvaste benamingen.</li>
+<li>De toelichting maakt nu duidelijk dat de bronhouder met het decentrale configuratiecomponent de bronspecifieke configuratie van de kanaalvoorzieningen beheert.</li>
+</ul>
+<hr />
+<h3 id="change_log-hoofdstuk-6-impact-op-betrokken-partijen">Hoofdstuk 6 — Impact op betrokken partijen<a class="headerlink" href="#change_log-hoofdstuk-6-impact-op-betrokken-partijen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>De impactbeschrijving is terminologisch aangepast aan het bronontsluitingsmodel.</li>
+<li>Verduidelijkt is dat het programma GBO referentiecomponenten en een referentievertaallaag <strong>laat ontwikkelen</strong>. Bronhouders blijven verantwoordelijk voor de inrichting en mogen functioneel gelijkwaardige alternatieven gebruiken.</li>
+</ul>
+<hr />
+<h3 id="change_log-bijlage-begrippenlijst">Bijlage — Begrippenlijst<a class="headerlink" href="#change_log-bijlage-begrippenlijst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Nieuwe begrippen toegevoegd voor <strong>bronconfiguratie</strong>, <strong>bronontsluitingsmodel</strong>, <strong>decentrale bronontsluiting</strong>, <strong>kanaalvoorziening</strong> en <strong>referentievertaallaag</strong>.</li>
+<li>De GBO-specifieke begrippen <strong>GBO-basis</strong>, <strong>GBO-configuratie</strong>, <strong>GBO-vertaallaag</strong> en <strong>gemeenschappelijke bronontsluiting</strong> zijn verwijderd of vervangen.</li>
+<li>De definitie van <strong>GBO</strong> beschrijft nu uitsluitend het programma en benoemt expliciet wat GBO niet is.</li>
+<li>De definitie van <strong>OOTS-adapter</strong> beperkt de functie tot de optionele semantische vertaling; protocolvertaling is geen functie van deze adapter.</li>
+<li>Definities van onder meer FDS, GraphQL, referentiecomponenten, kanalen en toestemming zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling.</li>
+</ul>
+<hr />
+<h3 id="change_log-documentpresentatie-en-navigatie">Documentpresentatie en navigatie<a class="headerlink" href="#change_log-documentpresentatie-en-navigatie" title="Permanent link">&para;</a></h3>
+<ul>
+<li>De printversie bevat nu een inhoudsopgave zonder dubbele hoofdstuknummering.</li>
+<li>De koptekst van de printversie is gecorrigeerd naar <strong>GBO - Globaal Ontwerp</strong>.</li>
+<li>De navigatie verwijst nu rechtstreeks naar het afzonderlijke <strong>Technisch Ontwerp</strong>.</li>
+</ul>
+<hr />
 <h2 id="change_log-change-log-v095">Change Log v0.9.5<a class="headerlink" href="#change_log-change-log-v095" title="Permanent link">&para;</a></h2>
 <p>Van: versie <a href="https://ictu.github.io/GBO-GO/0.9.4/">0.9.4</a> (augustus 2026) → Naar: 0.9.5 (september 2026)</p>
 <p>De wijzigingen in v0.9.5 verduidelijken vooral de oplossingsrichting en de verantwoordelijkheidsverdeling. De inhoud van de interactiepatronen, generieke functies, stelselfuncties en impact op betrokken partijen is niet wezenlijk gewijzigd.</p>
-<h3 id="change_log-samenvatting-in-een-oogopslag">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-samenvatting-in-een-oogopslag_1">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2666,7 +2826,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <li>De toelichting onder het diagram is aangepast aan dit onderscheid.</li>
 </ul>
 <hr />
-<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten_1">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten_1" title="Permanent link">&para;</a></h3>
 <h4 id="change_log-figuur-5-overzicht-voorgestelde-oplossing">Figuur 5 — Overzicht voorgestelde oplossing<a class="headerlink" href="#change_log-figuur-5-overzicht-voorgestelde-oplossing" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Ook in de gedetailleerde overzichtsplaat is een afzonderlijke begrenzing <strong>Bronhouder</strong> toegevoegd rondom de overheidsbron en GBO-basis.</li>
@@ -2678,7 +2838,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <h2 id="change_log-change-log-v094">Change Log v0.9.4<a class="headerlink" href="#change_log-change-log-v094" title="Permanent link">&para;</a></h2>
 <p>Van: versie <a href="https://ictu.github.io/GBO-GO/0.9.3/">0.9.3</a> (augustus 2026) → Naar: 0.9.4 (augustus 2026)</p>
 <p>v0.9.4 bevat voornamelijk verduidelijkingen naar aanleiding van reviewfeedback op v0.9.3. De oplossingsrichting zelf is niet gewijzigd, maar de status, keuzevrijheid en verplichting van onderdelen is explicieter beschreven.</p>
-<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten_1">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten_1" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten_2">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Expliciet gemaakt dat GBO <strong>drie soorten resultaten</strong> levert:<ol>
 <li><strong>Afspraken en standaarden</strong> — verplicht voor deelnemers waarop deze afspraken van toepassing zijn.</li>
@@ -2715,7 +2875,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <p><strong>Van:</strong> versie <a href="https://ictu.github.io/GBO-GO/0.9.2/">0.9.2</a> (juni 2026) → <strong>Naar:</strong> 0.9.3 (augustus 2026)</p>
 <p>Dit is geen uitputtende opsomming van elke los gewijzigde zin, maar een overzicht van wat er conceptueel/structureel is veranderd, per hoofdstuk/paragraaf.</p>
 <hr />
-<h3 id="change_log-samenvatting-in-een-oogopslag_1">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag_1" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-samenvatting-in-een-oogopslag_2">Samenvatting in één oogopslag<a class="headerlink" href="#change_log-samenvatting-in-een-oogopslag_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2799,8 +2959,8 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 </ul>
 <p><span style='font-size: small;'><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></span></p>
 <hr />
-<h3 id="change_log-hoofdstuk-3-interactiepatronen">Hoofdstuk 3 — Interactiepatronen<a class="headerlink" href="#change_log-hoofdstuk-3-interactiepatronen" title="Permanent link">&para;</a></h3>
-<h4 id="change_log-patroon-a-eudi-wallet">Patroon A (EUDI-Wallet)<a class="headerlink" href="#change_log-patroon-a-eudi-wallet" title="Permanent link">&para;</a></h4>
+<h3 id="change_log-hoofdstuk-3-interactiepatronen_1">Hoofdstuk 3 — Interactiepatronen<a class="headerlink" href="#change_log-hoofdstuk-3-interactiepatronen_1" title="Permanent link">&para;</a></h3>
+<h4 id="change_log-patroon-a-eudi-wallet_1">Patroon A (EUDI-Wallet)<a class="headerlink" href="#change_log-patroon-a-eudi-wallet_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Nieuwe zin: PubEAA's en QEAA's hebben <strong>juridisch dezelfde betekenis</strong>.</li>
 <li>De rolbeschrijving van GBO is verduidelijkt: GBO ondersteunt de PubEAA-uitgevende instantie én de rol van <strong>Authentic Source Interface Provider (ASI-P)</strong>, die zowel een <em>verify</em>- als een <em>retrieve</em>-dienst kan bieden. De oude tekst met twee losse "varianten" (burger contracteert QTSP / bronhouder contracteert QTSP) is vervangen door deze bredere ASI-P-beschrijving.</li>
@@ -2809,7 +2969,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <li>Kader "Afstemming lopend" is verbreed: spreekt nu over "alle mogelijke varianten" i.p.v. alleen PubEAA vs. QTSP.</li>
 </ul>
 <p><span style='font-size: small;'><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></span></p>
-<h4 id="change_log-patroon-b-oots">Patroon B (OOTS)<a class="headerlink" href="#change_log-patroon-b-oots" title="Permanent link">&para;</a></h4>
+<h4 id="change_log-patroon-b-oots_1">Patroon B (OOTS)<a class="headerlink" href="#change_log-patroon-b-oots_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Grotendeels herschreven en flink uitgebreid.</strong> Oude tekst (RINIS/BZK als nationaal OOTS-toegangspunt) is vervangen door een uitgebreidere beschrijving:</li>
 <li>Sectorale aansluitingen (bv. EMREX-brug) en eigen aansluitingen worden nu genoemd als alternatief voor de Basisinrichting OOTS (buiten scope van dit ontwerp).</li>
@@ -2830,7 +2990,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 </ul>
 <p><span style='font-size: small;'><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></span></p>
 <hr />
-<h3 id="change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties">Hoofdstuk 4 — Generieke functies en stelselfuncties<a class="headerlink" href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties_1">Hoofdstuk 4 — Generieke functies en stelselfuncties<a class="headerlink" href="#change_log-hoofdstuk-4-generieke-functies-en-stelselfuncties_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Nieuwe tabel</strong> die de generieke functies koppelt aan de vier <strong>GDI-domeinen</strong> (Toegang, Interactie, Gegevensuitwisseling, Infrastructuur), met een toelichtende alinea over hoe dit aansluit bij de NORA/GDI-architectuur en vergelijkbare indelingen (bv. Gezondheidsinformatiestelsel). Dit ontbrak volledig in 0.9.2.</li>
 <li>Elke generieke functie (<strong>F1 t/m F8</strong>) heeft nu een <strong>uitgebreide, inhoudelijke inleidende alinea</strong> i.p.v. de korte cursieve one-liner uit 0.9.2. Bijvoorbeeld:</li>
@@ -2851,7 +3011,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 </ul>
 <p><span style='font-size: small;'><a href="#change_log-samenvatting-in-een-oogopslag">terug naar overzicht</a></span></p>
 <hr />
-<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten_2">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten_2" title="Permanent link">&para;</a></h3>
+<h3 id="change_log-hoofdstuk-5-te-ontwikkelen-componenten_3">Hoofdstuk 5 — Te ontwikkelen componenten<a class="headerlink" href="#change_log-hoofdstuk-5-te-ontwikkelen-componenten_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Figuur 5 (Overzichtsplaat)</strong> is inhoudelijk het meest veranderde onderdeel:</li>
 <li>Volledig <strong>nieuwe kleurcodering met legenda</strong>: groen = generieke decentrale bronontsluiting, paars = centrale voorzieningen (optioneel, bronhouder mag alternatief kiezen), rood = centrale voorzieningen (verplicht bij deze gegevensstroom), grijs = bestaande voorzieningen. In 0.9.2 was er alleen een generiek onderscheid tussen "gbo"- en "generieke" kleur zonder deze semantiek.</li>

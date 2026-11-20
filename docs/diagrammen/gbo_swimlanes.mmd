@@ -13,11 +13,11 @@ flowchart LR
   subgraph bronhouder["Bronhouder"]
     direction LR
         bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")]
-    subgraph gbo["GBO Basis"]
+    subgraph gbo["Decentrale bronontsluiting"]
       direction TB
           fsc_config("configuratie<br/>(services/mappings/etc.)")
           fsc("FSC / GraphQL / PBAC<br/>(generieke bronontsluiting)")
-          fsc_tools("GBO tools<br/>(vertaallaag)")
+          fsc_tools("Referentievertaallaag<br/>(optioneel)")
     end
   end
   subgraph eudi["EUDI-Wallet kanaal"]

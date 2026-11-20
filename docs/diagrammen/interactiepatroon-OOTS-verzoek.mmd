@@ -14,7 +14,7 @@ sequenceDiagram
     participant BRG as Burger<br/>(rechthebbende)
     participant EU as EU dienst<br/>(OOTS)
     participant RINIS as Basisinrichting OOTS<br />(BZK/RINIS)
-    participant GBO as OOTS adapter<br/>(GBO voorziening)
+    participant ADAPTER as OOTS-adapter<br/>(optionele kanaalvoorziening)
     participant BRH as Bron<br/>(BRP / BD / …)
 
     rect rgb(250, 241, 251)
@@ -29,28 +29,28 @@ sequenceDiagram
     end
 
     rect rgb(250, 238, 218)
-        Note over RINIS,GBO: Doorzetten naar bron via GBO
-        RINIS->>GBO: OOTS-payload (GraphQL)
+        Note over RINIS,ADAPTER: Doorzetten naar bron via OOTS-adapter
+        RINIS->>ADAPTER: OOTS-payload (GraphQL)
         Note over RINIS: eDelivery → GraphQL ontkoppeling
     end
 
     rect rgb(225, 245, 238)
-        Note over GBO: Semantische mapping (optioneel)<br/>SDG Evidence type ↔ Bron-formaat
+        Note over ADAPTER: Semantische mapping (optioneel)<br/>SDG Evidence type ↔ Bron-formaat
     end
 
     rect rgb(225, 245, 238)
-        Note over GBO,BRH: Bronontsluiting (GBO generieke API)
-        GBO->>BRH: API-aanroep (GraphQL)
-        BRH->>GBO: Gegevens (Bron-formaat)
+        Note over ADAPTER,BRH: Decentrale bronontsluiting
+        ADAPTER->>BRH: API-aanroep (GraphQL)
+        BRH->>ADAPTER: Gegevens (Bron-formaat)
     end
 
     rect rgb(225, 245, 238)
-        Note over GBO: Semantische mapping<br/>Bron-formaat ↔ SDG Evidence type
+        Note over ADAPTER: Semantische mapping<br/>Bron-formaat ↔ SDG Evidence type
     end
 
     rect rgb(250, 238, 218)
-        Note over GBO,RINIS: Terugkoppeling naar OOTS-basisinrichting
-        GBO->>RINIS: Evidence Response (SDG Evidence type formaat)
+        Note over ADAPTER,RINIS: Terugkoppeling naar OOTS-basisinrichting
+        ADAPTER->>RINIS: Evidence Response (SDG Evidence type formaat)
         Note over RINIS: GraphQL → eDelivery/AS4 vertaling
     end
 

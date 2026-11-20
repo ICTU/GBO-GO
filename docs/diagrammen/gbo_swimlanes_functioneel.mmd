@@ -1,9 +1,9 @@
 flowchart LR
-  subgraph gbo["GBO Basis"]
+  subgraph gbo["Decentrale bronontsluiting"]
     direction TB
         fsc_pap("Beleidsregels")
         fsc("Standaard koppelvlak<br/>Generieke bronontsluiting<br/>Configurabele autorisatie")
-        fsc_tools("GBO tools<br/>(ondersteuning bronhouders)")
+        fsc_tools("Optionele referentiecomponenten<br/>(ondersteuning bronhouders)")
   end
   subgraph eudi["EUDI-Wallet"]
     direction LR
@@ -27,7 +27,7 @@ flowchart LR
 
   fsc_pap --- fsc
   fsc --- fsc_tools
-  bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")] --- gbo
+  bron[("Overheidsbronnen")] --- gbo
   eudi_asi --- eudi_qeaa
   eudi_qeaa --- eudi_wallet
   gbo --- eudi_asi & eudi_pubeaa & oots_adapter & dvtp_afnemer

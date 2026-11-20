@@ -869,7 +869,7 @@
 
 
 <h1 id="begrippenlijst">Begrippenlijst<a class="headerlink" href="#begrippenlijst" title="Permanent link">&para;</a></h1>
-<p>In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal ontwerp van Gemeenschappelijke Bronontsluiting worden gebruikt. De uitleg beschrijft wat het begrip binnen de context van GBO betekent. Het betreft daarmee niet altijd een volledige juridische of technische definitie.</p>
+<p>In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal ontwerp van het programma Gemeenschappelijke Bronontsluiting (GBO) worden gebruikt. De uitleg beschrijft wat het begrip binnen de context van het voorgestelde bronontsluitingsmodel betekent. Het betreft daarmee niet altijd een volledige juridische of technische definitie.</p>
 <table>
 <thead>
 <tr>
@@ -924,7 +924,7 @@
 </tr>
 <tr>
 <td id="begrip-authzen"><strong>AuthZEN</strong></td>
-<td>Gestandaardiseerd koppelvlak van de OpenID Foundation voor de communicatie tussen een <a href="#begrip-pep">PEP</a> en een <a href="#begrip-pdp">PDP</a>. AuthZEN maakt het mogelijk om onderdelen van de autorisatieketen onafhankelijk van elkaar te implementeren. GBO gebruikt hiervoor het Nederlandse overheidsprofiel <em>NLgov Profile for OpenID AuthZEN Authorization API</em>.</td>
+<td>Gestandaardiseerd koppelvlak van de OpenID Foundation voor de communicatie tussen een <a href="#begrip-pep">PEP</a> en een <a href="#begrip-pdp">PDP</a>. AuthZEN maakt het mogelijk om onderdelen van de autorisatieketen onafhankelijk van elkaar te implementeren. Het bronontsluitingsmodel gebruikt hiervoor het Nederlandse overheidsprofiel <em>NLgov Profile for OpenID AuthZEN Authorization API</em>.</td>
 </tr>
 <tr>
 <td id="begrip-autorisatie"><strong>Autorisatie</strong></td>
@@ -944,7 +944,15 @@
 </tr>
 <tr>
 <td id="begrip-begrippenkader"><strong>Begrippenkader</strong></td>
-<td>Gestructureerde verzameling begrippen met definities en onderlinge relaties. Het begrippenkader vormt een gemeenschappelijke basis voor de betekenis van gegevens binnen <a href="#begrip-gbo">GBO</a>.</td>
+<td>Gestructureerde verzameling begrippen met definities en onderlinge relaties. Het begrippenkader vormt een gemeenschappelijke basis voor de betekenis van gegevens binnen het <a href="#begrip-bronontsluitingsmodel">bronontsluitingsmodel</a>.</td>
+</tr>
+<tr>
+<td id="begrip-bronconfiguratie"><strong>Bronconfiguratie</strong></td>
+<td>Bronspecifieke configuratie waarmee een <a href="#begrip-bronhouder">bronhouder</a> vastlegt hoe <a href="#begrip-kanaalvoorziening">kanaalvoorzieningen</a> voor zijn bron moeten functioneren. Deze configuratie bevat onder meer informatie over beschikbare diensten en <a href="#begrip-semantische-mapping">semantische mappings</a> en wordt beheerd met het decentrale configuratiecomponent.</td>
+</tr>
+<tr>
+<td id="begrip-bronontsluitingsmodel"><strong>Bronontsluitingsmodel</strong></td>
+<td>De in dit globaal ontwerp voorgestelde samenhang van een <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a>, <a href="#begrip-kanaalvoorziening">kanaalvoorzieningen</a>, afspraken, standaarden en referentiecomponenten. Het model is zelf geen standaard, voorziening, organisatie of <a href="#begrip-stelsel">stelsel</a>.</td>
 </tr>
 <tr>
 <td id="begrip-bronhouder"><strong>Bronhouder</strong></td>
@@ -952,7 +960,7 @@
 </tr>
 <tr>
 <td id="begrip-bronontsluiting-api"><strong>Bronontsluiting-API</strong></td>
-<td>Generiek koppelvlak waarmee een <a href="#begrip-bronhouder">bronhouder</a> gegevens volgens de afspraken van de <a href="#begrip-gemeenschappelijke-bronontsluiting">gemeenschappelijke bronontsluiting</a> beschikbaar stelt. Eén API kan verschillende gegevensverzoeken en <a href="#begrip-gegevensstroom">gegevensstromen</a> verwerken.</td>
+<td>Generiek koppelvlak waarmee een <a href="#begrip-bronhouder">bronhouder</a> gegevens via de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a> beschikbaar stelt. Eén API kan verschillende gegevensverzoeken en <a href="#begrip-gegevensstroom">gegevensstromen</a> verwerken.</td>
 </tr>
 <tr>
 <td id="begrip-bsn"><strong>BSN</strong></td>
@@ -968,7 +976,7 @@
 </tr>
 <tr>
 <td id="begrip-centrale-voorziening"><strong>Centrale voorziening</strong></td>
-<td>Voorziening die centraal beschikbaar wordt gesteld om een <a href="#begrip-kanaal">kanaal</a> met de <a href="#begrip-gemeenschappelijke-bronontsluiting">gemeenschappelijke bronontsluiting</a> te verbinden. Deze voorzieningen worden centraal aangeboden zodat bronhouders deze niet ieder afzonderlijk hoeven te ontwikkelen. Of gebruik verplicht of optioneel is, hangt af van de betreffende <a href="#begrip-gegevensstroom">gegevensstroom</a>.</td>
+<td>Voorziening die centraal beschikbaar wordt gesteld, bijvoorbeeld om een <a href="#begrip-kanaal">kanaal</a> met de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a> te verbinden. Deze voorzieningen worden centraal aangeboden zodat bronhouders deze niet ieder afzonderlijk hoeven te ontwikkelen. Of gebruik verplicht of optioneel is, hangt af van de betreffende <a href="#begrip-gegevensstroom">gegevensstroom</a>.</td>
 </tr>
 <tr>
 <td id="begrip-consent-id"><strong>Consent-id</strong></td>
@@ -984,11 +992,15 @@
 </tr>
 <tr>
 <td id="begrip-dataminimalisatie"><strong>Dataminimalisatie</strong></td>
-<td>Principe dat niet meer gegevens worden opgevraagd of verstrekt dan noodzakelijk is voor het doel van een dienst. GBO ondersteunt dit onder meer door selectieve gegevensuitvraag.</td>
+<td>Principe dat niet meer gegevens worden opgevraagd of verstrekt dan noodzakelijk is voor het doel van een dienst. Het bronontsluitingsmodel ondersteunt dit onder meer door selectieve gegevensuitvraag.</td>
 </tr>
 <tr>
 <td id="begrip-dcat-ap-nl"><strong>DCAT-AP-NL</strong></td>
-<td>Nederlands toepassingsprofiel van de Europese Data Catalog Vocabulary. Binnen GBO wordt DCAT-AP-NL gebruikt voor de gestandaardiseerde beschrijving en vindbaarheid van datasets en gegevensdiensten.</td>
+<td>Nederlands toepassingsprofiel van de Europese Data Catalog Vocabulary. Binnen het bronontsluitingsmodel wordt DCAT-AP-NL gebruikt voor de gestandaardiseerde beschrijving en vindbaarheid van datasets en gegevensdiensten.</td>
+</tr>
+<tr>
+<td id="begrip-decentrale-bronontsluiting"><strong>Decentrale bronontsluiting</strong></td>
+<td>De herbruikbare bronontsluiting die een <a href="#begrip-bronhouder">bronhouder</a> zelf inricht of door een leverancier laat inrichten. Zij omvat onder meer de generieke bronontsluiting, configureerbare autorisatie, beleidsregels en de bronconfiguratie.</td>
 </tr>
 <tr>
 <td id="begrip-dienstencatalogus"><strong>Dienstencatalogus</strong></td>
@@ -1044,7 +1056,7 @@
 </tr>
 <tr>
 <td id="begrip-eudi-wallet"><strong>EUDI-Wallet</strong></td>
-<td>Europese digitale identiteitswallet waarin een burger identificatiegegevens en digitale <a href="#begrip-attestatie">attestaties</a> kan ontvangen, bewaren en aan dienstverleners kan presenteren. De EUDI-Wallet vormt één van de <a href="#begrip-kanaal">kanalen</a> waarop GBO zich richt.</td>
+<td>Europese digitale identiteitswallet waarin een burger identificatiegegevens en digitale <a href="#begrip-attestatie">attestaties</a> kan ontvangen, bewaren en aan dienstverleners kan presenteren. De EUDI-Wallet vormt één van de <a href="#begrip-kanaal">kanalen</a> binnen de scope van het programma GBO.</td>
 </tr>
 <tr>
 <td id="begrip-evidence-request"><strong>Evidence Request</strong></td>
@@ -1060,7 +1072,7 @@
 </tr>
 <tr>
 <td id="begrip-fds"><strong>FDS</strong></td>
-<td>Federatief Datastelsel. Afsprakenstelsel waarmee publieke organisaties op basis van gemeenschappelijke technische, semantische, juridische en organisatorische afspraken gegevens kunnen vinden, delen en gebruiken. GBO gebruikt en vult waar nodig afspraken en standaarden van het FDS aan.</td>
+<td>Federatief Datastelsel. Afsprakenstelsel waarmee publieke organisaties op basis van gemeenschappelijke technische, semantische, juridische en organisatorische afspraken gegevens kunnen vinden, delen en gebruiken. Het bronontsluitingsmodel gebruikt afspraken en standaarden van het FDS. Het programma GBO doet waar nodig voorstellen voor aanvullingen.</td>
 </tr>
 <tr>
 <td id="begrip-fsc"><strong>FSC</strong></td>
@@ -1080,31 +1092,15 @@
 </tr>
 <tr>
 <td id="begrip-gbo"><strong>GBO</strong></td>
-<td>Gemeenschappelijke Bronontsluiting. Het programma dat vorm geeft aan het geheel van afspraken, standaarden, voorzieningen en ondersteunende componenten waarmee overheidsbronnen op een uniforme en herbruikbare manier voor verschillende gegevensstromen en toepassingen kunnen worden ontsloten. GBO wordt geen nieuw stelsel of organisatie - alle ontwikkelingen worden geborgd in bestaande stelsels en organisaties.</td>
-</tr>
-<tr>
-<td id="begrip-gbo-basis"><strong>GBO-basis</strong></td>
-<td>Aanduiding in het globaal ontwerp voor het generieke, decentrale deel van GBO bij de bronhouder. Hieronder vallen onder meer de generieke bronontsluiting, configureerbare autorisatie, beleidsregels en ondersteuning voor bronhouders.</td>
-</tr>
-<tr>
-<td id="begrip-gbo-configuratie"><strong>GBO-configuratie</strong></td>
-<td>Bronspecifieke configuratie waarmee een <a href="#begrip-bronhouder">bronhouder</a> vastlegt hoe centrale GBO-voorzieningen voor zijn bron moeten functioneren. Deze configuratie bevat onder meer informatie over beschikbare diensten en <a href="#begrip-semantische-mapping">semantische mappings</a> en wordt beheerd met het decentrale configuratiecomponent.</td>
-</tr>
-<tr>
-<td id="begrip-gbo-vertaallaag"><strong>GBO-vertaallaag</strong></td>
-<td>Optionele <a href="#begrip-referentiecomponent">referentiecomponent</a> voor bronhouders die niet rechtstreeks het binnen GBO afgesproken koppelvlak of gegevensformaat kunnen aanbieden. De vertaallaag zet een bestaand koppelvlak of formaat om naar het door GBO gebruikte koppelvlak of formaat.</td>
-</tr>
-<tr>
-<td id="begrip-gemeenschappelijke-bronontsluiting"><strong>Gemeenschappelijke bronontsluiting</strong></td>
-<td>Het volgens gemeenschappelijke afspraken, standaarden en koppelvlakken beschikbaar stellen van gegevens door een <a href="#begrip-bronhouder">bronhouder</a>, zodat één ontsluiting voor verschillende typen afnemers, <a href="#begrip-gegevensstroom">gegevensstromen</a> en <a href="#begrip-kanaal">kanalen</a> kan worden hergebruikt. De bronhouder richt deze ontsluiting zelf in of laat dit door een leverancier doen.</td>
+<td>Programma Gemeenschappelijke Bronontsluiting. Het programma onderzoekt en beproeft oplossingsrichtingen, doet voorstellen voor aanvullende afspraken en coördineert de ontwikkeling van referentiecomponenten en voorzieningen. GBO is niet de naam van een standaard, stelsel, voorziening, product of toekomstige beheerorganisatie.</td>
 </tr>
 <tr>
 <td id="begrip-generieke-bronontsluiting"><strong>Generieke bronontsluiting</strong></td>
-<td>Technische en functionele aanduiding voor het generieke deel van de bronontsluiting bij een <a href="#begrip-bronhouder">bronhouder</a>. Deze ondersteunt het hergebruik van dezelfde ontsluiting voor verschillende gegevensverzoeken en vormt de basis van de <a href="#begrip-gemeenschappelijke-bronontsluiting">gemeenschappelijke bronontsluiting</a>.</td>
+<td>Technische en functionele aanduiding voor het generieke deel van de bronontsluiting bij een <a href="#begrip-bronhouder">bronhouder</a>. Deze ondersteunt het hergebruik van dezelfde ontsluiting voor verschillende gegevensverzoeken en vormt de technische basis van de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a>.</td>
 </tr>
 <tr>
 <td id="begrip-generieke-functie"><strong>Generieke functie</strong></td>
-<td>Iets wat meerdere organisaties op een vergelijkbare manier moeten kunnen uitvoeren. Binnen GBO beschrijft een generieke functie de benodigde functionaliteit, zonder direct een specifieke technische voorziening voor te schrijven.</td>
+<td>Iets wat meerdere organisaties op een vergelijkbare manier moeten kunnen uitvoeren. Binnen het bronontsluitingsmodel beschrijft een generieke functie de benodigde functionaliteit, zonder direct een specifieke technische voorziening voor te schrijven.</td>
 </tr>
 <tr>
 <td id="begrip-gegevensset"><strong>Gegevensset</strong></td>
@@ -1116,7 +1112,7 @@
 </tr>
 <tr>
 <td id="begrip-graphql"><strong>GraphQL</strong></td>
-<td>Bevragingsprotocol waarmee een <a href="#begrip-afnemer">afnemer</a> gericht kan aangeven welke gegevens nodig zijn. Binnen GBO wordt GraphQL gebruikt als mechanisme voor selectieve bevraging en <a href="#begrip-dataminimalisatie">dataminimalisatie</a> bij de bronontsluiting.</td>
+<td>Bevragingsprotocol waarmee een <a href="#begrip-afnemer">afnemer</a> gericht kan aangeven welke gegevens nodig zijn. Binnen het bronontsluitingsmodel wordt GraphQL voorgesteld als mechanisme voor selectieve bevraging en <a href="#begrip-dataminimalisatie">dataminimalisatie</a> bij de bronontsluiting.</td>
 </tr>
 <tr>
 <td id="begrip-grondslag"><strong>Grondslag</strong></td>
@@ -1140,7 +1136,11 @@
 </tr>
 <tr>
 <td id="begrip-kanaal"><strong>Kanaal</strong></td>
-<td>Route of toepassingscontext waarlangs gegevens uit de <a href="#begrip-gemeenschappelijke-bronontsluiting">gemeenschappelijke bronontsluiting</a> voor een bepaalde categorie toepassingen of afnemers beschikbaar worden gesteld. GBO richt zich op de kanalen EUDI-Wallet, OOTS en private dienstverleners (DvTP). De gemeenschappelijke bronontsluiting kan in de toekomst ook door andere kanalen worden hergebruikt.</td>
+<td>Route of toepassingscontext waarlangs gegevens uit de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a> voor een bepaalde categorie toepassingen of afnemers beschikbaar worden gesteld. Het programma GBO richt zich op de kanalen EUDI-Wallet, OOTS en private dienstverleners (DvTP). De decentrale bronontsluiting kan in de toekomst ook door andere kanalen worden hergebruikt.</td>
+</tr>
+<tr>
+<td id="begrip-kanaalvoorziening"><strong>Kanaalvoorziening</strong></td>
+<td>Centrale of gemeenschappelijke voorziening die een specifiek <a href="#begrip-kanaal">kanaal</a> verbindt met de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a>. Voorbeelden zijn de OOTS-adapter, de ASI-provider, de voorziening voor PubEAA-uitgifte en de toestemmingsvoorziening.</td>
 </tr>
 <tr>
 <td id="begrip-ldv"><strong>LDV</strong></td>
@@ -1188,11 +1188,11 @@
 </tr>
 <tr>
 <td id="begrip-oots"><strong>OOTS</strong></td>
-<td>Once-Only Technical System. Europees technisch <a href="#begrip-stelsel">stelsel</a> voor grensoverschrijdende uitwisseling van bewijsgegevens voor procedures die onder de Single Digital Gateway-verordening vallen. OOTS vormt één van de <a href="#begrip-kanaal">kanalen</a> waarop GBO zich richt.</td>
+<td>Once-Only Technical System. Europees technisch <a href="#begrip-stelsel">stelsel</a> voor grensoverschrijdende uitwisseling van bewijsgegevens voor procedures die onder de Single Digital Gateway-verordening vallen. OOTS vormt één van de <a href="#begrip-kanaal">kanalen</a> binnen de scope van het programma GBO.</td>
 </tr>
 <tr>
 <td id="begrip-oots-adapter"><strong>OOTS-adapter</strong></td>
-<td><a href="#begrip-centrale-voorziening">Centrale voorziening</a> die de <a href="#begrip-gemeenschappelijke-bronontsluiting">gemeenschappelijke bronontsluiting</a> aansluit op de <a href="#begrip-basisinrichting-oots">Basisinrichting OOTS</a>. De adapter kan, indien geconfigureerd, semantische vertaling naar het door OOTS verwachte gegevensmodel uitvoeren.</td>
+<td><a href="#begrip-kanaalvoorziening">Kanaalvoorziening</a> die de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a> aansluit op de <a href="#begrip-basisinrichting-oots">Basisinrichting OOTS</a>. De adapter kan, indien geconfigureerd, semantische vertaling naar het door OOTS verwachte gegevensmodel uitvoeren.</td>
 </tr>
 <tr>
 <td id="begrip-oots-edm"><strong>OOTS-EDM</strong></td>
@@ -1236,7 +1236,7 @@
 </tr>
 <tr>
 <td id="begrip-pi"><strong>PI</strong></td>
-<td>Polymorfe identiteit die binnen <a href="#begrip-bsnk-pp">BSNk PP</a> wordt gebruikt als tussenrepresentatie van een identiteit. Binnen GBO is deze identiteit afgeleid van het <a href="#begrip-bsn">BSN</a>.</td>
+<td>Polymorfe identiteit die binnen <a href="#begrip-bsnk-pp">BSNk PP</a> wordt gebruikt als tussenrepresentatie van een identiteit. Binnen het DvTP-kanaal is deze identiteit afgeleid van het <a href="#begrip-bsn">BSN</a>.</td>
 </tr>
 <tr>
 <td id="begrip-pid"><strong>PID</strong></td>
@@ -1292,11 +1292,15 @@
 </tr>
 <tr>
 <td id="begrip-referentiecomponent"><strong>Referentiecomponent</strong></td>
-<td>Door of namens GBO beschikbaar gestelde technische implementatie waarmee een deel van de GBO-afspraken kan worden gerealiseerd. Het gebruik van een referentiecomponent is optioneel: een bronhouder mag ook een functioneel gelijkwaardig alternatief gebruiken dat aan dezelfde afspraken en standaarden voldoet.</td>
+<td>Door of namens het programma GBO beschikbaar gestelde technische implementatie waarmee een deel van het bronontsluitingsmodel kan worden gerealiseerd. Het gebruik van een referentiecomponent is optioneel: een bronhouder mag ook een functioneel gelijkwaardig alternatief gebruiken dat aan dezelfde afspraken en standaarden voldoet.</td>
 </tr>
 <tr>
 <td id="begrip-referentie-implementatie"><strong>Referentie-implementatie</strong></td>
-<td>Werkende voorbeeldimplementatie van de <a href="#begrip-gemeenschappelijke-bronontsluiting">gemeenschappelijke bronontsluiting</a>. Bronhouders kunnen deze gebruiken, maar mogen ook een eigen oplossing toepassen die aan dezelfde afspraken en standaarden voldoet.</td>
+<td>Werkende voorbeeldimplementatie van de <a href="#begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a>. Bronhouders kunnen deze gebruiken, maar mogen ook een eigen implementatie toepassen die aan dezelfde afspraken en standaarden voldoet.</td>
+</tr>
+<tr>
+<td id="begrip-referentievertaallaag"><strong>Referentievertaallaag</strong></td>
+<td>Optionele <a href="#begrip-referentiecomponent">referentiecomponent</a> voor bronhouders die niet rechtstreeks het afgesproken koppelvlak of gegevensformaat kunnen aanbieden. De laag vertaalt een bestaand koppelvlak of formaat naar het koppelvlak of formaat van de decentrale bronontsluiting.</td>
 </tr>
 <tr>
 <td id="begrip-regrep"><strong>RegRep</strong></td>
@@ -1336,7 +1340,7 @@
 </tr>
 <tr>
 <td id="begrip-semantische-mapping"><strong>Semantische mapping</strong></td>
-<td>Vastgelegde vertaling tussen begrippen en gegevenselementen uit verschillende <a href="#begrip-informatiemodel">informatiemodellen</a>. Binnen GBO wordt dit onder meer gebruikt om brongegevens om te zetten naar een voor een specifiek kanaal vereist model of attestatieschema.</td>
+<td>Vastgelegde vertaling tussen begrippen en gegevenselementen uit verschillende <a href="#begrip-informatiemodel">informatiemodellen</a>. Binnen het bronontsluitingsmodel wordt dit onder meer gebruikt om brongegevens om te zetten naar een voor een specifiek kanaal vereist model of attestatieschema.</td>
 </tr>
 <tr>
 <td id="begrip-shacl"><strong>SHACL</strong></td>
@@ -1364,7 +1368,7 @@
 </tr>
 <tr>
 <td id="begrip-toestemming"><strong>Toestemming</strong></td>
-<td>Vrije, specifieke, geïnformeerde en ondubbelzinnige wilsuiting van een burger waarmee verwerking van persoonsgegevens voor een bepaald doel wordt toegestaan. Binnen GBO wordt toestemming alleen als <a href="#begrip-grondslag">grondslag</a> gebruikt wanneer wet- en regelgeving dit mogelijk maakt.</td>
+<td>Vrije, specifieke, geïnformeerde en ondubbelzinnige wilsuiting van een burger waarmee verwerking van persoonsgegevens voor een bepaald doel wordt toegestaan. Binnen het DvTP-kanaal wordt toestemming alleen als <a href="#begrip-grondslag">grondslag</a> gebruikt wanneer wet- en regelgeving dit mogelijk maakt.</td>
 </tr>
 <tr>
 <td id="begrip-toestemmingsportaal"><strong>Toestemmingsportaal</strong></td>

@@ -2024,7 +2024,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 </tr>
 </tbody>
 </table></section><section class="print-page" id="bijlage_begrippenlijst" heading-number="3.2"><h1 id="bijlage_begrippenlijst-begrippenlijst">Begrippenlijst<a class="headerlink" href="#bijlage_begrippenlijst-begrippenlijst" title="Permanent link">&para;</a></h1>
-<p>In deze bijlage worden begrippen en afkortingen toegelicht die in het globaal ontwerp van het programma Gemeenschappelijke Bronontsluiting (GBO) worden gebruikt. De uitleg beschrijft wat het begrip binnen de context van het voorgestelde bronontsluitingsmodel betekent. Het betreft daarmee niet altijd een volledige juridische of technische definitie.</p>
+<p>In deze bijlage worden begrippen en afkortingen toegelicht die in de architectuurdocumentatie van het programma Gemeenschappelijke Bronontsluiting (GBO) worden gebruikt, waaronder het globaal ontwerp en de projectstartarchitectuur. De uitleg beschrijft wat het begrip binnen de context van het programma en het voorgestelde bronontsluitingsmodel betekent. Het betreft daarmee niet altijd een volledige juridische of technische definitie.</p>
 <table>
 <thead>
 <tr>
@@ -2040,6 +2040,14 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <tr>
 <td id="begrip-api"><strong>API</strong></td>
 <td>Application Programming Interface. Een gestandaardiseerd koppelvlak waarmee systemen geautomatiseerd gegevens of functionaliteit kunnen opvragen.</td>
+</tr>
+<tr>
+<td id="begrip-architectuurbesluit"><strong>Architectuurbesluit</strong></td>
+<td>Vastgelegde keuze over de architectuur, met de aanleiding, afwegingen, gevolgen en status van het besluit. Een architectuurbesluit kan worden vastgelegd in een Architecture Decision Record (ADR).</td>
+</tr>
+<tr>
+<td id="begrip-architectuurprincipe"><strong>Architectuurprincipe</strong></td>
+<td>Richtinggevende uitspraak die doelen, waarden en wettelijke of beleidsmatige kaders vertaalt naar consequenties voor de architectuur. De projectstartarchitectuur gebruikt architectuurprincipes als basis voor normerende ontwerpkeuzes.</td>
 </tr>
 <tr>
 <td id="begrip-arf"><strong>ARF</strong></td>
@@ -2250,6 +2258,10 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <td>Programma Gemeenschappelijke Bronontsluiting. Het programma onderzoekt en beproeft oplossingsrichtingen, doet voorstellen voor aanvullende afspraken en coördineert de ontwikkeling van referentiecomponenten en voorzieningen. GBO is niet de naam van een standaard, stelsel, voorziening, product of toekomstige beheerorganisatie.</td>
 </tr>
 <tr>
+<td id="begrip-gbo-basis"><strong>GBO-basis</strong></td>
+<td>Afgesproken naam van het overkoepelende werkpakket binnen het programma GBO waarin de herbruikbare basis voor de verschillende interactiepatronen wordt uitgewerkt. GBO-basis is een werkpakketnaam en niet de naam van het bronontsluitingsmodel, een voorziening of een toekomstig beheerproduct.</td>
+</tr>
+<tr>
 <td id="begrip-generieke-bronontsluiting"><strong>Generieke bronontsluiting</strong></td>
 <td>Technische en functionele aanduiding voor het generieke deel van de bronontsluiting bij een <a href="#bijlage_begrippenlijst-begrip-bronhouder">bronhouder</a>. Deze ondersteunt het hergebruik van dezelfde ontsluiting voor verschillende gegevensverzoeken en vormt de technische basis van de <a href="#bijlage_begrippenlijst-begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a>.</td>
 </tr>
@@ -2292,6 +2304,10 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <tr>
 <td id="begrip-kanaal"><strong>Kanaal</strong></td>
 <td>Route of toepassingscontext waarlangs gegevens uit de <a href="#bijlage_begrippenlijst-begrip-decentrale-bronontsluiting">decentrale bronontsluiting</a> voor een bepaalde categorie toepassingen of afnemers beschikbaar worden gesteld. Het programma GBO richt zich op de kanalen EUDI-Wallet, OOTS en private dienstverleners (DvTP). De decentrale bronontsluiting kan in de toekomst ook door andere kanalen worden hergebruikt.</td>
+</tr>
+<tr>
+<td id="begrip-kanaalwerkpakket"><strong>Kanaalwerkpakket</strong></td>
+<td><a href="#bijlage_begrippenlijst-begrip-werkpakket">Werkpakket</a> dat de afspraken, standaarden, referentiecomponenten en voorzieningen voor één specifiek <a href="#bijlage_begrippenlijst-begrip-kanaal">kanaal</a> uitwerkt. Binnen het programma GBO zijn EUDI-Wallet, OOTS en DvTP kanaalwerkpakketten.</td>
 </tr>
 <tr>
 <td id="begrip-kanaalvoorziening"><strong>Kanaalvoorziening</strong></td>
@@ -2340,6 +2356,14 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <tr>
 <td id="begrip-oin"><strong>OIN</strong></td>
 <td>Organisatie-identificatienummer waarmee Nederlandse overheidsorganisaties in digitaal verkeer kunnen worden geïdentificeerd.</td>
+</tr>
+<tr>
+<td id="begrip-ontwerpprincipe"><strong>Ontwerpprincipe</strong></td>
+<td>Normerende ontwerpregel die een <a href="#bijlage_begrippenlijst-begrip-architectuurprincipe">architectuurprincipe</a> concreet uitwerkt voor de inrichting en realisatie van het bronontsluitingsmodel.</td>
+</tr>
+<tr>
+<td id="begrip-open-besluit"><strong>Open besluit</strong></td>
+<td>Architectuur- of governancevraag waarover nog geen definitief besluit is genomen. Een open besluit vermeldt de vraag, de voorkeursrichting en de partijen die bij de besluitvorming betrokken zijn.</td>
 </tr>
 <tr>
 <td id="begrip-oots"><strong>OOTS</strong></td>
@@ -2414,6 +2438,10 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <td>Polymorf pseudoniem dat binnen <a href="#bijlage_begrippenlijst-begrip-bsnk-pp">BSNk PP</a> wordt gebruikt als tussenrepresentatie voor een pseudoniem.</td>
 </tr>
 <tr>
+<td id="begrip-projectstartarchitectuur"><strong>Projectstartarchitectuur (PSA)</strong></td>
+<td>Architectuurdocument dat het globaal ontwerp uitwerkt in architectuur- en ontwerpprincipes, normerende eisen, stelselfuncties, een realisatiestrategie en open besluiten. De PSA legt kaders voor verdere uitwerking vast zonder de volledige technische implementatie voor te schrijven.</td>
+</tr>
+<tr>
 <td id="begrip-prov-o"><strong>PROV-O</strong></td>
 <td>W3C-ontologie voor het beschrijven van de herkomst van gegevens, waaronder gegevensbronnen, bewerkingen en betrokken actoren.</td>
 </tr>
@@ -2428,10 +2456,6 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <tr>
 <td id="begrip-pubeaa"><strong>PubEAA</strong></td>
 <td>Public Electronic Attestation of Attributes. Elektronische <a href="#bijlage_begrippenlijst-begrip-attestatie">attestatie</a> van attributen die onder verantwoordelijkheid van een publieke organisatie wordt uitgegeven.</td>
-</tr>
-<tr>
-<td id="begrip-pubeaa-provider"><strong>PubEAA-provider</strong></td>
-<td><a href="#bijlage_begrippenlijst-begrip-centrale-voorziening">Centrale voorziening</a> waarmee een <a href="#bijlage_begrippenlijst-begrip-bronhouder">bronhouder</a> PubEAA's kan uitgeven aan een <a href="#bijlage_begrippenlijst-begrip-eudi-wallet">EUDI-Wallet</a>. De bronhouder blijft verantwoordelijk voor de inhoud en uitgifte van de attestatie.</td>
 </tr>
 <tr>
 <td id="begrip-qeaa"><strong>QEAA</strong></td>
@@ -2566,6 +2590,14 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <td>Versleuteld pseudoniem dat binnen <a href="#bijlage_begrippenlijst-begrip-bsnk-pp">BSNk PP</a> voor een specifieke partij wordt gegenereerd uit een polymorf pseudoniem.</td>
 </tr>
 <tr>
+<td id="begrip-voorziening-pubeaa-uitgifte"><strong>Voorziening voor PubEAA-uitgifte</strong></td>
+<td>Optionele <a href="#bijlage_begrippenlijst-begrip-kanaalvoorziening">kanaalvoorziening</a> waarmee een <a href="#bijlage_begrippenlijst-begrip-bronhouder">bronhouder</a> via OpenID4VCI <a href="#bijlage_begrippenlijst-begrip-pubeaa">PubEAA's</a> kan uitgeven aan een <a href="#bijlage_begrippenlijst-begrip-eudi-wallet">EUDI-Wallet</a>. De bronhouder blijft juridisch en inhoudelijk verantwoordelijk voor de uitgifte. De voorziening is niet betrokken bij de latere presentatie vanuit de wallet aan een dienstverlener.</td>
+</tr>
+<tr>
+<td id="begrip-werkpakket"><strong>Werkpakket</strong></td>
+<td>Samenhangende groepering van activiteiten, resultaten en <a href="#bijlage_begrippenlijst-begrip-stelselfunctie">stelselfuncties</a> binnen de realisatie van het programma GBO. Een werkpakket is een organisatorische indeling van het programma en geen voorziening of beheerproduct.</td>
+</tr>
+<tr>
 <td id="begrip-xml"><strong>XML</strong></td>
 <td>Extensible Markup Language. Tekstgebaseerd formaat waarmee gestructureerde gegevens volgens een vooraf afgesproken schema kunnen worden vastgelegd en uitgewisseld.</td>
 </tr>
@@ -2605,7 +2637,7 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 </tr>
 <tr>
 <td>Functies en componenten</td>
-<td>Benamingen als GBO-basis, GBO-configuratie en GBO-vertaallaag zijn vervangen door decentrale bronontsluiting, bronconfiguratie en referentievertaallaag. De beschrijving van autorisatie, integratie en semantiek is aangescherpt.</td>
+<td>GBO-basis is als naam voor de oplossing vervangen door decentrale bronontsluiting; de naam blijft alleen behouden voor het gelijknamige PSA-werkpakket. GBO-configuratie en GBO-vertaallaag zijn vervangen door bronconfiguratie en referentievertaallaag. De beschrijving van autorisatie, integratie en semantiek is aangescherpt.</td>
 </tr>
 <tr>
 <td>Diagrammen en begrippenlijst</td>
@@ -2718,7 +2750,8 @@ Deze verplichting valt buiten de scope van FDS en volgt uit Europese wetgeving.<
 <h3 id="change_log-bijlage-begrippenlijst">Bijlage — Begrippenlijst<a class="headerlink" href="#change_log-bijlage-begrippenlijst" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Nieuwe begrippen toegevoegd voor <strong>bronconfiguratie</strong>, <strong>bronontsluitingsmodel</strong>, <strong>decentrale bronontsluiting</strong>, <strong>kanaalvoorziening</strong> en <strong>referentievertaallaag</strong>.</li>
-<li>De GBO-specifieke begrippen <strong>GBO-basis</strong>, <strong>GBO-configuratie</strong>, <strong>GBO-vertaallaag</strong> en <strong>gemeenschappelijke bronontsluiting</strong> zijn verwijderd of vervangen.</li>
+<li>Begrippen uit de projectstartarchitectuur toegevoegd voor <strong>architectuurbesluit</strong>, <strong>architectuurprincipe</strong>, <strong>GBO-basis</strong>, <strong>kanaalwerkpakket</strong>, <strong>ontwerpprincipe</strong>, <strong>open besluit</strong>, <strong>projectstartarchitectuur</strong> en <strong>werkpakket</strong>. Daarmee blijft de begrippenlijst de centrale bron voor beide architectuurdocumenten.</li>
+<li><strong>GBO-configuratie</strong>, <strong>GBO-vertaallaag</strong> en <strong>gemeenschappelijke bronontsluiting</strong> zijn als namen voor onderdelen van de oplossing verwijderd of vervangen. <strong>GBO-basis</strong> is niet langer een naam voor de oplossing, maar blijft behouden als afgesproken naam van een werkpakket in de projectstartarchitectuur.</li>
 <li>De definitie van <strong>GBO</strong> beschrijft nu uitsluitend het programma en benoemt expliciet wat GBO niet is.</li>
 <li>De definitie van <strong>OOTS-adapter</strong> beperkt de functie tot de optionele semantische vertaling; protocolvertaling is geen functie van deze adapter.</li>
 <li>Definities van onder meer FDS, GraphQL, referentiecomponenten, kanalen en toestemming zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling.</li>

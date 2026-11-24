@@ -15,7 +15,7 @@ De wijzigingen in v0.9.6 verduidelijken vooral de status van het ontwerp en de v
 | Verantwoordelijkheden | Technische handelingen zijn waar mogelijk toegeschreven aan de verantwoordelijke actor of voorziening, in plaats van aan “GBO” als geheel. |
 | EUDI-Wallet | De optionele voorziening voor PubEAA-uitgifte en de voorgestelde ASI-provider zijn preciezer afgebakend. De bronhouder blijft verantwoordelijk voor PubEAA-uitgifte en presentatie aan een dienstverlener valt buiten de uitgiftevoorziening. |
 | OOTS | Verduidelijkt dat de Basisinrichting OOTS de protocolvertaling verzorgt en dat de optionele OOTS-adapter bedoeld is voor semantische vertaling. Publicatie van bewijsdiensten verloopt via bNC SDG en valt buiten het bronontsluitingsmodel. |
-| Functies en componenten | Benamingen als GBO-basis, GBO-configuratie en GBO-vertaallaag zijn vervangen door decentrale bronontsluiting, bronconfiguratie en referentievertaallaag. De beschrijving van autorisatie, integratie en semantiek is aangescherpt. |
+| Functies en componenten | GBO-basis is als naam voor de oplossing vervangen door decentrale bronontsluiting; de naam blijft alleen behouden voor het gelijknamige PSA-werkpakket. GBO-configuratie en GBO-vertaallaag zijn vervangen door bronconfiguratie en referentievertaallaag. De beschrijving van autorisatie, integratie en semantiek is aangescherpt. |
 | Diagrammen en begrippenlijst | Diagrammen en begrippen zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling. Nieuwe begrippen zijn toegevoegd en vervallen GBO-specifieke begrippen zijn verwijderd. |
 
 ---
@@ -125,7 +125,8 @@ De wijzigingen in v0.9.6 verduidelijken vooral de status van het ontwerp en de v
 ### Bijlage — Begrippenlijst
 
 - Nieuwe begrippen toegevoegd voor **bronconfiguratie**, **bronontsluitingsmodel**, **decentrale bronontsluiting**, **kanaalvoorziening** en **referentievertaallaag**.
-- De GBO-specifieke begrippen **GBO-basis**, **GBO-configuratie**, **GBO-vertaallaag** en **gemeenschappelijke bronontsluiting** zijn verwijderd of vervangen.
+- Begrippen uit de projectstartarchitectuur toegevoegd voor **architectuurbesluit**, **architectuurprincipe**, **GBO-basis**, **kanaalwerkpakket**, **ontwerpprincipe**, **open besluit**, **projectstartarchitectuur** en **werkpakket**. Daarmee blijft de begrippenlijst de centrale bron voor beide architectuurdocumenten.
+- **GBO-configuratie**, **GBO-vertaallaag** en **gemeenschappelijke bronontsluiting** zijn als namen voor onderdelen van de oplossing verwijderd of vervangen. **GBO-basis** is niet langer een naam voor de oplossing, maar blijft behouden als afgesproken naam van een werkpakket in de projectstartarchitectuur.
 - De definitie van **GBO** beschrijft nu uitsluitend het programma en benoemt expliciet wat GBO niet is.
 - De definitie van **OOTS-adapter** beperkt de functie tot de optionele semantische vertaling; protocolvertaling is geen functie van deze adapter.
 - Definities van onder meer FDS, GraphQL, referentiecomponenten, kanalen en toestemming zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling.

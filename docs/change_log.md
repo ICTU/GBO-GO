@@ -1,5 +1,146 @@
 # Change Log
 
+## Change Log v0.9.6
+
+Van: versie [0.9.5](https://ictu.github.io/GBO-GO/0.9.5/) (september 2026) → Naar: 0.9.6 (oktober 2026)
+
+De wijzigingen in v0.9.6 verduidelijken vooral de status van het ontwerp en de verantwoordelijkheden van het programma GBO, bronhouders, kanaalvoorzieningen en bestaande afsprakenstelsels. De voorgestelde oplossingsrichting is niet wezenlijk gewijzigd, maar de terminologie en beschrijving zijn aangescherpt om te voorkomen dat GBO als standaard, stelsel, voorziening, product of toekomstige beheerorganisatie wordt gelezen.
+
+### Samenvatting in één oogopslag
+
+| Onderdeel | Aard van de wijziging |
+|---|---|
+| Status en terminologie | GBO verwijst nu uitsluitend naar het programma. De voorgestelde oplossing heet het **bronontsluitingsmodel** en bestaat uit een **decentrale bronontsluiting** en **kanaalvoorzieningen**. |
+| Afspraken en beheer | Duidelijker gemaakt dat het programma voorstellen doet. Aanvullende afspraken worden pas na besluitvorming onderdeel van bestaande standaarden en afsprakenstelsels; beheer moet bij bestaande stelsels en beheerorganisaties worden belegd. |
+| Verantwoordelijkheden | Technische handelingen zijn waar mogelijk toegeschreven aan de verantwoordelijke actor of voorziening, in plaats van aan “GBO” als geheel. |
+| EUDI-Wallet | De optionele voorziening voor PubEAA-uitgifte en de voorgestelde ASI-provider zijn preciezer afgebakend. De bronhouder blijft verantwoordelijk voor PubEAA-uitgifte en presentatie aan een dienstverlener valt buiten de uitgiftevoorziening. |
+| OOTS | Verduidelijkt dat de Basisinrichting OOTS de protocolvertaling verzorgt en dat de optionele OOTS-adapter bedoeld is voor semantische vertaling. Publicatie van bewijsdiensten verloopt via bNC SDG en valt buiten het bronontsluitingsmodel. |
+| Functies en componenten | GBO-basis is als naam voor de oplossing vervangen door decentrale bronontsluiting; de naam blijft alleen behouden voor het gelijknamige PSA-werkpakket. GBO-configuratie en GBO-vertaallaag zijn vervangen door bronconfiguratie en referentievertaallaag. De beschrijving van autorisatie, integratie en semantiek is aangescherpt. |
+| Diagrammen en begrippenlijst | Diagrammen en begrippen zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling. Nieuwe begrippen zijn toegevoegd en vervallen GBO-specifieke begrippen zijn verwijderd. |
+
+---
+
+### Algemeen en hoofdstuk 1 — Inleiding
+
+- Een afzonderlijke paragraaf **Terminologie en status** is toegevoegd.
+- Vastgelegd is dat **GBO** uitsluitend verwijst naar het programma Gemeenschappelijke Bronontsluiting. Het programma onderzoekt en beproeft oplossingsrichtingen, doet voorstellen voor aanvullende afspraken en coördineert de ontwikkeling van referentiecomponenten en voorzieningen.
+- De in dit globaal ontwerp voorgestelde oplossing heet nu het **bronontsluitingsmodel**. Dit model bestaat uit:
+    1. een decentrale, herbruikbare bronontsluiting die iedere bronhouder zelf inricht of laat inrichten;
+    2. kanaalvoorzieningen voor EUDI-Wallet, OOTS en private dienstverleners.
+- Expliciet gemaakt dat het bronontsluitingsmodel zelf geen standaard, voorziening, organisatie of afsprakenstelsel is.
+- Verduidelijkt dat voorgestelde aanvullende afspraken pas na besluitvorming onderdeel worden van de aangewezen standaarden en afsprakenstelsels.
+- Formuleringen waarin “GBO” zelf gegevens ontsluit, autoriseert, pseudonimiseert of voorzieningen gebruikt, zijn vervangen door formuleringen die de verantwoordelijke actor of voorziening noemen.
+- De documenthiërarchie en de verwijzing naar de uitwerking **Semantiek** zijn terminologisch aangescherpt.
+
+---
+
+### Hoofdstuk 2 — Voorgesteld bronontsluitingsmodel
+
+- **Gemeenschappelijke bronontsluiting** is als naam voor een onderdeel vervangen door **decentrale bronontsluiting**.
+- **Centrale voorzieningen** zijn in de oplossingsrichting hernoemd naar **kanaalvoorzieningen**. Daarmee wordt duidelijker dat deze voorzieningen een specifiek kanaal verbinden met de decentrale bronontsluiting.
+- Verduidelijkt is dat het programma GBO voorstellen doet voor aanvullingen op GDI- en FDS-afspraken. De eerdere formulering kon de indruk wekken dat deze aanvullingen al door GBO waren vastgesteld.
+- De keuzevrijheid voor bronhouders is preciezer geformuleerd: zij mogen de referentie-implementatie gebruiken of een eigen implementatie die aan dezelfde vastgestelde afspraken en standaarden voldoet.
+- De scope is aangescherpt: het model ondersteunt de drie kanalen binnen de huidige programmascope; andere kanalen en gegevensstromen vallen daar nu buiten, maar hergebruik blijft mogelijk.
+
+#### Figuur 1 — Het voorgestelde bronontsluitingsmodel
+
+- Het bijschrift **Oplossingsrichting GBO** is vervangen door **Het voorgestelde bronontsluitingsmodel**.
+- **GBO Basis** is in het diagram vervangen door **Decentrale bronontsluiting**.
+- **GBO tools** zijn vervangen door de **optionele referentievertaallaag** of **optionele referentiecomponenten**.
+- De legenda spreekt nu over componenten voor de decentrale bronontsluiting en voorgestelde kanaalvoorzieningen, in plaats van over voorzieningen die “GBO aanbiedt”.
+- Voorbeelden van specifieke overheidsbronnen zijn uit de generieke diagrammen verwijderd.
+
+---
+
+### Hoofdstuk 3 — Interactiepatronen
+
+#### Patroon A — EUDI-Wallet
+
+- De voorziening voor PubEAA-uitgifte is explicieter als **optionele centrale voorziening** beschreven.
+- Verduidelijkt is dat de bronhouder juridisch verantwoordelijk blijft voor de uitgifte. Het programma GBO en de voorziening voor PubEAA-uitgifte zijn zelf geen PubEAA-verstrekker.
+- De uitgifte via OpenID4VCI is duidelijker onderscheiden van de latere presentatie via OpenID4VP. De voorziening voor PubEAA-uitgifte is niet betrokken bij die presentatie.
+- De ASI-provider wordt nu als een **voorgestelde optionele voorziening** beschreven. De verify- en retrievediensten blijven inhoudelijk ongewijzigd.
+- Formuleringen over autorisatie, beheer en varianten verwijzen nu naar de ASI-provider, bronhouder of het bronontsluitingsmodel in plaats van generiek naar GBO.
+
+#### Patroon B — OOTS
+
+- Verduidelijkt is dat **OOTS-V** het relevante onderdeel van de Basisinrichting OOTS voor bronhouders is. De onjuiste suggestie dat OOTS-V Nederlandse dienstverleners ondersteunt, is verwijderd.
+- De rolverdeling tussen de Basisinrichting OOTS en de OOTS-adapter is aangescherpt:
+    - de Basisinrichting OOTS vertaalt het Europese berichtenverkeer naar de bronontsluiting-API;
+    - de optionele OOTS-adapter voert, als de bronhouder dit configureert, de semantische vertaling naar SDG-EDM uit.
+- De OOTS-adapter wordt niet langer beschreven als voorziening voor protocolvertaling.
+- Toegevoegd is dat bronhouders hun beschikbare bewijzen in het OOTS-netwerk bekendmaken via de dienstverlening van **bNC SDG**. Het bronontsluitingsmodel bevat hiervoor geen voorziening; dit valt buiten de programmascope.
+- Het sequentiediagram gebruikt nu consequent **OOTS-adapter (optionele kanaalvoorziening)** en **decentrale bronontsluiting**.
+
+#### Patroon C — Private dienstverleners (DvTP)
+
+- Handelingen rond toestemming zijn toegeschreven aan het centrale toestemmingsregister en de centrale toestemmingsvoorziening, in plaats van aan GBO als programma.
+- De eis van wettelijke verankering is niet langer in de beschrijving van de technische voorziening zelf opgenomen. De juridische voorwaarde voor toestemming als grondslag blijft elders in het document benoemd.
+- Het sequentiediagram verwijst nu naar de **centrale toestemmingsvoorziening** in plaats van de **toestemmingsvoorziening GBO**.
+
+---
+
+### Hoofdstuk 4 — Generieke functies en stelselfuncties
+
+- De generieke functies worden nu beschreven als functies **in het bronontsluitingsmodel**, niet als functies “van GBO”.
+- Bij **F1 Identificatie & Authenticatie** is verduidelijkt welke voorzieningen burgers en organisaties identificeren en dat de pseudonimiseervoorziening het BSN pseudonimiseert.
+- Bij **F2 Toegang & Interactie** is toegelicht dat één PBAC-implementatie verschillende soorten gegevensverzoeken en toegangsvoorwaarden kan verwerken. De referentie-implementatie is gekoppeld aan **OpenFTV**.
+- Bij **F3 Gegevensvoorziening** is de **GBO-vertaallaag** hernoemd naar **referentievertaallaag**. Toegevoegd is dat deze bijvoorbeeld REST of SOAP naar GraphQL kan vertalen.
+- De rolverdeling voor OOTS is ook hier aangescherpt: de optionele OOTS-adapter verzorgt de semantische omvorming; de Basisinrichting OOTS verzorgt de Europese verpakking en verbindingen.
+- Bij **F4 Semantiek & Configuratie** is verduidelijkt dat het programma beschrijvingen laat opstellen, maar dat het beheer daarvan bij bestaande stelsels en beheerorganisaties moet landen. De bronspecifieke configuratie heet nu **bronconfiguratie**.
+- Bij **F6 Grondslag & Beleid** is de algemene controle van grondslag en overige voorwaarden vóór de specifieke controle van toestemming geplaatst.
+- Bij **F7 Orkestratie & Integratie** is expliciet gemaakt dat integratie aan de rand van de decentrale bronontsluiting plaatsvindt. Stelselfunctie **S07 Gegevensontsluiting** is aan het overzicht voor deze functie toegevoegd.
+- Bij **F8 Beheer & Continuïteit** is de status van S09 aangepast: de standaarden voor logging en autorisatiebeslissingen zijn beschikbaar; afspraken voor ketenbrede toepassing blijven nodig.
+
+---
+
+### Hoofdstuk 5 — Te ontwikkelen componenten
+
+- Het hoofdstuk spreekt nu over het **overzicht van het bronontsluitingsmodel** in plaats van over de “oplossing van GBO”.
+- De drie soorten programmaresultaten zijn preciezer beschreven:
+    1. **Voorstellen voor afspraken en standaarden** — deze gelden pas na vaststelling en borging in bestaande afsprakenstelsels.
+    2. **Referentiecomponenten** — optioneel; een functioneel gelijkwaardig alternatief blijft mogelijk.
+    3. **Kanaalvoorzieningen** — afhankelijk van de gegevensstroom verplicht of optioneel.
+- **GBO-vertaallaag** en **GBO-configuratie** zijn in het componentenoverzicht vervangen door **referentievertaallaag** en **bronconfiguratie**.
+- Voor PubEAA-uitgifte en de ASI-provider is verduidelijkt dat bronhouders ook zonder de voorgestelde voorziening aan hun verantwoordelijkheden kunnen voldoen.
+- Bij de nog af te spreken of te realiseren onderdelen worden de betrokken partijen nu expliciet genoemd: programma GBO, afsprakenstelsels, bronhouders en afnemers.
+- De beschrijving van de voorziening voor PubEAA-uitgifte beperkt zich tot uitgifte via OpenID4VCI; presentatie via OpenID4VP vindt daarna plaats tussen wallet en dienstverlener.
+- De beschrijvingen van FSC, GraphQL, ODRL, BSNk PP en AS4/e-Delivery zijn aangepast zodat de verantwoordelijke actoren en voorzieningen expliciet zijn.
+
+#### Figuur 5 — Het bronontsluitingsmodel met de voorgestelde componenten
+
+- De figuurtitel en legenda gebruiken de termen **bronontsluitingsmodel**, **decentrale bronontsluiting** en **kanaalvoorzieningen**.
+- **GBO Basis**, **GBO tools** en specifieke voorbeeldbronnen zijn vervangen door generieke, rolvaste benamingen.
+- De toelichting maakt nu duidelijk dat de bronhouder met het decentrale configuratiecomponent de bronspecifieke configuratie van de kanaalvoorzieningen beheert.
+
+---
+
+### Hoofdstuk 6 — Impact op betrokken partijen
+
+- De impactbeschrijving is terminologisch aangepast aan het bronontsluitingsmodel.
+- Verduidelijkt is dat het programma GBO referentiecomponenten en een referentievertaallaag **laat ontwikkelen**. Bronhouders blijven verantwoordelijk voor de inrichting en mogen functioneel gelijkwaardige alternatieven gebruiken.
+
+---
+
+### Bijlage — Begrippenlijst
+
+- Nieuwe begrippen toegevoegd voor **bronconfiguratie**, **bronontsluitingsmodel**, **decentrale bronontsluiting**, **kanaalvoorziening** en **referentievertaallaag**.
+- Begrippen uit de projectstartarchitectuur toegevoegd voor **architectuurbesluit**, **architectuurprincipe**, **GBO-basis**, **kanaalwerkpakket**, **ontwerpprincipe**, **open besluit**, **projectstartarchitectuur** en **werkpakket**. Daarmee blijft de begrippenlijst de centrale bron voor beide architectuurdocumenten.
+- **GBO-configuratie**, **GBO-vertaallaag** en **gemeenschappelijke bronontsluiting** zijn als namen voor onderdelen van de oplossing verwijderd of vervangen. **GBO-basis** is niet langer een naam voor de oplossing, maar blijft behouden als afgesproken naam van een werkpakket in de projectstartarchitectuur.
+- De definitie van **GBO** beschrijft nu uitsluitend het programma en benoemt expliciet wat GBO niet is.
+- De definitie van **OOTS-adapter** beperkt de functie tot de optionele semantische vertaling; protocolvertaling is geen functie van deze adapter.
+- Definities van onder meer FDS, GraphQL, referentiecomponenten, kanalen en toestemming zijn aangepast aan de nieuwe terminologie en verantwoordelijkheidsverdeling.
+
+---
+
+### Documentpresentatie en navigatie
+
+- De printversie bevat nu een inhoudsopgave zonder dubbele hoofdstuknummering.
+- De koptekst van de printversie is gecorrigeerd naar **GBO - Globaal Ontwerp**.
+- De navigatie verwijst nu rechtstreeks naar het afzonderlijke **Technisch Ontwerp**.
+
+---
+
 ## Change Log v0.9.5
 
 Van: versie [0.9.4](https://ictu.github.io/GBO-GO/0.9.4/) (augustus 2026) → Naar: 0.9.5 (september 2026)

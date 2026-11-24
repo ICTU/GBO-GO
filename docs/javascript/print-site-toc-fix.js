@@ -50,7 +50,6 @@
              getAnchorId(heading);
     });
 
-    const counters = [0, 0, 0, 0];
     const list = document.createElement("ul");
 
     list.className = "print-generated-toc";
@@ -64,25 +63,12 @@
         return;
       }
 
-      counters[level] += 1;
-
-      for (let i = level + 1; i < counters.length; i += 1) {
-        counters[i] = 0;
-      }
-
-      const number = counters
-        .slice(1, level + 1)
-        .filter(function (value) {
-          return value > 0;
-        })
-        .join(".");
-
       const item = document.createElement("li");
       item.className = "print-generated-toc__item print-generated-toc__item--level-" + level;
 
       const link = document.createElement("a");
       link.href = "#" + anchorId;
-      link.textContent = number + " " + title;
+      link.textContent = title;
 
       item.appendChild(link);
       list.appendChild(item);

@@ -1,15 +1,18 @@
-# Globaal Ontwerp GBO
+# Globaal Ontwerp Gemeenschappelijke Bronontsluiting
 
 ## Gemeenschappelijke Bronontsluiting (GBO)
 
-Deze repository bevat het **Globaal Ontwerp (GO)** voor het project **GBO**.
+Deze repository bevat het **Globaal Ontwerp (GO)** van het programma **Gemeenschappelijke Bronontsluiting (GBO)**.
 
-GBO heeft als doel een **generieke infrastructuur en afsprakenstelsel** te realiseren waarmee gegevens van overheidsorganisaties beschikbaar kunnen worden gemaakt voor:  
+Het programma GBO werkt een **bronontsluitingsmodel** uit waarmee gegevens van overheidsorganisaties volgens bestaande afspraken en standaarden herbruikbaar beschikbaar kunnen worden gemaakt voor:
+
 * burgers  
 * private dienstverleners  
 * Europese toepassingen zoals EDI Wallet en Single Digital Gateway (OOTS)  
 
-Dit Globaal Ontwerp is het eerste product ter validatie van de voorgestelde oplossingsrichting en beschrijft naast de voorgestelde oplossingsrichting de interactiepatronen waar GBO zich op richt, de daarvoor benodigde functies en de bouwstenen die hieraan  invulling moeten geven.  
+Het bronontsluitingsmodel bestaat uit een decentrale bronontsluiting bij bronhouders en kanaalvoorzieningen voor deze toepassingen. Het model is zelf geen standaard, voorziening, organisatie of afsprakenstelsel. Aanvullende afspraken moeten na besluitvorming worden geborgd in bestaande afsprakenstelsels, zoals GDI en FDS.
+
+Dit Globaal Ontwerp dient ter validatie van het voorgestelde bronontsluitingsmodel en beschrijft de interactiepatronen binnen de programmascope, de daarvoor benodigde functies en de bouwstenen die hieraan invulling moeten geven.
 
 ---
 
@@ -52,7 +55,7 @@ Bijdragen aan deze architectuur kunnen worden gedaan via:
 
 # Contact
 
-Eigenaar: ICTU - project GBO
+Eigenaar: ICTU - programma GBO  
 Contactpersoon: [Govert Claus](mailto:govert.claus@ictu.nl)
 
 

@@ -12,12 +12,12 @@
 flowchart LR
   subgraph bronhouder["Bronhouder"]
     direction LR
-        bron[("Overheidsbronnen<br/>BRP · BD · UWV · KvK · …")]
-    subgraph gbo["GBO Basis"]
+        bron[("Overheidsbronnen")]
+    subgraph gbo["Decentrale bronontsluiting"]
       direction TB
           fsc_config("configuratie<br/>(services/mappings/etc.)")
           fsc("FSC / GraphQL / PBAC<br/>(generieke bronontsluiting)")
-          fsc_tools("GBO tools<br/>(vertaallaag)")
+          fsc_tools("Referentievertaallaag<br/>(optioneel)")
     end
   end
   subgraph eudi["EUDI-Wallet kanaal"]
@@ -93,3 +93,5 @@ flowchart LR
   classDef gbo_c fill:#FEDCD8,stroke:#E28F80,color:#1E293B
   classDef gbo_d fill:#DCFCE7,stroke:#16A34A,color:#0F172A
   classDef gbo_k fill:#FFEDD5,stroke:#EA580C,color:#0F172A
+  %% Eventueel een gestippelde box voor de OOTS-adpater - die gegevensstroom werkt ook zonder de adapter
+  classDef gbo_k_o fill:#FFEDD5,stroke:#EA580C,color:#0F172A,stroke-dasharray:10 10

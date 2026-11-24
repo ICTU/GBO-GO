@@ -23,7 +23,7 @@ sequenceDiagram
 
     rect rgb(225, 245, 238)
         Burger->>DV: Neemt dienst af
-        DV->>Burger: Redirect naar toestemmingsvoorziening GBO<br/>(met scope + doelbinding)
+        DV->>Burger: Redirect naar centrale toestemmingsvoorziening<br/>(met scope + doelbinding)
         Burger->>TV: Volgt redirect
         TV->>Auth: Authenticatieverzoek
         Note over Auth: DigiD of ander identificatiemiddel
